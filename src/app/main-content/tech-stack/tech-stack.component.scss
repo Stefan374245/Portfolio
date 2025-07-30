@@ -1,0 +1,206 @@
+@import "../../../../mixin.scss";
+@import "../../../variables";
+@import "./../../../styles.scss";
+
+#techStack {
+  background-color: $background-color;
+  padding: 80px 0;
+  color: white;
+  overflow: hidden;
+  position: relative;
+
+  .tech-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+
+    .tech-content {
+      @include displayFlex(row, space-between, flex-start, 100px);
+      width: 100%;
+
+      .skills-grid {
+        flex: 1;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 60px 40px;
+        max-width: 600px;
+
+        .skill-item {
+          @include displayFlex(column, center, center, 15px);
+          @include transition(transform, 0.3s, ease);
+          cursor: pointer;
+
+          &:hover {
+            transform: translateY(-5px);
+          }
+
+          .skill-icon {
+            width: 80px;
+            height: 80px;
+            @include displayFlex(row, center, center);
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 15px;
+            @include transition(all, 0.3s, ease);
+
+            img {
+              width: 50px;
+              height: 50px;
+              @include imgResponsive(50px, 50px, contain);
+            }
+          }
+
+          .skill-name {
+            font-size: 16px;
+            font-weight: 400;
+            color: white;
+            text-align: center;
+          }
+
+          &:hover .skill-icon {
+            background-color: rgba(112, 230, 28, 0.1);
+            border: 1px solid $primary-color;
+          }
+        }
+      }
+
+      .text-content {
+        flex: 1;
+        max-width: 500px;
+        @include displayFlex(column, flex-start, flex-start, 40px);
+
+        h2 {
+          font-size: 80px;
+          font-weight: 700;
+          margin: 0;
+          line-height: 1.1;
+          color: white;
+        }
+
+        .skills-description {
+          font-size: 18px;
+          line-height: 1.6;
+          color: rgba(255, 255, 255, 0.9);
+          margin: 0;
+        }
+
+        .learning-section {
+          @include displayFlex(column, flex-start, flex-start, 20px);
+
+          h3 {
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0;
+            color: white;
+
+            .highlight {
+              color: $button-color;
+            }
+          }
+
+          .learning-text {
+            font-size: 16px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+          }
+
+          .contact-btn {
+            @include buttonBase($primary-color, $background-color, 1px solid $primary-color, 10px, 15px 30px);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            @include transition(all, 0.3s, ease);
+
+            &:hover {
+              background-color: transparent;
+              color: $primary-color;
+              border-color: $primary-color;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .tech-container {
+      padding: 0 30px;
+
+      .tech-content {
+        gap: 80px;
+
+        .text-content h2 {
+          font-size: 60px;
+        }
+
+        .skills-grid {
+          gap: 50px 30px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 968px) {
+    .tech-container .tech-content {
+      flex-direction: column-reverse;
+      @include displayFlex(column, center, center, 60px);
+
+      .text-content {
+        max-width: 100%;
+        text-align: center;
+
+        h2 {
+          font-size: 50px;
+        }
+
+        .learning-section {
+          align-items: center;
+          text-align: center;
+        }
+      }
+
+      .skills-grid {
+        max-width: 100%;
+        justify-items: center;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 60px 0;
+
+    .tech-container {
+      padding: 0 20px;
+
+      .tech-content {
+        .text-content h2 {
+          font-size: 40px;
+        }
+
+        .skills-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 40px 30px;
+
+          .skill-item .skill-icon {
+            width: 70px;
+            height: 70px;
+
+            img {
+              width: 40px;
+              height: 40px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .tech-container .tech-content .skills-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px 20px;
+    }
+  }
+}

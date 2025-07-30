@@ -3,11 +3,11 @@
 
 .hero-section {
   @include displayFlex(column, center, center, 0);
-  min-height: 100vh;
+  height: calc(100vh - 109px);
   background: $background-color;
   position: relative;
   overflow: hidden;
-
+  margin: 0 100px;
   // Hintergrund mit herobackground.png
 }
 
@@ -15,7 +15,6 @@
   @include displayFlex(row, center, center, 0);
   min-height: 100vh;
   padding: 40px;
-  position: relative;
   z-index: 2;
   max-width: 1200px;
   margin: 0 auto;
@@ -29,11 +28,11 @@
   // Hintergrund-Blur mit photoshadow.png
   &::before {
     content: "";
+
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 480px;
+    top: -280px;
+    right: -300px;
+    width: 550px;
     height: 500px;
     background: url("../../../assets/images/background/photo-shadows.png")
       center/contain no-repeat;
@@ -133,8 +132,6 @@
   }
 
   a {
-
-
     img {
       @include imgResponsive(24px, 24px, contain);
       filter: brightness(0.8);
