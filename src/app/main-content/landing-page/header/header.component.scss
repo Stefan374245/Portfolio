@@ -1,0 +1,115 @@
+@import "../../../../_variables";
+@import "../../../../../mixin.scss";
+
+header {
+  @include displayFlex(row, space-between, center, 0);
+  padding: 20px 100px;
+  background-color: $background-color;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  .logo {
+    span {
+      font-size: 32px;
+      font-weight: bold;
+      @include color($text-color);
+
+      &::after {
+        content: "n";
+        @include color($primary-color);
+      }
+    }
+  }
+
+  .nav-container {
+    @include displayFlex(row, center, center, 40px);
+
+    .navigation {
+      @include displayFlex(row, center, center, 30px);
+
+      .nav-link {
+        position: relative;
+        @include color($text-color);
+        text-decoration: none;
+        font-size: $font-size;
+        font-weight: $font-weight; 
+        padding: 10px 0;
+        @include transition(color, $transition-speed, $transition-ease);
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          width: 0;
+          height: 2px;
+          background-color: $button-color;
+          @include transition(width, 0.3s, $transition-ease);
+        }
+
+        &.hovered::after {
+          width: 100%;
+          right: auto;
+          left: 0;
+        }
+
+        &:hover {
+          @include color($text-color-hovered);
+        }
+      }
+    }
+
+    .language-switcher {
+      @include displayFlex(row, center, center, 10px);
+
+      .lang-btn {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        @include transition(all, $transition-speed, $transition-ease);
+        padding: 0;
+        border-radius: $border-radius-md;
+
+        .lang-flag {
+          @include imgResponsive(45px, 30px, contain);
+          @include transition(all, 0.2s, $transition-ease);
+        }
+
+        &.hovered:not(.active) {
+          background-color: $button-color;
+          border-radius: $border-radius-md;
+
+          .lang-flag {
+            filter: brightness(1.2);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: $breakpoint-md) {
+  header {
+    padding: 15px 20px;
+
+    .nav-container {
+      gap: 20px;
+
+      .navigation {
+        gap: 15px;
+
+        .nav-link {
+          font-size: 16px;
+        }
+      }
+
+      .language-switcher {
+        .lang-btn .lang-flag {
+          @include imgResponsive(40px, 25px, contain);
+        }
+      }
+    }
+  }
+}

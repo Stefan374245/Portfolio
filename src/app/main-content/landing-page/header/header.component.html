@@ -1,0 +1,62 @@
+<header>
+  <div class="logo">
+    <span>Stefa</span>
+  </div>
+  
+  <div class="nav-container">
+    <nav class="navigation">
+      <a 
+        href="#about" 
+        class="nav-link"
+        [ngClass]="{'hovered': hoveredLink === 'about'}"
+        (mouseenter)="hoveredLink = 'about'"
+        (mouseleave)="hoveredLink = null">
+        About me
+      </a>
+      <a 
+        href="#skills" 
+        class="nav-link"
+        [ngClass]="{'hovered': hoveredLink === 'skills'}"
+        (mouseenter)="hoveredLink = 'skills'"
+        (mouseleave)="hoveredLink = null">
+        Skills
+      </a>
+      <a 
+        href="#portfolio" 
+        class="nav-link"
+        [ngClass]="{'hovered': hoveredLink === 'portfolio'}"
+        (mouseenter)="hoveredLink = 'portfolio'"
+        (mouseleave)="hoveredLink = null">
+        Portfolio
+      </a>
+    </nav>
+    
+    <div class="language-switcher">
+      <button 
+        class="lang-btn"
+        [ngClass]="{'active': currentLang === 'DE', 'hovered': hoveredLink === 'de' && currentLang !== 'DE'}"
+        (mouseenter)="hoveredLink = 'de'"
+        (mouseleave)="hoveredLink = null"
+        (click)="switchLanguage('DE')">
+        @if (currentLang === 'DE') {
+          <img src="assets/icons/hero-icons/ger-icon-active.png" alt="DE Active" class="lang-flag">
+        } @else {
+          <img src="assets/icons/hero-icons/ger-icon.png" alt="DE Inactive" class="lang-flag">
+        }
+      </button>
+      
+      <button 
+        class="lang-btn"
+        [ngClass]="{'active': currentLang === 'EN', 'hovered': hoveredLink === 'en' && currentLang !== 'EN'}"
+        (mouseenter)="hoveredLink = 'en'"
+        (mouseleave)="hoveredLink = null"
+        (click)="switchLanguage('EN')">
+        @if (currentLang === 'EN') {
+          <img src="assets/icons/hero-icons/eng-icon-active.png" alt="EN Active" class="lang-flag">
+        } @else {
+          <img src="assets/icons/hero-icons/eng-icon.png" alt="EN Inactive" class="lang-flag">
+        }
+      </button>
+    </div>
+  </div>
+</header>

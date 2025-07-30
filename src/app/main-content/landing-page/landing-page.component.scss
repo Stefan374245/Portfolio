@@ -1,0 +1,258 @@
+@import "../../../_variables";
+@import "../../../../mixin.scss";
+
+.hero-section {
+  @include displayFlex(column, center, center, 0);
+  min-height: 100vh;
+  background: $background-color;
+  position: relative;
+  overflow: hidden;
+
+  // Hintergrund mit herobackground.png
+}
+
+.hero-content {
+  @include displayFlex(row, center, center, 0);
+  min-height: 100vh;
+  padding: 40px;
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-left {
+  flex: 1;
+  @include displayFlex(row, center, center, 0);
+  position: relative;
+
+  // Hintergrund-Blur mit photoshadow.png
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 480px;
+    height: 500px;
+    background: url("../../../assets/images/background/photo-shadows.png")
+      center/contain no-repeat;
+    z-index: -1;
+  }
+
+  .portrait-image {
+    @include imgResponsive(300px, 400px, cover);
+    border-radius: $border-radius-md;
+    border: 3px solid $primary-color;
+    @include boxShadow(0 20px 40px rgba(0, 0, 0, 0.3));
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.hero-right {
+  flex: 1;
+  @include displayFlex(row, flex-start, center, 0);
+  padding-left: 60px;
+  width: 718px;
+  height: 172px;
+
+  .hero-text {
+    @include displayFlex(row, flex-start, flex-start, 40px);
+    width: 718px;
+
+    .greeting {
+      @include color($text-color);
+      font-size: $greeting-font-size;
+      font-weight: $greeting-font-weight;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      transform: rotate(180deg);
+      height: 130px;
+    }
+
+    .name-title-wrapper {
+      @include displayFlex(column, flex-start, center, 10px);
+
+      .name {
+        @include headline($text-color, 64px, $font-weight-hero-name, 2px);
+        text-align: left;
+        margin: 0;
+        line-height: $line-height;
+      }
+
+      .title {
+        @include color($button-color);
+        font-size: 46px;
+        font-weight: $tilte-font-weight;
+        margin: 0 0 30px 0;
+        overflow: hidden;
+        white-space: nowrap;
+        border-right: 3px solid $button-color;
+        animation: typewriter 2.5s steps(18) 1s forwards,
+          blink-cursor 0.8s infinite;
+        width: 0;
+      }
+
+      .cta-button {
+        width: 165px;
+        @include buttonBase(
+          $primary-color,
+          $background-color,
+          none,
+          $border-radius-md,
+          15px 30px
+        );
+        font-size: 23px;
+        font-weight: 400;
+        cursor: pointer;
+        @include transition(all, $transition-speed, $transition-ease);
+
+        &:hover {
+          background-color: $button-color;
+          transform: scale(1.1);
+          @include boxShadow();
+        }
+      }
+    }
+  }
+}
+
+.social-links {
+  position: absolute;
+  bottom: 80px;
+  left: -40px;
+  @include displayFlex(row, flex-start, center, 32px);
+  z-index: 4;
+
+  .separator {
+    width: 100px;
+    height: 2px;
+    background-color: $button-color;
+    margin-right: 10px;
+  }
+
+  a {
+
+
+    img {
+      @include imgResponsive(24px, 24px, contain);
+      filter: brightness(0.8);
+      @include transition(filter, 0.2, ease-in-out);
+      @include transition(transform, 0.2s, ease-in-out);
+    }
+
+    &:hover img {
+      filter: brightness(1);
+      transform: translateX(2px) scale(1.1);
+    }
+  }
+
+  .email-text {
+    @include color($text-color);
+    font-size: $font-size;
+    margin-left: 15px;
+  }
+}
+
+.scroll-indicator {
+  display: flex;
+  position: absolute;
+  bottom: 80px;
+  right: 40px;
+  @include displayFlex(column, center, center, 10px);
+  z-index: 4;
+}
+
+// Responsive Design
+@media (max-width: $breakpoint-md) {
+  .hero-content {
+    @include displayFlex(column, center, center, 30px);
+    text-align: center;
+    padding: 20px;
+  }
+
+  .hero-left {
+    margin-bottom: 30px;
+
+    &::before {
+      width: 320px;
+      height: 400px;
+    }
+
+    .portrait-image {
+      @include imgResponsive(250px, 320px, cover);
+    }
+  }
+
+  // Responsive Design
+  @media (max-width: $breakpoint-md) {
+    .hero-right {
+      padding-left: 0;
+      @include displayFlex(column, center, center, 0);
+
+      .hero-text {
+        @include displayFlex(column, center, center, 20px);
+        text-align: center;
+
+        .greeting {
+          writing-mode: horizontal-tb;
+          text-orientation: unset;
+          transform: none;
+          margin-right: 0;
+          margin-bottom: 20px;
+          font-size: calc(#{$greeting-font-size} * 0.7);
+        }
+
+        .name-title-wrapper {
+          @include displayFlex(column, center, center, 10px);
+
+          .name {
+            font-size: calc(#{$font-size-hero-name} * 0.6);
+            text-align: center;
+          }
+
+          .title {
+            font-size: calc(#{$tilte-font-size} * 0.7);
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+
+  .social-links {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    @include displayFlex(row, center, center, 20px);
+    margin-top: 30px;
+  }
+
+  .scroll-indicator {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin-top: 20px;
+  }
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-cursor {
+  0%,
+  50% {
+    border-right-color: $button-color;
+  }
+  51%,
+  100% {
+    border-right-color: transparent;
+  }
+}
