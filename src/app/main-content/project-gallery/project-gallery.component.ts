@@ -1,12 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ProjectsComponent } from './projects/projects.component';
+import { ProjectService } from '../../shared/services/project.service';
+import { Project } from '../../shared/interfaces/project.interface';
+import { SlideAnimationComponent } from '../../shared/slide-animation/slide-animation.component';
+
 
 @Component({
   selector: 'app-project-gallery',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, ProjectsComponent, SlideAnimationComponent],
   templateUrl: './project-gallery.component.html',
   styleUrl: './project-gallery.component.scss'
 })
-export class ProjectGalleryComponent {
+export class ProjectGalleryComponent implements OnInit {
+  projects: Project[] = [];
 
+  constructor(private projectService: ProjectService) {}
+
+  ngOnInit(): void {
+    this.projectService.getProjects().subscribe(projects => {
+      this.projects = projects;
+    });
+  }
+   getSlideDirection(index: number): 'left' | 'right' {
+    return index % 2 === 0 ? 'right' : 'left';
+  }
 }

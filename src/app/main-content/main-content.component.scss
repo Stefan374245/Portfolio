@@ -1,0 +1,112 @@
+.background-wrapper {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.slide-in {
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-duration: 0.8s;
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slide-left {
+  transform: translateX(-100px);
+  animation-name: slideInLeft;
+}
+
+.slide-right {
+  transform: translateX(100px);
+  animation-name: slideInRight;
+}
+
+// Staggered animation delays
+app-landing-page.slide-in {
+  animation-delay: 0.2s;
+}
+
+app-about-me.slide-in {
+  animation-delay: 0.4s;
+}
+
+app-tech-stack.slide-in {
+  animation-delay: 0.6s;
+}
+
+app-project-gallery.slide-in {
+  animation-delay: 0.8s;
+}
+
+app-recommendations.slide-in {
+  animation-delay: 1.0s;
+}
+
+app-contact-form.slide-in {
+  animation-delay: 1.2s;
+}
+
+// Keyframe animations
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Alternative: Scroll-triggered animations (CSS only)
+// This creates a continuous effect as you scroll
+.slide-in {
+  opacity: 0;
+  transform: translateY(50px);
+  animation: none;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slide-left {
+  transform: translateX(-100px) translateY(50px);
+}
+
+.slide-right {
+  transform: translateX(100px) translateY(50px);
+}
+
+// Viewport-based animation trigger
+@media (prefers-reduced-motion: no-preference) {
+  .slide-in {
+    animation-play-state: running;
+  }
+  
+  .slide-left {
+    animation: slideInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+  
+  .slide-right {
+    animation: slideInRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+}
+
+// Respect user's motion preferences
+@media (prefers-reduced-motion: reduce) {
+  .slide-in {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
+  }
+}

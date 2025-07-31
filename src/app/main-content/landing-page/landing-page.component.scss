@@ -5,60 +5,27 @@
   @include displayFlex(column, center, center, 0);
   height: calc(100vh - 109px);
   background: $background-color;
+  margin: 0 auto;
   position: relative;
   overflow: hidden;
-  margin: 0 100px;
-  // Hintergrund mit herobackground.png
+  width: 100%;
 }
-
 .hero-content {
   @include displayFlex(row, center, center, 0);
   min-height: 100vh;
-  padding: 40px;
-  z-index: 2;
   max-width: 1200px;
-  margin: 0 auto;
+  z-index: 3;
+
 }
 
-.hero-left {
-  flex: 1;
-  @include displayFlex(row, center, center, 0);
-  position: relative;
-
-  // Hintergrund-Blur mit photoshadow.png
-  &::before {
-    content: "";
-
-    position: absolute;
-    top: -280px;
-    right: -300px;
-    width: 550px;
-    height: 500px;
-    background: url("../../../assets/images/background/photo-shadows.png")
-      center/contain no-repeat;
-    z-index: -1;
-  }
-
-  .portrait-image {
-    @include imgResponsive(300px, 400px, cover);
-    border-radius: $border-radius-md;
-    border: 3px solid $primary-color;
-    @include boxShadow(0 20px 40px rgba(0, 0, 0, 0.3));
-    position: relative;
-    z-index: 1;
-  }
-}
-
-.hero-right {
+.hero {
   flex: 1;
   @include displayFlex(row, flex-start, center, 0);
-  padding-left: 60px;
   width: 718px;
   height: 172px;
 
   .hero-text {
     @include displayFlex(row, flex-start, flex-start, 40px);
-    width: 718px;
 
     .greeting {
       @include color($text-color);
@@ -120,15 +87,15 @@
 .social-links {
   position: absolute;
   bottom: 80px;
-  left: -40px;
+  left: 0px;
   @include displayFlex(row, flex-start, center, 32px);
   z-index: 4;
 
   .separator {
     width: 100px;
-    height: 2px;
-    background-color: $button-color;
-    margin-right: 10px;
+    height: 4px;
+    background-color: $primary-color;
+   transform: translateX(-40px);
   }
 
   a {
@@ -154,14 +121,10 @@
 
 .scroll-indicator {
   display: flex;
-  position: absolute;
-  bottom: 80px;
-  right: 40px;
   @include displayFlex(column, center, center, 10px);
   z-index: 4;
 }
 
-// Responsive Design
 @media (max-width: $breakpoint-md) {
   .hero-content {
     @include displayFlex(column, center, center, 30px);
@@ -182,9 +145,8 @@
     }
   }
 
-  // Responsive Design
   @media (max-width: $breakpoint-md) {
-    .hero-right {
+    .hero {
       padding-left: 0;
       @include displayFlex(column, center, center, 0);
 

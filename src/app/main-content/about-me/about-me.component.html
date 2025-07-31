@@ -2,41 +2,50 @@
   <div class="about-container">
     <div class="about-content">
       <div class="text-content">
-        <h2>About me</h2>
-        <p class="intro-text">
-          Write some information about yourself that is IT related. Why are you
-          passionate about coding? What is your source of inspiration for
-          improving your programming skills?
-        </p>
+        <app-slide-animation direction="left" [delay]="200" [triggerOnScroll]="true">
+          <h2>About me</h2>
+        </app-slide-animation>
+        
+        <app-slide-animation direction="left" [delay]="400" [triggerOnScroll]="true">
+          <p class="intro-text">
+            Write some information about yourself that is IT related. Why are you
+            passionate about coding? What is your source of inspiration for
+            improving your programming skills?
+          </p>
+        </app-slide-animation>
 
         <div class="info-points">
-          <div class="info-item" *ngFor="let icon of icons">
-            <div class="icon-wrapper">
-              <img
-                [src]="getIconSrc(icon.name)"
-                [alt]="icon.name"
-                (mouseenter)="hoveredIcon = icon.name"
-                (mouseleave)="hoveredIcon = null"
-              />
+          <app-slide-animation 
+            direction="up" 
+            [delay]="600 + (i * 200)" 
+            [triggerOnScroll]="true"
+            *ngFor="let icon of icons; let i = index">
+            <div class="info-item">
+              <div class="icon-wrapper">
+                <img
+                  [src]="getIconSrc(icon.name)"
+                  [alt]="icon.name"
+                  (mouseenter)="hoveredIcon = icon.name"
+                  (mouseleave)="hoveredIcon = null"
+                />
+              </div>
+              <div class="text-wrapper">
+                <p>{{ icon.text }}</p>
+              </div>
             </div>
-            <div class="text-wrapper">
-              <p>{{ icon.text }}</p>
-            </div>
-          </div>
+          </app-slide-animation>
         </div>
       </div>
 
-      <div class="image-content">
-        <div class="profile-container">
-          <div class="profile-circle">
-            <img
-              src="assets/images/profile/profile-image.jpg"
-              alt="Profile Picture"
-              class="profile-image"
-            />
-          </div>
-        </div>
-      </div>
+      <app-slide-animation direction="right" [delay]="800" [triggerOnScroll]="true">
+        <figure class="about-me-img">
+          <img
+            src="assets/img/portrait.jpg"
+            alt="Stefan Helldobler"
+            class="portrait-image"
+          />
+        </figure>
+      </app-slide-animation>
     </div>
   </div>
 </section>

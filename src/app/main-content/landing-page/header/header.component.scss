@@ -29,12 +29,18 @@ header {
     .navigation {
       @include displayFlex(row, center, center, 30px);
 
+      > ul {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+      }
+
       .nav-link {
         position: relative;
         @include color($text-color);
         text-decoration: none;
         font-size: $font-size;
-        font-weight: $font-weight; 
+        font-weight: $font-weight;
         padding: 10px 0;
         @include transition(color, $transition-speed, $transition-ease);
 
@@ -90,7 +96,6 @@ header {
   }
 }
 
-// Responsive Design
 @media (max-width: $breakpoint-md) {
   header {
     padding: 15px 20px;

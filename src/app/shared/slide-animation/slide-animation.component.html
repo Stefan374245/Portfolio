@@ -1,0 +1,13 @@
+<div 
+  class="slide-wrapper"
+  [ngClass]="{
+    'slide-left': direction === 'left' && isVisible,
+    'slide-right': direction === 'right' && isVisible,
+    'slide-up': direction === 'up' && isVisible,
+    'slide-down': direction === 'down' && isVisible,
+    'scroll-trigger': triggerOnScroll,
+    'immediate-trigger': !triggerOnScroll
+  }"
+  [style.animation-delay]="getAnimationDelay()">
+  <ng-content></ng-content>
+</div>

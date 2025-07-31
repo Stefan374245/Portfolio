@@ -1,0 +1,8 @@
+<div class="background-img-container">
+  <div 
+    *ngFor="let glow of glows" 
+    class="glow"
+    [ngClass]="glow.class"
+    [attr.aria-hidden]="true">
+  </div>
+</div>

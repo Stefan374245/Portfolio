@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SlideAnimationComponent } from '../../../shared/slide-animation/slide-animation.component';
+
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, SlideAnimationComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
@@ -19,6 +21,6 @@ export class HeaderComponent {
 
   switchLanguage(lang: string) {
     this.currentLang = lang;
-    // Hier die Sprachlogik implementieren
+
   }
 }

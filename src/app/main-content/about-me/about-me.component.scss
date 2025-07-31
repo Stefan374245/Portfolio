@@ -10,25 +10,12 @@
   position: relative;
 
   .about-container {
-    max-width: 1400px;
-     margin: 0 100px;
+    margin: 0 100px;
     padding: 0 40px;
-    position: relative;
     max-width: 1200px;
 
-    &::before {
-      content: "";
-      position: absolute;
-      top: -280px;
-      right: -300px;
-      width: 640px;
-      height: 640px;
-      background: url("../../../assets/images/background/purple-shadow.png")
-        center/contain no-repeat;
-    }
-
     .about-content {
-      @include displayFlex(row, space-between, center, 80px);
+      @include displayFlex(row, space-between, center);
       width: 100%;
 
       .text-content {
@@ -68,8 +55,6 @@
               height: 60px;
 
               img {
-                width: 40px;
-                height: 40px;
                 @include transition(transform, 0.2s, ease-in-out);
                 cursor: pointer;
 
@@ -93,41 +78,30 @@
           }
         }
       }
+    }
+  }
 
-      .image-content {
-        flex-shrink: 0;
-        @include displayFlex(row, center, center);
+  figure {
+    flex: 1;
+    @include displayFlex(row, center, center, 0);
+    position: relative;
 
-        .profile-container {
-          @include displayFlex(row, center, center);
-          position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 550px;
+      height: 500px;
+      background: url("/assets/images/background/photo-shadows.png")
+        no-repeat center center;
+      background-size: contain;
+      z-index: 1;
+    }
 
-          .profile-circle {
-            width: 400px;
-            height: 400px;
-            @include displayFlex(row, center, center);
-            position: relative;
-
-            &::before {
-              content: "";
-              position: absolute;
-              top: -10px;
-              right: -10px;
-              bottom: -10px;
-              left: -10px;
-              border: 2px solid $primary-color;
-              border-radius: 50%;
-            }
-
-            .profile-image {
-              width: 90%;
-              height: 90%;
-              border-radius: 50%;
-              object-fit: cover;
-            }
-          }
-        }
-      }
+    .portrait-image {
+      @include imgResponsive(300px, 400px, cover);
+      @include boxShadow(0 20px 40px rgba(0, 0, 0, 0.3));
+      position: relative;
+      z-index: 2;
     }
   }
 
@@ -152,7 +126,7 @@
 
   @media (max-width: 968px) {
     .about-container .about-content {
-      flex-direction: column;
+      flex-direction: column-reverse;
       @include displayFlex(column, center, center);
       gap: 60px;
 
@@ -193,6 +167,7 @@
           .icon-wrapper {
             width: 50px;
             height: 50px;
+            object-fit: contain;
 
             img {
               width: 35px;

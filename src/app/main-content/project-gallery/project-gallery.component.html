@@ -1,1 +1,31 @@
-<p>project-gallery works!</p>
+<section id="portfolio" class="portfolio-section" aria-labelledby="portfolio-heading">
+
+  <div class="portfolio-container">
+    <app-slide-animation direction="left" [delay]="200" [triggerOnScroll]="true">
+    <header class="portfolio-header">
+      <div class="portfolio-title-section">
+          <div class="separator"></div>
+        <h2 id="portfolio-heading" class="portfolio-title">Portfolio</h2>
+      </div>
+      <p class="portfolio-description">
+        Explore a selection of my work here - Interact with projects to see my skills in action.
+      </p>
+    </header>
+  </app-slide-animation>
+  <main class="portfolio-content">
+    <div class="projects-grid" role="tabpanel" aria-labelledby="portfolio-heading">
+        <app-slide-animation
+          [direction]="getSlideDirection(i)"
+          [delay]="200 + (i * 300)"
+          [triggerOnScroll]="true"
+          *ngFor="let project of projects; let i = index"
+        >
+          <app-projects 
+            [project]="project"
+            [index]="i">
+          </app-projects>
+        </app-slide-animation>
+      </div>
+    </main>
+  </div>
+</section>

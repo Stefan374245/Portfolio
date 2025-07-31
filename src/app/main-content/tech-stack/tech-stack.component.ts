@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SlideAnimationComponent } from '../../shared/slide-animation/slide-animation.component';
 
 @Component({
   selector: 'app-tech-stack',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, SlideAnimationComponent],
   templateUrl: './tech-stack.component.html',
   styleUrl: './tech-stack.component.scss'
 })
@@ -14,12 +15,12 @@ export class TechStackComponent {
   skills = [
     { name: 'css', displayName: 'CSS' },
     { name: 'javascript', displayName: 'JavaScript' },
-    { name: 'typescript', displayName: 'TypeScript' },
+    { name: 'typeScript', displayName: 'TypeScript' },
     { name: 'firebase', displayName: 'Firebase' },
     { name: 'git', displayName: 'Git' },
-    { name: 'rest-api', displayName: 'REST-API' },
+    { name: 'api', displayName: 'REST-API' },
     { name: 'material-design', displayName: 'Material Design' },
-    { name: 'continually-learning', displayName: 'Continually learning' }
+    { name: 'cont.-learning', displayName: 'Continually learning' }
   ];
 
   getSkillIconSrc(name: string): string {

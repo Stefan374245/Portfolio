@@ -1,0 +1,194 @@
+@import "../../../../variables";
+@import "../../../../../mixin.scss";
+
+.project-card {
+  width: 100%;
+  padding: 60px 0;
+  @include transition(all, $transition-speed, $transition-ease);
+
+  &:hover,
+  &.hovered {
+    .project-screenshot {
+      transform: scale(1.02);
+    }
+    
+    .project-name {
+      color: $primary-color;
+    }
+    
+    .project-link.live-test {
+      background-color: $primary-color;
+      color: $background-color;
+      transform: translateY(-2px);
+    }
+  }
+
+  .project-content {
+    @include displayFlex(row, space-between, center, 60px);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    z-index: 11;
+  }
+
+  .project-text-content {
+    flex: 1;
+    max-width: 500px;
+    @include displayFlex(column, center, flex-end, 25px);
+    text-align: right;
+
+    .project-name {
+      font-size: 48px;
+      font-weight: 700;
+      color: $text-color;
+      margin: 0;
+      line-height: 1.2;
+      @include transition(color, $transition-speed, $transition-ease);
+    }
+
+    .project-tech {
+      font-size: 23px;
+      font-weight: 400;
+      color: $primary-color;
+      margin: 0;
+      line-height: 1.3;
+    }
+
+    .project-description {
+      font-size: 18px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.9);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .project-actions {
+      @include displayFlex(row, flex-start, center, 20px);
+
+      .project-link {
+        padding: 15px 30px;
+        border-radius: $border-radius-md;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 600;
+        @include transition(all, $transition-speed, $transition-ease);
+        cursor: pointer;
+
+        &.live-test {
+          background-color: $button-color;
+          color: $text-color;
+          border: 2px solid $button-color;
+
+          &:hover,
+          &:focus {
+            background-color: $primary-color;
+            border-color: $primary-color;
+            color: $background-color;
+          }
+        }
+
+        &.github-link {
+          background-color: transparent;
+          color: $text-color;
+          border: 2px solid $text-color;
+
+          &:hover,
+          &:focus {
+            background-color: $text-color;
+            color: $background-color;
+            transform: translateY(-2px);
+          }
+        }
+      }
+    }
+  }
+
+  .project-visual {
+    flex: 1;
+    max-width: 600px;
+
+    .project-image-container {
+      margin: 0;
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+
+      .project-screenshot {
+        width: 100%;
+        height: auto;
+        display: block;
+        @include transition(transform, 0.3s, ease);
+      }
+    }
+  }
+
+  // Responsive Design
+  @media (max-width: $breakpoint-lg) {
+    .project-content {
+      flex-direction: column !important;
+      gap: 40px;
+      text-align: center;
+    }
+
+    .project-text-content {
+      align-items: center !important;
+      text-align: center !important;
+      max-width: 100%;
+
+      .project-name {
+        font-size: 40px;
+      }
+
+      .project-actions {
+        justify-content: center !important;
+      }
+    }
+
+    .project-visual {
+      max-width: 100%;
+    }
+
+    &.reverse-layout {
+      .project-content {
+        flex-direction: column !important;
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-md) {
+    padding: 40px 0;
+
+    .project-content {
+      padding: 0 20px;
+      gap: 30px;
+    }
+
+    .project-text-content {
+      .project-name {
+        font-size: 32px;
+      }
+
+      .project-tech {
+        font-size: 20px;
+      }
+
+      .project-description {
+        font-size: 16px;
+      }
+
+      .project-actions {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+
+        .project-link {
+          width: 100%;
+          text-align: center;
+          padding: 12px 25px;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

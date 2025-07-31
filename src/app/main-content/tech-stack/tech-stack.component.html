@@ -1,32 +1,45 @@
 <section id="techStack" class="tech-stack">
   <div class="tech-container">
     <div class="tech-content">
-      <div class="skills-grid">
-        
-        <div class="skill-item" *ngFor="let skill of skills" 
-             (mouseenter)="hoveredSkill = skill.name"
-             (mouseleave)="hoveredSkill = null">
-          <div class="skill-icon">
-            <img [src]="getSkillIconSrc(skill.name)" [alt]="skill.name" />
-          </div>
-          <span class="skill-name">{{ skill.displayName }}</span>
-        </div>
-      </div>
-      
-      <div class="text-content">
-        <h2>My skills</h2>
-        <p class="skills-description">
-          Show that you have used a variety of front-end technologies in your projects.
-        </p>
-        
-        <div class="learning-section">
-          <h3>Looking for <span class="highlight">another skill?</span></h3>
-          <p class="learning-text">
-            Reveal enthusiasm for learning new technologies and frameworks.
+      <app-slide-animation direction="left" [delay]="200" [triggerOnScroll]="true">
+        <section class="skills-grid" aria-label="Technical Skills">
+          <article
+            class="skill-item"
+            *ngFor="let skill of skills"
+            (mouseenter)="hoveredSkill = skill.name"
+            (mouseleave)="hoveredSkill = null"
+          >
+            <figure class="skill-icon">
+              <img [src]="getSkillIconSrc(skill.name)" [alt]="skill.displayName + ' icon'" />
+            </figure>
+            <h3 class="skill-name">{{ skill.displayName }}</h3>
+          </article>
+        </section>
+      </app-slide-animation>
+
+      <app-slide-animation direction="right" [delay]="400" [triggerOnScroll]="true">
+        <aside class="text-content">
+          <header class="skills">
+            <h2>Skills</h2>
+            <div class="separator" role="presentation" aria-hidden="true"></div>
+          </header>
+          
+          <p class="skills-description">
+            Show that you have used a variety of front-end technologies in your
+            projects.
           </p>
-          <button class="contact-btn">Get in touch</button>
-        </div>
-      </div>
+
+          <section class="learning-section">
+            <h3>Looking for <span class="highlight">another skill</span>?</h3>
+            <p class="learning-text">
+              Reveal enthusiasm for learning new technologies and frameworks.
+            </p>
+            <button class="contact-btn" type="button" aria-label="Contact us about additional skills">
+              Get in touch
+            </button>
+          </section>
+        </aside>
+      </app-slide-animation>
     </div>
   </div>
 </section>

@@ -1,42 +1,92 @@
 <app-header></app-header>
 
-<section class="hero-section">
+<main class="hero-section">
   <div class="hero-content">
-    <div class="hero-left">
-      <img
-        src="assets/img/portrait.jpg"
-        alt="Stefan Helldobler"
-        class="portrait-image"
-      />
-    </div>
+    <section class="main-content">
+      <article class="hero">
+        <div class="hero-text">
+          <app-slide-animation direction="left" [delay]="200">
+            <span class="greeting">I am</span>
+          </app-slide-animation>
 
-  <div class="hero-right">
-  <div class="hero-text">
-    <span class="greeting">I am</span>
-    <div class="name-title-wrapper">
-      <h1 class="name">Stefan Helldobler</h1>
-      <h2 class="title">FRONTEND DEVELOPER</h2>
-      <button class="cta-button">Let's talk!</button>
-    </div>
+          <header class="name-title-wrapper">
+            <app-slide-animation direction="left" [delay]="400">
+              <h1 class="name">Stefan Helldobler</h1>
+            </app-slide-animation>
+
+            <app-slide-animation direction="left" [delay]="600">
+              <h2 class="title">FRONTEND DEVELOPER</h2>
+            </app-slide-animation>
+
+            <app-slide-animation direction="left" [delay]="800">
+              <button class="cta-button" type="button">Let's talk!</button>
+            </app-slide-animation>
+          </header>
+        </div>
+      </article>
+    </section>
+
+    <aside class="bottom-section">
+      <nav class="social-links" aria-label="Social media links">
+        <app-slide-animation direction="up" [delay]="1000">
+          <div class="separator" role="presentation"></div>
+        </app-slide-animation>
+
+        <app-slide-animation direction="up" [delay]="1200">
+          <a
+            href="https://github.com/Stefan374245"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit my GitHub profile"
+          >
+            <img
+              src="assets/icons/hero-icons/social-icons/github.png"
+              alt="GitHub icon"
+            />
+          </a>
+        </app-slide-animation>
+
+        <app-slide-animation direction="up" [delay]="1400">
+          <a href="mailto:s.helldobler@gmx.de" aria-label="Send me an email">
+            <img
+              src="assets/icons/hero-icons/social-icons/mail.png"
+              alt="Email icon"
+            />
+          </a>
+        </app-slide-animation>
+
+        <app-slide-animation direction="up" [delay]="1600">
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit my LinkedIn profile"
+          >
+            <img
+              src="assets/icons/hero-icons/social-icons/linkedin.png"
+              alt="LinkedIn icon"
+            />
+          </a>
+        </app-slide-animation>
+
+        <app-slide-animation direction="up" [delay]="1800">
+          <address class="email-text">s.helldobler gmx.de</address>
+        </app-slide-animation>
+      </nav>
+
+      <app-slide-animation
+        direction="left"
+        [delay]="2000"
+        style="position: absolute; bottom: 80px; right: 100px"
+      >
+        <div class="scroll-indicator">
+          <img
+            src="assets/icons/hero-icons/scroll-down.png"
+            alt="Scroll down indicator"
+            class="scroll-arrow"
+          />
+        </div>
+      </app-slide-animation>
+    </aside>
   </div>
-</div>
-
-    <div class="social-links">
-      <div class="separator"></div>
-      <a href="https://github.com/Stefan374245" target="_blank" aria-label="GitHub">
-        <img src="assets\icons\hero-icons\social-icons\github.png" alt="GitHub" />
-      </a>
-      <a href="mailto:dominikr@gmail.com" aria-label="Email">
-        <img src="assets\icons\hero-icons\social-icons\mail.png" alt="Email" />
-      </a>
-      <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
-        <img src="assets\icons\hero-icons\social-icons\linkedin.png" alt="LinkedIn" />
-      </a>
-      <span class="email-text">s.helldobler gmx.de</span>
-    </div>
-
-    <div class="scroll-indicator">
-      <img src="assets/icons/hero-icons/scroll-down.png" alt="Scroll down" class="scroll-arrow" />
-    </div>
-  </div>
-</section>
+</main>

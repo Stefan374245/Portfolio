@@ -1,0 +1,122 @@
+:root {
+  --slide-duration: 800ms;
+  --slide-distance: 80px;
+  --slide-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slide-wrapper {
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-duration: var(--slide-duration);
+  animation-timing-function: var(--slide-easing);
+
+  // Für Landing Page (sofortige Animation)
+  &.immediate-trigger {
+    opacity: 0;
+  }
+
+  // Für Scroll-basierte Animation
+  &.scroll-trigger {
+    opacity: 0;
+    
+    &.slide-left {
+      transform: translateX(calc(-1 * var(--slide-distance)));
+    }
+    
+    &.slide-right {
+      transform: translateX(var(--slide-distance));
+    }
+    
+    &.slide-up {
+      transform: translateY(var(--slide-distance));
+    }
+    
+    &.slide-down {
+      transform: translateY(calc(-1 * var(--slide-distance)));
+    }
+  }
+}
+
+.slide-left {
+  animation-name: slideInLeft;
+}
+
+.slide-right {
+  animation-name: slideInRight;
+}
+
+.slide-up {
+  animation-name: slideInUp;
+}
+
+.slide-down {
+  animation-name: slideInDown;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(calc(-1 * var(--slide-distance)));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(var(--slide-distance));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(var(--slide-distance));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(calc(-1 * var(--slide-distance)));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Mobile Optimierungen
+@media (max-width: 768px) {
+  :root {
+    --slide-duration: 600ms; // Schnellere Animationen auf Mobile
+    --slide-distance: 50px;  // Kürzere Distanzen
+  }
+  
+  .slide-wrapper {
+    &.scroll-trigger {
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+  }
+}
+
+// Accessibility: Respektiert Nutzer-Präferenzen
+@media (prefers-reduced-motion: reduce) {
+  .slide-wrapper {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
