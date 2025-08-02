@@ -1,0 +1,94 @@
+<section class="reviews-container" role="region" aria-label="Customer testimonials">
+  <article class="review-card" [attr.aria-label]="'Review ' + (currentReviewIndex() + 1) + ' of ' + reviews.length">
+    <!-- Quote Mark -->
+    <header class="quote-header">
+      <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+    </header>
+
+    <!-- Review Content -->
+    <main class="review-content">
+      <blockquote class="review-text" cite="">
+        {{ currentReview().text }}
+      </blockquote>
+    </main>
+
+    <!-- Reviewer Info and Avatar -->
+    <footer class="review-footer">
+      <div class="reviewer-info">
+        <hr class="reviewer-line" role="presentation" aria-hidden="true">
+        <address class="reviewer-details">
+          <span class="reviewer-name">{{ currentReview().reviewerName }}</span>
+          <span class="reviewer-title">{{ currentReview().reviewerTitle }}</span>
+        </address>
+      </div>
+      
+      <figure class="reviewer-avatar">
+        <img 
+          [src]="currentReview().avatarUrl" 
+          [alt]="'Photo of ' + currentReview().reviewerName"
+          class="avatar-image"
+          loading="lazy"
+        />
+      </figure>
+    </footer>
+
+    <!-- Navigation Controls -->
+    <nav class="review-navigation" aria-label="Review navigation" role="navigation">
+      <!-- Previous Button -->
+      <button 
+        type="button"
+        class="nav-button prev-button" 
+        (click)="previousReview()"
+        [disabled]="reviews.length <= 1"
+        aria-label="Go to previous review"
+        [attr.aria-describedby]="'current-review-' + currentReviewIndex()"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <!-- Indicators -->
+      <ol class="review-indicators" role="tablist" aria-label="Review indicators">
+        @for (indicator of indicators(); track indicator.index) {
+          <li role="presentation">
+            <button
+              type="button"
+              class="indicator"
+              [class.active]="indicator.active"
+              (click)="goToReview(indicator.index)"
+              role="tab"
+              [attr.aria-selected]="indicator.active"
+              [attr.aria-label]="'Go to review ' + (indicator.index + 1)"
+              [attr.id]="'review-tab-' + indicator.index"
+              [attr.aria-controls]="'review-panel-' + indicator.index"
+            ></button>
+          </li>
+        }
+      </ol>
+
+      <!-- Next Button -->
+      <button 
+        type="button"
+        class="nav-button next-button" 
+        (click)="nextReview()"
+        [disabled]="reviews.length <= 1"
+        aria-label="Go to next review"
+        [attr.aria-describedby]="'current-review-' + currentReviewIndex()"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Screen reader only content -->
+    <div 
+      [attr.id]="'current-review-' + currentReviewIndex()" 
+      class="sr-only"
+      aria-live="polite"
+    >
+      Currently showing review {{ currentReviewIndex() + 1 }} of {{ reviews.length }}
+    </div>
+  </article>
+</section>

@@ -26,4 +26,8 @@ export class ProjectGalleryComponent implements OnInit {
    getSlideDirection(index: number): 'left' | 'right' {
     return index % 2 === 0 ? 'right' : 'left';
   }
+  
+  getAnimationDelay(index: number): number {
+  return 200 + (index * 300);
+}
 }
