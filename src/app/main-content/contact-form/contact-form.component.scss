@@ -23,7 +23,8 @@
 }
 
 .title-container {
-  @include displayFlex(row, center, center, 20px);
+  @include displayFlex(row, flex-end, center, 0);
+  width: 100%;
   margin-bottom: 20px;
 }
 
@@ -33,10 +34,10 @@
 }
 
 .title-separator {
-  width: 200px;
+     transform: translateX(20%);
+  width: 430px;
   height: 4px;
-  background: linear-gradient(90deg, $primary-color, $button-color);
-  border-radius: 2px;
+  background: $primary-color;
 }
 
 // Contact Content

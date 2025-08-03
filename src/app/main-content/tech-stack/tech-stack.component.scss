@@ -8,6 +8,7 @@
   color: white;
   overflow: hidden;
   position: relative;
+  z-index: 2;
 
   .tech-container {
     max-width: 1400px;
@@ -30,6 +31,7 @@
         .skill-item {
           @include displayFlex(column, center, center, 15px);
           width: 100%;
+          text-align: center;
 
           .skill-icon {
             margin: 0;

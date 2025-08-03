@@ -1,73 +1,76 @@
 @import "../../../../../mixin.scss";
 @import "../../../../variables";
 
-.reviews-container {
+.testimonials-section {
   @include displayFlex(column, center, center);
   width: 100%;
-  padding: 60px 20px;
+  padding: 80px 20px;
+  background-color: $background-color;
+  position: relative;
+  min-height: 600px;
+}
+
+.testimonials-container {
+  @include displayFlex(row, space-between, center);
+  max-width: 1200px;
+  width: 100%;
+  gap: 60px;
   position: relative;
 }
 
-.review-card {
-  @include displayFlex(column, flex-start, center);
+.quote-mark-left {
+  position: absolute;
+  top: -30px;
+  left: -20px;
+  z-index: 10;
+}
+
+.quote-symbol {
+  font-size: 150px;
+  font-weight: bold;
+  color: $primary-color;
+  line-height: 1;
+  font-family: 'Georgia', serif;
+  text-shadow: 0 0 30px rgba(112, 230, 28, 0.3);
+  user-select: none;
+}
+
+.testimonial-card {
+  flex: 1;
+  max-width: 600px;
+  background: linear-gradient(135deg, rgba(151, 71, 255, 0.1), rgba(28, 218, 230, 0.1));
+  border: 2px solid $button-color;
+  border-radius: 32px;
+  padding: 40px;
   position: relative;
-  background: linear-gradient(135deg, rgba(26, 35, 53, 0.95), rgba(42, 58, 85, 0.9));
-  border: 2px solid #8A2BE2;
-  border-radius: 25px;
-  padding: 60px 50px 40px;
-  max-width: 1000px;
-  width: 100%;
-  margin: 0 auto;
+  backdrop-filter: blur(10px);
   box-shadow: 
-    0 15px 40px rgba(0, 0, 0, 0.4),
-    0 5px 15px rgba(138, 43, 226, 0.2);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  min-height: 350px;
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 8px 20px rgba(151, 71, 255, 0.2);
+  transition: all 0.3s ease;
 
   &:hover {
     transform: translateY(-5px);
     box-shadow: 
-      0 25px 60px rgba(0, 0, 0, 0.5),
-      0 10px 25px rgba(138, 43, 226, 0.3);
+      0 30px 60px rgba(0, 0, 0, 0.4),
+      0 12px 30px rgba(151, 71, 255, 0.3);
   }
 }
 
-// Quote Header
-.quote-header {
-  position: absolute;
-  top: -10px;
-  left: 40px;
-  z-index: 2;
+.testimonial-content {
+  @include displayFlex(column, flex-start, flex-start);
+  height: 100%;
+  gap: 30px;
 }
 
-.quote-mark {
-  font-size: 120px;
-  font-weight: bold;
-  color: #00FF87;
-  line-height: 1;
-  font-family: 'Georgia', serif;
-  text-shadow: 0 0 20px rgba(0, 255, 135, 0.3);
-  user-select: none;
-}
-
-// Review Content
-.review-content {
-  @include displayFlex(column, center, center);
-  width: 100%;
-  margin: 40px 0 50px;
-  flex-grow: 1;
-}
-
-.review-text {
-  font-size: 24px;
+.testimonial-text {
+  font-size: 20px;
   line-height: 1.6;
-  color: #FFFFFF;
-  text-align: left;
+  color: $text-color;
   margin: 0;
-  padding: 0 20px;
   font-weight: 300;
   letter-spacing: 0.5px;
-  max-width: 800px;
+  font-style: normal;
   
   &::before,
   &::after {
@@ -75,172 +78,165 @@
   }
 }
 
-// Review Footer
-.review-footer {
-  @include displayFlex(row, space-between, center);
+.reviewer-section {
+  @include displayFlex(row, center, center, 15px);
   width: 100%;
   margin-top: auto;
-  gap: 30px;
+  color: $text-color;
+  font-size: 18px;
+   font-weight: 400;
+}
+
+.divider-line {
+  width: 100%;
+  height: 2px;
+  background-color: $secondary-color;
+  border: none;
+  margin: 0;
 }
 
 .reviewer-info {
-  @include displayFlex(row, flex-start, center);
-  gap: 20px;
-  flex: 1;
-}
-
-.reviewer-line {
-  width: 80px;
-  height: 2px;
-  background: linear-gradient(90deg, #00FF87, #8A2BE2);
-  border: none;
-  margin: 0;
-  flex-shrink: 0;
-}
-
-.reviewer-details {
-  @include displayFlex(column, flex-start, flex-start);
-  font-style: normal;
+  @include displayFlex(row, flex-start, flex-start);
   gap: 5px;
+  width: 240px;
+     text-align: center;
+ 
 }
 
 .reviewer-name {
-  font-size: 18px;
-  font-weight: 600;
-  color: #FFFFFF;
-  letter-spacing: 0.5px;
+  width: 140px;
 }
 
-.reviewer-title {
-  font-size: 14px;
-  color: #00FF87;
-  font-weight: 400;
-  opacity: 0.9;
+.reviewer-role {
+ width: 140px;
 }
 
-// Avatar
-.reviewer-avatar {
-  margin: 0;
+.profile-section {
+  @include displayFlex(column, center, center);
   position: relative;
+  flex-shrink: 0;
 }
 
-.avatar-image {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid #00FF87;
-  box-shadow: 
-    0 0 0 4px rgba(0, 255, 135, 0.2),
-    0 8px 25px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-
-  &:hover {
-    transform: scale(1.05);
-    box-shadow: 
-      0 0 0 6px rgba(0, 255, 135, 0.3),
-      0 12px 35px rgba(0, 0, 0, 0.4);
+.profile-image-container {
+  position: relative;
+  margin: 0;
+  width: 220px;
+  height: 220px;
+  
+  &::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    bottom: -15px;
+    left: -15px;
+    border: 3px solid $primary-color;
+    border-radius: 50%;
+    z-index: 1;
+  }
+  
+  &::after {
+   content: "";
+    position: absolute;
+    top: 50%;
+    right: -220px;
+    width: 208px;
+    height: 4px;
+    background-color: $primary-color;
+    transform: translateY(-50%);
+    z-index: 2;
   }
 }
 
-// Navigation
-.review-navigation {
+.profile-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: relative;
+  z-index: 3;
+  border: 4px solid $background-color;
+}
+
+.testimonial-navigation {
   @include displayFlex(row, center, center);
-  gap: 30px;
-  margin-top: 40px;
-  width: 100%;
+  position: absolute;
+  bottom: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  gap: 20px;
+  z-index: 10;
 }
 
 .nav-button {
   @include displayFlex(row, center, center);
   width: 50px;
   height: 50px;
-  border: 2px solid #8A2BE2;
+  background: $background-color;
+  border: none;
   border-radius: 50%;
-  background: rgba(138, 43, 226, 0.1);
-  color: #8A2BE2;
   cursor: pointer;
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
+  transition: all $transition-speed $transition-ease;
 
   &:hover:not(:disabled) {
-    background: #8A2BE2;
-    color: #FFFFFF;
+     border: 2px solid $button-color-hovered;
+
     transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(138, 43, 226, 0.4);
   }
 
   &:disabled {
-    opacity: 0.3;
+    opacity: 0.5;
     cursor: not-allowed;
-    transform: none;
   }
 
-  svg {
-    width: 24px;
-    height: 24px;
-    transition: transform 0.2s ease;
+  .nav-arrow {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1); // Makes the arrow white
+    transition: filter 0.3s ease;
   }
 
-  &:hover:not(:disabled) svg {
-    transform: scale(1.2);
+  &:hover:not(:disabled) .nav-arrow {
+    filter: brightness(0) invert(1);
+  }
+
+  &:disabled .nav-arrow {
+    filter: brightness(0) invert(1) opacity(0.5);
   }
 }
 
-// Indicators
-.review-indicators {
+.pagination-indicators {
   @include displayFlex(row, center, center);
-  gap: 15px;
+  gap: 10px;
   list-style: none;
   margin: 0;
   padding: 0;
-
-  li {
-    margin: 0;
-    padding: 0;
-  }
 }
 
-.indicator {
+.pagination-dot {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  border: 2px solid #8A2BE2;
+  border: 2px solid rgba($primary-color, 0.5);
   background: transparent;
   cursor: pointer;
   transition: all 0.3s ease;
-  position: relative;
 
-  &::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #00FF87;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  &.active {
-    background: #8A2BE2;
-    box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
-
-    &::after {
-      opacity: 1;
-    }
-  }
-
-  &:hover:not(.active) {
-    background: rgba(138, 43, 226, 0.3);
+  &--active {
+    background: $secondary-color;
+    border-color: $secondary-color;
     transform: scale(1.2);
+  }
+
+  &:hover:not(.pagination-dot--active) {
+    border-color: $primary-color;
+    background: rgba($primary-color, 0.3);
   }
 }
 
-// Screen reader only content
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -253,130 +249,79 @@
   border: 0;
 }
 
-// Animations
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+@media (max-width: 992px) {
+  .testimonials-container {
+    @include displayFlex(column, center, center);
+    gap: 40px;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .quote-mark-left {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-bottom: 20px;
+  }
+
+  .quote-symbol {
+    font-size: 100px;
+  }
+
+  .profile-image-container {
+    &::after {
+      display: none;
+    }
   }
 }
 
-.review-card {
-  animation: slideIn 0.6s ease-out;
-}
-
-// Responsive Design
 @media (max-width: 768px) {
-  .review-card {
-    padding: 40px 30px 30px;
-    margin: 0 15px;
-    min-height: 300px;
+  .testimonial-card {
+    padding: 30px 20px;
   }
 
-  .quote-mark {
-    font-size: 80px;
-    left: 20px;
-    top: -5px;
+  .testimonial-text {
+    font-size: 18px;
   }
 
-  .review-text {
-    font-size: 20px;
-    padding: 0 10px;
+  .profile-image {
+    width: 150px;
+    height: 150px;
   }
 
-  .review-footer {
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-  }
-
-  .reviewer-info {
-    flex-direction: column;
-    text-align: center;
-    gap: 15px;
-  }
-
-  .reviewer-line {
-    width: 60px;
-  }
-
-  .avatar-image {
-    width: 100px;
-    height: 100px;
-  }
-
-  .review-navigation {
-    gap: 20px;
-    margin-top: 30px;
-  }
-
-  .nav-button {
-    width: 45px;
-    height: 45px;
+  .testimonial-navigation {
+    bottom: -60px;
   }
 }
 
 @media (max-width: 480px) {
-  .reviews-container {
-    padding: 40px 10px;
+  .testimonials-section {
+    padding: 60px 15px;
   }
 
-  .review-card {
-    padding: 30px 20px 25px;
-  }
-
-  .quote-mark {
-    font-size: 60px;
-    left: 15px;
-  }
-
-  .review-text {
-    font-size: 18px;
-    line-height: 1.5;
-  }
-
-  .reviewer-name {
+  .testimonial-text {
     font-size: 16px;
   }
 
-  .reviewer-title {
-    font-size: 13px;
-  }
-
-  .avatar-image {
-    width: 80px;
-    height: 80px;
+  .profile-image {
+    width: 120px;
+    height: 120px;
   }
 }
 
 // Accessibility improvements
 @media (prefers-reduced-motion: reduce) {
-  .review-card,
-  .nav-button,
-  .indicator,
-  .avatar-image {
-    transition: none;
-    animation: none;
+  * {
+    transition: none !important;
+    animation: none !important;
   }
 }
 
 // High contrast mode
 @media (prefers-contrast: high) {
-  .review-card {
-    border-color: #FFFFFF;
-    background: #000000;
+  .testimonial-card {
+    border-width: 3px;
   }
 
-  .review-text {
-    color: #FFFFFF;
-  }
-
-  .nav-button {
-    border-color: #FFFFFF;
-    color: #FFFFFF;
+  .pagination-dot {
+    border-width: 3px;
   }
 }

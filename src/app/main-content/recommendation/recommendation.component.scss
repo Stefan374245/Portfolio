@@ -2,6 +2,13 @@
 @import "../../../variables";
 @import "./../../../styles.scss"; 
 
+.recommendations-section {
+  @include displayFlex(column, center, center);
+  width: 100%;
+  position: relative;
+  background-color: $background-color;
+}
+
 .image-content {
         flex-shrink: 0;
         @include displayFlex(row, center, center);

@@ -1,94 +1,86 @@
-<section class="reviews-container" role="region" aria-label="Customer testimonials">
-  <article class="review-card" [attr.aria-label]="'Review ' + (currentReviewIndex() + 1) + ' of ' + reviews.length">
-    <!-- Quote Mark -->
-    <header class="quote-header">
-      <span class="quote-mark" aria-hidden="true">&ldquo;</span>
-    </header>
+<section class="testimonials-section" role="region" aria-label="Customer testimonials">
+  <div class="testimonials-container">
 
-    <!-- Review Content -->
-    <main class="review-content">
-      <blockquote class="review-text" cite="">
-        {{ currentReview().text }}
-      </blockquote>
-    </main>
+    <div class="quote-mark-left" aria-hidden="true">
+      <span class="quote-symbol">&ldquo;</span>
+    </div>
 
-    <!-- Reviewer Info and Avatar -->
-    <footer class="review-footer">
-      <div class="reviewer-info">
-        <hr class="reviewer-line" role="presentation" aria-hidden="true">
-        <address class="reviewer-details">
-          <span class="reviewer-name">{{ currentReview().reviewerName }}</span>
-          <span class="reviewer-title">{{ currentReview().reviewerTitle }}</span>
-        </address>
-      </div>
+    <article class="testimonial-card" 
+             [attr.aria-label]="'Testimonial ' + (currentReviewIndex() + 1) + ' of ' + reviews.length"
+             role="tabpanel"
+             [attr.id]="'testimonial-panel-' + currentReviewIndex()"
+             [attr.aria-labelledby]="'testimonial-tab-' + currentReviewIndex()">
       
-      <figure class="reviewer-avatar">
+      <div class="testimonial-content">
+        <blockquote class="testimonial-text" cite="">
+          {{ currentReview().text }}
+        </blockquote>
+ 
+        <footer class="reviewer-section">
+          <hr class="divider-line" role="presentation" aria-hidden="true">
+          <cite class="reviewer-info">
+            <span class="reviewer-name">{{ currentReview().reviewerName }}</span>
+            <span class="reviewer-role">{{ currentReview().reviewerTitle }}</span>
+          </cite>
+        </footer>
+      </div>
+    </article>
+
+    <aside class="profile-section" aria-label="Reviewer profile">
+      <figure class="profile-image-container">
         <img 
           [src]="currentReview().avatarUrl" 
-          [alt]="'Photo of ' + currentReview().reviewerName"
-          class="avatar-image"
+          [alt]="'Profile photo of ' + currentReview().reviewerName + ', ' + currentReview().reviewerTitle"
+          class="profile-image"
           loading="lazy"
         />
       </figure>
-    </footer>
+    </aside>
 
-    <!-- Navigation Controls -->
-    <nav class="review-navigation" aria-label="Review navigation" role="navigation">
-      <!-- Previous Button -->
-      <button 
-        type="button"
-        class="nav-button prev-button" 
-        (click)="previousReview()"
-        [disabled]="reviews.length <= 1"
-        aria-label="Go to previous review"
-        [attr.aria-describedby]="'current-review-' + currentReviewIndex()"
-      >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
+ <nav class="testimonial-navigation" aria-label="Testimonial navigation" role="navigation">
+  <button 
+    type="button"
+    class="nav-button nav-button--prev" 
+    (click)="previousReview()"
+    [disabled]="reviews.length <= 1"
+    aria-label="Show previous testimonial"
+    [attr.aria-describedby]="'current-testimonial-' + currentReviewIndex()"
+  >
+    <img src="/assets/images/reviews/arrow-left.png" alt="" aria-hidden="true" class="nav-arrow">
+    <span class="sr-only">Previous testimonial</span>
+  </button>
 
-      <!-- Indicators -->
-      <ol class="review-indicators" role="tablist" aria-label="Review indicators">
-        @for (indicator of indicators(); track indicator.index) {
-          <li role="presentation">
-            <button
-              type="button"
-              class="indicator"
-              [class.active]="indicator.active"
-              (click)="goToReview(indicator.index)"
-              role="tab"
-              [attr.aria-selected]="indicator.active"
-              [attr.aria-label]="'Go to review ' + (indicator.index + 1)"
-              [attr.id]="'review-tab-' + indicator.index"
-              [attr.aria-controls]="'review-panel-' + indicator.index"
-            ></button>
-          </li>
-        }
-      </ol>
+  <ol class="pagination-indicators" role="tablist" aria-label="Testimonial indicators">
+    @for (indicator of indicators(); track indicator.index) {
+      <li role="presentation">
+        <button
+          type="button"
+          class="pagination-dot"
+          [class.pagination-dot--active]="indicator.active"
+          (click)="goToReview(indicator.index)"
+          role="tab"
+          [attr.aria-selected]="indicator.active"
+          [attr.aria-label]="'Show testimonial ' + (indicator.index + 1)"
+          [attr.id]="'testimonial-tab-' + indicator.index"
+          [attr.aria-controls]="'testimonial-panel-' + indicator.index"
+        >
+          <span class="sr-only">Testimonial {{ indicator.index + 1 }}</span>
+        </button>
+      </li>
+    }
+  </ol>
 
-      <!-- Next Button -->
-      <button 
-        type="button"
-        class="nav-button next-button" 
-        (click)="nextReview()"
-        [disabled]="reviews.length <= 1"
-        aria-label="Go to next review"
-        [attr.aria-describedby]="'current-review-' + currentReviewIndex()"
-      >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-    </nav>
-
-    <!-- Screen reader only content -->
-    <div 
-      [attr.id]="'current-review-' + currentReviewIndex()" 
-      class="sr-only"
-      aria-live="polite"
-    >
-      Currently showing review {{ currentReviewIndex() + 1 }} of {{ reviews.length }}
-    </div>
-  </article>
+  <button 
+    type="button"
+    class="nav-button nav-button--next" 
+    (click)="nextReview()"
+    [disabled]="reviews.length <= 1"
+    aria-label="Show next testimonial"
+    [attr.aria-describedby]="'current-testimonial-' + currentReviewIndex()"
+  >
+    <img src="/assets/images/reviews/arrow-right.png" alt="" aria-hidden="true" class="nav-arrow">
+    <span class="sr-only">Next testimonial</span>
+  </button>
+</nav>
+  </div>
 </section>
