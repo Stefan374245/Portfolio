@@ -13,14 +13,16 @@ export class TechStackComponent {
   hoveredSkill: string | null = null;
 
   skills = [
+    { name: 'html', displayName: 'HTML' },
     { name: 'css', displayName: 'CSS' },
     { name: 'javascript', displayName: 'JavaScript' },
     { name: 'typeScript', displayName: 'TypeScript' },
+    { name: 'angular', displayName: 'Angular' },
     { name: 'firebase', displayName: 'Firebase' },
     { name: 'git', displayName: 'Git' },
     { name: 'api', displayName: 'REST-API' },
     { name: 'material-design', displayName: 'Material Design' },
-    { name: 'cont.-learning', displayName: 'Continually learning' }
+    { name: 'cont.-learning', displayName: 'Continually learning' },
   ];
 
   getSkillIconSrc(name: string): string {
