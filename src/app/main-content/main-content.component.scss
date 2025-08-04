@@ -21,7 +21,6 @@
   animation-name: slideInRight;
 }
 
-// Staggered animation delays
 app-landing-page.slide-in {
   animation-delay: 0.2s;
 }
@@ -46,7 +45,6 @@ app-contact-form.slide-in {
   animation-delay: 1.2s;
 }
 
-// Keyframe animations
 @keyframes slideInLeft {
   from {
     opacity: 0;
@@ -69,8 +67,7 @@ app-contact-form.slide-in {
   }
 }
 
-// Alternative: Scroll-triggered animations (CSS only)
-// This creates a continuous effect as you scroll
+
 .slide-in {
   opacity: 0;
   transform: translateY(50px);
@@ -86,7 +83,7 @@ app-contact-form.slide-in {
   transform: translateX(100px) translateY(50px);
 }
 
-// Viewport-based animation trigger
+
 @media (prefers-reduced-motion: no-preference) {
   .slide-in {
     animation-play-state: running;
@@ -101,7 +98,6 @@ app-contact-form.slide-in {
   }
 }
 
-// Respect user's motion preferences
 @media (prefers-reduced-motion: reduce) {
   .slide-in {
     opacity: 1;
