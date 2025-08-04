@@ -3,18 +3,32 @@
 @import "./../../../styles.scss";
 
 #techStack {
+  @include displayFlex(row, center, center, 0);
+  width: 100%;
   background-color: $background-color;
-  padding: 80px 0;
-  color: white;
+  color: $text-color;
   overflow: hidden;
   position: relative;
-  z-index: 2;
 
   .tech-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 40px;
+    width: 100%;
+    margin: 0 100px;
+    padding-bottom: 100px;
+    max-width: 1200px;
     position: relative;
+
+    @media (max-width: $breakpoint-lg) {
+      margin: 0 60px;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      margin: 0 40px;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      margin: 0 24px;
+      padding-bottom: 100px;
+    }
 
     .tech-content {
       @include displayFlex(row, space-between, flex-start, 100px);
@@ -23,8 +37,8 @@
       .skills-grid {
         flex: 1;
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 60px 40px;
+        grid-template-columns: repeat(4, 2fr);
+        gap: clamp(20px, 4vw, 60px) clamp(15px, 3vw, 40px);
         max-width: 600px;
         width: 100%;
 
@@ -62,7 +76,8 @@
 
       .text-content {
         flex: 1;
-        max-width: 500px;
+        max-width: 560px;
+        padding: 85px 0 85px 40px;
         @include displayFlex(column, flex-start, flex-start, 40px);
 
         .skills {
@@ -72,7 +87,7 @@
             width: 287px;
             height: 4px;
             background-color: $secondary-color;
-            transform: translateX(40px);
+            transform: translateX(140px);
           }
         }
 
@@ -136,28 +151,37 @@
     }
   }
 
-  @media (max-width: 1200px) {
+   @media (min-width: 992px) and (max-width: 1200px) {
     .tech-container {
-      padding: 0 30px;
-
       .tech-content {
-        gap: 80px;
-
-        .text-content h2 {
-          font-size: 60px;
+        
+        .skills-grid {
+          row-gap: calc(25px + (60px - 25px) * ((100vw - 992px) / (1200px - 992px)));
+          column-gap: calc(20px + (40px - 20px) * ((100vw - 992px) / (1200px - 992px)));
         }
 
-        .skills-grid {
-          gap: 50px 30px;
+        .text-content h2 {
+          font-size: calc(50px + (80px - 50px) * ((100vw - 992px) / (1200px - 992px)));
         }
       }
     }
   }
 
-  @media (max-width: 968px) {
+  @media (max-width: $breakpoint-xl) {
+    .tech-container {
+      .tech-content {
+        gap: 60px;
+
+        .text-content h2 {
+          font-size: 60px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-lg) {
     .tech-container .tech-content {
-      flex-direction: column-reverse;
-      @include displayFlex(column, center, center, 60px);
+      @include displayFlex(column-reverse, center, center, 60px);
 
       .text-content {
         max-width: 100%;
@@ -174,26 +198,26 @@
       }
 
       .skills-grid {
-        max-width: 100%;
-        justify-items: center;
+        flex: 1;
+        display: grid;
+        grid-template-columns: repeat(4, 2fr);
+        gap: clamp(30px, 5vw, 60px) clamp(20px, 4vw, 40px);
+        max-width: 600px;
+        width: 100%;
       }
     }
   }
 
-  @media (max-width: 768px) {
-    padding: 60px 0;
-
+  @media (max-width: $breakpoint-md) {
     .tech-container {
-      padding: 0 20px;
-
       .tech-content {
         .text-content h2 {
           font-size: 40px;
         }
 
         .skills-grid {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 40px 30px;
+          grid-template-columns: repeat(3, 1fr);
+          gap: clamp(25px, 6vw, 80px) clamp(25px, 6vw, 80px);
 
           .skill-item .skill-icon {
             width: 70px;
@@ -209,10 +233,10 @@
     }
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: $breakpoint-sm) {
     .tech-container .tech-content .skills-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 30px 20px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(15px, 4vw, 30px) clamp(10px, 3vw, 20px);
     }
   }
 }

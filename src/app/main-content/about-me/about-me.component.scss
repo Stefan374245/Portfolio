@@ -3,24 +3,41 @@
 @import "./../../../styles.scss";
 
 #aboutMe {
+  @include displayFlex (row, space-around, center, 166px);
+  width: 100%;
   background-color: $background-color;
-  padding: 80px 0;
   color: white;
   overflow: hidden;
   position: relative;
+  padding-top: 44px;
+  
 
   .about-container {
+    @include displayFlex(row, space-between, center);
+    width: 100%;
     margin: 0 100px;
-    padding: 0 40px;
+    padding-bottom: 100px;
     max-width: 1200px;
+
+    @media (max-width: $breakpoint-lg) {
+      margin: 0 60px;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      margin: 0 40px;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      margin: 0 24px;
+      padding-bottom: 123px;
+    }
 
     .about-content {
       @include displayFlex(row, space-between, center);
       width: 100%;
 
       .text-content {
-        flex: 1;
-        max-width: 600px;
+        max-width: 470px;
         @include displayFlex(column, flex-start, flex-start);
 
         h2 {
@@ -34,8 +51,7 @@
         .intro-text {
           font-size: 18px;
           line-height: 1.6;
-          margin-bottom: 60px;
-          color: rgba(255, 255, 255, 0.9);
+          margin-bottom: 32px;
         }
 
         .info-points {
@@ -43,9 +59,8 @@
           @include displayFlex(column, flex-start, flex-start);
 
           .info-item {
-            @include displayFlex(row, flex-start, flex-start);
-            gap: 20px;
-            margin-bottom: 40px;
+            @include displayFlex(row, flex-start, flex-start, 9px);
+            margin-bottom: 24px;
             width: 100%;
 
             .icon-wrapper {
@@ -91,26 +106,22 @@
       position: absolute;
       width: 550px;
       height: 500px;
-      background: url("/assets/images/background/photo-shadows.png")
-        no-repeat center center;
+      background: url("/assets/images/background/photo-shadows.png") no-repeat
+        center center;
       background-size: contain;
-      z-index: 1;
     }
 
     .portrait-image {
       @include imgResponsive(300px, 400px, cover);
       @include boxShadow(0 20px 40px rgba(0, 0, 0, 0.3));
       position: relative;
-      z-index: 2;
     }
   }
 
-  @media (max-width: 1200px) {
+  @media (max-width: $breakpoint-xl) {
     .about-container {
-      padding: 0 30px;
-
       .about-content {
-        gap: 60px;
+        gap: 168px;
 
         .text-content h2 {
           font-size: 60px;
@@ -124,10 +135,10 @@
     }
   }
 
-  @media (max-width: 968px) {
+  @media (max-width: $breakpoint-lg) {
     .about-container .about-content {
       flex-direction: column-reverse;
-      @include displayFlex(column, center, center);
+      @include displayFlex(column-reverse, center, center);
       gap: 60px;
 
       .text-content {
@@ -146,12 +157,8 @@
     }
   }
 
-  @media (max-width: 768px) {
-    padding: 60px 0;
-
+  @media (max-width: $breakpoint-md) {
     .about-container {
-      padding: 0 20px;
-
       .about-content .text-content {
         h2 {
           font-size: 40px;

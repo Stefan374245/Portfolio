@@ -3,7 +3,7 @@
 
 .project-card {
   width: 100%;
-  padding: 60px 0;
+  padding: 40px 0;
   @include transition(all, $transition-speed, $transition-ease);
 
   &:hover,
@@ -24,17 +24,15 @@
   }
 
   .project-content {
-    @include displayFlex(row, space-between, center, 60px);
+    @include displayFlex(row, space-between, center, 35px);
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 40px;
-    z-index: 11;
   }
 
   .project-text-content {
     flex: 1;
     max-width: 500px;
-    @include displayFlex(column, center, flex-end, 25px);
+    @include displayFlex(column, center, flex-end, 15px);
     text-align: right;
 
     .project-name {
@@ -63,7 +61,7 @@
     }
 
     .project-actions {
-      @include displayFlex(row, flex-start, center, 20px);
+      @include displayFlex(row, flex-start, center, 68px);
 
       .project-link {
         padding: 15px 30px;
@@ -110,9 +108,6 @@
     .project-image-container {
       margin: 0;
       position: relative;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 
       .project-screenshot {
         width: 100%;
@@ -160,7 +155,6 @@
     padding: 40px 0;
 
     .project-content {
-      padding: 0 20px;
       gap: 30px;
     }
 

@@ -2,12 +2,7 @@
 @import "../../../../variables";
 
 .testimonials-section {
-  @include displayFlex(column, center, center);
-  width: 100%;
-  padding: 80px 20px;
-  background-color: $background-color;
-  position: relative;
-  min-height: 600px;
+  padding: 80px;
 }
 
 .testimonials-container {
@@ -30,29 +25,29 @@
   font-weight: bold;
   color: $primary-color;
   line-height: 1;
-  font-family: 'Georgia', serif;
+  font-family: "Georgia", serif;
   text-shadow: 0 0 30px rgba(112, 230, 28, 0.3);
   user-select: none;
 }
 
 .testimonial-card {
-  flex: 1;
-  max-width: 600px;
-  background: linear-gradient(135deg, rgba(151, 71, 255, 0.1), rgba(28, 218, 230, 0.1));
+  max-width: 851px;
+  background: linear-gradient(
+    135deg,
+    rgba(151, 71, 255, 0.1),
+    rgba(28, 218, 230, 0.1)
+  );
   border: 2px solid $button-color;
   border-radius: 32px;
   padding: 40px;
   position: relative;
   backdrop-filter: blur(10px);
-  box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.3),
-    0 8px 20px rgba(151, 71, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 8px 20px rgba(151, 71, 255, 0.2);
   transition: all 0.3s ease;
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 
-      0 30px 60px rgba(0, 0, 0, 0.4),
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4),
       0 12px 30px rgba(151, 71, 255, 0.3);
   }
 }
@@ -71,7 +66,7 @@
   font-weight: 300;
   letter-spacing: 0.5px;
   font-style: normal;
-  
+
   &::before,
   &::after {
     content: none;
@@ -84,7 +79,7 @@
   margin-top: auto;
   color: $text-color;
   font-size: 18px;
-   font-weight: 400;
+  font-weight: 400;
 }
 
 .divider-line {
@@ -99,8 +94,7 @@
   @include displayFlex(row, flex-start, flex-start);
   gap: 5px;
   width: 240px;
-     text-align: center;
- 
+  text-align: center;
 }
 
 .reviewer-name {
@@ -108,7 +102,7 @@
 }
 
 .reviewer-role {
- width: 140px;
+  width: 140px;
 }
 
 .profile-section {
@@ -120,9 +114,9 @@
 .profile-image-container {
   position: relative;
   margin: 0;
-  width: 220px;
+  width: 256px;
   height: 220px;
-  
+
   &::before {
     content: "";
     position: absolute;
@@ -134,16 +128,16 @@
     border-radius: 50%;
     z-index: 1;
   }
-  
+
   &::after {
-   content: "";
+    content: "";
     position: absolute;
     top: 50%;
     right: -220px;
-    width: 208px;
+    width: 270px;
     height: 4px;
     background-color: $primary-color;
-    transform: translateY(-50%);
+    transform: translateX(64px);
     z-index: 2;
   }
 }
@@ -181,7 +175,7 @@
   transition: all $transition-speed $transition-ease;
 
   &:hover:not(:disabled) {
-     border: 2px solid $button-color-hovered;
+    border: 2px solid $button-color-hovered;
 
     transform: scale(1.1);
   }
@@ -235,7 +229,6 @@
     background: rgba($primary-color, 0.3);
   }
 }
-
 
 .sr-only {
   position: absolute;

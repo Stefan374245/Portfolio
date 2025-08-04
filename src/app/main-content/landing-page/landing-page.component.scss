@@ -1,14 +1,15 @@
 @import "../../../_variables";
 @import "../../../../mixin.scss";
+@import "../../../styles.scss";
 
 .hero-section {
   @include displayFlex(column, center, center, 0);
   height: calc(100vh - 109px);
   background: $background-color;
-  margin: 0 auto;
   position: relative;
   overflow: hidden;
   width: 100%;
+  padding-bottom: 0;
 }
 .hero-content {
   @include displayFlex(row, center, center, 0);
@@ -127,7 +128,7 @@
 
 @media (max-width: $breakpoint-md) {
   .hero-content {
-    @include displayFlex(column, center, center, 30px);
+    @include displayFlex(column, center, center, 120px);
     text-align: center;
     padding: 20px;
   }
@@ -183,7 +184,7 @@
   .social-links {
     position: relative;
     bottom: auto;
-    left: auto;
+    left: -96px;
     @include displayFlex(row, center, center, 20px);
     margin-top: 30px;
   }
@@ -191,7 +192,7 @@
   .scroll-indicator {
     position: relative;
     bottom: auto;
-    right: auto;
+    right: -80px;
     margin-top: 20px;
   }
 }

@@ -1,6 +1,5 @@
 <section class="contact-section" id="contact">
   <div class="container">
-    <!-- Main Heading with Separator -->
     <header class="section-header">
       <div class="title-container">
         <h1 class="main-title">Contact</h1>
@@ -8,13 +7,11 @@
       </div>
     </header>
 
-    <!-- Contact Content Layout -->
     <div class="contact-content">
-      <!-- Left Side - Text Content -->
       <div class="contact-left">
         <header class="contact-left-header">
+          <div class="subtitle-separator" aria-hidden="true"></div>
           <div class="subtitle-container">
-            <div class="subtitle-separator" aria-hidden="true"></div>
             <h2 class="contact-subtitle">Got a problem to solve?</h2>
           </div>
         </header>
@@ -30,13 +27,12 @@
         </div>
       </div>
 
-      <!-- Right Side - Contact Form -->
+
       <div class="contact-right">
         <form class="contact-form" (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" novalidate>
           <fieldset class="form-fieldset">
             <legend class="sr-only">Contact Form</legend>
-            
-            <!-- Name Field -->
+    
             <div class="form-group">
               <label for="name" class="sr-only">Your name</label>
               <input
@@ -64,7 +60,6 @@
               </span>
             </div>
 
-            <!-- Email Field -->
             <div class="form-group">
               <label for="email" class="sr-only">Your email</label>
               <input 
@@ -93,7 +88,6 @@
               </span>
             </div>
 
-            <!-- Message Field -->
             <div class="form-group">
               <label for="message" class="sr-only">Your message</label>
               <textarea
@@ -121,7 +115,6 @@
               </span>
             </div>
 
-            <!-- Privacy Policy Checkbox -->
             <div class="form-group checkbox-group">
               <label class="checkbox-label">
                 <input 
@@ -138,7 +131,6 @@
               </label>
             </div>
 
-            <!-- Submit Button -->
             <div class="form-actions">
               <button 
                 type="submit" 

@@ -7,7 +7,7 @@
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 1;
+  z-index: 2;
 }
 
 .glow {
@@ -15,9 +15,10 @@
   background-repeat: no-repeat;
   background-size: contain;
   pointer-events: none;
+  transition: all 0.3s ease;
 
   &.glow-left-1 {
-    top: 160px;
+    top: 240px;
     left: -160px;
     width: 570px;
     height: 608px;
@@ -38,7 +39,7 @@
   }
 
   &.glow-right-1 {
-    top: 64px;
+    top: 240px;
     right: -270px;
     width: 570px;
     height: 600px;
@@ -68,8 +69,8 @@
     transform: rotate(90deg);
   }
 
-   &.background {
-    top: 1180px;
+   /*&.background {
+    top: 1300px;
     right: 50%;
     transform: translateX(70%);
     width: 2000px;
@@ -79,22 +80,17 @@
     background-position: center;
     background-repeat: no-repeat;
     box-shadow: inset 0 -500px 100px -50px $background-color;
-  }
+  z-index: 0;
+  }*/
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .glow {
-    animation: none;
-    transform: translateZ(0);
-  }
- 
-}
 
 @media (max-width: $breakpoint-lg) {
   .glow {
     &.glow-left-1 {
       width: 400px;
       height: 400px;
+      top: 420px;
       left: -100px;
     }
 
@@ -107,7 +103,8 @@
     &.glow-right-1 {
       width: 400px;
       height: 400px;
-      right: -200px;
+      right: -100px;
+      top: 400px;
     }
 
     &.glow-right-2 {
@@ -145,18 +142,6 @@
      &.background {
       height: 250px;
       top: 600px;
-    }
-  }
-}
-
-@media (max-width: $breakpoint-sm) {
-  .glow {
-    display: none;
-  
-   &.background {
-      display: block; // Falls Sie das Hero-Background auch auf mobilen Geräten anzeigen möchten
-      height: 200px;
-      top: 500px;
     }
   }
 }
