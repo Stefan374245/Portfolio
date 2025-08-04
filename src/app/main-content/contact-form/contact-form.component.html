@@ -27,7 +27,6 @@
         </div>
       </div>
 
-
       <div class="contact-right">
         <form class="contact-form" (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" novalidate>
           <fieldset class="form-fieldset">
@@ -35,18 +34,29 @@
     
             <div class="form-group">
               <label for="name" class="sr-only">Your name</label>
-              <input
-                #name="ngModel"
-                [(ngModel)]="contactData.name"
-                type="text"
-                id="name"
-                name="name"
-                class="form-input"
-                placeholder="Your name"
-                required
-                autocomplete="name"
-                aria-describedby="name-error"
-              />
+              <div class="input-wrapper">
+                <input
+                  #name="ngModel"
+                  [(ngModel)]="contactData.name"
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="form-input"
+                  placeholder="Your name"
+                  required
+                  autocomplete="name"
+                  aria-describedby="name-error"
+                  minlength="2"
+                />
+                <div class="input-icon success-icon" 
+                     [class.show]="name.valid && name.touched">
+                  <img src="/assets/icons/contact-form-icons/check.png" alt="Valid" />
+                </div>
+                <div class="input-icon error-icon" 
+                     [class.show]="!name.valid && name.touched">
+                  <img src="/assets/icons/contact-form-icons/required.png" alt="Valid" />
+                </div>
+              </div>
               <span 
                 id="name-error" 
                 class="error-message" 
@@ -55,26 +65,36 @@
                 [class.show]="!name.valid && name.touched && !name.disabled"
               >
                 @if (!name.valid && name.touched && !name.disabled) {
-                  Please enter a name
+                  Your name is required.
                 }
               </span>
             </div>
 
             <div class="form-group">
               <label for="email" class="sr-only">Your email</label>
-              <input 
-                #email="ngModel"
-                [(ngModel)]="contactData.email"
-                type="email"
-                id="email"
-                name="email"
-                class="form-input"
-                placeholder="Your email"
-                required
-                autocomplete="email"
-                pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
-                aria-describedby="email-error"
-              />
+              <div class="input-wrapper">
+                <input 
+                  #email="ngModel"
+                  [(ngModel)]="contactData.email"
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-input"
+                  placeholder="Your email"
+                  required
+                  autocomplete="email"
+                  pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
+                  aria-describedby="email-error"
+                />
+                <div class="input-icon success-icon" 
+                     [class.show]="email.valid && email.touched">
+                  <img src="/assets/icons/contact-form-icons/check.png" alt="Valid" />
+                </div>
+                <div class="input-icon error-icon" 
+                     [class.show]="!email.valid && email.touched">
+                  <img src="/assets/icons/contact-form-icons/required.png" alt="Valid" />
+                </div>
+              </div>
               <span 
                 id="email-error" 
                 class="error-message" 
@@ -83,25 +103,35 @@
                 [class.show]="!email.valid && email.touched && !email.disabled"
               >
                 @if (!email.valid && email.touched && !email.disabled) {
-                  Please enter a valid email
+                  Your email must be required.
                 }
               </span>
             </div>
 
             <div class="form-group">
               <label for="message" class="sr-only">Your message</label>
-              <textarea
-                #message="ngModel"
-                [(ngModel)]="contactData.message"
-                id="message"
-                name="message"
-                class="form-textarea"
-                placeholder="Your message"
-                required
-                minlength="4"
-                rows="6"
-                aria-describedby="message-error"
-              ></textarea>
+              <div class="input-wrapper textarea-wrapper">
+                <textarea
+                  #message="ngModel"
+                  [(ngModel)]="contactData.message"
+                  id="message"
+                  name="message"
+                  class="form-textarea"
+                  placeholder="Your message"
+                  required
+                  minlength="4"
+                  rows="6"
+                  aria-describedby="message-error"
+                ></textarea>
+                <div class="input-icon success-icon" 
+                     [class.show]="message.valid && message.touched">
+                  <img src="/assets/icons/contact-form-icons/check.png" alt="Valid" />
+                </div>
+                <div class="input-icon error-icon" 
+                     [class.show]="!message.valid && message.touched">
+                  <img src="/assets/icons/contact-form-icons/required.png" alt="Valid" />
+                </div>
+              </div>
               <span 
                 id="message-error" 
                 class="error-message" 
@@ -110,10 +140,11 @@
                 [class.show]="!message.valid && message.touched && !message.disabled"
               >
                 @if (!message.valid && message.touched && !message.disabled) {
-                  Please enter a message
+                  Your message is empty and must be at least 4 characters long.
                 }
               </span>
             </div>
+
 
             <div class="form-group checkbox-group">
               <label class="checkbox-label">
