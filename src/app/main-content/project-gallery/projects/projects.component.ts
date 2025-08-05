@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Project } from '../../../shared/interfaces/project.interface';
 
@@ -12,12 +12,48 @@ import { Project } from '../../../shared/interfaces/project.interface';
 export class ProjectsComponent implements OnInit {
   @Input() project!: Project;
   @Input() index!: number;
+  @ViewChild('projectVideo') videoElement!: ElementRef<HTMLVideoElement>;
   
   hoveredProject: boolean = false;
   isReversed: boolean = false;
+  videoLoaded: boolean = false;
 
   ngOnInit(): void {
     this.isReversed = this.index % 2 !== 0;
+  }
+
+  onMouseEnter(): void {
+    this.hoveredProject = true;
+    this.playVideo();
+  }
+
+  onMouseLeave(): void {
+    this.hoveredProject = false;
+    this.pauseVideo();
+  }
+
+  onVideoLoaded(event: Event): void {
+    this.videoLoaded = true;
+    const video = event.target as HTMLVideoElement;
+    video.currentTime = 0;
+  }
+
+  private playVideo(): void {
+    if (this.videoElement && this.videoLoaded) {
+      const video = this.videoElement.nativeElement;
+      video.currentTime = 0;
+      video.play().catch(error => {
+        console.log('Video play failed:', error);
+      });
+    }
+  }
+
+  private pauseVideo(): void {
+    if (this.videoElement && this.videoLoaded) {
+      const video = this.videoElement.nativeElement;
+      video.pause();
+      video.currentTime = 0;
+    }
   }
 
   getContentStyles() {

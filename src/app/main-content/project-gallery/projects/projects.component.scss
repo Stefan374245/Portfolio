@@ -6,16 +6,13 @@
   padding: 40px 0;
   @include transition(all, $transition-speed, $transition-ease);
 
+  // Hover-Effekte für andere Elemente (nicht das Video)
   &:hover,
   &.hovered {
-    .project-screenshot {
-      transform: scale(1.02);
-    }
-    
     .project-name {
       color: $primary-color;
     }
-    
+
     .project-link.live-test {
       background-color: $primary-color;
       color: $background-color;
@@ -91,12 +88,65 @@
     .project-image-container {
       margin: 0;
       position: relative;
+      overflow: hidden;
 
       .project-screenshot {
         width: 100%;
         height: auto;
         display: block;
         @include transition(transform, 0.3s, ease);
+
+        // Video wird nur beim Hover über das Bild angezeigt
+        &:hover {
+          transform: scale(1.02);
+
+          // Video beim Hover über das Bild anzeigen
+          + .project-preview-video {
+            display: block !important;
+            opacity: 1 !important;
+          }
+        }
+      }
+
+      .project-preview-video {
+        position: absolute;
+        top: 27%;
+        left: 27%;
+        width: 46%;
+        height: 45%;
+        object-fit: cover;
+        display: none;
+        opacity: 0;
+        z-index: 2;
+        border-radius: 6px;
+        pointer-events: none;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        @include transition(opacity, 0.4s, ease);
+      }
+
+      // Alternative: Hover auf dem gesamten Image-Container
+      &:hover {
+        .project-screenshot {
+          transform: scale(1.02);
+        }
+
+        .project-preview-video {
+          display: block !important;
+          opacity: 1 !important;
+        }
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-xl) {
+    .project-visual {
+      .project-image-container {
+        .project-preview-video {
+          top: 27.5%;
+          left: 27%;
+          width: 46%;
+          height: 45%;
+        }
       }
     }
   }
@@ -124,6 +174,16 @@
 
     .project-visual {
       max-width: 100%;
+
+      .project-image-container {
+        .project-preview-video {
+          top: 28%;
+          left: 27.5%;
+          width: 45.5%;
+          height: 44%;
+          border-radius: 5px;
+        }
+      }
     }
 
     &.reverse-layout {
@@ -163,6 +223,102 @@
           text-align: center;
           padding: 12px 25px;
           font-size: 16px;
+        }
+      }
+    }
+
+    .project-visual {
+      .project-image-container {
+        .project-preview-video {
+          top: 9.5%;
+          left: 12%;
+          width: 76%;
+          height: 64%;
+          border-radius: 4px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+        }
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 30px 0;
+
+    .project-text-content {
+      .project-name {
+        font-size: 28px;
+      }
+
+      .project-tech {
+        font-size: 18px;
+      }
+
+      .project-description {
+        font-size: 15px;
+      }
+    }
+
+    .project-visual {
+      .project-image-container {
+        .project-preview-video {
+          top: 9%;
+          left: 11.5%;
+          width: 77%;
+          height: 65%;
+          border-radius: 3px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 25px 0;
+
+    .project-text-content {
+      .project-name {
+        font-size: 24px;
+      }
+
+      .project-tech {
+        font-size: 16px;
+      }
+
+      .project-description {
+        font-size: 14px;
+      }
+
+      .project-actions {
+        gap: 12px;
+
+        .project-link {
+          padding: 10px 20px;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .project-visual {
+      .project-image-container {
+        .project-preview-video {
+          top: 8.5%;
+          left: 11%;
+          width: 78%;
+          height: 66%;
+          border-radius: 2px;
+          box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 360px) {
+    .project-visual {
+      .project-image-container {
+        .project-preview-video {
+          top: 8%;
+          left: 10.5%;
+          width: 79%;
+          height: 67%;
         }
       }
     }

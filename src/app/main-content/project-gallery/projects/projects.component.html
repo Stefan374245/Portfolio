@@ -1,48 +1,62 @@
-<article 
+<article
   class="project-card"
   [ngClass]="{
-    'hovered': hoveredProject,
+    hovered: hoveredProject,
     'reverse-layout': isReversed,
     'text-right': isReversed,
     'text-left': !isReversed
   }"
-  (mouseenter)="hoveredProject = true"
-  (mouseleave)="hoveredProject = false"
-  tabindex="0">
-  
+  (mouseenter)="onMouseEnter()"
+  (mouseleave)="onMouseLeave()"
+  tabindex="0"
+>
   <section class="project-content" [ngStyle]="getContentStyles()">
     <header class="project-text-content" [ngStyle]="getTextStyles()">
       <h3 class="project-name">{{ project.name }}</h3>
       <p class="project-tech">{{ project.tech }}</p>
       <p class="project-description">{{ project.description }}</p>
-      
+
       <nav class="project-actions" [ngStyle]="getActionsStyles()">
-        <a 
-          [href]="project.liveUrl" 
+        <a
+          [href]="project.liveUrl"
           class="project-link live-test"
           [attr.aria-label]="'View ' + project.name + ' live demo'"
           target="_blank"
-          rel="noopener noreferrer">
+          rel="noopener noreferrer"
+        >
           Live test
         </a>
-        <a 
-          [href]="project.githubUrl" 
+        <a
+          [href]="project.githubUrl"
           class="project-link github-link"
           [attr.aria-label]="'View ' + project.name + ' source code on GitHub'"
           target="_blank"
-          rel="noopener noreferrer">
+          rel="noopener noreferrer"
+        >
           Github
         </a>
       </nav>
     </header>
-    
+
     <aside class="project-visual">
       <figure class="project-image-container">
-        <img 
-          [src]="project.image" 
-          [alt]="project.name + ' project screenshot'" 
+        <img
+          [src]="project.image"
+          [alt]="project.name + ' project screenshot'"
           loading="lazy"
-          class="project-screenshot">
+          class="project-screenshot"
+        />
+       <video
+          *ngIf="project.video"
+          #projectVideo
+          class="project-preview-video"
+          muted
+          loop
+          playsinline
+          preload="auto"
+          [src]="project.video"
+          (loadeddata)="onVideoLoaded($event)"
+        ></video>
       </figure>
     </aside>
   </section>
