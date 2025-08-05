@@ -18,15 +18,7 @@ export class HeaderComponent {
   hoveredLink: string | null = null;
   currentLang: string = 'EN';
 
-  /**
-   * Navigiert zu einer Sektion über den Navigation Service
-   * @param sectionId - ID der Zielsektion
-   */
-  navigateToSection(sectionId: string): void {
-    this.navigationService.navigateToSection(sectionId);
-    this.hoveredLink = null;
-  }
-
+ 
   /**
    * Wechselt die Sprache der Anwendung
    * @param lang - Zielsprache ('DE' oder 'EN')
@@ -42,5 +34,11 @@ export class HeaderComponent {
    */
   setHoveredLink(linkId: string | null): void {
     this.hoveredLink = linkId;
+  }
+  /**
+   * Resettet den Hover-State nach Navigation
+   */
+  resetHoverState(): void {
+    this.hoveredLink = null;
   }
 }

@@ -9,41 +9,41 @@
     <app-slide-animation direction="down" [delay]="800">
       <nav class="navigation" role="navigation" aria-label="Main navigation">
         <ul>
-          <li>
+           <li>
             <a 
-              [routerLink]="['/']"
-              [fragment]="'aboutMe'"
+              routerLink="/"
+              fragment="aboutMe"
               class="nav-link"
               [ngClass]="{'hovered': hoveredLink === 'about'}"
               (mouseenter)="setHoveredLink('about')"
               (mouseleave)="setHoveredLink(null)"
-              (click)="navigateToSection('aboutMe')"
+              (click)="resetHoverState()"
               aria-describedby="about-section">
               About me
             </a>
           </li>
           <li>
             <a 
-              [routerLink]="['/']"
-              [fragment]="'techStack'"
+              routerLink="/"
+              fragment="techStack"
               class="nav-link"
               [ngClass]="{'hovered': hoveredLink === 'skills'}"
               (mouseenter)="setHoveredLink('skills')"
               (mouseleave)="setHoveredLink(null)"
-              (click)="navigateToSection('techStack')"
+              (click)="resetHoverState()"
               aria-describedby="skills-section">
               Skills
             </a>
           </li>
           <li>
             <a 
-              [routerLink]="['/']"
-              [fragment]="'portfolio'"
+              routerLink="/"
+              fragment="portfolio"
               class="nav-link"
               [ngClass]="{'hovered': hoveredLink === 'portfolio'}"
               (mouseenter)="setHoveredLink('portfolio')"
               (mouseleave)="setHoveredLink(null)"
-              (click)="navigateToSection('portfolio')"
+              (click)="resetHoverState()"
               aria-describedby="portfolio-section">
               Portfolio
             </a>
