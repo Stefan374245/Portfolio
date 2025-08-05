@@ -1,1 +1,32 @@
-<p>footer works!</p>
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-left">
+      <h2 class="footer-name">Stefan</h2>
+      <a routerLink="/legal-notice" class="footer-subtitle-link" (click)="resetHoverState()">
+        <p class="footer-subtitle">Legal Notice</p>
+      </a>
+    </div>
+    <div class="footer-right">
+      <p class="footer-copyright">© Stefan 2024</p>
+      <nav class="social-navigation" aria-label="Social Media Links">
+        <ul class="social-links">
+          <li>
+            <a href="#" class="social-link github" aria-label="GitHub Profile">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="social-link email" aria-label="Email Contact">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="social-link linkedin" aria-label="LinkedIn Profile">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</footer>
