@@ -9,8 +9,9 @@
   position: relative;
 
   .portfolio-container {
+  
     margin: 0 100px;
-    max-width: 1400px;
+    max-width: $breakpoint-xxl;
     position: relative;
 
     @media (max-width: $breakpoint-lg) {
@@ -29,7 +30,7 @@
 
   .portfolio-content {
     @include displayFlex(column, center, center, 0);
-    width: fit-content;
+    width: 100%;
   }
 
   .portfolio-header {

@@ -25,7 +25,6 @@
 
   .project-content {
     @include displayFlex(row, space-between, center, 35px);
-    max-width: 1200px;
     margin: 0 auto;
   }
 

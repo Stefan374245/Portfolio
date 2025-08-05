@@ -195,11 +195,12 @@
     @include boxShadow(0 0 0 4px rgba($primary-color, 0.15));
   }
 
-  &:invalid:not(:placeholder-shown) {
+ &.ng-invalid.ng-touched:not(:focus) {
     border-color: $required-color;
   }
 
-  &:valid:not(:placeholder-shown) {
+  // Nur wenn das Feld touched UND valid ist
+  &.ng-valid.ng-touched:not(:focus) {
     border-color: $primary-color;
   }
 }
