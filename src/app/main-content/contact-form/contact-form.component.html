@@ -15,11 +15,12 @@
             <h2 class="contact-subtitle">Got a problem to solve?</h2>
           </div>
         </header>
-        
+
         <div class="contact-description">
           <p>
-            Encourage people to contact you and describe what role you are interested in. 
-            Show that you will add value to their projects through your work.
+            Encourage people to contact you and describe what role you are
+            interested in. Show that you will add value to their projects
+            through your work.
           </p>
           <p class="contact-cta">
             Need a Frontend developer? <strong>Contact me!</strong>
@@ -28,12 +29,14 @@
       </div>
 
       <div class="contact-right">
-        <form class="contact-form" (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" novalidate>
+        <form
+          class="contact-form"
+          (ngSubmit)="onSubmit(contactForm)"
+          #contactForm="ngForm"
+          novalidate
+        >
           <fieldset class="form-fieldset">
-            <legend class="sr-only">Contact Form</legend>
-    
             <div class="form-group">
-              <label for="name" class="sr-only">Your name</label>
               <div class="input-wrapper">
                 <input
                   #name="ngModel"
@@ -48,32 +51,40 @@
                   aria-describedby="name-error"
                   minlength="2"
                 />
-                <div class="input-icon success-icon" 
-                     [class.show]="name.valid && name.touched">
-                  <img src="/assets/icons/contact-form-icons/check.png" alt="Valid" />
+                <div
+                  class="input-icon success-icon"
+                  [class.show]="name.valid && name.touched"
+                >
+                  <img
+                    src="/assets/icons/contact-form-icons/check.png"
+                    alt="Valid"
+                  />
                 </div>
-                <div class="input-icon error-icon" 
-                     [class.show]="!name.valid && name.touched">
-                  <img src="/assets/icons/contact-form-icons/required.png" alt="Valid" />
+                <div
+                  class="input-icon error-icon"
+                  [class.show]="!name.valid && name.touched"
+                >
+                  <img
+                    src="/assets/icons/contact-form-icons/required.png"
+                    alt="Valid"
+                  />
                 </div>
               </div>
-              <span 
-                id="name-error" 
-                class="error-message" 
-                role="alert" 
+              <span
+                id="name-error"
+                class="error-message"
+                role="alert"
                 aria-live="polite"
                 [class.show]="!name.valid && name.touched && !name.disabled"
               >
-                @if (!name.valid && name.touched && !name.disabled) {
-                  Your name is required.
-                }
+                @if (!name.valid && name.touched && !name.disabled) { Your name
+                is required. }
               </span>
             </div>
 
             <div class="form-group">
-              <label for="email" class="sr-only">Your email</label>
               <div class="input-wrapper">
-                <input 
+                <input
                   #email="ngModel"
                   [(ngModel)]="contactData.email"
                   type="email"
@@ -86,30 +97,38 @@
                   pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
                   aria-describedby="email-error"
                 />
-                <div class="input-icon success-icon" 
-                     [class.show]="email.valid && email.touched">
-                  <img src="/assets/icons/contact-form-icons/check.png" alt="Valid" />
+                <div
+                  class="input-icon success-icon"
+                  [class.show]="email.valid && email.touched"
+                >
+                  <img
+                    src="/assets/icons/contact-form-icons/check.png"
+                    alt="Valid"
+                  />
                 </div>
-                <div class="input-icon error-icon" 
-                     [class.show]="!email.valid && email.touched">
-                  <img src="/assets/icons/contact-form-icons/required.png" alt="Valid" />
+                <div
+                  class="input-icon error-icon"
+                  [class.show]="!email.valid && email.touched"
+                >
+                  <img
+                    src="/assets/icons/contact-form-icons/required.png"
+                    alt="Valid"
+                  />
                 </div>
               </div>
-              <span 
-                id="email-error" 
-                class="error-message" 
-                role="alert" 
+              <span
+                id="email-error"
+                class="error-message"
+                role="alert"
                 aria-live="polite"
                 [class.show]="!email.valid && email.touched && !email.disabled"
               >
-                @if (!email.valid && email.touched && !email.disabled) {
-                  Your email must be required.
-                }
+                @if (!email.valid && email.touched && !email.disabled) { Your
+                email must be required. }
               </span>
             </div>
 
             <div class="form-group">
-              <label for="message" class="sr-only">Your message</label>
               <div class="input-wrapper textarea-wrapper">
                 <textarea
                   #message="ngModel"
@@ -122,52 +141,111 @@
                   minlength="4"
                   rows="6"
                   aria-describedby="message-error"
-                  
                 ></textarea>
-                <div class="input-icon success-icon" 
-                     [class.show]="message.valid && message.touched">
-                  <img src="/assets/icons/contact-form-icons/check.png" alt="Valid" />
+                <div
+                  class="input-icon success-icon"
+                  [class.show]="message.valid && message.touched"
+                >
+                  <img
+                    src="/assets/icons/contact-form-icons/check.png"
+                    alt="Valid"
+                  />
                 </div>
-                <div class="input-icon error-icon" 
-                     [class.show]="!message.valid && message.touched">
-                  <img src="/assets/icons/contact-form-icons/required.png" alt="Valid" />
+                <div
+                  class="input-icon error-icon"
+                  [class.show]="!message.valid && message.touched"
+                >
+                  <img
+                    src="/assets/icons/contact-form-icons/required.png"
+                    alt="Valid"
+                  />
                 </div>
               </div>
-              <span 
-                id="message-error" 
-                class="error-message" 
-                role="alert" 
+              <span
+                id="message-error"
+                class="error-message"
+                role="alert"
                 aria-live="polite"
-                [class.show]="!message.valid && message.touched && !message.disabled"
+                [class.show]="
+                  !message.valid && message.touched && !message.disabled
+                "
               >
                 @if (!message.valid && message.touched && !message.disabled) {
-                  Your message is empty and must be at least 4 characters long.
-                }
+                Your message is empty and must be at least 4 characters long. }
               </span>
             </div>
 
-
             <div class="form-group checkbox-group">
               <label class="checkbox-label">
-                <input 
-                  type="checkbox" 
-                  class="checkbox-input" 
-                  required 
+                <input
+                  #privacy="ngModel"
+                  [(ngModel)]="contactData.privacy"
+                  type="checkbox"
+                  name="privacy"
+                  class="checkbox-input"
+                  required
                   aria-describedby="privacy-text"
                 />
-                <span class="checkbox-custom" aria-hidden="true"></span>
+                <span
+                  class="checkbox-custom"
+                  [ngClass]="{
+                    hovered: hoveredCheckbox === 'privacy',
+                    checked: contactData.privacy,
+                    invalid: !privacy.valid && privacy.touched
+                  }"
+                  (mouseenter)="setHoveredCheckbox('privacy')"
+                  (mouseleave)="setHoveredCheckbox(null)"
+                  aria-hidden="true"
+                >
+                  @if (!contactData.privacy && hoveredCheckbox !== 'privacy') {
+                  <img
+                    class="checkbox-icon"
+                    src="/assets/icons/contact-form-icons/default.png"
+                    alt=""
+                  />
+                  }
+
+                  @if (!contactData.privacy && hoveredCheckbox === 'privacy') {
+                  <img
+                    class="checkbox-icon"
+                    src="/assets/icons/contact-form-icons/default-hover.png"
+                    alt=""
+                  />
+                  }
+
+                  @if (contactData.privacy && hoveredCheckbox !== 'privacy') {
+                  <img
+                    class="checkbox-icon"
+                    src="/assets/icons/contact-form-icons/checked.png"
+                    alt=""
+                  />
+                  }
+
+                  @if (contactData.privacy && hoveredCheckbox === 'privacy') {
+                  <img
+                    class="checkbox-icon"
+                    src="/assets/icons/contact-form-icons/checked-hover.png"
+                    alt=""
+                  />
+                  }
+                </span>
                 <span id="privacy-text" class="checkbox-text">
-                  I've read the <a href="#privacy" class="privacy-link">privacy policy</a> 
-                  and agree to the processing of my data as outlined.
+                  Ich habe die
+                  <a routerLink="/privacy-policy" class="privacy-link"
+                    >Datenschutzerklärung</a
+                  >
+                  gelesen und stimme der Verarbeitung meiner Daten wie
+                  beschrieben zu.
                 </span>
               </label>
             </div>
 
             <div class="form-actions">
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 class="submit-button"
-                [disabled]="!contactForm.valid"
+                [disabled]="!contactForm.valid || !contactData.privacy"
+                aria-describedby="submit-description"
               >
                 <span class="button-text">Send message :)</span>
               </button>

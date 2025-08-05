@@ -28,11 +28,9 @@ export class ReviewComponent implements OnInit, OnDestroy {
   @Input() autoPlay: boolean = true;
   @Input() autoPlayInterval: number = 5000;
 
-  // Signals for reactive state management
   private currentIndexSignal = signal(0);
   private isPausedSignal = signal(false);
 
-  // Computed values
   currentReviewIndex = computed(() => this.currentIndexSignal());
   currentReview = computed(() => this.reviews[this.currentIndexSignal()] || this.getDefaultReview());
   indicators = computed(() => 

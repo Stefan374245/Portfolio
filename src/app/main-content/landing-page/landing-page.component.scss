@@ -62,24 +62,10 @@
       }
 
       .cta-button {
+        @include primaryButton(15px 30px);
         width: 165px;
-        @include buttonBase(
-          $primary-color,
-          $background-color,
-          none,
-          $border-radius-md,
-          15px 30px
-        );
         font-size: 23px;
         font-weight: 400;
-        cursor: pointer;
-        @include transition(all, $transition-speed, $transition-ease);
-
-        &:hover {
-          background-color: $button-color;
-          transform: scale(1.1);
-          @include boxShadow();
-        }
       }
     }
   }

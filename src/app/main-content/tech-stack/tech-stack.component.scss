@@ -128,23 +128,9 @@
           }
 
           .contact-btn {
-            @include buttonBase(
-              $primary-color,
-              $background-color,
-              1px solid $primary-color,
-              10px,
-              15px 30px
-            );
+            @include primaryButton(15px 30px);
             font-size: 16px;
             font-weight: 600;
-            cursor: pointer;
-            @include transition(all, 0.3s, ease);
-
-            &:hover {
-              background-color: transparent;
-              color: $primary-color;
-              border-color: $primary-color;
-            }
           }
         }
       }
