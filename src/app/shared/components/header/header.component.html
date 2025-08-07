@@ -14,12 +14,10 @@
               routerLink="/"
               fragment="aboutMe"
               class="nav-link"
-              [ngClass]="{'hovered': hoveredLink === 'about'}"
-              (mouseenter)="setHoveredLink('about')"
-              (mouseleave)="setHoveredLink(null)"
-              (click)="resetHoverState()"
+              routerLinkActive="active-link"
+              [routerLinkActiveOptions]="{exact: false}"
               aria-describedby="about-section">
-              About me
+              {{ 'navigation.aboutMe' | translate }}
             </a>
           </li>
           <li>
@@ -27,12 +25,10 @@
               routerLink="/"
               fragment="techStack"
               class="nav-link"
-              [ngClass]="{'hovered': hoveredLink === 'skills'}"
-              (mouseenter)="setHoveredLink('skills')"
-              (mouseleave)="setHoveredLink(null)"
-              (click)="resetHoverState()"
+              routerLinkActive="active-link"
+              [routerLinkActiveOptions]="{exact: false}"
               aria-describedby="skills-section">
-              Skills
+              {{ 'navigation.skills' | translate }}
             </a>
           </li>
           <li>
@@ -40,12 +36,10 @@
               routerLink="/"
               fragment="portfolio"
               class="nav-link"
-              [ngClass]="{'hovered': hoveredLink === 'portfolio'}"
-              (mouseenter)="setHoveredLink('portfolio')"
-              (mouseleave)="setHoveredLink(null)"
-              (click)="resetHoverState()"
+              routerLinkActive="active-link"
+              [routerLinkActiveOptions]="{exact: false}"
               aria-describedby="portfolio-section">
-              Portfolio
+              {{ 'navigation.portfolio' | translate }}
             </a>
           </li>
         </ul>
@@ -56,9 +50,7 @@
       <section class="language-switcher">
         <button 
           class="lang-btn"
-          [ngClass]="{'active': currentLang === 'DE', 'hovered': hoveredLink === 'de' && currentLang !== 'DE'}"
-          (mouseenter)="setHoveredLink('de')"
-          (mouseleave)="setHoveredLink(null)"
+          [ngClass]="{'active': currentLang === 'DE'}"
           (click)="switchLanguage('DE')">
           @if (currentLang === 'DE') {
             <img src="assets/icons/hero-icons/ger-icon-active.png" alt="DE Active" class="lang-flag">
@@ -69,9 +61,7 @@
         
         <button 
           class="lang-btn"
-          [ngClass]="{'active': currentLang === 'EN', 'hovered': hoveredLink === 'en' && currentLang !== 'EN'}"
-          (mouseenter)="setHoveredLink('en')"
-          (mouseleave)="setHoveredLink(null)"
+          [ngClass]="{'active': currentLang === 'EN'}"
           (click)="switchLanguage('EN')">
           @if (currentLang === 'EN') {
             <img src="assets/icons/hero-icons/eng-icon-active.png" alt="EN Active" class="lang-flag">

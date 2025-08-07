@@ -14,7 +14,7 @@
     <header class="project-text-content" [ngStyle]="getTextStyles()">
       <h3 class="project-name">{{ project.name }}</h3>
       <p class="project-tech">{{ project.tech }}</p>
-      <p class="project-description">{{ project.description }}</p>
+      <p class="project-description">{{ project.descriptionKey | translate }}</p>
 
       <nav class="project-actions" [ngStyle]="getActionsStyles()">
         <a
@@ -24,7 +24,7 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          Live test
+          {{ 'sections.portfolio.liveDemo' | translate }}
         </a>
         <a
           [href]="project.githubUrl"
@@ -33,7 +33,7 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          Github
+          {{ 'sections.portfolio.sourceCode' | translate }}
         </a>
       </nav>
     </header>

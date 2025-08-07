@@ -1,11 +1,17 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SlideAnimationComponent } from '../../shared/slide-animation/slide-animation.component';
+import { TranslatePipe } from '../../shared/pipes/translate.pipe';
+
+interface IconData {
+  name: string;
+  text: string;
+}
 
 @Component({
   selector: 'app-about-me',
   standalone: true,
-  imports: [CommonModule, SlideAnimationComponent],
+  imports: [CommonModule, SlideAnimationComponent, TranslatePipe],
   templateUrl: './about-me.component.html',
   styleUrl: './about-me.component.scss'
 })
@@ -15,15 +21,15 @@ export class AboutMeComponent {
   icons = [
   {
     name: 'map-icon-blue',
-    text: ' Where are you located? Are you open to different ways of working, such as working remotely or even relocating?'
+    text: 'sections.about.points.location'
   },
   {
     name: 'light-bulb-blue',
-    text: '   Show that you are open-minded. Are you enthusiastic about learning new technologies and continually improving your skills?'
+    text: 'sections.about.points.passion'
   },
   {
     name: 'puzzle-blue',
-    text: 'A brief description of your problem-solving approach. Do you learnfrom each challenge as you search for the most efficient or elegantsolution? You can include some keywords like: analytical thinking, creativity, persistence and collaboration.'
+    text: 'sections.about.points.collaboration'
   }
 ];
 

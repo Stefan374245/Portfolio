@@ -4,17 +4,17 @@ import { HttpClient } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { TranslatePipe } from '../../shared/pipes/translate.pipe';
 
 @Component({
   selector: 'app-contact-form',
   standalone: true,
-  imports: [FormsModule, RouterModule, CommonModule],
+  imports: [FormsModule, RouterModule, CommonModule, TranslatePipe],
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.scss',
 })
 export class ContactFormComponent {
-  http = inject(HttpClient); // es wurde provided und injkected uns teht zur verfuegung
-
+  http = inject(HttpClient);
   contactData = {
     name: '',
     email: '',
@@ -27,7 +27,7 @@ export class ContactFormComponent {
 
   post = {
     endPoint: 'https://stefan-helldobler.de/portfolio/sendMail.php',
-    body: (payload: any) => JSON.stringify(payload), //payload wird in JSON umgewandelt -->payload wird die contactData sein
+    body: (payload: any) => JSON.stringify(payload), 
     options: {
       headers: {
         'Content-Type': 'application/json',

@@ -3,14 +3,12 @@
     <div class="about-content">
       <div class="text-content">
         <app-slide-animation direction="left" [delay]="200" [triggerOnScroll]="true">
-          <h2>About me</h2>
+          <h2>{{ 'sections.about.title' | translate }}</h2>
         </app-slide-animation>
         
         <app-slide-animation direction="left" [delay]="400" [triggerOnScroll]="true">
           <p class="intro-text">
-            Write some information about yourself that is IT related. Why are you
-            passionate about coding? What is your source of inspiration for
-            improving your programming skills?
+            {{ 'sections.about.description' | translate }}
           </p>
         </app-slide-animation>
 
@@ -25,12 +23,10 @@
                 <img
                   [src]="getIconSrc(icon.name)"
                   [alt]="icon.name"
-                  (mouseenter)="hoveredIcon = icon.name"
-                  (mouseleave)="hoveredIcon = null"
                 />
               </div>
               <div class="text-wrapper">
-                <p>{{ icon.text }}</p>
+                <p>{{ icon.text | translate }}</p>
               </div>
             </div>
           </app-slide-animation>

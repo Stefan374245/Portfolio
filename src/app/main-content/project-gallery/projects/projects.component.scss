@@ -6,7 +6,6 @@
   padding: 40px 0;
   @include transition(all, $transition-speed, $transition-ease);
 
-  // Hover-Effekte für andere Elemente (nicht das Video)
   &:hover,
   &.hovered {
     .project-name {
@@ -96,11 +95,8 @@
         display: block;
         @include transition(transform, 0.3s, ease);
 
-        // Video wird nur beim Hover über das Bild angezeigt
         &:hover {
           transform: scale(1.02);
-
-          // Video beim Hover über das Bild anzeigen
           + .project-preview-video {
             display: block !important;
             opacity: 1 !important;
@@ -124,7 +120,6 @@
         @include transition(opacity, 0.4s, ease);
       }
 
-      // Alternative: Hover auf dem gesamten Image-Container
       &:hover {
         .project-screenshot {
           transform: scale(1.02);

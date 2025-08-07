@@ -1,0 +1,56 @@
+{
+  "navigation": {
+    "aboutMe": "About me",
+    "skills": "Skills", 
+    "portfolio": "Portfolio"
+  },
+  "sections": {
+    "hero": {
+      "greeting": "Hello, I'm",
+      "name": "Stefan",
+      "role": "Frontend Developer",
+      "description": "I am a passionate frontend developer who loves creating amazing user experiences with modern web technologies.",
+      "contactBtn": "Contact me"
+    },
+    "about": {
+      "title": "About me",
+      "description": "I am a passionate frontend developer with a strong foundation in modern web technologies. My journey in programming started with curiosity and has grown into a dedication to creating exceptional user experiences. I love solving complex problems and turning creative ideas into functional, beautiful applications.",
+      "points": {
+        "location": "I am based in Berlin, Germany and open for remote work worldwide.",
+        "passion": "Passionate about clean code, user experience, and continuous learning.",
+        "collaboration": "I enjoy collaborating with teams and contributing to innovative projects."
+      }
+    },
+    "skills": {
+      "title": "Skills",
+      "description": "Here are the technologies and tools I work with to bring ideas to life.",
+      "subtitle": "Technologies I've been working with recently"
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "description": "Explore some of my recent projects that showcase my skills and creativity.",
+      "viewProject": "View Project",
+      "liveDemo": "Live Demo",
+      "sourceCode": "Source Code"
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Let's get in touch and discuss your project ideas.",
+      "subtitle": "Got a problem to solve?",
+      "form": {
+        "name": "Your name",
+        "email": "Your email",
+        "message": "Your message",
+        "send": "Send message",
+        "sending": "Sending...",
+        "success": "Message sent successfully!",
+        "error": "Error sending message. Please try again."
+      },
+      "info": {
+        "email": "hello@stefan-dev.com",
+        "phone": "+49 123 456 7890",
+        "location": "Berlin, Germany"
+      }
+    }
+  }
+}

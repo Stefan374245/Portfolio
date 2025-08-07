@@ -54,7 +54,7 @@ header {
           @include transition(width, 0.3s, $transition-ease);
         }
 
-        &.hovered::after {
+        &:hover::after {
           width: 100%;
           right: auto;
           left: 0;
@@ -82,10 +82,9 @@ header {
           @include transition(all, 0.2s, $transition-ease);
         }
 
-        &.hovered:not(.active) {
+        &:hover:not(.active) {
           background-color: $button-color;
-          border-radius: $border-radius-md;
-
+          
           .lang-flag {
             filter: brightness(1.2);
           }

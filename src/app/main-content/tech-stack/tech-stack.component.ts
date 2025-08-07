@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SlideAnimationComponent } from '../../shared/slide-animation/slide-animation.component';
+import { TranslatePipe } from '../../shared/pipes/translate.pipe';
 
 @Component({
   selector: 'app-tech-stack',
   standalone: true,
-  imports: [CommonModule, SlideAnimationComponent],
+  imports: [CommonModule, SlideAnimationComponent, TranslatePipe],
   templateUrl: './tech-stack.component.html',
   styleUrl: './tech-stack.component.scss'
 })

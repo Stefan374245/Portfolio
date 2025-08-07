@@ -1,0 +1,56 @@
+{
+  "navigation": {
+    "aboutMe": "Über mich",
+    "skills": "Fähigkeiten",
+    "portfolio": "Portfolio"
+  },
+  "sections": {
+    "hero": {
+      "greeting": "Hallo, ich bin",
+      "name": "Stefan",
+      "role": "Frontend Entwickler",
+      "description": "Ich bin ein leidenschaftlicher Frontend-Entwickler, der großartige Benutzererfahrungen mit modernen Web-Technologien schafft.",
+      "contactBtn": "Kontakt"
+    },
+    "about": {
+      "title": "Über mich",
+      "description": "Ich bin ein leidenschaftlicher Frontend-Entwickler mit einer starken Basis in modernen Web-Technologien. Meine Reise in der Programmierung begann mit Neugier und ist zu einer Hingabe geworden, außergewöhnliche Benutzererfahrungen zu schaffen. Ich liebe es, komplexe Probleme zu lösen und kreative Ideen in funktionale, schöne Anwendungen zu verwandeln.",
+      "points": {
+        "location": "Ich lebe in Berlin und bin offen für Remote-Arbeit weltweit.",
+        "passion": "Leidenschaftlich für sauberen Code, Benutzererfahrung und kontinuierliches Lernen.",
+        "collaboration": "Ich arbeite gerne im Team und trage zu innovativen Projekten bei."
+      }
+    },
+    "skills": {
+      "title": "Fähigkeiten",
+      "description": "Hier sind die Technologien und Tools, mit denen ich Ideen zum Leben erwecke.",
+      "subtitle": "Technologien, mit denen ich in letzter Zeit gearbeitet habe"
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "description": "Entdecken Sie einige meiner neuesten Projekte, die meine Fähigkeiten und Kreativität zeigen.",
+      "viewProject": "Projekt ansehen",
+      "liveDemo": "Live Demo",
+      "sourceCode": "Quellcode"
+    },
+    "contact": {
+      "title": "Kontakt",
+      "description": "Lassen Sie uns in Kontakt treten und Ihre Projektideen besprechen.",
+      "subtitle": "Haben Sie ein Problem zu lösen?",
+      "form": {
+        "name": "Ihr Name",
+        "email": "Ihre E-Mail",
+        "message": "Ihre Nachricht",
+        "send": "Nachricht senden",
+        "sending": "Wird gesendet...",
+        "success": "Nachricht erfolgreich gesendet!",
+        "error": "Fehler beim Senden. Bitte versuchen Sie es erneut."
+      },
+      "info": {
+        "email": "hello@stefan-dev.com",
+        "phone": "+49 123 456 7890",
+        "location": "Berlin, Deutschland"
+      }
+    }
+  }
+}

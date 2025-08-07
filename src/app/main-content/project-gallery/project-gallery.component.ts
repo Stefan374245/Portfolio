@@ -4,12 +4,13 @@ import { ProjectsComponent } from './projects/projects.component';
 import { ProjectService } from '../../shared/services/project.service';
 import { Project } from '../../shared/interfaces/project.interface';
 import { SlideAnimationComponent } from '../../shared/slide-animation/slide-animation.component';
+import { TranslatePipe } from '../../shared/pipes/translate.pipe';
 
 
 @Component({
   selector: 'app-project-gallery',
   standalone: true,
-  imports: [CommonModule, ProjectsComponent, SlideAnimationComponent],
+  imports: [CommonModule, ProjectsComponent, SlideAnimationComponent, TranslatePipe],
   templateUrl: './project-gallery.component.html',
   styleUrl: './project-gallery.component.scss'
 })

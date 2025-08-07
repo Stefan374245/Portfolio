@@ -2,7 +2,7 @@
   <div class="container">
     <header class="section-header">
       <div class="title-container">
-        <h1 class="main-title">Contact</h1>
+        <h1 class="main-title">{{ 'sections.contact.title' | translate }}</h1>
         <div class="title-separator" aria-hidden="true"></div>
       </div>
     </header>
@@ -12,18 +12,16 @@
         <header class="contact-left-header">
           <div class="subtitle-separator" aria-hidden="true"></div>
           <div class="subtitle-container">
-            <h2 class="contact-subtitle">Got a problem to solve?</h2>
+            <h2 class="contact-subtitle">{{ 'sections.contact.subtitle' | translate }}</h2>
           </div>
         </header>
 
         <div class="contact-description">
           <p>
-            Encourage people to contact you and describe what role you are
-            interested in. Show that you will add value to their projects
-            through your work.
+            {{ 'sections.contact.description' | translate }}
           </p>
           <p class="contact-cta">
-            Need a Frontend developer? <strong>Contact me!</strong>
+            {{ 'sections.contact.form.ctaText' | translate }} <strong>{{ 'sections.contact.form.contactBtn' | translate }}</strong>
           </p>
         </div>
       </div>
@@ -45,7 +43,7 @@
                   id="name"
                   name="name"
                   class="form-input"
-                  placeholder="Your name"
+                  placeholder="{{ 'sections.contact.form.name' | translate }}"
                   required
                   autocomplete="name"
                   aria-describedby="name-error"
@@ -66,7 +64,7 @@
                 >
                   <img
                     src="assets/icons/contact-form-icons/required.png"
-                    alt="Valid"
+                    alt="Invalid"
                   />
                 </div>
               </div>
@@ -77,8 +75,9 @@
                 aria-live="polite"
                 [class.show]="!name.valid && name.touched && !name.disabled"
               >
-                @if (!name.valid && name.touched && !name.disabled) { Your name
-                is required. }
+                @if (!name.valid && name.touched && !name.disabled) {
+                  {{ 'sections.contact.form.errors.nameRequired' | translate }}
+                }
               </span>
             </div>
 
@@ -91,7 +90,7 @@
                   id="email"
                   name="email"
                   class="form-input"
-                  placeholder="Your email"
+                  placeholder="{{ 'sections.contact.form.email' | translate }}"
                   required
                   autocomplete="email"
                   pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
@@ -112,7 +111,7 @@
                 >
                   <img
                     src="assets/icons/contact-form-icons/required.png"
-                    alt="Valid"
+                    alt="Invalid"
                   />
                 </div>
               </div>
@@ -123,8 +122,9 @@
                 aria-live="polite"
                 [class.show]="!email.valid && email.touched && !email.disabled"
               >
-                @if (!email.valid && email.touched && !email.disabled) { Your
-                email must be required. }
+                @if (!email.valid && email.touched && !email.disabled) {
+                  {{ 'sections.contact.form.errors.emailRequired' | translate }}
+                }
               </span>
             </div>
 
@@ -136,7 +136,7 @@
                   id="message"
                   name="message"
                   class="form-textarea"
-                  placeholder="Your message"
+                  placeholder="{{ 'sections.contact.form.message' | translate }}"
                   required
                   minlength="4"
                   rows="6"
@@ -157,7 +157,7 @@
                 >
                   <img
                     src="assets/icons/contact-form-icons/required.png"
-                    alt="Valid"
+                    alt="Invalid"
                   />
                 </div>
               </div>
@@ -171,7 +171,8 @@
                 "
               >
                 @if (!message.valid && message.touched && !message.disabled) {
-                Your message is empty and must be at least 4 characters long. }
+                  {{ 'sections.contact.form.errors.messageRequired' | translate }}
+                }
               </span>
             </div>
 
@@ -230,12 +231,11 @@
                   }
                 </span>
                 <span id="privacy-text" class="checkbox-text">
-                  Ich habe die
-                  <a routerLink="/privacy-policy" class="privacy-link"
-                    >Datenschutzerklärung</a
-                  >
-                  gelesen und stimme der Verarbeitung meiner Daten wie
-                  beschrieben zu.
+                  {{ 'sections.contact.form.privacyText' | translate }}
+                  <a routerLink="/privacy-policy" class="privacy-link">
+                    {{ 'sections.contact.form.privacyLink' | translate }}
+                  </a>
+                  {{ 'sections.contact.form.privacyAgreement' | translate }}
                 </span>
               </label>
             </div>
@@ -247,7 +247,7 @@
                 [disabled]="!contactForm.valid || !contactData.privacy"
                 aria-describedby="submit-description"
               >
-                <span class="button-text">Send message :)</span>
+                <span class="button-text">{{ 'sections.contact.form.send' | translate }}</span>
               </button>
             </div>
           </fieldset>

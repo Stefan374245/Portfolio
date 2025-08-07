@@ -1,6 +1,6 @@
 export interface Review {
   id: number;
-  text: string;
+  textKey: string;
   reviewerName: string;
   reviewerTitle: string;
   avatarUrl: string;

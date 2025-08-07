@@ -20,23 +20,21 @@
       <app-slide-animation direction="right" [delay]="400" [triggerOnScroll]="true">
         <aside class="text-content">
           <header class="skills">
-            <h2>Skills</h2>
+            <h2>{{ 'sections.skills.title' | translate }}</h2>
             <div class="separator" role="presentation" aria-hidden="true"></div>
           </header>
           
           <p class="skills-description">
-            Show that you have used a variety of front-end technologies in your
-            projects. Highlight your expertise in Angular, TypeScript, and other
-            relevant frameworks. 
+            {{ 'sections.skills.description' | translate }}
           </p>
 
           <section class="learning-section">
-            <h3>Looking for <span class="highlight">another skill</span>?</h3>
+            <h3>{{ 'sections.skills.learning.title' | translate }} <span class="highlight">{{ 'sections.skills.learning.highlight' | translate }}</span>?</h3>
             <p class="learning-text">
-              Reveal enthusiasm for learning new technologies and frameworks.
+              {{ 'sections.skills.learning.description' | translate }}
             </p>
             <button class="contact-btn" type="button" aria-label="Contact us about additional skills">
-              Get in touch
+              {{ 'sections.skills.learning.contactBtn' | translate }}
             </button>
           </section>
         </aside>

@@ -1,44 +1,30 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SlideAnimationComponent } from '../../slide-animation/slide-animation.component';
-import { NavigationService } from '../../services/navigation.service';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { TranslationService } from '../../services/translation.service';
+import { TranslatePipe } from '../../pipes/translate.pipe';
+import { Language } from '../../interfaces/translation.interface';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, SlideAnimationComponent, RouterLink],
+  imports: [CommonModule, SlideAnimationComponent, RouterLink, RouterLinkActive, TranslatePipe],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-
 export class HeaderComponent {
-  private navigationService = inject(NavigationService);
+  private translationService = inject(TranslationService);
   
-  hoveredLink: string | null = null;
-  currentLang: string = 'EN';
+  // Computed property für aktuelle Sprache
+  get currentLang(): Language {
+    return this.translationService.currentLanguage();
+  }
 
- 
   /**
    * Wechselt die Sprache der Anwendung
-   * @param lang - Zielsprache ('DE' oder 'EN')
    */
-  switchLanguage(lang: string): void {
-    this.currentLang = lang;
-    console.log(`Language switched to: ${lang}`);
-  }
-
-  /**
-   * Setzt den Hover-State für Navigationselemente
-   * @param linkId - ID des gehöverten Links
-   */
-  setHoveredLink(linkId: string | null): void {
-    this.hoveredLink = linkId;
-  }
-  /**
-   * Resettet den Hover-State nach Navigation
-   */
-  resetHoverState(): void {
-    this.hoveredLink = null;
+  switchLanguage(lang: Language): void {
+    this.translationService.setLanguage(lang);
   }
 }

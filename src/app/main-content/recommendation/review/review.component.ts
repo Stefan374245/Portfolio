@@ -1,9 +1,10 @@
 import { Component, Input, OnInit, OnDestroy, ChangeDetectionStrategy, HostBinding, HostListener, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslatePipe } from '../../../shared/pipes/translate.pipe';
 
 export interface Review {
   id: number;
-  text: string;
+  textKey: string;
   reviewerName: string;
   reviewerTitle: string;
   avatarUrl: string;
@@ -13,7 +14,7 @@ export interface Review {
 @Component({
   selector: 'app-reviews',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './review.component.html',
   styleUrl: './review.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -168,7 +169,7 @@ export class ReviewComponent implements OnInit, OnDestroy {
   private getDefaultReview(): Review {
     return {
       id: 0,
-      text: "No reviews available",
+      textKey: "No reviews available",
       reviewerName: "Unknown",
       reviewerTitle: "User",
       avatarUrl: "assets/images/default-avatar.png"
@@ -179,21 +180,21 @@ export class ReviewComponent implements OnInit, OnDestroy {
     return [
       {
         id: 1,
-        text: "Michael really kept the team together with his great organization and clear communication. We wouldn't have got this far without his commitment.",
+        textKey: "reviews.review1.text",
         reviewerName: "V. Schuster",
         reviewerTitle: "Team Partner",
         avatarUrl: "assets/images/reviewers/reviewer-1.jpg"
       },
       {
         id: 2,
-        text: "Excellent collaboration and outstanding technical skills. The project was delivered on time and exceeded our expectations.",
+        textKey: "reviews.review2.text",
         reviewerName: "A. Mueller",
         reviewerTitle: "Project Manager",
         avatarUrl: "assets/images/reviewers/reviewer-2.jpg"
       },
       {
         id: 3,
-        text: "Professional approach and innovative solutions. Great attention to detail and user experience.",
+        textKey: "reviews.review3.text",
         reviewerName: "S. Weber",
         reviewerTitle: "UX Designer",
         avatarUrl: "assets/images/reviewers/reviewer-3.jpg"
