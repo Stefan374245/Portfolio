@@ -55,9 +55,9 @@ header {
         }
 
         &:hover::after {
-          width: 100%;
           right: auto;
           left: 0;
+          width: 100%;
         }
 
         &:hover {
@@ -70,24 +70,30 @@ header {
       @include displayFlex(row, center, center, 10px);
 
       .lang-btn {
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        @include transition(all, $transition-speed, $transition-ease);
-        padding: 0;
-        border-radius: $border-radius-md;
+        @include buttonBase(
+          $bg: transparent,
+          $color: $text-color,
+          $border: 1px solid $primary-color,
+          $radius: $border-radius-md,
+          $padding: 5px 8px
+        );
 
-        .lang-flag {
-          @include imgResponsive(45px, 30px, contain);
-          @include transition(all, 0.2s, $transition-ease);
-        }
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        min-width: 45px;
+        height: 35px;
 
         &:hover:not(.active) {
           background-color: $button-color;
-          
-          .lang-flag {
-            filter: brightness(1.2);
-          }
+          border-color: $button-color;
+        }
+
+        &.active {
+          background-color: $primary-color;
+          color: $background-color;
+          border-color: $primary-color;
+
         }
       }
     }

@@ -141,7 +141,7 @@ export class TranslationService {
           "description": "Entdecken Sie einige meiner neuesten Projekte, die meine Fähigkeiten und Kreativität zeigen.",
           "viewProject": "Projekt ansehen",
           "liveDemo": "Live Demo",
-          "sourceCode": "Quellcode"
+          "sourceCode": "GitHub"
         },
         "contact": {
           "title": "Kontakt",
@@ -167,9 +167,9 @@ export class TranslationService {
             }
           },
           "info": {
-            "email": "hello@stefan-dev.com",
-            "phone": "+49 123 456 7890",
-            "location": "Berlin, Deutschland"
+            "email": "info@stefan-helldobler.de",
+            "phone": "+49 1732534290",
+            "location": "Dinslaken, Deutschland"
           }
         }
       },

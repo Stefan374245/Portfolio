@@ -1,73 +1,70 @@
-<header>
+<header id="header">
   <app-slide-animation direction="left" [delay]="600">
     <div class="logo">
       <span>Stefa</span>
     </div>
   </app-slide-animation>
-  
+
   <div class="nav-container">
     <app-slide-animation direction="down" [delay]="800">
       <nav class="navigation" role="navigation" aria-label="Main navigation">
         <ul>
-           <li>
-            <a 
+          <li>
+            <a
               routerLink="/"
               fragment="aboutMe"
               class="nav-link"
               routerLinkActive="active-link"
-              [routerLinkActiveOptions]="{exact: false}"
-              aria-describedby="about-section">
-              {{ 'navigation.aboutMe' | translate }}
+              [routerLinkActiveOptions]="{ exact: false }"
+              aria-describedby="about-section"
+            >
+              {{ "navigation.aboutMe" | translate }}
             </a>
           </li>
           <li>
-            <a 
+            <a
               routerLink="/"
               fragment="techStack"
               class="nav-link"
               routerLinkActive="active-link"
-              [routerLinkActiveOptions]="{exact: false}"
-              aria-describedby="skills-section">
-              {{ 'navigation.skills' | translate }}
+              [routerLinkActiveOptions]="{ exact: false }"
+              aria-describedby="skills-section"
+            >
+              {{ "navigation.skills" | translate }}
             </a>
           </li>
           <li>
-            <a 
+            <a
               routerLink="/"
               fragment="portfolio"
               class="nav-link"
               routerLinkActive="active-link"
-              [routerLinkActiveOptions]="{exact: false}"
-              aria-describedby="portfolio-section">
-              {{ 'navigation.portfolio' | translate }}
+              [routerLinkActiveOptions]="{ exact: false }"
+              aria-describedby="portfolio-section"
+            >
+              {{ "navigation.portfolio" | translate }}
             </a>
           </li>
         </ul>
       </nav>
     </app-slide-animation>
-    
+
     <app-slide-animation direction="down" [delay]="1000">
       <section class="language-switcher">
-        <button 
+        <button
           class="lang-btn"
-          [ngClass]="{'active': currentLang === 'DE'}"
-          (click)="switchLanguage('DE')">
-          @if (currentLang === 'DE') {
-            <img src="assets/icons/hero-icons/ger-icon-active.png" alt="DE Active" class="lang-flag">
-          } @else {
-            <img src="assets/icons/hero-icons/ger-icon.png" alt="DE Inactive" class="lang-flag">
-          }
+          [ngClass]="{ active: currentLang === 'DE' }"
+          (click)="switchLanguage('DE')"
+        >
+          DE
         </button>
-        
-        <button 
+
+        <button
           class="lang-btn"
-          [ngClass]="{'active': currentLang === 'EN'}"
-          (click)="switchLanguage('EN')">
-          @if (currentLang === 'EN') {
-            <img src="assets/icons/hero-icons/eng-icon-active.png" alt="EN Active" class="lang-flag">
-          } @else {
-            <img src="assets/icons/hero-icons/eng-icon.png" alt="EN Inactive" class="lang-flag">
-          }
+          [ngClass]="{ active: currentLang === 'EN' }"
+          (click)="switchLanguage('EN')"
+        >
+          EN
         </button>
       </section>
     </app-slide-animation>

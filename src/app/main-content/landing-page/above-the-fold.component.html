@@ -19,7 +19,16 @@
             </app-slide-animation>
 
             <app-slide-animation direction="left" [delay]="800">
-              <button class="cta-button" type="button">Let's talk!</button>
+              <button
+                class="cta-button"
+                type="button"
+                routerLink="/"
+                fragment="contact"
+                role="button"
+                aria-label="Navigate to contact section"
+              >
+                Let's talk!
+              </button>
             </app-slide-animation>
           </header>
         </div>
@@ -47,7 +56,10 @@
         </app-slide-animation>
 
         <app-slide-animation direction="up" [delay]="1400">
-          <a href="mailto:s.helldobler@gmx.de" aria-label="Send me an email">
+          <a
+            href="mailto:info&#64;stefan-helldobler.de"
+            aria-label="Send me an email"
+          >
             <img
               src="assets/icons/hero-icons/social-icons/mail.png"
               alt="Email icon"
@@ -70,7 +82,7 @@
         </app-slide-animation>
 
         <app-slide-animation direction="up" [delay]="1800">
-          <address class="email-text">s.helldobler gmx.de</address>
+          <address class="email-text">{{ emailAddress }}</address>
         </app-slide-animation>
       </nav>
 

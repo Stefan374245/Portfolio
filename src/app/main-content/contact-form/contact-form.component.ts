@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe } from '../../shared/pipes/translate.pipe';
 
+
 @Component({
   selector: 'app-contact-form',
   standalone: true,
