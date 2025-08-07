@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LandingPageComponent } from './landing-page.component';
+import { AboveTheFoldComponent } from './above-the-fold.component';
 
-describe('LandingPageComponent', () => {
-  let component: LandingPageComponent;
-  let fixture: ComponentFixture<LandingPageComponent>;
+describe('AboveTheFoldComponent', () => {
+  let component: AboveTheFoldComponent;
+  let fixture: ComponentFixture<AboveTheFoldComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LandingPageComponent]
+      imports: [AboveTheFoldComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(LandingPageComponent);
+    fixture = TestBed.createComponent(AboveTheFoldComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

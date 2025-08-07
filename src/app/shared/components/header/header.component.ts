@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SlideAnimationComponent } from '../../../shared/slide-animation/slide-animation.component';
-import { NavigationService } from '../../../shared/services/navigation.service';
+import { SlideAnimationComponent } from '../../slide-animation/slide-animation.component';
+import { NavigationService } from '../../services/navigation.service';
 import { RouterLink } from '@angular/router';
 
 @Component({
