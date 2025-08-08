@@ -14,7 +14,7 @@
     <header class="project-text-content" [ngStyle]="getTextStyles()">
       <h3 class="project-name">{{ project.name }}</h3>
       <p class="project-tech">{{ project.tech }}</p>
-      <p class="project-description">{{ project.descriptionKey | translate }}</p>
+      <p class="project-description">{{ getDescriptionKey() | translate }}</p>
 
       <nav class="project-actions" [ngStyle]="getActionsStyles()">
         <a

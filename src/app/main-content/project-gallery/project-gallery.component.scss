@@ -3,10 +3,10 @@
 @import "../../../styles.scss";
 
 #portfolio {
-  background-color: $background-color;
   color: $text-color;
   overflow: hidden;
   position: relative;
+  padding-top: 10px;
 
   .portfolio-container {
   

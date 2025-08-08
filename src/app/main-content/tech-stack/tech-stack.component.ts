@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SlideAnimationComponent } from '../../shared/slide-animation/slide-animation.component';
 import { TranslatePipe } from '../../shared/pipes/translate.pipe';
 import { RouterLink } from '@angular/router';
+import { Translation } from '../../shared/interfaces/translation.interface';
 
 @Component({
   selector: 'app-tech-stack',
@@ -12,6 +13,8 @@ import { RouterLink } from '@angular/router';
   styleUrl: './tech-stack.component.scss',
 })
 export class TechStackComponent {
+    @Input() translation!: Translation['sections']['skills'];
+
   hoveredSkill: string | null = null;
 
   skillsWithHoverIcons = [

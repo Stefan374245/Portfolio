@@ -16,7 +16,7 @@
     <main class="portfolio-content">
       <div class="projects-grid" role="grid" aria-labelledby="portfolio-heading">
         
-        @for (project of projects; track project.id; let i = $index) {
+        @for (project of projectList; track project.id; let i = $index) {
           <article class="project-item">
             <app-slide-animation
               [direction]="getSlideDirection(i)"
@@ -25,7 +25,8 @@
             >
               <app-projects 
                 [project]="project"
-                [index]="i">
+                [index]="i"
+                [translation]="translation">
               </app-projects>
             </app-slide-animation>
           </article>

@@ -1,5 +1,3 @@
-<app-header></app-header>
-
 <main class="hero-section">
   <div class="hero-content">
     <section class="main-content">
@@ -35,51 +33,29 @@
       </article>
     </section>
 
-    <aside class="bottom-section">
+      <aside class="bottom-section">
       <nav class="social-links" aria-label="Social media links">
         <app-slide-animation direction="up" [delay]="1000">
           <div class="separator" role="presentation"></div>
         </app-slide-animation>
 
-        <app-slide-animation direction="up" [delay]="1200">
-          <a
-            href="https://github.com/Stefan374245"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Visit my GitHub profile"
-          >
-            <img
-              src="assets/icons/hero-icons/social-icons/github.png"
-              alt="GitHub icon"
-            />
-          </a>
-        </app-slide-animation>
-
-        <app-slide-animation direction="up" [delay]="1400">
-          <a
-            href="mailto:info&#64;stefan-helldobler.de"
-            aria-label="Send me an email"
-          >
-            <img
-              src="assets/icons/hero-icons/social-icons/mail.png"
-              alt="Email icon"
-            />
-          </a>
-        </app-slide-animation>
-
-        <app-slide-animation direction="up" [delay]="1600">
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Visit my LinkedIn profile"
-          >
-            <img
-              src="assets/icons/hero-icons/social-icons/linkedin.png"
-              alt="LinkedIn icon"
-            />
-          </a>
-        </app-slide-animation>
+        @for (link of socialLinks; track link; let i = $index) {
+          <app-slide-animation direction="up" [delay]="1200 + (i * 200)">
+            <a
+              [href]="link.url"
+              [attr.target]="link.target"
+              [attr.rel]="link.rel"
+              [attr.aria-label]="link.ariaLabel"
+              class="social-icon-link"
+            >
+              <img
+                [src]="link.icon"
+                [alt]="link.alt"
+                class="social-icon"
+              />
+            </a>
+          </app-slide-animation>
+        }
 
         <app-slide-animation direction="up" [delay]="1800">
           <address class="email-text">{{ emailAddress }}</address>
@@ -89,6 +65,7 @@
       <app-slide-animation
         direction="right"
         [delay]="2000"
+        class="scroll-indicator-container"
         style="position: absolute; bottom: 80px; right: 100px"
       >
         <div class="scroll-indicator">

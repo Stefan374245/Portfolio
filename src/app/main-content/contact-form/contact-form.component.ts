@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe } from '../../shared/pipes/translate.pipe';
+import { Translation } from '../../shared/interfaces/translation.interface';
 
 
 @Component({
@@ -15,6 +16,8 @@ import { TranslatePipe } from '../../shared/pipes/translate.pipe';
   styleUrl: './contact-form.component.scss',
 })
 export class ContactFormComponent {
+  @Input() translation!: Translation['sections']['contact'];
+
   http = inject(HttpClient);
   contactData = {
     name: '',
@@ -56,14 +59,17 @@ export class ContactFormComponent {
           next: (response) => {
             // die Antwort des Servers wird hier verarbeitet
             // hier kann ich alles moegliche implementieren, z.B. eine Erfolgsmeldung anzeigen
+            alert(this.translation.form.success); // Erfolgsmeldung anzeigen
             ngForm.resetForm(); // das Formular wird nach dem Absenden geleert
           },
           error: (error) => {
             console.error(error);
+            alert(this.translation.form.error); // Fehlermeldung anzeigen
           },
           complete: () => console.info('send post complete'), // optional, um zu sehen, dass die Anfrage abgeschlossen ist
         });
     } else if (ngForm.submitted && ngForm.form.valid && this.mailTest && this.contactData.privacy) {
+      alert(this.translation.form.success); // Erfolgsmeldung im Testmodus
       ngForm.resetForm();
       this.contactData.privacy = false; // Reset checkbox explicitly
     }

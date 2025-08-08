@@ -2,6 +2,7 @@ import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Project } from '../../../shared/interfaces/project.interface';
 import { TranslatePipe } from '../../../shared/pipes/translate.pipe';
+import { Translation } from '../../../shared/interfaces/translation.interface';
 
 @Component({
   selector: 'app-projects',
@@ -13,6 +14,7 @@ import { TranslatePipe } from '../../../shared/pipes/translate.pipe';
 export class ProjectsComponent implements OnInit {
   @Input() project!: Project;
   @Input() index!: number;
+  @Input() translation?: Translation['sections']['portfolio'];
   @ViewChild('projectVideo') videoElement!: ElementRef<HTMLVideoElement>;
   
   hoveredProject: boolean = false;
@@ -21,6 +23,21 @@ export class ProjectsComponent implements OnInit {
 
   ngOnInit(): void {
     this.isReversed = this.index % 2 !== 0;
+  }
+  
+  /**
+   * Generiert den Übersetzungsschlüssel für die Projektbeschreibung
+   */
+  getDescriptionKey(): string {
+    switch(this.project.id.toLowerCase()) {
+      case 'el-pollo-loco':
+        return 'projects.elPolloLoco.description';
+      case 'pokedex':
+        return 'projects.pokedex.description';
+      default:
+        const normalizedId = this.project.id.replace(/-/g, '').toLowerCase();
+        return `projects.${normalizedId}.description`;
+    }
   }
 
   onMouseEnter(): void {

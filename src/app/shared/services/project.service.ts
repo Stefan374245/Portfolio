@@ -28,7 +28,7 @@ export class ProjectService {
       githubUrl: '#'
     },
     {
-      id: 'pkedex',
+      id: 'pokedex',
       name: 'Pokedex',
       tech: 'HTML | JavaScript | CSS | API', 
       descriptionKey: 'projects.pokedex.description',

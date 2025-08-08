@@ -1,10 +1,13 @@
 <div class="background-wrapper">
   <app-background></app-background>
 
-  <app-above-the-fold></app-above-the-fold>
-  <app-about-me></app-about-me>
-  <app-tech-stack></app-tech-stack>
-  <app-project-gallery></app-project-gallery>
-  <app-recommendations></app-recommendations>
-  <app-contact-form></app-contact-form>
+  <app-above-the-fold [translation]="translations.sections.hero"></app-above-the-fold>
+  <app-about-me [translation]="translations.sections.about"></app-about-me>
+  <app-tech-stack [translation]="translations.sections.skills"></app-tech-stack>
+  <app-project-gallery 
+    [translation]="translations.sections.portfolio"
+    [projects]="translations.projects">
+  </app-project-gallery>
+  <app-recommendations [reviews]="translations.reviews"></app-recommendations>
+  <app-contact-form [translation]="translations.sections.contact"></app-contact-form>
 </div>

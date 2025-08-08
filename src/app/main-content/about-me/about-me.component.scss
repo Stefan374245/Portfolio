@@ -1,93 +1,150 @@
 @import "../../../../mixin.scss";
 @import "../../../variables";
-@import "./../../../styles.scss";
+@import "../../../styles.scss";
 
 #aboutMe {
-  @include displayFlex (row, space-around, center, 166px);
+  display: flex;
   width: 100%;
   background-color: $background-color;
-  color: white;
+  color: $text-color;
   overflow: hidden;
   position: relative;
-  padding-top: 44px;
-  
+  margin: 80px 0;
 
   .about-container {
-    @include displayFlex(row, space-between, center);
+    @include displayFlex(row, center, center, 166px);
+    min-height: 80vh;
     width: 100%;
-    margin: 0 100px;
-    padding-bottom: 100px;
-    max-width: 1200px;
-
+    padding: 0 24px;
     @media (max-width: $breakpoint-lg) {
-      margin: 0 60px;
+      padding: 0 40px;
     }
 
-    @media (max-width: $breakpoint-md) {
-      margin: 0 40px;
-    }
-
-    @media (max-width: $breakpoint-sm) {
-      margin: 0 24px;
-      padding-bottom: 123px;
+    .about-card {
+      background-color: transparent;
+      border: none;
+      box-shadow: none;
+      padding: 0;
     }
 
     .about-content {
-      @include displayFlex(row, space-between, center);
-      width: 100%;
+      @include displayFlex(row, space-between, flex-start, 166px);
+
+      @media (max-width: $breakpoint-xl) {
+        gap: 80px;
+      }
+
+      @media (max-width: $breakpoint-lg) {
+        gap: 60px;
+      }
+
+      @media (max-width: $breakpoint-md) {
+        flex-direction: column-reverse;
+        align-items: center;
+      }
 
       .text-content {
-        max-width: 470px;
         @include displayFlex(column, flex-start, flex-start);
+        width: 471px;
+        height: 587px;
 
-        h2 {
-          font-size: 80px;
-          font-weight: 700;
-          margin: 0 0 40px 0;
-          line-height: 1.1;
-          color: white;
+        h1 {
+          font-size: $font-size-hero-name;
+          font-weight: $font-weight-hero-name;
+          margin: 0 0 35px 0;
+          line-height: $line-height;
+          color: $text-color;
+
+          @media (max-width: $breakpoint-xl) {
+            width: 400px;
+          }
+
+          @media (max-width: $breakpoint-lg) {
+            width: 380px;
+          }
+
+          @media (max-width: $breakpoint-md) {
+            width: 100%;
+            max-width: 471px;
+          }
         }
 
         .intro-text {
-          font-size: 18px;
-          line-height: 1.6;
-          margin-bottom: 32px;
+          font-size: 16px;
+          line-height: $line-height;
+          margin-bottom: 35px;
+          color: $text-color;
         }
 
         .info-points {
           width: 100%;
-          @include displayFlex(column, flex-start, flex-start);
+          max-width: 471px;
+          background: transparent;
+          padding: 0;
+
+          @media (max-width: $breakpoint-xl) {
+            width: 400px;
+          }
+
+          @media (max-width: $breakpoint-lg) {
+            width: 380px;
+          }
+
+          @media (max-width: $breakpoint-md) {
+            width: 100%;
+            max-width: 471px;
+          }
 
           .info-item {
-            @include displayFlex(row, flex-start, flex-start, 9px);
+            @include displayFlex(row, flex-start, center, 9px !important);
             margin-bottom: 24px;
-            width: 100%;
+            padding: 0;
+            white-space: normal;
 
             .icon-wrapper {
               flex-shrink: 0;
               @include displayFlex(row, center, center);
-              width: 60px;
-              height: 60px;
+              width: 48px;
+              height: 48px;
+              @include transition(transform, 0.2s, ease-in-out);
+
+              &:hover {
+                transform: scale(1.1);
+              }
+              @media (max-width: $breakpoint-md) {
+                width: 50px;
+                height: 50px;
+              }
 
               img {
-                @include transition(transform, 0.2s, ease-in-out);
                 cursor: pointer;
+                max-width: 100%;
+                max-height: 100%;
 
-                &:hover {
-                  transform: scale(1.4);
+                @media (max-width: $breakpoint-md) {
+                  width: 35px;
                 }
               }
             }
 
             .text-wrapper {
               flex: 1;
-              @include displayFlex(column, flex-start, center);
+              min-width: 0;
+              overflow-wrap: break-word;
+              word-wrap: break-word;
+              word-break: break-word;
+              hyphens: auto;
 
               p {
                 font-size: 16px;
-                line-height: 1.6;
-                color: rgba(255, 255, 255, 0.9);
+                line-height: $line-height;
+                color: $text-color;
                 margin: 0;
+                white-space: normal;
+
+                @media (max-width: $breakpoint-md) {
+                  font-size: 15px;
+                }
               }
             }
           }
@@ -95,103 +152,104 @@
       }
     }
   }
-
-  figure {
-    flex: 1;
-    @include displayFlex(row, center, center, 0);
-    position: relative;
-
-    &::before {
-      content: "";
-      position: absolute;
-      width: 550px;
-      height: 500px;
-      background: url("/portfolio/assets/images/background/photo-shadows.png") no-repeat
-        center center;
-      background-size: contain;
-    }
-
-    .portrait-image {
-      @include imgResponsive(300px, 400px, cover);
-      @include boxShadow(0 20px 40px rgba(0, 0, 0, 0.3));
-      position: relative;
-    }
+  .mdc-list-item__content {
+    display: flex;
+    flex-direction: row;
   }
 
+  .portrait-container {
+    @include displayFlex(row, center, center);
+    width: 471px;
+    height: 587px;
+    position: relative;
+
   @media (max-width: $breakpoint-xl) {
-    .about-container {
-      .about-content {
-        gap: 168px;
+      min-width: 410px;
+      gap: 100px;
+    }
+    
+    @media (max-width: $breakpoint-lg) {
+      min-width: 410px;
+      min-height: 447px;
+      gap: 74px;
+    }
+    
+    @media (max-width: $breakpoint-md) {
+      width: 100%;
+      max-width: 350px;
+    }
 
-        .text-content h2 {
-          font-size: 60px;
+    figure {
+      position: relative;
+      width: 593px;
+      height: 647px;
+
+      @include displayFlex(row, center, center);
+
+   @media (max-width: $breakpoint-xl) {
+        width: 500px;
+        height: 550px;
+      }
+      
+      @media (max-width: $breakpoint-lg) {
+        width: 400px;
+        height: 450px;
+      }
+      
+      @media (max-width: $breakpoint-md) {
+        width: 100%;
+        height: auto;
+        max-height: 400px;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 550px;
+        height: 500px;
+        background: url("/assets/images/background/photo-shadows.png") no-repeat
+          center center;
+        background-size: contain;
+        z-index: 0;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+            @media (max-width: $breakpoint-xl) {
+          width: 450px;
+          height: 400px;
         }
-
-        .image-content .profile-container .profile-circle {
+        
+        @media (max-width: $breakpoint-lg) {
           width: 350px;
           height: 350px;
         }
+        
+        @media (max-width: $breakpoint-md) {
+          width: 300px;
+          height: 300px;
+        }
+      }
+
+
+      .portrait-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+        position: relative;
+        z-index: 1;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
       }
     }
   }
 
-  @media (max-width: $breakpoint-lg) {
-    .about-container .about-content {
-      flex-direction: column-reverse;
-      @include displayFlex(column-reverse, center, center);
-      gap: 60px;
-
-      .text-content {
-        max-width: 100%;
-        text-align: left;
-
-        h2 {
-          font-size: 50px;
-        }
-      }
-
-      .image-content .profile-container .profile-circle {
-        width: 300px;
-        height: 300px;
-      }
-    }
-  }
-
-  @media (max-width: $breakpoint-md) {
-    .about-container {
-      .about-content .text-content {
-        h2 {
-          font-size: 40px;
-        }
-
-        .intro-text {
-          font-size: 16px;
-        }
-
-        .info-points .info-item {
-          gap: 15px;
-
-          .icon-wrapper {
-            width: 50px;
-            height: 50px;
-            object-fit: contain;
-
-            img {
-              width: 35px;
-              object-fit: cover;
-            }
-          }
-
-          .text-wrapper p {
-            font-size: 15px;
-          }
-        }
-      }
-
-      .about-content .image-content .profile-container .profile-circle {
-        width: 250px;
-        height: 250px;
-      }
+  ::ng-deep .mat-mdc-list-item.info-item {
+    .mat-mdc-list-item-unscoped-content {
+      display: flex !important;
+      flex-direction: row !important;
+      align-items: center !important;
+      gap: 9px !important;
     }
   }
 }

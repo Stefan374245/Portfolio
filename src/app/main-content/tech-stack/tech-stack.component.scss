@@ -4,11 +4,13 @@
 
 #techStack {
   @include displayFlex(row, center, center, 0);
-  width: 100%;
+  width: 100vw;
   background-color: $background-color;
   color: $text-color;
   overflow: hidden;
   position: relative;
+  z-index: 2;
+  padding-top: 80px;
 
   .tech-container {
     width: 100%;
@@ -100,13 +102,13 @@
         @include displayFlex(column, flex-start, flex-start, 40px);
 
         .skills {
-          @include displayFlex(row, space-between, center);
+          @include displayFlex(row, center, center);
           width: 100%;
           .separator {
             width: 287px;
             height: 4px;
             background-color: $secondary-color;
-            transform: translateX(140px);
+            transform: translateX(240px);
           }
         }
 
@@ -181,7 +183,6 @@
     .tech-container {
       .tech-content {
         gap: 60px;
-        padding-top: 14px;
 
         .text-content h2 {
           font-size: 60px;

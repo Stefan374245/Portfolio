@@ -1,15 +1,7 @@
 import { Component, Input, OnInit, OnDestroy, ChangeDetectionStrategy, HostBinding, HostListener, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe } from '../../../shared/pipes/translate.pipe';
-
-export interface Review {
-  id: number;
-  textKey: string;
-  reviewerName: string;
-  reviewerTitle: string;
-  avatarUrl: string;
-  rating?: number;
-}
+import { Review } from '../../../shared/interfaces/review.interface';
 
 @Component({
   selector: 'app-reviews',
@@ -169,7 +161,7 @@ export class ReviewComponent implements OnInit, OnDestroy {
   private getDefaultReview(): Review {
     return {
       id: 0,
-      textKey: "No reviews available",
+      textKey: "reviews.default.text",
       reviewerName: "Unknown",
       reviewerTitle: "User",
       avatarUrl: "assets/images/default-avatar.png"

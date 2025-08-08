@@ -1,47 +1,64 @@
-<section id="aboutMe" class="about-me">
+<section id="aboutMe" class="about-me mat-elevation-z0">
   <div class="about-container">
-    <div class="about-content">
-      <div class="text-content">
-        <app-slide-animation direction="left" [delay]="200" [triggerOnScroll]="true">
-          <h2>{{ 'sections.about.title' | translate }}</h2>
-        </app-slide-animation>
-        
-        <app-slide-animation direction="left" [delay]="400" [triggerOnScroll]="true">
-          <p class="intro-text">
-            {{ 'sections.about.description' | translate }}
-          </p>
-        </app-slide-animation>
-
-        <div class="info-points">
-          <app-slide-animation 
-            direction="up" 
-            [delay]="600 + (i * 200)" 
+    <mat-card class="about-card">
+      <div class="about-content">
+        <div class="text-content">
+          <app-slide-animation
+            direction="left"
+            [delay]="200"
             [triggerOnScroll]="true"
-            *ngFor="let icon of icons; let i = index">
-            <div class="info-item">
-              <div class="icon-wrapper">
-                <img
-                  [src]="getIconSrc(icon.name)"
-                  [alt]="icon.name"
-                />
-              </div>
-              <div class="text-wrapper">
-                <p>{{ icon.text | translate }}</p>
-              </div>
-            </div>
+          >
+            <h1 class="mat-headline-1">
+              {{ "sections.about.title" | translate }}
+            </h1>
+          </app-slide-animation>
+
+          <app-slide-animation
+            direction="left"
+            [delay]="400"
+            [triggerOnScroll]="true"
+          >
+            <p class="intro-text mat-body-1">
+              {{ "sections.about.description" | translate }}
+            </p>
+          </app-slide-animation>
+
+          <mat-list class="info-points">
+            @for (icon of icons; track icon.name; let i = $index) {
+            <app-slide-animation
+              direction="up"
+              [delay]="600 + i * 200"
+              [triggerOnScroll]="true"
+            >
+              <mat-list-item class="info-item">
+                <div class="icon-wrapper">
+                  <img [src]="icon.iconPath" [alt]="icon.name" />
+                </div>
+                <div class="text-wrapper">
+                   <p matLine>{{ icon.text | translate }}</p>
+                </div>
+              </mat-list-item>
+            </app-slide-animation>
+            }
+          </mat-list>
+        </div>
+
+        <div class="portrait-container">
+          <app-slide-animation
+            direction="right"
+            [delay]="800"
+            [triggerOnScroll]="true"
+          >
+            <figure class="about-me-img">
+              <img
+                src="assets/img/portrait.jpg"
+                alt="Stefan Helldobler"
+                class="portrait-image"
+              />
+            </figure>
           </app-slide-animation>
         </div>
       </div>
-
-      <app-slide-animation direction="right" [delay]="800" [triggerOnScroll]="true">
-        <figure class="about-me-img">
-          <img
-            src="assets/img/portrait.jpg"
-            alt="Stefan Helldobler"
-            class="portrait-image"
-          />
-        </figure>
-      </app-slide-animation>
-    </div>
+    </mat-card>
   </div>
 </section>

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReviewComponent } from './review/review.component';
 import { Review } from '../../shared/interfaces/review.interface';
+import { Translation } from '../../shared/interfaces/translation.interface';
 
 @Component({
   selector: 'app-recommendations',
@@ -11,7 +12,9 @@ import { Review } from '../../shared/interfaces/review.interface';
   styleUrl: './recommendation.component.scss'
 })
 export class RecommendationComponent implements OnInit {
-  reviews: Review[] = [
+  @Input() reviews!: Translation['reviews'];
+  
+  reviewsList: Review[] = [
     {
       id: 1,
       textKey: "reviews.review1.text",
@@ -36,6 +39,7 @@ export class RecommendationComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    
+    // Statische Reviewer-Daten werden mit Übersetzungen aus den Inputs kombiniert
+    // Die Übersetzungen werden automatisch aktualisiert, wenn sich die Sprache ändert
   }
 }

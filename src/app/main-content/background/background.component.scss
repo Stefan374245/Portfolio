@@ -69,19 +69,19 @@
     transform: rotate(90deg);
   }
 
-   /*&.background {
+   &.background {
     top: 1300px;
     right: 50%;
     transform: translateX(70%);
     width: 2000px;
     height: 100vh;
-    background-image: url("~assets/images/background/background.png"); // Pfad zu Ihrem Hero-Background-Bild
+    background-image: url("/portfolio/images/background/background.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     box-shadow: inset 0 -500px 100px -50px $background-color;
   z-index: 0;
-  }*/
+  }
 }
 
 

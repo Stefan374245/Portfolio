@@ -169,10 +169,9 @@
 
   .social-links {
     position: relative;
-    bottom: auto;
-    left: -96px;
+    bottom: -440px;
+        left: -162px;
     @include displayFlex(row, center, center, 20px);
-    margin-top: 30px;
   }
 
   .scroll-indicator {
