@@ -1,7 +1,8 @@
 .background-wrapper {
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
   min-height: 100vh;
+  scrollbar-width: none;
 }
 
 .slide-in {

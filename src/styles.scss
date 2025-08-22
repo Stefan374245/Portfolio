@@ -6,8 +6,12 @@
     padding: 0;
 }
 
+html, body {
+    max-width: 100%;
+  
+}
+
 body {
-    max-width: $breakpoint-xxl;
     background-color: $background-color;
 }
 
