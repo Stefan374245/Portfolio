@@ -5,7 +5,8 @@
     </div>
   </app-slide-animation>
 
-  <div class="nav-container">
+  <!-- Desktop Navigation -->
+  <div class="nav-container desktop-nav">
     <app-slide-animation direction="down" [delay]="800">
       <nav class="navigation" role="navigation" aria-label="Main navigation">
         <ul>
@@ -14,8 +15,7 @@
               routerLink="/"
               fragment="aboutMe"
               class="nav-link"
-              routerLinkActive="active-link"
-              [routerLinkActiveOptions]="{ exact: false }"
+              [ngClass]="{ 'active': isActiveSection('aboutMe') }"
               aria-describedby="about-section"
             >
               {{ "navigation.aboutMe" | translate }}
@@ -26,8 +26,7 @@
               routerLink="/"
               fragment="techStack"
               class="nav-link"
-              routerLinkActive="active-link"
-              [routerLinkActiveOptions]="{ exact: false }"
+              [ngClass]="{ 'active': isActiveSection('techStack') }"
               aria-describedby="skills-section"
             >
               {{ "navigation.skills" | translate }}
@@ -38,8 +37,7 @@
               routerLink="/"
               fragment="portfolio"
               class="nav-link"
-              routerLinkActive="active-link"
-              [routerLinkActiveOptions]="{ exact: false }"
+              [ngClass]="{ 'active': isActiveSection('portfolio') }"
               aria-describedby="portfolio-section"
             >
               {{ "navigation.portfolio" | translate }}
@@ -69,4 +67,77 @@
       </section>
     </app-slide-animation>
   </div>
+
+  <!-- Mobile Burger Menu Button -->
+  <button
+    class="burger-menu-btn mobile-only"
+    (click)="toggleMobileMenu()"
+    [attr.aria-expanded]="isMobileMenuOpen"
+    aria-label="Toggle mobile menu"
+  >
+    <img
+      [src]="'assets/icons/burger-icon/' + burgerMenuState + '.png'"
+      [alt]="isMobileMenuOpen ? 'Close menu' : 'Open menu'"
+      class="burger-icon"
+    >
+  </button>
 </header>
+
+<!-- Mobile Menu mit gleicher Logik -->
+<div class="mobile-menu-overlay" [ngClass]="{ 'active': isMobileMenuOpen }" (click)="closeMobileMenu()">
+  <nav class="mobile-navigation" role="navigation" aria-label="Mobile navigation" (click)="$event.stopPropagation()">
+    <ul>
+      <li>
+        <a
+          routerLink="/"
+          fragment="aboutMe"
+          class="nav-link"
+          [ngClass]="{ 'active': isActiveSection('aboutMe') }"
+          (click)="closeMobileMenu()"
+        >
+          {{ "navigation.aboutMe" | translate }}
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="/"
+          fragment="techStack"
+          class="nav-link"
+          [ngClass]="{ 'active': isActiveSection('techStack') }"
+          (click)="closeMobileMenu()"
+        >
+          {{ "navigation.skills" | translate }}
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="/"
+          fragment="portfolio"
+          class="nav-link"
+          [ngClass]="{ 'active': isActiveSection('portfolio') }"
+          (click)="closeMobileMenu()"
+        >
+          {{ "navigation.portfolio" | translate }}
+        </a>
+      </li>
+    </ul>
+ <li>
+         <section class="language-switcher mobile-lang-switcher">
+      <button
+        class="lang-btn"
+        [ngClass]="{ active: currentLang === 'DE' }"
+        (click)="switchLanguage('DE')"
+      >
+        DE
+      </button>
+
+      <button
+        class="lang-btn"
+        [ngClass]="{ active: currentLang === 'EN' }"
+        (click)="switchLanguage('EN')"
+      >
+        EN
+      </button>
+    </section>
+      </li>  </nav>
+</div>

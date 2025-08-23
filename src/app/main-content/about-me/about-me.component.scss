@@ -6,20 +6,45 @@
   display: flex;
   width: 100%;
   max-width: 100vw;
+  height: auto;
   background-color: $background-color;
   color: $text-color;
-  overflow: hidden;
+  overflow: visible;
   position: relative;
-  margin: 80px 0;
+  margin: 100px 0 0 0;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background-image: url("/assets/images/background/background.png");
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    pointer-events: none;
+
+  
+
+    @media (max-width: $breakpoint-lg) {
+      top: 24%;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      
+    }
+  }
 
   .about-container {
     @include displayFlex(row, center, center, 166px);
     min-height: 80vh;
     width: 100%;
-    padding: 0 24px;
-    @media (max-width: $breakpoint-lg) {
-      padding: 0 40px;
-    }
+    margin: 0 100px;
+    position: relative;
+    z-index: 2;
 
     .about-card {
       background-color: transparent;
@@ -30,6 +55,8 @@
 
     .about-content {
       @include displayFlex(row, space-between, flex-start, 166px);
+      position: relative;
+      z-index: 3;
 
       @media (max-width: $breakpoint-xl) {
         gap: 80px;
@@ -48,7 +75,8 @@
         @include displayFlex(column, flex-start, flex-start);
         width: 100%;
         max-width: 471px;
-        height: 587px;
+        height: auto;
+        min-height: 587px;
 
         h1 {
           font-size: $font-size-hero-name;
@@ -56,14 +84,6 @@
           margin: 0 0 35px 0;
           line-height: $line-height;
           color: $text-color;
-
-          @media (max-width: $breakpoint-xl) {
-            width: 400px;
-          }
-
-          @media (max-width: $breakpoint-lg) {
-            width: 380px;
-          }
 
           @media (max-width: $breakpoint-md) {
             width: 100%;
@@ -84,32 +104,21 @@
           background: transparent;
           padding: 0;
 
-          @media (max-width: $breakpoint-xl) {
-            width: 400px;
-          }
-
-          @media (max-width: $breakpoint-lg) {
-            width: 380px;
-          }
-
-          @media (max-width: $breakpoint-md) {
-            width: 100%;
-            max-width: 471px;
-          }
-
           .info-item {
             @include displayFlex(row, flex-start, center, 9px !important);
             margin-bottom: 24px;
             padding: 0;
             white-space: normal;
+            height: auto !important;
+            min-height: 48px;
 
             .icon-wrapper {
               flex-shrink: 0;
-              @include displayFlex(row, center, center);
+              @include displayFlex(row, center, flex-start);
               width: 48px;
               height: 48px;
               @include transition(transform, 0.2s, ease-in-out);
-
+              margin-top: 4px;
               &:hover {
                 transform: scale(1.1);
               }
@@ -164,7 +173,7 @@
     width: 471px;
     height: 587px;
     position: relative;
-
+    z-index: 4;
     @media (max-width: $breakpoint-xl) {
       min-width: 410px;
       gap: 100px;
@@ -185,34 +194,17 @@
       position: relative;
       width: 593px;
       height: 647px;
-
       @include displayFlex(row, center, center);
-
-      @media (max-width: $breakpoint-xl) {
-        width: 500px;
-        height: 550px;
-      }
-
-      @media (max-width: $breakpoint-lg) {
-        width: 400px;
-        height: 450px;
-      }
-
-      @media (max-width: $breakpoint-md) {
-        width: 100%;
-        height: auto;
-        max-height: 400px;
-      }
 
       &::before {
         content: "";
         position: absolute;
         width: 580px;
         height: 900px;
-        background: url("/assets/images/background/photo-shadows.png") no-repeat
-          center center;
+        background: url("/portfolio/assets/images/background/photo-shadows.png")
+          no-repeat center center;
         background-size: contain;
-        z-index: 0;
+        z-index: -3;
         top: 64%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -237,18 +229,64 @@
         width: 100%;
         height: 100%;
         object-fit: contain;
-        position: relative;
-        z-index: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        &.upper {
+          z-index: 2;
+          mask: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 1) 40%,
+            rgba(0, 0, 0, 0.5) 42%,
+            rgba(0, 0, 0, 0) 45%
+          );
+          -webkit-mask: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 1) 40%,
+            rgba(0, 0, 0, 0.5) 42%,
+            rgba(0, 0, 0, 0) 45%
+          );
+        }
+
+        &.lower {
+          z-index: 0;
+          mask: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0) 40%,
+            rgba(0, 0, 0, 0.5) 42%,
+            rgba(0, 0, 0, 1) 45%,
+            rgba(0, 0, 0, 1) 100%
+          );
+          -webkit-mask: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0) 40%,
+            rgba(0, 0, 0, 0.5) 42%,
+            rgba(0, 0, 0, 1) 45%,
+            rgba(0, 0, 0, 1) 100%
+          );
+        }
       }
     }
   }
 
   ::ng-deep .mat-mdc-list-item.info-item {
+    height: auto !important;
+    min-height: 48px !important;
+
     .mat-mdc-list-item-unscoped-content {
       display: flex !important;
       flex-direction: row !important;
-      align-items: center !important;
+      align-items: flex-start !important;
       gap: 9px !important;
+      padding: 8px 0 !important;
+    }
+
+    .mdc-list-item__content {
+      height: auto !important;
+      align-items: flex-start !important;
     }
   }
 }

@@ -35,7 +35,7 @@
                   <img [src]="icon.iconPath" [alt]="icon.name" />
                 </div>
                 <div class="text-wrapper">
-                   <p matLine>{{ icon.text | translate }}</p>
+                  <p matLine>{{ icon.text | translate }}</p>
                 </div>
               </mat-list-item>
             </app-slide-animation>
@@ -50,10 +50,17 @@
             [triggerOnScroll]="true"
           >
             <figure class="about-me-img">
+              <!-- Upper part (head, arms, elbows) - over wavy background -->
               <img
                 src="assets\images\portrait\stefan2.png"
-                alt="Stefan Helldobler"
-                class="portrait-image"
+                alt="Stefan Helldobler Upper"
+                class="portrait-image upper"
+              />
+              <!-- Lower part (chest and below) - behind wavy background -->
+              <img
+                src="assets\images\portrait\stefan2.png"
+                alt="Stefan Helldobler Lower"
+                class="portrait-image lower"
               />
             </figure>
           </app-slide-animation>
