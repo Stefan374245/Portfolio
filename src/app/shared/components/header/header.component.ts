@@ -22,7 +22,6 @@ import { Language } from '../../interfaces/translation.interface';
 export class HeaderComponent implements OnInit, OnDestroy {
   private translationService = inject(TranslationService);
 
-  // Mobile Menu State
   isMobileMenuOpen: boolean = false;
   burgerMenuState: 'burger' | 'burger-transition' | 'burger-close-final' =
     'burger';

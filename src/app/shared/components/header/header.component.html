@@ -15,7 +15,7 @@
               routerLink="/"
               fragment="aboutMe"
               class="nav-link"
-              [ngClass]="{ 'active': isActiveSection('aboutMe') }"
+              [ngClass]="{ active: isActiveSection('aboutMe') }"
               aria-describedby="about-section"
             >
               {{ "navigation.aboutMe" | translate }}
@@ -26,7 +26,7 @@
               routerLink="/"
               fragment="techStack"
               class="nav-link"
-              [ngClass]="{ 'active': isActiveSection('techStack') }"
+              [ngClass]="{ active: isActiveSection('techStack') }"
               aria-describedby="skills-section"
             >
               {{ "navigation.skills" | translate }}
@@ -37,7 +37,7 @@
               routerLink="/"
               fragment="portfolio"
               class="nav-link"
-              [ngClass]="{ 'active': isActiveSection('portfolio') }"
+              [ngClass]="{ active: isActiveSection('portfolio') }"
               aria-describedby="portfolio-section"
             >
               {{ "navigation.portfolio" | translate }}
@@ -79,20 +79,29 @@
       [src]="'assets/icons/burger-icon/' + burgerMenuState + '.png'"
       [alt]="isMobileMenuOpen ? 'Close menu' : 'Open menu'"
       class="burger-icon"
-    >
+    />
   </button>
 </header>
 
 <!-- Mobile Menu mit gleicher Logik -->
-<div class="mobile-menu-overlay" [ngClass]="{ 'active': isMobileMenuOpen }" (click)="closeMobileMenu()">
-  <nav class="mobile-navigation" role="navigation" aria-label="Mobile navigation" (click)="$event.stopPropagation()">
+<div
+  class="mobile-menu-overlay"
+  [ngClass]="{ active: isMobileMenuOpen }"
+  (click)="closeMobileMenu()"
+>
+  <nav
+    class="mobile-navigation"
+    role="navigation"
+    aria-label="Mobile navigation"
+    (click)="$event.stopPropagation()"
+  >
     <ul>
       <li>
         <a
           routerLink="/"
           fragment="aboutMe"
           class="nav-link"
-          [ngClass]="{ 'active': isActiveSection('aboutMe') }"
+          [ngClass]="{ active: isActiveSection('aboutMe') }"
           (click)="closeMobileMenu()"
         >
           {{ "navigation.aboutMe" | translate }}
@@ -103,7 +112,7 @@
           routerLink="/"
           fragment="techStack"
           class="nav-link"
-          [ngClass]="{ 'active': isActiveSection('techStack') }"
+          [ngClass]="{ active: isActiveSection('techStack') }"
           (click)="closeMobileMenu()"
         >
           {{ "navigation.skills" | translate }}
@@ -114,30 +123,31 @@
           routerLink="/"
           fragment="portfolio"
           class="nav-link"
-          [ngClass]="{ 'active': isActiveSection('portfolio') }"
+          [ngClass]="{ active: isActiveSection('portfolio') }"
           (click)="closeMobileMenu()"
         >
           {{ "navigation.portfolio" | translate }}
         </a>
       </li>
+      <li>
+        <section class="language-switcher mobile-lang-switcher">
+          <button
+            class="lang-btn"
+            [ngClass]="{ active: currentLang === 'DE' }"
+            (click)="switchLanguage('DE')"
+          >
+            DE
+          </button>
+  
+          <button
+            class="lang-btn"
+            [ngClass]="{ active: currentLang === 'EN' }"
+            (click)="switchLanguage('EN')"
+          >
+            EN
+          </button>
+        </section>
+      </li>
     </ul>
- <li>
-         <section class="language-switcher mobile-lang-switcher">
-      <button
-        class="lang-btn"
-        [ngClass]="{ active: currentLang === 'DE' }"
-        (click)="switchLanguage('DE')"
-      >
-        DE
-      </button>
-
-      <button
-        class="lang-btn"
-        [ngClass]="{ active: currentLang === 'EN' }"
-        (click)="switchLanguage('EN')"
-      >
-        EN
-      </button>
-    </section>
-      </li>  </nav>
+  </nav>
 </div>

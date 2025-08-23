@@ -3,46 +3,82 @@
 @import "../../../styles.scss";
 
 .hero-section {
-  @include displayFlex(column, center, center, 0);
+  @include displayFlex(column, center, anchor-center, 0);
   height: calc(100vh - 109px);
-  background: $background-color;
   position: relative;
   overflow: hidden;
   width: 100%;
   padding-bottom: 0;
+  
+  // Erster Glow - Purple Shadow
+  &::before {
+    content: "";
+    position: absolute;
+    top: 160px;
+    left: -160px;
+    width: 570px;
+    height: 608px;
+    background-image: url("/assets/images/background/purple-shadow.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  // Zweiter Glow - Green Shadow
+  &::after {
+    content: "";
+    position: absolute;
+    top: 160px;
+    right: -240px;
+    width: 680px;
+    height: 570px;
+    background-image: url("/assets/images/background/blue-shadow.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: scaleY(-1);
+    pointer-events: none;
+    z-index: 1;
+  }
 }
+
 .hero-content {
   @include displayFlex(row, center, center, 0);
   min-height: 100vh;
   max-width: 1200px;
   z-index: 3;
-
 }
 
 .hero {
   flex: 1;
-  @include displayFlex(row, flex-start, center, 0);
+  @include displayFlex(row, center, center, 0);
   width: 718px;
   height: 172px;
 
   .hero-text {
     @include displayFlex(row, flex-start, flex-start, 40px);
 
+    @media (max-width: 400px) {
+      gap: 16px;
+    }
+
+
     .greeting {
       @include color($text-color);
-      font-size: $greeting-font-size;
+      font-size: clamp(40px, 8vw, $greeting-font-size);
       font-weight: $greeting-font-weight;
       writing-mode: vertical-rl;
       text-orientation: mixed;
       transform: rotate(180deg);
-      height: 130px;
     }
 
     .name-title-wrapper {
-      @include displayFlex(column, flex-start, center, 10px);
+    @include displayFlex(column, flex-start, center, clamp(5px, 1.5vw, 10px));
 
       .name {
-        @include headline($text-color, 64px, $font-weight-hero-name, 2px);
+      @include headline($text-color, clamp(32px, 8vw, 64px), $font-weight-hero-name, 2px);
         text-align: left;
         margin: 0;
         line-height: $line-height;
@@ -50,7 +86,8 @@
 
       .title {
         @include color($button-color);
-        font-size: 46px;
+              font-size: clamp(24px, 6vw, 46px);
+
         font-weight: $tilte-font-weight;
         margin: 0 0 30px 0;
         overflow: hidden;
@@ -62,7 +99,7 @@
       }
 
       .cta-button {
-        @include primaryButton(15px 30px);
+      @include primaryButton(clamp(10px, 2vw, 15px) clamp(20px, 4vw, 30px));
         width: 165px;
         font-size: 23px;
         font-weight: 400;
@@ -82,7 +119,7 @@
     width: 100px;
     height: 4px;
     background-color: $primary-color;
-   transform: translateX(-40px);
+    transform: translateX(-40px);
   }
 
   a {
@@ -103,82 +140,16 @@
     @include color($text-color);
     font-size: $font-size;
     margin-left: 15px;
+
+    @media (max-width: $breakpoint-md-sm) {
+      display: none;
+    }
   }
 }
 
 .scroll-indicator {
-  display: flex;
-  @include displayFlex(column, center, center, 10px);
-  z-index: 4;
-}
-
-@media (max-width: $breakpoint-md) {
-  .hero-content {
-    @include displayFlex(column, center, center, 120px);
-    text-align: center;
-    padding: 20px;
-  }
-
-  .hero-left {
-    margin-bottom: 30px;
-
-    &::before {
-      width: 320px;
-      height: 400px;
-    }
-
-    .portrait-image {
-      @include imgResponsive(250px, 320px, cover);
-    }
-  }
-
-  @media (max-width: $breakpoint-md) {
-    .hero {
-      padding-left: 0;
-      @include displayFlex(column, center, center, 0);
-
-      .hero-text {
-        @include displayFlex(column, center, center, 20px);
-        text-align: center;
-
-        .greeting {
-          writing-mode: horizontal-tb;
-          text-orientation: unset;
-          transform: none;
-          margin-right: 0;
-          margin-bottom: 20px;
-          font-size: calc(#{$greeting-font-size} * 0.7);
-        }
-
-        .name-title-wrapper {
-          @include displayFlex(column, center, center, 10px);
-
-          .name {
-            font-size: calc(#{$font-size-hero-name} * 0.6);
-            text-align: center;
-          }
-
-          .title {
-            font-size: calc(#{$tilte-font-size} * 0.7);
-            text-align: center;
-          }
-        }
-      }
-    }
-  }
-
-  .social-links {
-    position: relative;
-    bottom: -440px;
-        left: -162px;
-    @include displayFlex(row, center, center, 20px);
-  }
-
-  .scroll-indicator {
-    position: relative;
-    bottom: auto;
-    right: -80px;
-    margin-top: 20px;
+  @media (max-width: $breakpoint-sm) {
+    display: none;
   }
 }
 

@@ -15,7 +15,5 @@ export class BackgroundComponent {
     { class: 'glow-right-1', position: 'right' },
     { class: 'glow-right-2', position: 'right' },
     { class: 'glow-right-3', position: 'right' },
-   /* { class: 'background', position: 'center' }
-*/
   ];
 }

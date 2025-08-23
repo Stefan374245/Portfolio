@@ -8,11 +8,27 @@
   position: relative;
   padding-top: 10px;
 
+  &::before {
+    content: "";
+    position: absolute;
+    top: 720px;
+    left: -400px;
+    width: 680px;
+    height: 570px;
+    background-image: url("/assets/images/background/green-shadow.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: scaleY(-1);
+    pointer-events: none;
+    z-index: 1;
+  }
+
   .portfolio-container {
-  
     margin: 0 100px;
     max-width: $breakpoint-xxl;
     position: relative;
+    z-index: 2;
 
     @media (max-width: $breakpoint-lg) {
       margin: 0 60px;
