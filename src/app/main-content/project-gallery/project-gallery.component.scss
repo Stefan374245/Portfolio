@@ -15,7 +15,7 @@
     left: -400px;
     width: 680px;
     height: 570px;
-    background-image: url("/assets/images/background/green-shadow.png");
+    background-image: url("/portfolio/assets/images/background/green-shadow.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -30,16 +30,13 @@
     position: relative;
     z-index: 2;
 
-    @media (max-width: $breakpoint-lg) {
+
+    @media (max-width: $breakpoint-md) {
       margin: 0 60px;
     }
 
-    @media (max-width: $breakpoint-md) {
-      margin: 0 40px;
-    }
-
     @media (max-width: $breakpoint-sm) {
-      margin: 0 24px;
+      margin: 0 25px;
       padding-bottom: 100px;
     }
   }

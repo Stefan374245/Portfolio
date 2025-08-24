@@ -2,10 +2,11 @@
 @import "../../../variables";
 
 .contact-section {
-  background: $background-color;
+  @include displayFlex(row, center, center);
+  width: 100%;
   position: relative;
   overflow: hidden;
-  z-index: 100;
+  z-index: 10;
 
   &::before {
     content: "";
@@ -15,27 +16,28 @@
     width: 500px;
     height: 500px;
     background-image: url("/assets/images/background/purple-shadow-footer.png");
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     transform: rotate(90deg);
     pointer-events: none;
     z-index: 1;
+
+    @media (max-width: $breakpoint-md) {
+      top: 640px;
+    }
+    @media (max-width: $breakpoint-sm) {
+      top: 720px;
+      width: 320px;
+      height: 320px;
+    }
   }
 
-  .container {
-    margin: 0 100px;
-    padding: 160px 0 150px 0;
-    max-width: $breakpoint-xl;
+  .contact-container {
+    padding: 160px 100px 150px 100px;
+    max-width: $breakpoint-xxl;
     position: relative;
     z-index: 2;
-
-    @media (max-width: $breakpoint-lg) { margin: 0 60px; }
-    @media (max-width: $breakpoint-md) { margin: 0 40px; }
-    @media (max-width: $breakpoint-sm) { 
-      margin: 0 24px;
-      padding-bottom: 100px;
-    }
   }
 }
 
@@ -46,76 +48,61 @@
   .title-container {
     @include displayFlex(row, flex-end, center, 32px);
     width: 100vw;
-    margin-bottom: 20px;
-
-    @media (max-width: $breakpoint-md) {
-      @include displayFlex(column, center, center, 15px);
-    }
   }
 
   .main-title {
     @include headline($text-color, 90px, 700, 2px);
-    margin: 0;
   }
 
   .title-separator {
-    width: 500px;
+    width: 400px;
     height: 4px;
     background: $primary-color;
 
-    @media (max-width: $breakpoint-md) { width: 150px; transform: none; }
-    @media (max-width: $breakpoint-sm) { width: 120px; }
+    @media (max-width: $breakpoint-md) {
+      width: 240px;
+    }
+    @media (max-width: $breakpoint-md-sm) {
+      width: 160px;
+    }
+    @media (max-width: 450px) {
+      width: 32px;
+    }
   }
-
-  @media (max-width: $breakpoint-md) { margin-bottom: 60px; }
-  @media (max-width: $breakpoint-sm) { margin-bottom: 40px; }
 }
-
 .contact-content {
-  @include displayFlex(row, space-between, flex-start, 80px);
-  max-width: 1400px;
-  margin: 0 auto;
+  @include displayFlex(row, space-between, flex-start, 150px);
+  margin: 0 100px !important;
 
-  @media (max-width: $breakpoint-lg) { gap: 60px; }
   @media (max-width: $breakpoint-md) {
-    @include displayFlex(column, flex-start, stretch, 50px);
+    flex-direction: column;
+    align-items: center;
+    gap: 66px;
+    margin: 0 60px !important;
+  }
+  @media (max-width: $breakpoint-md-sm) {
+    margin: 0 25px !important;
   }
 }
 
 .contact-left {
-  flex: 0 0 45%;
-  max-width: 600px;
-
-  @media (max-width: $breakpoint-lg) { flex: 0 0 40%; }
-  @media (max-width: $breakpoint-md) { flex: none; max-width: none; }
-
   .contact-left-header {
     margin-bottom: 40px;
 
     .subtitle-container {
       @include displayFlex(row, flex-start, center, 20px);
       margin-bottom: 30px;
-
-      @media (max-width: $breakpoint-md) {
-        @include displayFlex(column, flex-start, flex-start, 15px);
-      }
     }
 
     .subtitle-separator {
-      width: 100px;
+      width: 300px;
       height: 4px;
       background-color: $secondary-color;
-      transform: translate(-120px, 20px);
-
-      @media (max-width: $breakpoint-md) { width: 80px; transform: none; }
-      @media (max-width: $breakpoint-sm) { width: 60px; }
+      transform: translate(-320px, 20px);
     }
 
     .contact-subtitle {
       @include headline($text-color, 32px, 700, 1px);
-      margin: 0;
-
-      @media (max-width: 500px) { @include headline($text-color, 23px, 700, 1px); }
     }
   }
 
@@ -140,9 +127,6 @@
 .contact-right {
   flex: 0 0 50%;
   max-width: 600px;
-
-  @media (max-width: $breakpoint-lg) { flex: 0 0 55%; }
-  @media (max-width: $breakpoint-md) { flex: none; max-width: none; }
 }
 
 .form-fieldset {
@@ -161,7 +145,9 @@
     position: relative;
     width: 100%;
 
-    &.textarea-wrapper .input-icon { top: 32px; }
+    &.textarea-wrapper .input-icon {
+      top: 32px;
+    }
 
     .input-icon {
       position: absolute;
@@ -181,7 +167,10 @@
         object-fit: contain;
       }
 
-      &.show { opacity: 1; visibility: visible; }
+      &.show {
+        opacity: 1;
+        visibility: visible;
+      }
 
       @media (max-width: $breakpoint-sm) {
         right: 16px;
@@ -192,7 +181,8 @@
   }
 }
 
-.form-input, .form-textarea {
+.form-input,
+.form-textarea {
   width: 100%;
   padding: 15px 25px;
   padding-right: 56px;
@@ -210,7 +200,9 @@
     font-size: 16px;
   }
 
-  &:hover { border-color: $secondary-color; }
+  &:hover {
+    border-color: $secondary-color;
+  }
 
   &:focus {
     outline: none;
@@ -219,8 +211,12 @@
     @include boxShadow(0 0 0 4px rgba($primary-color, 0.15));
   }
 
-  &.ng-invalid.ng-touched:not(:focus) { border-color: $required-color; }
-  &.ng-valid.ng-touched:not(:focus) { border-color: $primary-color; }
+  &.ng-invalid.ng-touched:not(:focus) {
+    border-color: $required-color;
+  }
+  &.ng-valid.ng-touched:not(:focus) {
+    border-color: $primary-color;
+  }
 
   @media (max-width: $breakpoint-sm) {
     padding: 16px 20px;
@@ -233,7 +229,9 @@
   min-height: 150px;
   resize: vertical;
 
-  @media (max-width: $breakpoint-sm) { min-height: 120px; }
+  @media (max-width: $breakpoint-sm) {
+    min-height: 120px;
+  }
 }
 
 .error-message {
@@ -245,7 +243,9 @@
   opacity: 0;
   @include transition(opacity, $transition-speed, $transition-ease);
 
-  &.show { opacity: 1; }
+  &.show {
+    opacity: 1;
+  }
 }
 
 .checkbox-group {
@@ -298,7 +298,9 @@
       font-size: 1rem;
       line-height: 1.5;
 
-      @media (max-width: $breakpoint-sm) { font-size: 0.9rem; }
+      @media (max-width: $breakpoint-sm) {
+        font-size: 0.9rem;
+      }
 
       .privacy-link {
         @include color($button-color);
@@ -326,34 +328,27 @@
 .scroll-to-top {
   position: absolute;
   bottom: 50px;
-  right: -32px;
+  right: 200px;
   z-index: 10;
 
   @media (max-width: $breakpoint-md) {
-    bottom: 30px;
-    right: 50%;
-    transform: translateX(50%);
+    right: 184px;
   }
 
   @media (max-width: $breakpoint-sm) {
-    bottom: 20px;
+    right: 132px;
+  }
+  .arrow-up-icon {
+    width: 39px;
+    height: 39px;
+    object-fit: contain;
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%)
+      hue-rotate(0deg) brightness(100%) contrast(100%);
+    @include transition(all, $transition-speed, $transition-ease);
   }
 
-    .arrow-up-icon {
-      width: 28px;
-      height: 28px;
-      object-fit: contain;
-      filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
-      @include transition(all, $transition-speed, $transition-ease);
-
-      @media (max-width: $breakpoint-sm) {
-        width: 24px;
-        height: 24px;
-      }
-    }
-
-    &:hover .arrow-up-icon {
-      filter: brightness(0) saturate(100%) invert(69%) sepia(69%) saturate(372%) hue-rotate(92deg) brightness(97%) contrast(87%);
-    }
-  
+  &:hover .arrow-up-icon {
+    filter: brightness(0) saturate(100%) invert(69%) sepia(69%) saturate(372%)
+      hue-rotate(92deg) brightness(97%) contrast(87%);
+  }
 }

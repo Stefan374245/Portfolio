@@ -146,9 +146,13 @@
     }
   }
 
-  @media (max-width: $breakpoint-lg) {
+  @media (max-width: $breakpoint-md) {
     .project-content {
-      flex-direction: column !important;
+      flex-direction: column-reverse !important;
+
+      &:nth-child(1) {
+        flex-direction: column !important;
+      }
       gap: 40px;
       text-align: center;
     }
@@ -208,18 +212,6 @@
         font-size: 16px;
       }
 
-      .project-actions {
-        flex-direction: column;
-        gap: 15px;
-        width: 100%;
-
-        .project-link {
-          width: 100%;
-          text-align: center;
-          padding: 12px 25px;
-          font-size: 16px;
-        }
-      }
     }
 
     .project-visual {
