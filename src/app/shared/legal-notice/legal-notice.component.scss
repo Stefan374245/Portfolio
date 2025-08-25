@@ -1,7 +1,7 @@
 @import "../../../variables";
 @import "../../../../mixin.scss";
 
-.privacy-section {
+.legal-section {
   min-height: 100vh;
   padding: 100px 0;
   overflow: hidden;
@@ -16,11 +16,11 @@
     }
   }
 
-  .privacy-header {
+  .legal-header {
     text-align: center;
     margin-bottom: 60px;
 
-    .privacy-title {
+    .legal-title {
       @include headline($primary-color, 61px, bold, 2px);
       margin-bottom: 20px;
       position: relative;
@@ -55,45 +55,33 @@
     }
   }
 
-  .privacy-content {
+  .legal-content {
     h2 {
       @include headline($button-color, 33px, bold);
       margin: 40px 0 20px;
-      line-height: $line-height;
-      letter-spacing: $letter-spacing;
-    }
-
-    h3 {
-      @include headline($button-color, 33px, bold);
-      margin: 25px 0 15px;
     }
 
     p {
       color: $text-color;
-      line-height: $line-height;
+      line-height: 1.7;
       margin-bottom: 20px;
       font-size: 16px;
       font-weight: $font-weight;
       letter-spacing: $letter-spacing;
     }
 
-    ul {
-      margin-bottom: 20px;
-      padding-left: 20px;
-
-      li {
-        color: $text-color;
-        line-height: 1.7;
-        margin-bottom: 8px;
-        font-size: $font-size;
-        font-weight: $font-weight;
-        letter-spacing: $letter-spacing;
-      }
-    }
-
     strong {
       color: $primary-color;
       font-weight: 600;
+    }
+
+    a {
+      color: $button-color;
+      text-decoration: underline;
+      
+      &:hover {
+        color: $button-color-hovered;
+      }
     }
   }
 }

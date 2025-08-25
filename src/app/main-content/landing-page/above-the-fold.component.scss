@@ -9,8 +9,7 @@
   overflow: hidden;
   width: 100%;
   padding-bottom: 0;
-  
-  // Erster Glow - Purple Shadow
+
   &::before {
     content: "";
     position: absolute;
@@ -24,9 +23,17 @@
     background-repeat: no-repeat;
     pointer-events: none;
     z-index: 1;
+
+    @media (max-width: $breakpoint-md-sm) {
+      width: 400px;
+      height: 400px;
+    }
+    @media (max-width: 400px) {
+      width: 320px;
+      height: 320px;
+    }
   }
-  
-  // Zweiter Glow - Green Shadow
+
   &::after {
     content: "";
     position: absolute;
@@ -41,6 +48,15 @@
     transform: scaleY(-1);
     pointer-events: none;
     z-index: 1;
+
+    @media (max-width: $breakpoint-md-sm) {
+      width: 400px;
+      height: 400px;
+    }
+    @media (max-width: 400px) {
+      width: 320px;
+      height: 320px;
+    }
   }
 }
 
@@ -64,7 +80,6 @@
       gap: 16px;
     }
 
-
     .greeting {
       @include color($text-color);
       font-size: clamp(40px, 8vw, $greeting-font-size);
@@ -75,10 +90,15 @@
     }
 
     .name-title-wrapper {
-    @include displayFlex(column, flex-start, center, clamp(5px, 1.5vw, 10px));
+      @include displayFlex(column, flex-start, center, clamp(5px, 1.5vw, 10px));
 
       .name {
-      @include headline($text-color, clamp(32px, 8vw, 64px), $font-weight-hero-name, 2px);
+        @include headline(
+          $text-color,
+          clamp(32px, 8vw, 64px),
+          $font-weight-hero-name,
+          2px
+        );
         text-align: left;
         margin: 0;
         line-height: $line-height;
@@ -86,7 +106,7 @@
 
       .title {
         @include color($button-color);
-              font-size: clamp(24px, 6vw, 46px);
+        font-size: clamp(24px, 6vw, 46px);
 
         font-weight: $tilte-font-weight;
         margin: 0 0 30px 0;
@@ -99,7 +119,7 @@
       }
 
       .cta-button {
-      @include primaryButton(clamp(10px, 2vw, 15px) clamp(20px, 4vw, 30px));
+        @include primaryButton(clamp(10px, 2vw, 15px) clamp(20px, 4vw, 30px));
         width: 165px;
         font-size: 23px;
         font-weight: 400;
