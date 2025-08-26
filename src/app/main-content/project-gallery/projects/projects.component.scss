@@ -62,19 +62,21 @@
         padding: 15px 30px;
         border-radius: $border-radius-md;
         text-decoration: none;
-        font-size: 18px;
+        font-size: $font-size;
         font-weight: 600;
         @include transition(all, $transition-speed, $transition-ease);
         cursor: pointer;
 
         &.live-test {
           @include secondaryButton(15px 30px);
-          font-size: 18px;
+          font-size: $font-size;
+          letter-spacing: 0;
         }
 
         &.github-link {
           @include outlineButton(15px 30px);
-          font-size: 18px;
+          font-size: $font-size;
+          letter-spacing: 0;
         }
       }
     }

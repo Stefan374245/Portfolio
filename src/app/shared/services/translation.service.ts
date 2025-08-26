@@ -54,7 +54,7 @@ export class TranslationService {
           description:
             'Explore some of my recent projects that showcase my skills and creativity.',
           viewProject: 'View Project',
-          liveDemo: 'Live Demo',
+          liveDemo: 'Live Test',
           sourceCode: 'Github',
         },
         contact: {
@@ -161,7 +161,7 @@ export class TranslationService {
           description:
             'Entdecken Sie einige meiner neuesten Projekte, die meine Fähigkeiten und Kreativität zeigen.',
           viewProject: 'Projekt ansehen',
-          liveDemo: 'Live Demo',
+          liveDemo: 'Live Test',
           sourceCode: 'Github',
         },
         contact: {

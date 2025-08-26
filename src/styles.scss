@@ -7,7 +7,7 @@
 }
 
 html, body {
-    max-width: 100%;
+    max-width: $breakpoint-xxl;
   
 }
 
@@ -27,3 +27,13 @@ html {
     
 }
 
+
+.mat-mdc-tooltip.custom-learning-tooltip .mdc-tooltip__surface {
+  background-color: #ffffff !important;
+  color: black !important;
+  border-radius: 16px !important;
+  padding: 20px !important;
+  font-size: 14px !important;
+  text-align: center !important;
+  line-height: 1.4 !important;
+}

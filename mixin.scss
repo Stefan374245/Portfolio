@@ -66,16 +66,15 @@
   $padding: 18px 40px
 ) {
   @include displayFlex(row, center, center, 12px);
-  font-size: 1.125rem;
-  font-weight: 600;
+  font-size: $font-size;
+  font-weight: 400;
   @include transition(all, $transition-speed, $transition-ease);
   position: relative;
   overflow: hidden;
   border-radius: $border-radius-md;
-  filter: drop-shadow(4px 4px 0px #000000);
   cursor: pointer;
   padding: $padding;
-  border: 2px solid;
+  border: 1px solid;
   text-decoration: none;
 
   background: $enabled-bg;
@@ -112,7 +111,6 @@
 
   &:active {
     transform: translateY(0);
-    filter: drop-shadow(2px 2px 0px #000000);
   }
 
   &:disabled {
@@ -171,7 +169,7 @@
   @include buttonHoverEffect(
     transparent,
     $text-color,
-    $text-color,
+    $primary-color,
     $primary-color,
     $text-color,
     $primary-color,

@@ -2,15 +2,13 @@
 @import "../../../../../mixin.scss";
 
 .footer {
-  background-color: $background-color;
   padding: 60px 0;
   border-top: 4px solid rgba($primary-color, 1);
 
   .footer-content {
     @include displayFlex(row, space-between, center);
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 0 80px;
+    max-width: $breakpoint-xxl;
+    margin: 0 100px;
 
     @media (max-width: $breakpoint-md) {
       @include displayFlex(column, center, center, 30px);
@@ -130,7 +128,6 @@
     }
   }
 
-  // Styling für alle Links (sowohl desktop-only als auch mobile)
   .footer-links .footer-subtitle-link {
     text-decoration: none !important;
     @include transition(all, $transition-speed, $transition-ease);
@@ -155,7 +152,6 @@
     display: none !important;
   }
 
-  // Styling für Desktop Legal Notice Links
   .footer-links {
     @include displayFlex(row, flex-start, center, 20px);
 

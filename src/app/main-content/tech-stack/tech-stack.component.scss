@@ -11,7 +11,6 @@
   position: relative;
   z-index: 5;
   padding-top: 0;
-  margin-top: -100px;
 
   &::before {
     content: "";
@@ -30,10 +29,9 @@
 
   .tech-container {
     width: 100%;
-    margin: 0 100px;
-    max-width: 1200px;
+    margin: 160px 100px;
+    max-width: $breakpoint-xxl;
     position: relative;
-    padding-top: 180px;
     z-index: 6;
 
     @media (max-width: $breakpoint-lg) {
@@ -128,22 +126,35 @@
         z-index: 8;
 
         .skills {
-          @include displayFlex(row, center, center);
-          width: 100%;
-          .separator {
-            width: 287px;
-            height: 4px;
-            background-color: $secondary-color;
-            transform: translateX(240px);
+          text-align: center;
+          margin-bottom: 40px;
+
+          .title-container {
+            @include displayFlex(row, flex-end, center, 32px);
+            width: 100%;
+          }
+
+          h2 {
+            @include headline($text-color, 80px, 700, 2px);
+            margin: 0;
+            line-height: 1.1;
+            color: white;
           }
         }
+        .separator {
+          width: 287px;
+          height: 4px;
+          background: $primary-color;
 
-        h2 {
-          font-size: 80px;
-          font-weight: 700;
-          margin: 0;
-          line-height: 1.1;
-          color: white;
+          @media (max-width: $breakpoint-md) {
+            width: 200px;
+          }
+          @media (max-width: $breakpoint-md-sm) {
+            width: 160px;
+          }
+          @media (max-width: 450px) {
+            width: 32px;
+          }
         }
 
         .skills-description {
@@ -275,6 +286,91 @@
     .tech-container .tech-content .skills-grid {
       grid-template-columns: repeat(3, 1fr);
       gap: clamp(15px, 4vw, 30px) clamp(10px, 3vw, 20px);
+    }
+  }
+
+  .skill-icon {
+    position: relative;
+
+    .custom-tooltip {
+      position: absolute;
+      bottom: 100%;
+      left: 156%;
+      transform: translateX(-50%);
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      z-index: 15;
+      min-width: 240px;
+      margin-bottom: 15px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 20%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-top: 12px solid #ffffff;
+      }
+
+      .tooltip-content {
+        text-align: center;
+        color: black;
+
+        h4 {
+          font-size: 16px;
+          margin: 0 0 20px 0;
+          font-weight: 500;
+          line-height: 1.3;
+        }
+
+        .learning-icons {
+          display: flex;
+          justify-content: center;
+          gap: 30px;
+          margin: 20px 0;
+
+          .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+
+            img {
+              width: 40px;
+              height: 40px;
+              object-fit: contain;
+            }
+
+            span {
+              font-size: 14px;
+              color: rgba(255, 255, 255, 0.9);
+              font-weight: 500;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-md) {
+    .skill-icon .custom-tooltip {
+      min-width: 260px;
+      padding: 18px;
+
+      .tooltip-content h4 {
+        font-size: 15px;
+      }
+
+      .tooltip-content .learning-icons .icon-item img {
+        width: 35px;
+        height: 35px;
+      }
     }
   }
 }

@@ -34,7 +34,7 @@
   }
 
   .contact-container {
-    padding: 160px 100px 150px 100px;
+    padding: 160px 0 150px 0;
     max-width: $breakpoint-xxl;
     position: relative;
     z-index: 2;
@@ -47,7 +47,7 @@
 
   .title-container {
     @include displayFlex(row, flex-end, center, 32px);
-    width: 100vw;
+    width: 100%;
   }
 
   .main-title {
@@ -72,16 +72,16 @@
 }
 .contact-content {
   @include displayFlex(row, space-between, flex-start, 150px);
-  margin: 0 100px !important;
+  margin: 0 100px;
 
   @media (max-width: $breakpoint-md) {
     flex-direction: column;
     align-items: center;
     gap: 66px;
-    margin: 0 60px !important;
+    margin: 0 60px;
   }
   @media (max-width: $breakpoint-md-sm) {
-    margin: 0 25px !important;
+    margin: 0 25px;
   }
 }
 

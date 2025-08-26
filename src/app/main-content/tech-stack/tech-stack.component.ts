@@ -4,6 +4,8 @@ import { SlideAnimationComponent } from '../../shared/slide-animation/slide-anim
 import { TranslatePipe } from '../../shared/pipes/translate.pipe';
 import { RouterLink } from '@angular/router';
 import { Translation } from '../../shared/interfaces/translation.interface';
+import { trigger, state, style, transition, animate } from '@angular/animations';
+
 
 @Component({
   selector: 'app-tech-stack',
@@ -11,9 +13,20 @@ import { Translation } from '../../shared/interfaces/translation.interface';
   imports: [CommonModule, SlideAnimationComponent, TranslatePipe, RouterLink],
   templateUrl: './tech-stack.component.html',
   styleUrl: './tech-stack.component.scss',
+    animations: [
+    trigger('fadeInOut', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateX(-50%) translateY(10px)' }),
+        animate('300ms ease-out', style({ opacity: 1, transform: 'translateX(-50%) translateY(0)' }))
+      ]),
+      transition(':leave', [
+        animate('200ms ease-in', style({ opacity: 0, transform: 'translateX(-50%) translateY(10px)' }))
+      ])
+    ])
+  ]
 })
 export class TechStackComponent {
-    @Input() translation!: Translation['sections']['skills'];
+  @Input() translation!: Translation['sections']['skills'];
 
   hoveredSkill: string | null = null;
 
