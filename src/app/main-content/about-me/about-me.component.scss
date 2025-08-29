@@ -1,18 +1,14 @@
 @import "../../../../mixin.scss";
 @import "../../../variables";
+@import "../../../sections";
 @import "../../../styles.scss";
 
 #aboutMe {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  overflow: visible;
-  position: relative;
+  @include section-base;
+  @include displayFlex(row, center, center, 0);
   margin: 100px 0 0 0;
 
-  @media (max-width: $breakpoint-lg) {
+  @media (max-width: 1250px) {
     margin: 0;
   }
 
@@ -31,20 +27,45 @@
     pointer-events: none;
 
     @media (max-width: $breakpoint-xl) {
-      top: 45%;
+      top: 30%;
+      
     }
 
     @media (max-width: $breakpoint-lg) {
-      top: 17%;
+      top: 20%;
+    }
+    
+    @media (max-width: $breakpoint-md) {
+      top: 15%;
+    
+    }
+    
+    @media (max-width: $breakpoint-sm) {
+      top: 10%;
+  
+      background-size: contain;
     }
   }
 
   .about-container {
-    @include displayFlex(row, center, center, 0);
     width: 100%;
-    margin: 0 100px;
+    max-width: $breakpoint-xxl;
+    margin: 160px 100px;
     position: relative;
     z-index: 2;
+
+    @media (max-width: $breakpoint-lg) {
+      margin: 160px 60px;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      margin: 160px 24px;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      margin: 160px 24px;
+      padding-bottom: 100px;
+    }
 
     .about-card {
       background-color: transparent;
@@ -55,31 +76,41 @@
     }
 
     .about-content {
-      @include displayFlex(row, center, center, 166px);
+      @include displayFlex(row, space-between, center, 100px);
+      width: 100%;
       position: relative;
       z-index: 3;
 
-      @media (max-width: 1250px) {
-        gap: 80px;
-      }
-      @media (max-width: 1100px) {
-        gap: 40px;
+      @media (max-width: 1280px) {
+        gap: 60px;
       }
 
       @media (max-width: $breakpoint-xl) {
         flex-direction: column-reverse;
         align-items: center;
-        gap: 72px;
-        margin: 0;
+        gap: 40px;
+      }
+
+      @media (max-width: $breakpoint-md) {
+        gap: 30px;
+      }
+
+      @media (max-width: $breakpoint-sm) {
+        gap: 25px;
       }
 
       .text-content {
         @include displayFlex(column, flex-start, flex-start);
-        width: 100%;
+        flex: 1;
         max-width: 600px;
-        height: auto;
-        flex: 1.5;
+        width: 100%;
         justify-content: center;
+
+        @media (max-width: $breakpoint-xl) {
+          max-width: 100%;
+          text-align: center;
+          align-items: center;
+        }
 
         @media (max-width: $breakpoint-sm) {
           text-align: left;
@@ -89,6 +120,7 @@
         h1 {
           font-size: $font-size-hero-name;
           font-weight: $font-weight-hero-name;
+          font-weight: 700;
           margin: 0 0 35px 0;
           line-height: $line-height;
           color: $text-color;
@@ -97,22 +129,43 @@
             font-size: 80px;
           }
 
+          @media (max-width: $breakpoint-lg) {
+            font-size: 70px;
+          }
+
           @media (max-width: $breakpoint-md) {
-            width: 100%;
+            font-size: 60px;
             max-width: 471px;
           }
+          
           @media (max-width: $breakpoint-sm) {
-            font-size: 64px;
+            font-size: 50px;
             line-height: 1.1;
             margin-bottom: 24px;
           }
         }
 
         .intro-text {
-          font-size: 16px;
+          font-size: $font-size;
           line-height: $line-height;
-          margin-bottom: 35px;
+          margin-bottom: 40px;
           color: $text-color;
+
+          @media (max-width: $breakpoint-lg) {
+            font-size: 20px;
+            margin-bottom: 35px;
+          }
+
+          @media (max-width: $breakpoint-md) {
+            max-width: 471px;
+            font-size: 18px;
+            margin-bottom: 35px;
+          }
+
+          @media (max-width: $breakpoint-sm) {
+            font-size: 18px;
+            margin-bottom: 24px;
+          }
         }
 
         .info-points {
@@ -121,17 +174,43 @@
           background: transparent;
           padding: 0;
 
+          @media (max-width: $breakpoint-xl) {
+            max-width: 100%;
+            align-items: center;
+          }
+
           @media (max-width: $breakpoint-md) {
             max-width: 471px;
           }
 
+          @media (max-width: $breakpoint-sm) {
+            align-items: flex-start;
+          }
+
           .info-item {
-            @include displayFlex(row, flex-start, center, 9px !important);
-            margin-bottom: 24px;
+            @include displayFlex(row, flex-start, center, 15px);
+            margin-bottom: 30px;
             padding: 0;
             white-space: normal;
-            height: auto !important;
+            height: auto;
             min-height: 48px;
+
+            @media (max-width: $breakpoint-xl) {
+              justify-content: center;
+              text-align: center;
+              margin-bottom: 25px;
+            }
+
+            @media (max-width: $breakpoint-md) {
+              margin-bottom: 20px;
+            }
+
+            @media (max-width: $breakpoint-sm) {
+              justify-content: flex-start;
+              text-align: left;
+              margin-bottom: 18px;
+              gap: 12px;
+            }
 
             .icon-wrapper {
               flex-shrink: 0;
@@ -140,6 +219,11 @@
               height: 48px;
               @include transition(transform, 0.2s, ease-in-out);
               margin-top: 4px;
+
+              @media (max-width: $breakpoint-sm) {
+                width: 40px;
+                height: 40px;
+              }
 
               &:hover {
                 transform: scale(1.1);
@@ -150,11 +234,14 @@
                 max-width: 100%;
                 max-height: 100%;
                 width: 35px;
+
+                @media (max-width: $breakpoint-sm) {
+                  width: 30px;
+                }
               }
             }
 
             .text-wrapper {
-              flex: 1;
               min-width: 0;
               overflow-wrap: break-word;
               word-wrap: break-word;
@@ -162,11 +249,23 @@
               hyphens: auto;
 
               p {
-                font-size: 16px;
+                font-size: 18px;
                 line-height: $line-height;
                 color: $text-color;
                 margin: 0;
                 white-space: normal;
+
+                @media (max-width: $breakpoint-lg) {
+                  font-size: 17px;
+                }
+
+                @media (max-width: $breakpoint-md) {
+                  font-size: 16px;
+                }
+
+                @media (max-width: $breakpoint-sm) {
+                  font-size: 15px;
+                }
               }
             }
           }
@@ -175,28 +274,37 @@
     }
   }
 
-  .mdc-list-item__content {
-    display: flex;
-    flex-direction: row;
-  }
-
   .portrait-container {
     position: relative;
     z-index: 4;
     flex: 1;
 
+    @media (max-width: $breakpoint-xl) {
+      flex: none;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      margin-bottom: 20px;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
     figure {
-      @media (max-width: $breakpoint-md) {
-        margin-bottom: 40px;
-      }
+      margin: 0;
 
       &::before {
         content: "";
         position: absolute;
         width: 560px;
         height: 900px;
-        background: url("/portfolio/assets/images/background/photo-shadows.png") no-repeat
-          center center;
+        background: url("/portfolio/assets/images/background/photo-shadows.png") no-repeat center center;
         background-size: contain;
         z-index: -3;
         top: 64%;
@@ -204,16 +312,20 @@
         transform: translate(-50%, -50%);
 
         @media (max-width: $breakpoint-lg) {
-          width: 440px;
-          height: 440px;
+          width: 400px;
+          height: 400px;
           top: 50%;
         }
-       
+
+        @media (max-width: $breakpoint-md) {
+          width: 350px;
+          height: 350px;
+        }
+
         @media (max-width: $breakpoint-sm) {
-          width: 360px;
-          height: 220px;
-          top: 64%;
-          left: 50%;
+          width: 300px;
+          height: 300px;
+          top: 45%;
         }
       }
 
@@ -221,46 +333,22 @@
         width: 593px;
         height: 647px;
         object-fit: contain;
-      }
-      @media (max-width: $breakpoint-lg) {
-        .portrait-image {
+
+        @media (max-width: $breakpoint-lg) {
           width: 400px;
           height: 437px;
         }
 
-        @media screen {
-          @media (max-width: $breakpoint-md) {
-            .portrait-image {
-              width: 350px;
-              height: 383px;
-            }
-          }
-          @media (max-width: $breakpoint-sm) {
-            .portrait-image {
-              width: 280px;
-              height: 306px;
-            }
-          }
+        @media (max-width: $breakpoint-md) {
+          width: 350px;
+          height: 382px;
+        }
+
+        @media (max-width: $breakpoint-sm) {
+          width: 280px;
+          height: 308px;
         }
       }
-    }
-  }
-
-  ::ng-deep .mat-mdc-list-item.info-item {
-    height: auto !important;
-    min-height: 48px !important;
-
-    .mat-mdc-list-item-unscoped-content {
-      display: flex !important;
-      flex-direction: row !important;
-      align-items: flex-start !important;
-      gap: 9px !important;
-      padding: 8px 0 !important;
-    }
-
-    .mdc-list-item__content {
-      height: auto !important;
-      align-items: flex-start !important;
     }
   }
 }

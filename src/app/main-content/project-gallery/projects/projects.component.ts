@@ -9,14 +9,14 @@ import { Translation } from '../../../shared/interfaces/translation.interface';
   standalone: true,
   imports: [CommonModule, TranslatePipe],
   templateUrl: './projects.component.html',
-  styleUrl: './projects.component.scss'
+  styleUrl: './projects.component.scss',
 })
 export class ProjectsComponent implements OnInit {
   @Input() project!: Project;
   @Input() index!: number;
   @Input() translation?: Translation['sections']['portfolio'];
   @ViewChild('projectVideo') videoElement!: ElementRef<HTMLVideoElement>;
-  
+
   hoveredProject: boolean = false;
   isReversed: boolean = false;
   videoLoaded: boolean = false;
@@ -24,12 +24,12 @@ export class ProjectsComponent implements OnInit {
   ngOnInit(): void {
     this.isReversed = this.index % 2 !== 0;
   }
-  
+
   /**
    * Generiert den Übersetzungsschlüssel für die Projektbeschreibung
    */
   getDescriptionKey(): string {
-    switch(this.project.id.toLowerCase()) {
+    switch (this.project.id.toLowerCase()) {
       case 'el-pollo-loco':
         return 'projects.elPolloLoco.description';
       case 'pokedex':
@@ -60,7 +60,7 @@ export class ProjectsComponent implements OnInit {
     if (this.videoElement && this.videoLoaded) {
       const video = this.videoElement.nativeElement;
       video.currentTime = 0;
-      video.play().catch(error => {
+      video.play().catch((error) => {
         console.log('Video play failed:', error);
       });
     }
@@ -75,21 +75,42 @@ export class ProjectsComponent implements OnInit {
   }
 
   getContentStyles() {
-    return {
-      'flex-direction': this.isReversed ? 'row-reverse' : 'row'
-    };
+    if (window.innerWidth <= 768) {
+      // MD Breakpoint
+      // Auf Mobile: Alle Projects haben column-reverse
+      return {};
+    }
+
+    // Desktop: Normale reverse logic
+    return this.isReversed ? { 'flex-direction': 'row-reverse' } : {};
   }
 
   getTextStyles() {
-    return {
-      'align-items': this.isReversed ? 'flex-start' : 'flex-end',
-      'text-align': this.isReversed ? 'left' : 'right'
-    };
+    if (window.innerWidth <= 768) {
+      // MD Breakpoint
+      // Auf Mobile: Immer zentriert
+      return {
+        'align-items': 'center',
+        'text-align': 'center',
+      };
+    }
+
+    // Desktop: Normale alignment logic
+    return this.isReversed
+      ? { 'align-items': 'flex-start', 'text-align': 'left' }
+      : { 'align-items': 'flex-end', 'text-align': 'right' };
   }
 
   getActionsStyles() {
-    return {
-      'justify-content': this.isReversed ? 'flex-start' : 'flex-end'
-    };
+    if (window.innerWidth <= 768) {
+      // MD Breakpoint
+      // Auf Mobile: Immer zentriert
+      return { 'justify-content': 'center' };
+    }
+
+    // Desktop: Normale actions logic
+    return this.isReversed
+      ? { 'justify-content': 'flex-end' }
+      : { 'justify-content': 'flex-start' };
   }
 }

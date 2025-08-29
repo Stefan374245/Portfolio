@@ -1,14 +1,13 @@
 @import "../../../../mixin.scss";
 @import "../../../variables";
-@import "./../../../styles.scss";
+@import "../../../sections";
+@import "../../../styles.scss";
 
 #techStack {
+  @include section-base;
   @include displayFlex(row, center, center, 0);
-  width: 100%;
   background-color: transparent;
   color: $text-color;
-  overflow: hidden;
-  position: relative;
   z-index: 5;
   padding-top: 0;
 
@@ -24,53 +23,101 @@
     background-position: right bottom;
     background-repeat: no-repeat;
     pointer-events: none;
-    z-index: 20;
+    z-index: -1;
+
+    @media (max-width: $breakpoint-lg) {
+      width: 450px;
+      height: 480px;
+      right: -200px;
+    }
+
+    @media (max-width: $breakpoint-md-sm) {
+      top: 250px;
+      right: -300px;
+      width: 400px;
+      height: 450px;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      width: 350px;
+      height: 400px;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      width: 280px;
+      height: 320px;
+    }
   }
 
   .tech-container {
     width: 100%;
-    margin: 160px 100px;
     max-width: $breakpoint-xxl;
+    margin: 160px 100px;
     position: relative;
-    z-index: 6;
+    z-index: 2;
 
     @media (max-width: $breakpoint-lg) {
-      margin: 0 60px;
-      padding-top: 160px;
+      margin: 160px 60px;
+      padding-top: 100px;
     }
 
     @media (max-width: $breakpoint-md) {
-      margin: 0 40px;
-      padding-top: 140px;
+      margin: 160px 24px;
     }
 
     @media (max-width: $breakpoint-sm) {
-      margin: 0 24px;
+      margin: 160px 24px;
       padding-bottom: 100px;
-      padding-top: 120px;
     }
 
     .tech-content {
-      @include displayFlex(row, space-between, flex-start, 100px);
+      @include displayFlex(row, space-around, center, 166px);
       width: 100%;
       position: relative;
-      z-index: 7;
+      z-index: 3;
+
+      @media (max-width: $breakpoint-xl) {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 60px;
+      }
+
+      @media (max-width: $breakpoint-md) {
+        gap: 40px;
+      }
+
+      @media (max-width: $breakpoint-sm) {
+        gap: 30px;
+      }
 
       .skills-grid {
         flex: 1;
         display: grid;
-        grid-template-columns: repeat(4, 2fr);
-        gap: clamp(20px, 4vw, 60px) clamp(15px, 3vw, 40px);
+        grid-template-columns: repeat(4, 1fr);
+        gap: clamp(25px, 4vw, 60px) clamp(20px, 3vw, 40px);
         max-width: 600px;
         width: 100%;
         position: relative;
         z-index: 8;
+
+        @media (max-width: $breakpoint-md) {
+          grid-template-columns: repeat(3, 1fr);
+          gap: clamp(30px, 6vw, 50px) clamp(25px, 5vw, 45px);
+        }
+
+        @media (max-width: $breakpoint-sm) {
+          gap: clamp(20px, 4vw, 35px) clamp(15px, 3vw, 25px);
+        }
 
         .skill-item {
           @include displayFlex(column, center, center, 15px);
           width: 100%;
           text-align: center;
           cursor: pointer;
+
+          @media (max-width: $breakpoint-sm) {
+            gap: 12px;
+          }
 
           .skill-icon {
             margin: 0;
@@ -79,6 +126,21 @@
               width: 60px;
               height: 60px;
               object-fit: contain;
+
+              @media (max-width: $breakpoint-lg) {
+                width: 55px;
+                height: 55px;
+              }
+
+              @media (max-width: $breakpoint-md) {
+                width: 50px;
+                height: 50px;
+              }
+
+              @media (max-width: $breakpoint-sm) {
+                width: 45px;
+                height: 45px;
+              }
             }
           }
 
@@ -88,6 +150,18 @@
             text-align: center;
             margin: 0;
             font-weight: 400;
+
+            @media (max-width: $breakpoint-lg) {
+              font-size: 15px;
+            }
+
+            @media (max-width: $breakpoint-md) {
+              font-size: 14px;
+            }
+
+            @media (max-width: $breakpoint-sm) {
+              font-size: 13px;
+            }
           }
 
           &:hover {
@@ -122,56 +196,157 @@
         max-width: 560px;
         padding: 85px 0 85px 40px;
         @include displayFlex(column, flex-start, flex-start, 40px);
-        position: relative;
-        z-index: 8;
+
+        @media (max-width: $breakpoint-xl) {
+          padding: 0 24px;
+          max-width: 100%;
+          align-items: center;
+          text-align: center;
+          gap: 35px;
+        }
+
+        @media (max-width: $breakpoint-lg) {
+          gap: 30px;
+        }
+
+        @media (max-width: $breakpoint-sm) {
+          gap: 25px;
+        }
 
         .skills {
           text-align: center;
           margin-bottom: 40px;
 
+          @media (max-width: $breakpoint-lg) {
+            margin-bottom: 35px;
+          }
+
+          @media (max-width: $breakpoint-sm) {
+            margin-bottom: 25px;
+          }
+
           .title-container {
             @include displayFlex(row, flex-end, center, 32px);
-            width: 100%;
+            transform: translate(100px, 10px);
+            position: relative;
+
+            @media (max-width: $breakpoint-xl) {
+              transform: translate(50px, 10px);
+              gap: 24px;
+            }
+
+            @media (max-width: $breakpoint-lg) {
+              transform: translate(0, 0);
+              justify-content: center;
+            }
+
+            @media (max-width: $breakpoint-md) {
+              gap: 16px;
+            }
+
+            .separator {
+              width: 0px;
+              height: 4px;
+              background-color: transparent;
+              position: relative;
+
+              &::before {
+                content: "";
+                position: absolute;
+                left: 0px;
+                top: 50%;
+                transform: translateY(-300%);
+                width: 487px;
+                height: 4px;
+                background-color: $primary-color;
+
+                @media (max-width: $breakpoint-sm) {
+                  &::before {
+                    height: 3px;
+                  }
+                }
+              }
+            }
           }
 
-          h2 {
-            @include headline($text-color, 80px, 700, 2px);
-            margin: 0;
-            line-height: 1.1;
-            color: white;
-          }
-        }
-        .separator {
-          width: 287px;
-          height: 4px;
-          background: $primary-color;
+          h1 {
+            font-size: $font-size-hero-name;
+            font-weight: $font-weight-hero-name;
+            font-weight: 700;
+            margin: 0 0 35px 0;
+            line-height: $line-height;
+            color: $text-color;
 
-          @media (max-width: $breakpoint-md) {
-            width: 200px;
-          }
-          @media (max-width: $breakpoint-md-sm) {
-            width: 160px;
-          }
-          @media (max-width: 450px) {
-            width: 32px;
+            @media (max-width: $breakpoint-xl) {
+              font-size: 80px;
+            }
+
+            @media (max-width: $breakpoint-lg) {
+              font-size: 70px;
+            }
+
+            @media (max-width: $breakpoint-md) {
+              font-size: 60px;
+              max-width: 471px;
+            }
+
+            @media (max-width: $breakpoint-sm) {
+              font-size: 50px;
+              line-height: 1.1;
+              margin-bottom: 24px;
+            }
           }
         }
 
         .skills-description {
-          font-size: 18px;
+          font-size: $font-size;
           line-height: 1.6;
           color: rgba(255, 255, 255, 0.9);
           margin: 0;
+
+          @media (max-width: $breakpoint-lg) {
+            font-size: 20px;
+          }
+
+          @media (max-width: $breakpoint-md) {
+            font-size: 18px;
+          }
+
+          @media (max-width: $breakpoint-sm) {
+            font-size: 16px;
+          }
         }
 
         .learning-section {
           @include displayFlex(column, flex-start, flex-start, 20px);
 
+          @media (max-width: $breakpoint-xl) {
+            align-items: center;
+            text-align: center;
+          }
+
+          @media (max-width: $breakpoint-sm) {
+            gap: 15px;
+          }
+
           h3 {
-            font-size: 32px;
+            font-size: 24px;
             font-weight: 700;
             margin: 0;
-            color: white;
+            color: $text-color;
+            line-height: normal;
+
+            @media (max-width: $breakpoint-lg) {
+              font-size: 22px;
+            }
+
+            @media (max-width: $breakpoint-md) {
+              font-size: 20px;
+            }
+
+            @media (max-width: $breakpoint-sm) {
+              font-size: 18px;
+            }
 
             .highlight {
               color: $button-color;
@@ -179,113 +354,36 @@
           }
 
           .learning-text {
-            font-size: 16px;
+            font-size: 18px;
             line-height: 1.6;
             color: rgba(255, 255, 255, 0.8);
             margin: 0;
+
+            @media (max-width: $breakpoint-lg) {
+              font-size: 17px;
+            }
+
+            @media (max-width: $breakpoint-md) {
+              font-size: 16px;
+            }
+
+            @media (max-width: $breakpoint-sm) {
+              font-size: 15px;
+            }
           }
 
           .contact-btn {
             @include primaryButton(15px 30px);
             font-size: 16px;
             font-weight: 600;
-          }
-        }
-      }
-    }
-  }
 
-  @media (min-width: 992px) and (max-width: 1200px) {
-    .tech-container {
-      .tech-content {
-        .skills-grid {
-          row-gap: calc(
-            25px + (60px - 25px) * ((100vw - 992px) / (1200px - 992px))
-          );
-          column-gap: calc(
-            20px + (40px - 20px) * ((100vw - 992px) / (1200px - 992px))
-          );
-        }
-
-        .text-content h2 {
-          font-size: calc(
-            50px + (80px - 50px) * ((100vw - 992px) / (1200px - 992px))
-          );
-        }
-      }
-    }
-  }
-
-  @media (max-width: $breakpoint-xl) {
-    .tech-container {
-      .tech-content {
-        gap: 60px;
-
-        .text-content h2 {
-          font-size: 60px;
-        }
-      }
-    }
-  }
-
-  @media (max-width: $breakpoint-lg) {
-    .tech-container .tech-content {
-      @include displayFlex(column-reverse, center, center, 60px);
-
-      .text-content {
-        max-width: 100%;
-        text-align: center;
-
-        h2 {
-          font-size: 50px;
-        }
-
-        .learning-section {
-          align-items: center;
-          text-align: center;
-        }
-      }
-
-      .skills-grid {
-        flex: 1;
-        display: grid;
-        grid-template-columns: repeat(4, 2fr);
-        gap: clamp(30px, 5vw, 60px) clamp(20px, 4vw, 40px);
-        max-width: 600px;
-        width: 100%;
-      }
-    }
-  }
-
-  @media (max-width: $breakpoint-md) {
-    .tech-container {
-      .tech-content {
-        .text-content h2 {
-          font-size: 40px;
-        }
-
-        .skills-grid {
-          grid-template-columns: repeat(3, 1fr);
-          gap: clamp(25px, 6vw, 80px) clamp(25px, 6vw, 80px);
-
-          .skill-item .skill-icon {
-            width: 70px;
-            height: 70px;
-
-            img {
-              width: 48px;
-              height: 48px;
+            @media (max-width: $breakpoint-sm) {
+              padding: 12px 24px;
+              font-size: 14px;
             }
           }
         }
       }
-    }
-  }
-
-  @media (max-width: $breakpoint-sm) {
-    .tech-container .tech-content .skills-grid {
-      grid-template-columns: repeat(3, 1fr);
-      gap: clamp(15px, 4vw, 30px) clamp(10px, 3vw, 20px);
     }
   }
 
@@ -295,7 +393,7 @@
     .custom-tooltip {
       position: absolute;
       bottom: 100%;
-      left: 156%;
+      left: 50%;
       transform: translateX(-50%);
       background: #ffffff;
       border-radius: 16px;
@@ -305,17 +403,40 @@
       min-width: 240px;
       margin-bottom: 15px;
 
+      @media (max-width: $breakpoint-lg) {
+        min-width: 220px;
+        padding: 18px;
+      }
+
+      @media (max-width: $breakpoint-md) {
+        min-width: 200px;
+        padding: 16px;
+        margin-bottom: 12px;
+      }
+
+      @media (max-width: $breakpoint-sm) {
+        min-width: 180px;
+        padding: 14px;
+        margin-bottom: 10px;
+      }
+
       &::after {
         content: "";
         position: absolute;
         top: 100%;
-        left: 20%;
+        left: 50%;
         transform: translateX(-50%);
         width: 0;
         height: 0;
         border-left: 12px solid transparent;
         border-right: 12px solid transparent;
         border-top: 12px solid #ffffff;
+
+        @media (max-width: $breakpoint-sm) {
+          border-left-width: 8px;
+          border-right-width: 8px;
+          border-top-width: 8px;
+        }
       }
 
       .tooltip-content {
@@ -327,6 +448,21 @@
           margin: 0 0 20px 0;
           font-weight: 500;
           line-height: 1.3;
+
+          @media (max-width: $breakpoint-lg) {
+            font-size: 15px;
+            margin-bottom: 18px;
+          }
+
+          @media (max-width: $breakpoint-md) {
+            font-size: 14px;
+            margin-bottom: 15px;
+          }
+
+          @media (max-width: $breakpoint-sm) {
+            font-size: 13px;
+            margin-bottom: 12px;
+          }
         }
 
         .learning-icons {
@@ -335,41 +471,71 @@
           gap: 30px;
           margin: 20px 0;
 
+          @media (max-width: $breakpoint-lg) {
+            gap: 25px;
+            margin: 18px 0;
+          }
+
+          @media (max-width: $breakpoint-md) {
+            gap: 20px;
+            margin: 15px 0;
+          }
+
+          @media (max-width: $breakpoint-sm) {
+            gap: 15px;
+            margin: 12px 0;
+          }
+
           .icon-item {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 8px;
 
+            @media (max-width: $breakpoint-sm) {
+              gap: 6px;
+            }
+
             img {
               width: 40px;
               height: 40px;
               object-fit: contain;
+
+              @media (max-width: $breakpoint-lg) {
+                width: 35px;
+                height: 35px;
+              }
+
+              @media (max-width: $breakpoint-md) {
+                width: 30px;
+                height: 30px;
+              }
+
+              @media (max-width: $breakpoint-sm) {
+                width: 25px;
+                height: 25px;
+              }
             }
 
             span {
               font-size: 14px;
-              color: rgba(255, 255, 255, 0.9);
+              color: rgba(0, 0, 0, 0.7);
               font-weight: 500;
+
+              @media (max-width: $breakpoint-lg) {
+                font-size: 13px;
+              }
+
+              @media (max-width: $breakpoint-md) {
+                font-size: 12px;
+              }
+
+              @media (max-width: $breakpoint-sm) {
+                font-size: 11px;
+              }
             }
           }
         }
-      }
-    }
-  }
-
-  @media (max-width: $breakpoint-md) {
-    .skill-icon .custom-tooltip {
-      min-width: 260px;
-      padding: 18px;
-
-      .tooltip-content h4 {
-        font-size: 15px;
-      }
-
-      .tooltip-content .learning-icons .icon-item img {
-        width: 35px;
-        height: 35px;
       }
     }
   }

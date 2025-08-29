@@ -1,13 +1,12 @@
 @import "../../../_variables";
 @import "../../../../mixin.scss";
+@import "../../../sections";
 @import "../../../styles.scss";
 
 .hero-section {
-  @include displayFlex(column, center, anchor-center, 0);
+  @include section-base;
+  @include displayFlex(column, center, center, 0);
   height: calc(100vh - 109px);
-  position: relative;
-  overflow: hidden;
-  width: 100%;
   padding-bottom: 0;
 
   &::before {
@@ -24,11 +23,20 @@
     pointer-events: none;
     z-index: 1;
 
+    @media (max-width: $breakpoint-lg) {
+      left: -120px;
+      width: 450px;
+      height: 480px;
+    }
+
     @media (max-width: $breakpoint-md-sm) {
+      left: -100px;
       width: 400px;
       height: 400px;
     }
-    @media (max-width: 400px) {
+
+    @media (max-width: $breakpoint-sm) {
+      left: -80px;
       width: 320px;
       height: 320px;
     }
@@ -49,11 +57,20 @@
     pointer-events: none;
     z-index: 1;
 
+    @media (max-width: $breakpoint-lg) {
+      right: -200px;
+      width: 550px;
+      height: 460px;
+    }
+
     @media (max-width: $breakpoint-md-sm) {
+      right: -180px;
       width: 400px;
       height: 400px;
     }
-    @media (max-width: 400px) {
+
+    @media (max-width: $breakpoint-sm) {
+      right: -150px;
       width: 320px;
       height: 320px;
     }
@@ -63,8 +80,27 @@
 .hero-content {
   @include displayFlex(row, center, center, 0);
   min-height: 100vh;
-  max-width: 1200px;
   z-index: 3;
+  position: relative;
+  width: 100%;
+  margin: 0 100px;
+
+  @media (max-width: $breakpoint-lg) {
+    margin: 0 60px;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    margin: 0 24px;
+  }
+}
+
+.bottom-navigation {
+  position: absolute;
+  bottom: 80px;
+  left: 100px;
+  right: 100px;
+  @include displayFlex(row, space-between, flex-end, 0);
+  z-index: 4;
 }
 
 .hero {
@@ -73,8 +109,25 @@
   width: 718px;
   height: 172px;
 
+  @media (max-width: $breakpoint-md) {
+    width: 100%;
+    height: auto;
+  }
+
   .hero-text {
     @include displayFlex(row, flex-start, flex-start, 40px);
+
+    @media (max-width: $breakpoint-lg) {
+      gap: 35px;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      gap: 30px;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      gap: 25px;
+    }
 
     @media (max-width: 400px) {
       gap: 16px;
@@ -107,7 +160,6 @@
       .title {
         @include color($button-color);
         font-size: clamp(24px, 6vw, 46px);
-
         font-weight: $tilte-font-weight;
         margin: 0 0 30px 0;
         overflow: hidden;
@@ -116,6 +168,14 @@
         animation: typewriter 2.5s steps(18) 1s forwards,
           blink-cursor 0.8s infinite;
         width: 0;
+
+        @media (max-width: $breakpoint-lg) {
+          margin: 0 0 25px 0;
+        }
+
+        @media (max-width: $breakpoint-sm) {
+          margin: 0 0 20px 0;
+        }
       }
 
       .cta-button {
@@ -124,8 +184,19 @@
         font-size: 23px;
         font-weight: 400;
         animation: shake 3s ease-in-out infinite;
+
+        @media (max-width: $breakpoint-lg) {
+          font-size: 20px;
+          width: 150px;
+        }
+
+        @media (max-width: $breakpoint-sm) {
+          font-size: 18px;
+          width: 140px;
+        }
       }
     }
+
     @keyframes shake {
       0%,
       85%,
@@ -152,17 +223,39 @@
 }
 
 .social-links {
-  position: absolute;
-  bottom: 80px;
-  left: 0px;
   @include displayFlex(row, flex-start, center, 32px);
-  z-index: 4;
+  position: relative;
+
+  @media (max-width: $breakpoint-sm) {
+    gap: 42px;
+  }
 
   .separator {
-    width: 100px;
+    width: 0px;
     height: 4px;
-    background-color: $primary-color;
-    transform: translateX(-40px);
+    background-color: transparent;
+    position: relative;
+    margin-right: 32px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -100px;
+      top: 0;
+      width: 100px;
+      height: 4px;
+      background-color: $primary-color;
+    }
+
+
+    @media (max-width: $breakpoint-sm) {
+      width: 60px;
+      height: 3px;
+      margin-right: -42px;
+      &::before {
+        height: 3px;
+      }
+    }
   }
 
   a {
@@ -171,6 +264,16 @@
       filter: brightness(0.8);
       @include transition(filter, 0.2, ease-in-out);
       @include transition(transform, 0.2s, ease-in-out);
+
+      @media (max-width: $breakpoint-lg) {
+        width: 22px;
+        height: 22px;
+      }
+
+      @media (max-width: $breakpoint-sm) {
+        width: 20px;
+        height: 20px;
+      }
     }
 
     &:hover img {
@@ -184,15 +287,34 @@
     font-size: $font-size;
     margin-left: 15px;
 
+    @media (max-width: $breakpoint-lg) {
+      font-size: 20px;
+      margin-left: 12px;
+    }
+
     @media (max-width: $breakpoint-md-sm) {
       display: none;
     }
   }
 }
 
-.scroll-indicator {
+.scroll-indicator-container {
   @media (max-width: $breakpoint-sm) {
     display: none;
+  }
+
+  .scroll-indicator {
+    @include transition(transform, 0.3s, ease);
+
+    &:hover {
+      transform: translateY(5px);
+    }
+
+    img {
+      width: 28px;
+      height: 160px;
+      object-fit: contain;
+    }
   }
 }
 

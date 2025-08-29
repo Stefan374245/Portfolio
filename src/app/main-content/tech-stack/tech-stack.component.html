@@ -21,7 +21,6 @@
                 [attr.data-skill]="skill.name"
               />
               
-              <!-- Custom Tooltip nur für das letzte Icon -->
               <div 
                 *ngIf="i === skills.length - 1 && hoveredSkill === skill.name" 
                 class="custom-tooltip"
@@ -56,7 +55,7 @@
         <aside class="text-content">
           <header class="skills">
             <div class="title-container">
-              <h2>{{ "sections.skills.title" | translate }}</h2>
+              <h1>{{ "sections.skills.title" | translate }}</h1>
               <div class="separator" role="presentation" aria-hidden="true"></div>
             </div>
           </header>

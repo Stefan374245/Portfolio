@@ -2,9 +2,7 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SlideAnimationComponent } from '../../shared/slide-animation/slide-animation.component';
 import { TranslatePipe } from '../../shared/pipes/translate.pipe';
-import { MatCardModule } from '@angular/material/card';
-import { MatListModule } from '@angular/material/list';
-import { MatButtonModule } from '@angular/material/button';
+
 import { Translation } from '../../shared/interfaces/translation.interface';
 
 interface IconInfo {
@@ -20,9 +18,7 @@ interface IconInfo {
     CommonModule, 
     SlideAnimationComponent, 
     TranslatePipe,
-    MatCardModule,
-    MatListModule,
-    MatButtonModule
+
   ],
   templateUrl: './about-me.component.html',
   styleUrl: './about-me.component.scss'

@@ -38,6 +38,7 @@
     max-width: $breakpoint-xxl;
     position: relative;
     z-index: 2;
+    width: 100%;
   }
 }
 
@@ -47,7 +48,7 @@
 
   .title-container {
     @include displayFlex(row, flex-end, center, 32px);
-    width: 100%;
+    width: 80%;
   }
 
   .main-title {
@@ -55,23 +56,43 @@
   }
 
   .title-separator {
-    width: 400px;
+    width: 0px;
     height: 4px;
-    background: $primary-color;
+    background-color: transparent;
+    position: relative;
 
-    @media (max-width: $breakpoint-md) {
-      width: 240px;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 400px;
+      height: 4px;
+      background-color: $primary-color;
+
+      @media (max-width: $breakpoint-md) {
+        width: 240px;
+      }
+      @media (max-width: $breakpoint-md-sm) {
+        width: 160px;
+      }
+      @media (max-width: 450px) {
+        width: 32px;
+        height: 3px;
+      }
     }
-    @media (max-width: $breakpoint-md-sm) {
-      width: 160px;
-    }
+
     @media (max-width: 450px) {
-      width: 32px;
+      &::before {
+        height: 3px;
+      }
     }
   }
 }
+
 .contact-content {
-  @include displayFlex(row, space-between, flex-start, 150px);
+  @include displayFlex(row, space-around, flex-start, 150px);
   margin: 0 100px;
 
   @media (max-width: $breakpoint-md) {
@@ -88,17 +109,41 @@
 .contact-left {
   .contact-left-header {
     margin-bottom: 40px;
+    transform: translateX(-32px);
 
     .subtitle-container {
-      @include displayFlex(row, flex-start, center, 20px);
+      @include displayFlex(row, flex-start, center, 32px);
       margin-bottom: 30px;
+      align-items: center;
+
+      @media (max-width: $breakpoint-sm) {
+        gap: 16px;
+      }
     }
 
     .subtitle-separator {
-      width: 300px;
+      width: 0px;
       height: 4px;
-      background-color: $secondary-color;
-      transform: translate(-320px, 20px);
+      background-color: transparent;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: -300px;
+        top: 50%;
+        transform: translateY(-300%);
+        width: 300px;
+        height: 4px;
+        background-color: $secondary-color;
+
+      }
+
+      @media (max-width: $breakpoint-sm) {
+        &::before {
+          height: 3px;
+        }
+      }
     }
 
     .contact-subtitle {

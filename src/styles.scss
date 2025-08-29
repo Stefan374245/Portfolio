@@ -1,39 +1,28 @@
-@import 'variables';
+@import "variables";
+@import 'sections'; 
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-html, body {
-    max-width: $breakpoint-xxl;
-  
+html,
+body {
+  max-width: $breakpoint-xxl;
 }
 
 body {
-    background-color: $background-color;
+  background-color: $background-color;
 }
 
 html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 109px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 109px;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
-    
-}
-
-
-.mat-mdc-tooltip.custom-learning-tooltip .mdc-tooltip__surface {
-  background-color: #ffffff !important;
-  color: black !important;
-  border-radius: 16px !important;
-  padding: 20px !important;
-  font-size: 14px !important;
-  text-align: center !important;
-  line-height: 1.4 !important;
+  html {
+    scroll-behavior: auto;
+  }
 }
