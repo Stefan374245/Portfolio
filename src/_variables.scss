@@ -12,9 +12,8 @@ $line-height: 120%;
 $letter-spacing: 0%;
 
 
-$font-size: 23px;
+$font-size: 16px;
 $font-weight: 400;
-
 
 $font-size-hero-name: 90px;
 $font-weight-hero-name: 700;
@@ -24,6 +23,36 @@ $greeting-font-weight: 400;
 
 $tilte-font-size: 58px;
 $tilte-font-weight: 400;
+
+$about-text-width: 471px;
+$about-text-height: 587px;
+$about-title-height: 108px;
+$about-content-gap: 35px;
+$about-items-gap: 24px;
+$about-item-gap: 16px;
+$about-icon-size: 48px;
+$about-icon-inner-size: 25.33px;
+
+$about-text-width-mobile: 342px;
+$about-text-height-mobile: 541px;
+$about-content-gap-mobile: 24px;
+
+// Tech Stack specific variables
+$tech-stack-text-width: 560px;
+$tech-stack-text-height: 492px;
+$tech-stack-content-gap: 40px;
+$tech-stack-learning-gap: 20px;
+
+$tech-stack-skills-grid-width: 664px;
+$tech-stack-skills-grid-height: 662px;
+$tech-stack-skills-gap: 80px;
+
+$tech-stack-title-width: 241px;
+$tech-stack-title-height: 108px;
+$tech-stack-description-width: 471px;
+$tech-stack-description-height: 114px;
+$tech-stack-learning-width: 410px;
+$tech-stack-learning-height: 92px;
 
 $spacing-md: 0;
 
@@ -37,6 +66,8 @@ $breakpoint-xxl: 1920px;
 
 $border-radius-md: 10px;
 
-
 $transition-speed: 0.25s;
 $transition-ease: ease-in-out;
+
+
+$font-family: 'Poppins';

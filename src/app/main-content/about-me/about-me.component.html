@@ -1,63 +1,61 @@
-<section id="aboutMe" class="about-me mat-elevation-z0">
+<section id="aboutMe" class="about-me">
   <div class="about-container">
-    <div class="about-card">
-      <div class="about-content">
-        <div class="text-content">
-          <app-slide-animation
-            direction="left"
-            [delay]="200"
-            [triggerOnScroll]="true"
-          >
-            <h1 class="mat-headline-1">
-              {{ "sections.about.title" | translate }}
-            </h1>
-          </app-slide-animation>
+    <div class="about-content">
+      <div class="about-text-section">
+        <app-slide-animation
+          direction="left"
+          [delay]="200"
+          [triggerOnScroll]="true"
+        >
+          <h1 class="about-title">
+            {{ "sections.about.title" | translate }}
+          </h1>
+        </app-slide-animation>
 
+        <div class="about-text-content">
           <app-slide-animation
             direction="left"
             [delay]="400"
             [triggerOnScroll]="true"
           >
-            <p class="intro-text mat-body-1">
+            <p class="intro-text">
               {{ "sections.about.description" | translate }}
             </p>
           </app-slide-animation>
 
-          <div class="info-points">
+          <div class="info-items-wrapper">
             @for (icon of icons; track icon.name; let i = $index) {
-            <app-slide-animation
-              direction="up"
-              [delay]="600 + i * 200"
-              [triggerOnScroll]="true"
-            >
-              <div class="info-item">
-                <div class="icon-wrapper">
-                  <img [src]="icon.iconPath" [alt]="icon.name" />
+              <app-slide-animation
+                direction="up"
+                [delay]="600 + i * 200"
+                [triggerOnScroll]="true"
+              >
+                <div class="info-item" [attr.data-item]="i">
+                  <div class="icon-container">
+                    <img [src]="icon.iconPath" [alt]="icon.name" />
+                  </div>
+                  <p class="item-description">{{ icon.text | translate }}</p>
                 </div>
-                <div class="text-wrapper">
-                  <p matLine>{{ icon.text | translate }}</p>
-                </div>
-              </div>
-            </app-slide-animation>
+              </app-slide-animation>
             }
           </div>
         </div>
+      </div>
 
-        <div class="portrait-container">
-          <app-slide-animation
-            direction="right"
-            [delay]="800"
-            [triggerOnScroll]="true"
-          >
-            <figure class="about-me-img">
-              <img
-                src="assets\images\portrait\stefan2.png"
-                alt="Stefan Helldobler"
-                class="portrait-image"
-              />
-            </figure>
-          </app-slide-animation>
-        </div>
+      <div class="portrait-section">
+        <app-slide-animation
+          direction="right"
+          [delay]="800"
+          [triggerOnScroll]="true"
+        >
+          <figure class="portrait-figure">
+            <img
+              src="assets/images/portrait/stefan2.png"
+              alt="Stefan Helldobler"
+              class="portrait-image"
+            />
+          </figure>
+        </app-slide-animation>
       </div>
     </div>
   </div>

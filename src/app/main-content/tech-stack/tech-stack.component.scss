@@ -6,15 +6,14 @@
 #techStack {
   @include section-base;
   @include displayFlex(row, center, center, 0);
-  background-color: transparent;
-  color: $text-color;
   z-index: 5;
   padding-top: 0;
+  position: relative;
 
   &::before {
     content: "";
     position: absolute;
-    top: 240px;
+    top: 0;
     right: -270px;
     width: 570px;
     height: 600px;
@@ -24,6 +23,7 @@
     background-repeat: no-repeat;
     pointer-events: none;
     z-index: -1;
+     @include pulse-shadow(3s, 1s);
 
     @media (max-width: $breakpoint-lg) {
       width: 450px;
@@ -33,135 +33,34 @@
 
     @media (max-width: $breakpoint-md-sm) {
       top: 250px;
-      right: -300px;
+      right: -220px;
       width: 400px;
       height: 450px;
     }
 
-    @media (max-width: $breakpoint-md) {
-      width: 350px;
-      height: 400px;
-    }
-
     @media (max-width: $breakpoint-sm) {
-      width: 280px;
-      height: 320px;
+      right: -200px;
     }
   }
 
   .tech-container {
-    width: 100%;
-    max-width: $breakpoint-xxl;
-    margin: 160px 100px;
-    position: relative;
-    z-index: 2;
-
-    @media (max-width: $breakpoint-lg) {
-      margin: 160px 60px;
-      padding-top: 100px;
-    }
-
-    @media (max-width: $breakpoint-md) {
-      margin: 160px 24px;
-    }
-
-    @media (max-width: $breakpoint-sm) {
-      margin: 160px 24px;
-      padding-bottom: 100px;
-    }
+    @include tech-stack-container;
 
     .tech-content {
-      @include displayFlex(row, space-around, center, 166px);
-      width: 100%;
-      position: relative;
-      z-index: 3;
-
-      @media (max-width: $breakpoint-xl) {
-        flex-direction: column-reverse;
-        align-items: center;
-        gap: 60px;
-      }
-
-      @media (max-width: $breakpoint-md) {
-        gap: 40px;
-      }
-
-      @media (max-width: $breakpoint-sm) {
-        gap: 30px;
-      }
+      @include tech-stack-content;
 
       .skills-grid {
-        flex: 1;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: clamp(25px, 4vw, 60px) clamp(20px, 3vw, 40px);
-        max-width: 600px;
-        width: 100%;
-        position: relative;
-        z-index: 8;
-
-        @media (max-width: $breakpoint-md) {
-          grid-template-columns: repeat(3, 1fr);
-          gap: clamp(30px, 6vw, 50px) clamp(25px, 5vw, 45px);
-        }
-
-        @media (max-width: $breakpoint-sm) {
-          gap: clamp(20px, 4vw, 35px) clamp(15px, 3vw, 25px);
-        }
+        @include tech-stack-skills-grid;
 
         .skill-item {
-          @include displayFlex(column, center, center, 15px);
-          width: 100%;
-          text-align: center;
-          cursor: pointer;
-
-          @media (max-width: $breakpoint-sm) {
-            gap: 12px;
-          }
+          @include tech-stack-skill-item;
 
           .skill-icon {
-            margin: 0;
-
-            img {
-              width: 60px;
-              height: 60px;
-              object-fit: contain;
-
-              @media (max-width: $breakpoint-lg) {
-                width: 55px;
-                height: 55px;
-              }
-
-              @media (max-width: $breakpoint-md) {
-                width: 50px;
-                height: 50px;
-              }
-
-              @media (max-width: $breakpoint-sm) {
-                width: 45px;
-                height: 45px;
-              }
-            }
+            @include tech-stack-skill-icon;
           }
 
           .skill-name {
-            font-size: 16px;
-            color: $text-color;
-            text-align: center;
-            margin: 0;
-            font-weight: 400;
-
-            @media (max-width: $breakpoint-lg) {
-              font-size: 15px;
-            }
-
-            @media (max-width: $breakpoint-md) {
-              font-size: 14px;
-            }
-
-            @media (max-width: $breakpoint-sm) {
-              font-size: 13px;
-            }
+            @include tech-stack-skill-name;
           }
 
           &:hover {
@@ -192,26 +91,7 @@
       }
 
       .text-content {
-        flex: 1;
-        max-width: 560px;
-        padding: 85px 0 85px 40px;
-        @include displayFlex(column, flex-start, flex-start, 40px);
-
-        @media (max-width: $breakpoint-xl) {
-          padding: 0 24px;
-          max-width: 100%;
-          align-items: center;
-          text-align: center;
-          gap: 35px;
-        }
-
-        @media (max-width: $breakpoint-lg) {
-          gap: 30px;
-        }
-
-        @media (max-width: $breakpoint-sm) {
-          gap: 25px;
-        }
+        @include tech-stack-text-container;
 
         .skills {
           text-align: center;
@@ -222,7 +102,7 @@
           }
 
           @media (max-width: $breakpoint-sm) {
-            margin-bottom: 25px;
+            margin-bottom: 0;
           }
 
           .title-container {
@@ -233,11 +113,6 @@
             @media (max-width: $breakpoint-xl) {
               transform: translate(50px, 10px);
               gap: 24px;
-            }
-
-            @media (max-width: $breakpoint-lg) {
-              transform: translate(0, 0);
-              justify-content: center;
             }
 
             @media (max-width: $breakpoint-md) {
@@ -261,126 +136,41 @@
                 background-color: $primary-color;
 
                 @media (max-width: $breakpoint-sm) {
-                  &::before {
-                    height: 3px;
-                  }
+                  height: 3px;
                 }
               }
             }
           }
 
           h1 {
-            font-size: $font-size-hero-name;
-            font-weight: $font-weight-hero-name;
-            font-weight: 700;
-            margin: 0 0 35px 0;
-            line-height: $line-height;
-            color: $text-color;
-
-            @media (max-width: $breakpoint-xl) {
-              font-size: 80px;
-            }
-
-            @media (max-width: $breakpoint-lg) {
-              font-size: 70px;
-            }
-
-            @media (max-width: $breakpoint-md) {
-              font-size: 60px;
-              max-width: 471px;
-            }
+            @include tech-stack-title;
+            margin-bottom: 35px;
 
             @media (max-width: $breakpoint-sm) {
-              font-size: 50px;
-              line-height: 1.1;
               margin-bottom: 24px;
             }
           }
         }
 
         .skills-description {
-          font-size: $font-size;
-          line-height: 1.6;
-          color: rgba(255, 255, 255, 0.9);
-          margin: 0;
-
-          @media (max-width: $breakpoint-lg) {
-            font-size: 20px;
-          }
-
-          @media (max-width: $breakpoint-md) {
-            font-size: 18px;
-          }
-
-          @media (max-width: $breakpoint-sm) {
-            font-size: 16px;
-          }
+          @include tech-stack-description;
         }
 
         .learning-section {
-          @include displayFlex(column, flex-start, flex-start, 20px);
-
-          @media (max-width: $breakpoint-xl) {
-            align-items: center;
-            text-align: center;
-          }
-
-          @media (max-width: $breakpoint-sm) {
-            gap: 15px;
-          }
+          @include tech-stack-learning-section;
 
           h3 {
-            font-size: 24px;
-            font-weight: 700;
-            margin: 0;
-            color: $text-color;
-            line-height: normal;
-
-            @media (max-width: $breakpoint-lg) {
-              font-size: 22px;
-            }
-
-            @media (max-width: $breakpoint-md) {
-              font-size: 20px;
-            }
-
-            @media (max-width: $breakpoint-sm) {
-              font-size: 18px;
-            }
-
-            .highlight {
-              color: $button-color;
-            }
+            @include tech-stack-learning-title;
           }
 
           .learning-text {
-            font-size: 18px;
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.8);
-            margin: 0;
-
-            @media (max-width: $breakpoint-lg) {
-              font-size: 17px;
-            }
-
-            @media (max-width: $breakpoint-md) {
-              font-size: 16px;
-            }
-
-            @media (max-width: $breakpoint-sm) {
-              font-size: 15px;
-            }
+            @include tech-stack-learning-text;
           }
 
           .contact-btn {
-            @include primaryButton(15px 30px);
-            font-size: 16px;
-            font-weight: 600;
-
-            @media (max-width: $breakpoint-sm) {
-              padding: 12px 24px;
-              font-size: 14px;
-            }
+            @include primaryButton(
+              clamp(10px, 2vw, 15px) clamp(20px, 4vw, 30px)
+            );
           }
         }
       }

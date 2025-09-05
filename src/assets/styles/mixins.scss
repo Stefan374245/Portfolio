@@ -1,0 +1,133 @@
+@use "./variables.scss" as *;
+
+@mixin dFlexAllCenter($ai: center, $jc: center, $g: 0) {
+  display: flex;
+  align-items: $ai;
+  justify-content: $jc;
+  gap: $g;
+}
+
+@mixin paddingTopMinWidthBreakpoint() {
+  @media screen and (min-width: $breakpoint-min-width-1921) {
+    padding-block: 100px;
+  }
+}
+
+@mixin headerLinkLogoStyle() {
+  width: 111px;
+  height: auto;
+  display: grid;
+  place-items: center;
+
+  > a {
+    height: 100%;
+    width: 100%;
+
+    > img {
+      width: 100%;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-width-920) {
+    width: 80px;
+  }
+}
+
+@mixin paddingLeftRightHolePage() {
+  padding-inline: $padding-inline-25-100;
+}
+
+@mixin fontSizeWeightColor($si: 23px, $we: 400, $co: white) {
+  font-size: $si;
+  font-weight: $we;
+  color: $co;
+}
+
+@mixin applySlideAnimation($animationStartTransform) {
+  --animation-start-transform: #{$animationStartTransform};
+  animation: slideIn var(--animation-time-skills) ease-out forwards;
+  animation-delay: var(--animation-delay-about-me, 0s);
+}
+
+@mixin headlinePorfolioAnimation($animation) {
+  animation: $animation var(--animation-time-portfolio) ease-out forwards;
+  animation-delay: var(--animation-delay-portfolio, 0s);
+}
+
+@mixin commonSectionStyles(
+  $hei-desk: calc(100dvh - var(--header-height)),
+  $hei-mob: calc(100dvh - var(--header-height-responsive))
+) {
+  height: $hei-desk;
+  width: 100%;
+  background-color: $primary-bg-gray;
+  @include dFlexAllCenter();
+
+  @media screen and (min-height: 1080px) {
+    height: unset;
+  }
+
+  @media screen and (min-width: $breakpoint-min-width-1921) {
+    height: unset;
+  }
+
+  @media screen and (max-width: $breakboint-width-1250) {
+    height: unset;
+  }
+
+  @media screen and (max-width: 1000px) {
+    margin-top: 50px;
+    height: unset;
+  }
+
+  @media screen and (max-height: $responsive-height-814) and (max-width: $breakpoint-width-920) {
+    height: unset;
+  }
+
+  @media screen and (max-height: 768px) {
+    padding-top: 50px;
+  }
+}
+
+@mixin commonContentStyle($jc: space-between, $ai: center, $overfl-y: "") {
+  max-width: $max-width-1920;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow-x: clip;
+  overflow-y: $overfl-y;
+  display: flex;
+  align-items: $ai;
+  justify-content: $jc;
+
+  @media screen and (min-width: $breakpoint-min-width-1921) {
+    overflow-x: unset;
+  }
+}
+
+@mixin primaryButton($tra-ori-x, $tra-ori-y) {
+  border-radius: 10px;
+  padding: $padding-block-11-15 $padding-inline-24-30 $padding-block-11-15
+    $padding-inline-24-30;
+  background-color: $primary-bg-green;
+  @include fontSizeWeightColor($si: var(--font-size-18-23));
+  transition: all 0.3s ease-in-out;
+  transform-origin: $tra-ori-x $tra-ori-y;
+  box-shadow: 4px 4px 4px 0px #00000040;
+
+  &:hover {
+    background-color: $primary-bg-purple;
+    transform: scale(1.1);
+  }
+}
+
+@mixin errorMessage($bot: unset, $paLe: 5px) {
+  @include fontSizeWeightColor($si: 16px, $co: $not-valide-red);
+  bottom: $bot;
+  padding-left: $paLe;
+  position: absolute;
+}

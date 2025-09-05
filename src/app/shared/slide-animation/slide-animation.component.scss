@@ -10,12 +10,10 @@
   animation-duration: var(--slide-duration);
   animation-timing-function: var(--slide-easing);
 
-  // Für Landing Page (sofortige Animation)
   &.immediate-trigger {
     opacity: 0;
   }
 
-  // Für Scroll-basierte Animation
   &.scroll-trigger {
     opacity: 0;
     
@@ -97,11 +95,10 @@
   }
 }
 
-// Mobile Optimierungen
 @media (max-width: 768px) {
   :root {
-    --slide-duration: 600ms; // Schnellere Animationen auf Mobile
-    --slide-distance: 50px;  // Kürzere Distanzen
+    --slide-duration: 600ms;
+    --slide-distance: 50px;
   }
   
   .slide-wrapper {
@@ -111,7 +108,6 @@
   }
 }
 
-// Accessibility: Respektiert Nutzer-Präferenzen
 @media (prefers-reduced-motion: reduce) {
   .slide-wrapper {
     opacity: 1 !important;

@@ -22,7 +22,8 @@
     background-repeat: no-repeat;
     pointer-events: none;
     z-index: 1;
-
+     @include pulse-shadow(3s, 1s);
+ 
     @media (max-width: $breakpoint-lg) {
       left: -120px;
       width: 450px;
@@ -56,6 +57,7 @@
     transform: scaleY(-1);
     pointer-events: none;
     z-index: 1;
+     @include pulse-shadow(3s, 1s);
 
     @media (max-width: $breakpoint-lg) {
       right: -200px;

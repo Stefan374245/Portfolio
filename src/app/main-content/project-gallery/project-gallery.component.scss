@@ -18,10 +18,10 @@
 
   &::before {
     transform: scaleY(-1);
-    left: -400px;
+     @include pulse-shadow(3s, 1s);
 
     @media (max-width: $breakpoint-lg) {
-      left: -300px;
+      left: -160px;
     }
 
     @media (max-width: $breakpoint-sm) {
@@ -39,6 +39,7 @@
 
     @media (max-width: $breakpoint-lg) {
       padding: 0 60px;
+      margin: 100px 0 0 0;
     }
 
     @media (max-width: $breakpoint-md) {
@@ -51,12 +52,11 @@
     margin-bottom: 80px;
 
     @media (max-width: $breakpoint-lg) {
-      margin-bottom: 60px;
+      margin-bottom: 0;
       gap: 30px;
     }
 
     @media (max-width: $breakpoint-sm) {
-      margin-bottom: 40px;
       gap: 20px;
     }
 
@@ -115,16 +115,8 @@
       }
 
       .portfolio-title {
-        @include headline($text-color, $tilte-font-size, $tilte-font-weight, 1.2);
         margin: 0;
-
-        @media (max-width: $breakpoint-lg) {
-          font-size: 70px;
-        }
-
-        @media (max-width: $breakpoint-sm) {
-          font-size: 50px;
-        }
+        @include section-title;
       }
     }
 
@@ -155,11 +147,7 @@
       @include displayFlex(column, flex-start, stretch, 60px);
 
       @media (max-width: $breakpoint-lg) {
-        gap: 50px;
-      }
-
-      @media (max-width: $breakpoint-sm) {
-        gap: 40px;
+        gap: 0;
       }
 
       .project-item {

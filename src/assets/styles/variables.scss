@@ -1,0 +1,82 @@
+//all colors
+$primary-bg-gray: #141d2f;
+$primary-bg-green: #70e61c;
+$primary-bg-purple: #9747ff;
+$primary-bg-turquoise: #1cdae6;
+$not-valide-red: #e61c40;
+$send-message-btn-gray: #00000040;
+$white: #ffffff;
+$btn-transparent: #00000000;
+$side-nav-bg: #414856;
+
+//padding
+$padding-inline-25-100: clamp(25px, 10px + 4.6875vw, 100px);
+$padding-block-50px: 50px;
+$padding-block-11-15: clamp(11px, calc(0.0025 * 100vw + 10.2px), 15px);
+$padding-inline-24-30: clamp(24px, 22.8px + 0.375vw, 30px);
+
+//font-sizes
+$font-size-23: 23px;
+$font-size-18-23: clamp(18px, 17px + 0.3125vw, 23px);
+
+//width
+$max-width-1920: 1920px;
+$max-width-700: 700px;
+
+//responsive max-width
+$breakboint-width-380: 380px;
+$breakboint-width-485: 485px;
+$breakboint-width-640: 640px;
+$breakpoint-width-920: 920px;
+$breakboint-width-1250: 1250px;
+$breakpoint-width-1920: 1920px;
+$breakboint-width-2560: 2560px;
+
+//responsive min-width
+$breakboint-width-1366: 1366px;
+$breakpoint-min-width-1921: 1921px;
+$responsive-width-2561: 2561px;
+
+//responsive max-height
+$responsive-height-814: 814px;
+$responsive-height-666: 666px;
+$responsive-height-957: 957px;
+$responsive-height-1080: 1080px;
+$responsive-height-1200: 1200px;
+$responsive-height-2560: 2560px;
+
+//about me left right
+$distance-right-left-about-me: clamp(53px, -238.64px + 31.7vw, 370px);
+
+$header-height: 110px;
+
+:root {
+  --header-height: 110px;
+  --header-height-responsive: 75px;
+  --footer-height: 295px;
+  --breakpoint-width-920: 920px;
+  --breakpoint-min-width: 1921px;
+  --breakboint-width-1250: 1250px;
+
+  //animation time
+  --animation-time-about-me: 0.175s;
+  --animation-delay-about-me: 0.175s;
+  --animation-time-skills: 0.175s;
+  --animation-time-portfolio: 0.175s;
+  --animation-delay-portfolio: 0.175s;
+
+  //transition button
+  --transition-btn: all 0.125s ease-in-out;
+
+  //padding
+  --padding-44-178: clamp(44px, -34.5517px + 23.1034vw, 178px);
+  --padding-38: 38px;
+
+  //font-size
+  --font-size-45-90: clamp(45px, 36px + 2.8125vw, 90px);
+  --font-size-18-23: clamp(18px, 17px + 0.3125vw, 23px);
+
+  //gap portfolio section
+  --gap-row-portfolio-section: clamp(100px, 72.4px + 3vw, 130px);
+  --gap-column-portfolio-section: clamp(45px, -33.2px + 8.5vw, 130px);
+}

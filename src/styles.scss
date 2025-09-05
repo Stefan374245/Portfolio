@@ -1,5 +1,5 @@
 @import "variables";
-@import 'sections'; 
+@import "sections";
 
 * {
   box-sizing: border-box;
@@ -20,6 +20,7 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 109px;
 }
+
 
 @media (prefers-reduced-motion: reduce) {
   html {

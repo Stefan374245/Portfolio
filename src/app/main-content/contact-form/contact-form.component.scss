@@ -22,6 +22,7 @@
     transform: rotate(90deg);
     pointer-events: none;
     z-index: 1;
+     @include pulse-shadow(3s, 1s);
 
     @media (max-width: $breakpoint-md) {
       top: 640px;
@@ -39,20 +40,33 @@
     position: relative;
     z-index: 2;
     width: 100%;
+
+    @media (max-width: $breakpoint-sm) {
+      padding: 100px 0 100px 0;
+    }
   }
 }
 
 .section-header {
-  text-align: center;
   margin-bottom: 80px;
 
   .title-container {
     @include displayFlex(row, flex-end, center, 32px);
     width: 80%;
+
+    h1 {
+      @include headline($text-color, 90px, 800, 1px);
+      margin: 0;
+      text-align: right;
+
+      @media (max-width: $breakpoint-sm) {
+        font-size: 45px;
+      }
+    }
   }
 
   .main-title {
-    @include headline($text-color, 90px, 700, 2px);
+    margin: 0;
   }
 
   .title-separator {
@@ -74,13 +88,6 @@
       @media (max-width: $breakpoint-md) {
         width: 240px;
       }
-      @media (max-width: $breakpoint-md-sm) {
-        width: 160px;
-      }
-      @media (max-width: 450px) {
-        width: 32px;
-        height: 3px;
-      }
     }
 
     @media (max-width: 450px) {
@@ -92,7 +99,7 @@
 }
 
 .contact-content {
-  @include displayFlex(row, space-around, flex-start, 150px);
+  @include displayFlex(row, flex-start, center, 150px);
   margin: 0 100px;
 
   @media (max-width: $breakpoint-md) {
@@ -109,16 +116,11 @@
 .contact-left {
   .contact-left-header {
     margin-bottom: 40px;
-    transform: translateX(-32px);
 
     .subtitle-container {
-      @include displayFlex(row, flex-start, center, 32px);
+      @include displayFlex(row, flex-start, center, 0);
       margin-bottom: 30px;
       align-items: center;
-
-      @media (max-width: $breakpoint-sm) {
-        gap: 16px;
-      }
     }
 
     .subtitle-separator {
@@ -130,17 +132,16 @@
       &::before {
         content: "";
         position: absolute;
-        left: -300px;
+        left: -280px;
         top: 50%;
-        transform: translateY(-300%);
-        width: 300px;
+        width: 240px;
         height: 4px;
         background-color: $secondary-color;
-
       }
 
-      @media (max-width: $breakpoint-sm) {
+      @media (max-width: 450px) {
         &::before {
+          left: -260px;
           height: 3px;
         }
       }

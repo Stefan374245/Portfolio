@@ -1,12 +1,13 @@
 @import "../../../../mixin.scss";
 @import "../../../variables";
 @import "../../../sections";
-@import "../../../styles.scss";
 
 #aboutMe {
   @include section-base;
   @include displayFlex(row, center, center, 0);
   margin: 100px 0 0 0;
+  position: relative;
+  z-index: 10;
 
   @media (max-width: 1250px) {
     margin: 0;
@@ -23,330 +24,170 @@
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
-    z-index: 1;
+    z-index: -1;
     pointer-events: none;
 
     @media (max-width: $breakpoint-xl) {
       top: 30%;
-      
     }
 
     @media (max-width: $breakpoint-lg) {
       top: 20%;
     }
-    
+
     @media (max-width: $breakpoint-md) {
-      top: 15%;
-    
-    }
-    
-    @media (max-width: $breakpoint-sm) {
-      top: 10%;
-  
-      background-size: contain;
+      top: 7%;
     }
   }
 
   .about-container {
-    width: 100%;
-    max-width: $breakpoint-xxl;
-    margin: 160px 100px;
-    position: relative;
-    z-index: 2;
-
-    @media (max-width: $breakpoint-lg) {
-      margin: 160px 60px;
-    }
-
-    @media (max-width: $breakpoint-md) {
-      margin: 160px 24px;
-    }
-
-    @media (max-width: $breakpoint-sm) {
-      margin: 160px 24px;
-      padding-bottom: 100px;
-    }
-
-    .about-card {
-      background-color: transparent;
-      border: none;
-      box-shadow: none;
-      padding: 0;
-      width: 100%;
-    }
+    @include about-container;
 
     .about-content {
-      @include displayFlex(row, space-between, center, 100px);
+      @include displayFlex(row, space-around, center, 166px);
       width: 100%;
       position: relative;
       z-index: 3;
 
-      @media (max-width: 1280px) {
-        gap: 60px;
-      }
-
       @media (max-width: $breakpoint-xl) {
         flex-direction: column-reverse;
         align-items: center;
-        gap: 40px;
+        gap: 100px;
       }
 
       @media (max-width: $breakpoint-md) {
+        flex-direction: column;
+        align-items: center;
         gap: 30px;
       }
 
-      @media (max-width: $breakpoint-sm) {
-        gap: 25px;
-      }
-
-      .text-content {
-        @include displayFlex(column, flex-start, flex-start);
-        flex: 1;
-        max-width: 600px;
-        width: 100%;
-        justify-content: center;
+      .about-text-section {
+        width: $about-text-width;
+        min-height: $about-text-height;
+        position: relative;
+        text-align: left;
 
         @media (max-width: $breakpoint-xl) {
-          max-width: 100%;
-          text-align: center;
-          align-items: center;
-        }
-
-        @media (max-width: $breakpoint-sm) {
-          text-align: left;
-          align-items: flex-start;
-        }
-
-        h1 {
-          font-size: $font-size-hero-name;
-          font-weight: $font-weight-hero-name;
-          font-weight: 700;
-          margin: 0 0 35px 0;
-          line-height: $line-height;
-          color: $text-color;
-
-          @media (max-width: $breakpoint-xl) {
-            font-size: 80px;
-          }
-
-          @media (max-width: $breakpoint-lg) {
-            font-size: 70px;
-          }
-
-          @media (max-width: $breakpoint-md) {
-            font-size: 60px;
-            max-width: 471px;
-          }
-          
-          @media (max-width: $breakpoint-sm) {
-            font-size: 50px;
-            line-height: 1.1;
-            margin-bottom: 24px;
-          }
-        }
-
-        .intro-text {
-          font-size: $font-size;
-          line-height: $line-height;
-          margin-bottom: 40px;
-          color: $text-color;
-
-          @media (max-width: $breakpoint-lg) {
-            font-size: 20px;
-            margin-bottom: 35px;
-          }
-
-          @media (max-width: $breakpoint-md) {
-            max-width: 471px;
-            font-size: 18px;
-            margin-bottom: 35px;
-          }
-
-          @media (max-width: $breakpoint-sm) {
-            font-size: 18px;
-            margin-bottom: 24px;
-          }
-        }
-
-        .info-points {
           width: 100%;
           max-width: 600px;
-          background: transparent;
-          padding: 0;
+          min-height: auto;
+        }
+
+        @media (max-width: $breakpoint-md) {
+          width: 100%;
+
+          margin: 0 auto;
+        }
+
+        .about-title {
+          @include about-title;
+          width: 100%;
+          height: auto;
 
           @media (max-width: $breakpoint-xl) {
+            text-align: left;
             max-width: 100%;
-            align-items: center;
           }
 
-          @media (max-width: $breakpoint-md) {
-            max-width: 471px;
+          @media (max-width: $breakpoint-md-sm) {
+            text-align: left;
+          }
+        }
+
+        .about-text-content {
+          @include about-text-container;
+
+          .intro-text {
+            @include about-intro-text;
           }
 
-          @media (max-width: $breakpoint-sm) {
-            align-items: flex-start;
+          .info-items-wrapper {
+            @include about-items-container;
+
+            .info-item {
+              @include about-item;
+
+              .icon-container {
+                @include about-icon-wrapper;
+                flex-shrink: 0;
+              }
+
+              .item-description {
+                @include about-item-text;
+                flex: 1;
+                min-width: 0;
+              }
+
+              &[data-item="0"],
+              &[data-item="1"] {
+                min-height: 57px;
+              }
+
+              &[data-item="2"] {
+                min-height: 114px;
+
+                @media (max-width: $breakpoint-md) {
+                  min-height: auto;
+                }
+              }
+            }
           }
+        }
+      }
 
-          .info-item {
-            @include displayFlex(row, flex-start, center, 15px);
-            margin-bottom: 30px;
-            padding: 0;
-            white-space: normal;
-            height: auto;
-            min-height: 48px;
+      .portrait-section {
+        @include section-visual-content;
 
-            @media (max-width: $breakpoint-xl) {
-              justify-content: center;
-              text-align: center;
-              margin-bottom: 25px;
+        @media (max-width: $breakpoint-md) {
+          order: -1;
+          margin-bottom: 20px;
+        }
+
+        .portrait-figure {
+          margin: 0;
+          position: relative;
+
+          &::before {
+            content: "";
+            position: absolute;
+            width: 560px;
+            height: 900px;
+            background: url("/portfolio/assets/images/background/photo-shadows.png")
+              no-repeat center center;
+            background-size: contain;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            @include pulse-shadow(3s, 1s);
+
+            @media (max-width: $breakpoint-lg) {
+              width: 400px;
+              height: 400px;
+              top: 16%;
             }
 
             @media (max-width: $breakpoint-md) {
-              margin-bottom: 20px;
-            }
-
-            @media (max-width: $breakpoint-sm) {
-              justify-content: flex-start;
-              text-align: left;
-              margin-bottom: 18px;
-              gap: 12px;
-            }
-
-            .icon-wrapper {
-              flex-shrink: 0;
-              @include displayFlex(row, center, flex-start);
-              width: 48px;
-              height: 48px;
-              @include transition(transform, 0.2s, ease-in-out);
-              margin-top: 4px;
-
-              @media (max-width: $breakpoint-sm) {
-                width: 40px;
-                height: 40px;
-              }
-
-              &:hover {
-                transform: scale(1.1);
-              }
-
-              img {
-                cursor: pointer;
-                max-width: 100%;
-                max-height: 100%;
-                width: 35px;
-
-                @media (max-width: $breakpoint-sm) {
-                  width: 30px;
-                }
-              }
-            }
-
-            .text-wrapper {
-              min-width: 0;
-              overflow-wrap: break-word;
-              word-wrap: break-word;
-              word-break: break-word;
-              hyphens: auto;
-
-              p {
-                font-size: 18px;
-                line-height: $line-height;
-                color: $text-color;
-                margin: 0;
-                white-space: normal;
-
-                @media (max-width: $breakpoint-lg) {
-                  font-size: 17px;
-                }
-
-                @media (max-width: $breakpoint-md) {
-                  font-size: 16px;
-                }
-
-                @media (max-width: $breakpoint-sm) {
-                  font-size: 15px;
-                }
-              }
+              width: 280px;
+              height: 280px;
             }
           }
-        }
-      }
-    }
-  }
 
-  .portrait-container {
-    position: relative;
-    z-index: 4;
-    flex: 1;
+          .portrait-image {
+            width: 593px;
+            height: 647px;
+            object-fit: contain;
+            display: block;
 
-    @media (max-width: $breakpoint-xl) {
-      flex: none;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-    }
+            @media (max-width: $breakpoint-lg) {
+              width: 400px;
+              height: 437px;
+            }
 
-    @media (max-width: $breakpoint-md) {
-      margin-bottom: 20px;
-    }
-
-    img {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-    }
-
-    figure {
-      margin: 0;
-
-      &::before {
-        content: "";
-        position: absolute;
-        width: 560px;
-        height: 900px;
-        background: url("/portfolio/assets/images/background/photo-shadows.png") no-repeat center center;
-        background-size: contain;
-        z-index: -3;
-        top: 64%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-
-        @media (max-width: $breakpoint-lg) {
-          width: 400px;
-          height: 400px;
-          top: 50%;
-        }
-
-        @media (max-width: $breakpoint-md) {
-          width: 350px;
-          height: 350px;
-        }
-
-        @media (max-width: $breakpoint-sm) {
-          width: 300px;
-          height: 300px;
-          top: 45%;
-        }
-      }
-
-      .portrait-image {
-        width: 593px;
-        height: 647px;
-        object-fit: contain;
-
-        @media (max-width: $breakpoint-lg) {
-          width: 400px;
-          height: 437px;
-        }
-
-        @media (max-width: $breakpoint-md) {
-          width: 350px;
-          height: 382px;
-        }
-
-        @media (max-width: $breakpoint-sm) {
-          width: 280px;
-          height: 308px;
+            @media (max-width: $breakpoint-md) {
+              width: 280px;
+              height: 306px;
+            }
+          }
         }
       }
     }

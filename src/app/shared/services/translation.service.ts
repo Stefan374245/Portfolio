@@ -39,7 +39,7 @@ export class TranslationService {
         skills: {
           title: 'Skills',
           description:
-            'Here are the technologies and tools I work with to bring ideas to life.',
+            'Highlight your experience of working on different projects using different front-end technologies (such as HTML, CSS, JavaScript, etc.) and emphasise your openness to learning and adapting to new technologies. Mention the importance of continuing education to keep up with the rapid changes in web development.',
           subtitle: "Technologies I've been working with recently",
           learning: {
             title: 'Looking for',

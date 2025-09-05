@@ -1,7 +1,18 @@
-import { Component, inject, OnInit, OnDestroy, HostListener } from '@angular/core';
+import {
+  Component,
+  inject,
+  OnInit,
+  OnDestroy,
+  HostListener,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SlideAnimationComponent } from '../../slide-animation/slide-animation.component';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import {
+  RouterLink,
+  RouterLinkActive,
+  RouterModule,
+  Router,
+} from '@angular/router';
 import { TranslationService } from '../../services/translation.service';
 import { TranslatePipe } from '../../pipes/translate.pipe';
 import { Language } from '../../interfaces/translation.interface';
@@ -14,6 +25,7 @@ import { Language } from '../../interfaces/translation.interface';
     SlideAnimationComponent,
     RouterLink,
     RouterLinkActive,
+    RouterModule,
     TranslatePipe,
   ],
   templateUrl: './header.component.html',
@@ -21,6 +33,7 @@ import { Language } from '../../interfaces/translation.interface';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   private translationService = inject(TranslationService);
+  private router = inject(Router);
 
   isMobileMenuOpen: boolean = false;
   burgerMenuState: 'burger' | 'burger-transition' | 'burger-close-final' =
@@ -41,36 +54,35 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   toggleMobileMenu(): void {
-    if (!this.isMobileMenuOpen) {
-      this.burgerMenuState = 'burger-transition';
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+
+    if (this.isMobileMenuOpen) {
+      this.burgerMenuState = 'burger-close-final';
       this.toggleBodyScroll(true);
-
-      setTimeout(() => {
-        this.burgerMenuState = 'burger-close-final';
-        setTimeout(() => {
-          this.isMobileMenuOpen = true;
-        }, 100);
-      }, 300);
     } else {
-      this.isMobileMenuOpen = false;
-
-      setTimeout(() => {
-        this.burgerMenuState = 'burger-transition';
-
-        setTimeout(() => {
-          this.burgerMenuState = 'burger';
-          this.toggleBodyScroll(false);
-        }, 300);
-      }, 150);
+      this.burgerMenuState = 'burger';
+      this.toggleBodyScroll(false);
     }
   }
 
   /**
-   * Schließt das Mobile Menu
+   * Navigiert zu einer Section und schließt das Mobile Menu
+   */
+  navigateAndClose(fragment: string): void {
+    this.router.navigate(['/'], { fragment });
+    this.isMobileMenuOpen = false;
+    this.burgerMenuState = 'burger';
+    this.toggleBodyScroll(false);
+  }
+
+  /**
+   * Schließt das Mobile Menu direkt
    */
   closeMobileMenu(): void {
     if (this.isMobileMenuOpen) {
-      this.toggleMobileMenu();
+      this.isMobileMenuOpen = false;
+      this.burgerMenuState = 'burger';
+      this.toggleBodyScroll(false);
     }
   }
 

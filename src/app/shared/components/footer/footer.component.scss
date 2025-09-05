@@ -52,6 +52,10 @@
       @media (max-width: $breakpoint-md) {
         order: 2;
       }
+
+      @media (max-width: $breakpoint-sm) {
+        width: 100vw;
+      }
     }
   }
 

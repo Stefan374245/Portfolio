@@ -9,6 +9,26 @@
   background-color: $background-color;
   z-index: 1;
   overflow: hidden;
+
+  @include section-background(
+    "/portfolio/assets/images/background/green-shadow.png",
+    0px,
+    left,
+    680px,
+    470px,
+    1
+  );
+
+  @media (max-width: $breakpoint-lg) {
+    &::before {
+      height: 470px;
+    }
+    @media (max-width: $breakpoint-sm) {
+      &::before {
+        left: -160px;
+      }
+    }
+  }
 }
 
 .image-content {

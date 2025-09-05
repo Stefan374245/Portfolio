@@ -11,6 +11,7 @@
   width: 100%;
   gap: 60px;
   position: relative;
+  z-index: 2;
 }
 
 .quote-mark-left {
@@ -255,6 +256,7 @@
   }
 
   .quote-symbol {
+    display: none;
     font-size: 100px;
   }
 
