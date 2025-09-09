@@ -1,0 +1,48 @@
+<div class="toast-container">
+  @for (toast of toasts(); track toast.id) {
+    <div 
+      class="toast"
+      [ngClass]="{
+        'toast-visible': toast.isVisible,
+        'toast-removing': toast.isRemoving,
+        'toast-success': toast.config.type === 'success',
+        'toast-error': toast.config.type === 'error',
+        'toast-info': toast.config.type === 'info',
+        'toast-warning': toast.config.type === 'warning'
+      }"
+      role="alert"
+      aria-live="polite"
+    >
+      <div class="toast-content">
+        <div class="toast-icon">
+          @switch (toast.config.type) {
+            @case ('success') {
+              <img src="assets/icons/contact-form-icons/check.png" alt="Success" />
+            }
+            @case ('error') {
+              <img src="assets/icons/contact-form-icons/required.png" alt="Error" />
+            }
+            @default {
+              <img src="assets/icons/contact-form-icons/check.png" alt="Info" />
+            }
+          }
+        </div>
+        
+        <div class="toast-message">
+          <p>{{ toast.config.message }}</p>
+        </div>
+        
+        @if (toast.config.showCloseButton) {
+          <button 
+            type="button"
+            class="toast-close-button"
+            (click)="closeToast(toast.id)"
+            [attr.aria-label]="toast.config.closeButtonText"
+          >
+            {{ toast.config.closeButtonText }}
+          </button>
+        }
+      </div>
+    </div>
+  }
+</div>

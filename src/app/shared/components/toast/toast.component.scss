@@ -1,0 +1,142 @@
+@import "../../../../variables";
+@import "../../../../../mixin.scss";
+
+.toast-container {
+  position: fixed;
+left: 50%;
+bottom: 30px;
+transform: translateX(-50%);
+  z-index: 50;
+  @include displayFlex(column, flex-end, flex-end, 16px);
+  pointer-events: none;
+
+  @media (max-width: $breakpoint-sm) {
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
+  }
+}
+
+.toast {
+  pointer-events: auto;
+  min-width: 420px;
+  max-width: 520px;
+  background: rgba($background-color, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: $border-radius-md;
+  border: 1px solid rgba($primary-color, 0.3);
+  @include boxShadow(0 8px 32px rgba(0, 0, 0, 0.4));
+  transform: translateY(100%);
+  opacity: 0;
+  @include transition(all, 0.4s, cubic-bezier(0.25, 0.46, 0.45, 0.94));
+
+  @media (max-width: $breakpoint-sm) {
+    min-width: auto;
+    width: 100%;
+  }
+
+  &.toast-visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  &.toast-removing {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  &.toast-success {
+    border-color: rgba($primary-color, 0.6);
+    @include boxShadow(0 8px 32px rgba($primary-color, 0.15));
+    
+    .toast-icon img {
+      filter: brightness(0) saturate(100%) invert(69%) sepia(69%) saturate(372%) 
+              hue-rotate(92deg) brightness(97%) contrast(87%);
+    }
+  }
+
+  &.toast-error {
+    border-color: rgba($required-color, 0.6);
+    @include boxShadow(0 8px 32px rgba($required-color, 0.15));
+    
+    .toast-icon img {
+      filter: brightness(0) saturate(100%) invert(25%) sepia(95%) saturate(2578%) 
+              hue-rotate(351deg) brightness(95%) contrast(93%);
+    }
+  }
+}
+
+.toast-content {
+  @include displayFlex(row, space-between, center, 20px);
+  padding: 20px 24px;
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 18px 20px;
+    gap: 16px;
+  }
+}
+
+.toast-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  @include displayFlex(row, center, center);
+
+  img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+  }
+}
+
+.toast-message {
+  flex: 1;
+  
+  p {
+    @include color($text-color);
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.4;
+
+    @media (max-width: $breakpoint-sm) {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.toast-close-button {
+  background: transparent;
+  border: 2px solid $primary-color;
+  @include color($primary-color);
+  border-radius: $border-radius-md;
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  @include transition(all, $transition-speed, $transition-ease);
+  flex-shrink: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  &:hover {
+    background: $primary-color;
+    @include color($background-color);
+    transform: translateY(-1px);
+    @include boxShadow(0 4px 12px rgba($primary-color, 0.3));
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:focus {
+    outline: none;
+    @include boxShadow(0 0 0 3px rgba($primary-color, 0.3));
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}

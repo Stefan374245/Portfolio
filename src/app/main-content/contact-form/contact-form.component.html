@@ -246,12 +246,16 @@
               <button
                 type="submit"
                 class="submit-button"
-                [disabled]="!contactForm.valid || !contactData.privacy"
+                [disabled]="!contactForm.valid || !contactData.privacy || isSubmitting"
                 aria-describedby="submit-description"
               >
-                <span class="button-text">{{
-                  "sections.contact.form.send" | translate
-                }}</span>
+                <span class="button-text">
+                  @if (isSubmitting) {
+                    {{ "sections.contact.form.sending" | translate }}
+                  } @else {
+                    {{ "sections.contact.form.send" | translate }}
+                  }
+                </span>
               </button>
             </div>
           </fieldset>
@@ -273,4 +277,7 @@
       </div>
     </div>
   </div>
+
+  <!-- Toast Component -->
+  <app-toast></app-toast>
 </section>

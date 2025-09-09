@@ -64,7 +64,7 @@
             {{ "sections.skills.description" | translate }}
           </p>
 
-          <section class="learning-section">
+          <section class="learning-section desktop-learning">
             <h3>
               {{ "sections.skills.learning.title" | translate }}
               <span class="highlight">{{
@@ -88,6 +88,30 @@
           </section>
         </aside>
       </app-slide-animation>
+
+      <!-- Mobile Learning Section -->
+      <section class="learning-section mobile-learning">
+        <h3>
+          {{ "sections.skills.learning.title" | translate }}
+          <span class="highlight">{{
+            "sections.skills.learning.highlight" | translate
+          }}</span
+          >?
+        </h3>
+        <p class="learning-text">
+          {{ "sections.skills.learning.description" | translate }}
+        </p>
+        <button
+          class="contact-btn"
+          type="button"
+          routerLink="/"
+          fragment="contact"
+          role="button"
+          aria-label="Navigate to contact section"
+        >
+          {{ "sections.skills.learning.contactBtn" | translate }}
+        </button>
+      </section>
     </div>
   </div>
 </section>

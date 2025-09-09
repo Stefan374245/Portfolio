@@ -46,10 +46,56 @@
   .tech-container {
     @include tech-stack-container;
 
+    @media (max-width: $breakpoint-md) {
+      position: relative;
+    }
+
     .tech-content {
       @include tech-stack-content;
 
-      .skills-grid {
+      @media (max-width: $breakpoint-md) {
+        display: flex;
+        flex-direction: column;
+      }
+
+      app-slide-animation {
+        @media (max-width: $breakpoint-md) {
+          &:first-child {
+            order: 2;
+          }
+          &:last-child {
+            order: 1;
+          }
+        }
+      }
+
+      .mobile-learning {
+        @include tech-stack-learning-section;
+
+        display: none;
+
+        @media (max-width: $breakpoint-lg) {
+          display: flex;
+          order: 3;
+        }
+
+        h3 {
+          @include tech-stack-learning-title;
+        }
+
+        .learning-text {
+          @include tech-stack-learning-text;
+        }
+
+        .contact-btn {
+          @include primaryButton(
+            clamp(10px, 2vw, 15px) clamp(20px, 4vw, 30px)
+          );
+        }
+      }
+    }
+
+    .skills-grid {
         @include tech-stack-skills-grid;
 
         .skill-item {
@@ -93,13 +139,12 @@
       .text-content {
         @include tech-stack-text-container;
 
+        @media (max-width: $breakpoint-md) {
+          position: relative;
+        }
+
         .skills {
           text-align: center;
-          margin-bottom: 40px;
-
-          @media (max-width: $breakpoint-lg) {
-            margin-bottom: 35px;
-          }
 
           @media (max-width: $breakpoint-sm) {
             margin-bottom: 0;
@@ -156,8 +201,12 @@
           @include tech-stack-description;
         }
 
-        .learning-section {
+        .desktop-learning {
           @include tech-stack-learning-section;
+
+          @media (max-width: $breakpoint-xl) {
+            display: none;
+          }
 
           h3 {
             @include tech-stack-learning-title;
@@ -329,4 +378,3 @@
       }
     }
   }
-}
