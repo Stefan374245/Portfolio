@@ -80,7 +80,7 @@ header {
         position: relative;
         @include color($text-color);
         text-decoration: none;
-        font-size: $font-size;
+        font-size: 23px;
         font-weight: $font-weight;
         padding: 10px 0;
         @include transition(color, $transition-speed, $transition-ease);

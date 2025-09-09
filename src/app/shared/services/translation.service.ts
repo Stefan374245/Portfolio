@@ -88,6 +88,16 @@ export class TranslationService {
           },
         },
       },
+      toast: {
+        success: {
+          message: 'Thank you for your message! I will get back to you shortly.',
+          button: 'Got it'
+        },
+        error: {
+          message: 'Error sending message. Please try again.',
+          button: 'Try again'
+        }
+      },
       projects: {
         join: {
           description:
@@ -195,6 +205,16 @@ export class TranslationService {
             location: 'Dinslaken, Deutschland',
           },
         },
+      },
+      toast: {
+        success: {
+          message: 'Danke für Ihre Nachricht! Ich melde mich zeitnah zurück.',
+          button: 'Verstanden'
+        },
+        error: {
+          message: 'Fehler beim Senden. Bitte versuchen Sie es erneut.',
+          button: 'Erneut versuchen'
+        }
       },
       projects: {
         join: {

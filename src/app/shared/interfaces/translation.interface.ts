@@ -69,6 +69,16 @@ export interface Translation {
       };
     };
   };
+  toast: {
+    success: {
+      message: string;
+      button: string;
+    };
+    error: {
+      message: string;
+      button: string;
+    };
+  };
   projects: {
     join: {
       description: string;

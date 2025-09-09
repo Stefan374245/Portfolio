@@ -7,7 +7,7 @@ import { TranslatePipe } from '../../shared/pipes/translate.pipe';
 import { Translation } from '../../shared/interfaces/translation.interface';
 import { ToastService } from '../../shared/services/toast.service';
 import { ToastComponent } from '../../shared/components/toast/toast.component';
-
+import { TranslationService } from '../../shared/services/translation.service';
 
 @Component({
   selector: 'app-contact-form',
@@ -21,6 +21,7 @@ export class ContactFormComponent {
 
   private http = inject(HttpClient);
   private toastService = inject(ToastService);
+  private translationService = inject(TranslationService);
   
   contactData = {
     name: '',
@@ -30,7 +31,7 @@ export class ContactFormComponent {
   };
 
   hoveredCheckbox: string | null = null;
-  mailTest = true; // Set to true for testing
+  mailTest = false; // Set to false for production
   isSubmitting = false;
 
   post = {
@@ -44,8 +45,14 @@ export class ContactFormComponent {
     },
   };
 
+  /**
+   * Getter für aktuelle Übersetzungen (wie im Header)
+   */
+  get currentTranslations(): Translation {
+    return this.translationService.getCurrentTranslations();
+  }
 
-/**
+  /**
    * Setzt den Hover-State für Checkbox-Elemente
    * @param checkboxId - ID der gehöverten Checkbox
    */
@@ -69,11 +76,7 @@ export class ContactFormComponent {
             },
             error: (error) => {
               console.error(error);
-              this.toastService.showToast({
-                message: this.translation?.form?.error || 'An error occurred',
-                type: 'error',
-                closeButtonText: 'Try again'
-              });
+              this.showErrorToast();
               this.isSubmitting = false;
             },
             complete: () => console.info('send post complete'),
@@ -92,9 +95,17 @@ export class ContactFormComponent {
 
   private showSuccessToast(): void {
     this.toastService.showToast({
-      message: 'Danke für Ihre Nachricht! Ich melde mich zeitnah zurück.',
+      message: this.currentTranslations.toast.success.message,
       type: 'success',
-      closeButtonText: 'Got it'
+      closeButtonText: this.currentTranslations.toast.success.button
+    });
+  }
+
+  private showErrorToast(): void {
+    this.toastService.showToast({
+      message: this.currentTranslations.toast.error.message,
+      type: 'error',
+      closeButtonText: this.currentTranslations.toast.error.button
     });
   }
 }
