@@ -199,6 +199,7 @@
   font-weight: $font-weight-hero-name;
   color: $text-color;
   line-height: $line-height;
+  width: max-content;
 
   @media (max-width: $breakpoint-sm) {
     font-size: 45px;

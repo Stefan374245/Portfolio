@@ -361,12 +361,7 @@
   position: relative;
   z-index: 2;
 
-  @media (max-width: 1250px) {
-    margin: 0;
-    padding: 0 60px;
-  }
-
-  @media (max-width: $breakpoint-lg) {
+  @media (max-width: $breakpoint-xl) {
     margin: 120px 60px;
     padding: 0 60px;
   }
@@ -378,7 +373,7 @@
 }
 
 @mixin tech-stack-content {
-  @include displayFlex(row, space-between, center, 40px);
+  @include displayFlex(row, space-around, center, 40px);
   width: 100%;
   position: relative;
   z-index: 3;

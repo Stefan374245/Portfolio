@@ -39,7 +39,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   burgerMenuState: 'burger' | 'burger-transition' | 'burger-close-final' =
     'burger';
 
-  // Active Section State
+    private scrollPosition: number = 0;
   activeSection: string = '';
 
   get currentLang(): Language {
@@ -53,15 +53,31 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.translationService.setLanguage(lang);
   }
 
-  toggleMobileMenu(): void {
+    toggleMobileMenu(): void {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
 
     if (this.isMobileMenuOpen) {
+      this.scrollPosition = window.pageYOffset;
       this.burgerMenuState = 'burger-close-final';
       this.toggleBodyScroll(true);
     } else {
       this.burgerMenuState = 'burger';
       this.toggleBodyScroll(false);
+    }
+  }
+
+  private toggleBodyScroll(disable: boolean): void {
+    if (disable) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${this.scrollPosition}px`;
+      document.body.style.width = '100%';
+    } else {
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      window.scrollTo(0, this.scrollPosition);
     }
   }
 
@@ -86,29 +102,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }
   }
 
-  /**
-   * Verhindert/erlaubt das Scrollen des Body Elements
-   */
-  private toggleBodyScroll(disable: boolean): void {
-    if (disable) {
-      document.body.style.overflow = 'hidden';
-      document.body.style.position = 'fixed';
-      document.body.style.width = '100%';
-      document.body.style.height = '100%';
-    } else {
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.width = '';
-      document.body.style.height = '';
-    }
-  }
 
   ngOnInit(): void {
     this.updateActiveSection();
   }
 
   ngOnDestroy(): void {
-    // Cleanup wenn nötig
   }
 
   @HostListener('window:scroll', [])
@@ -121,7 +120,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
    */
   private updateActiveSection(): void {
     const sections = ['aboutMe', 'techStack', 'portfolio'];
-    const scrollPosition = window.pageYOffset + 150; // Offset für bessere UX
+    const scrollPosition = window.pageYOffset + 150;
 
     for (const section of sections) {
       const element = document.getElementById(section);
@@ -136,8 +135,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
         }
       }
     }
-
-    // Fallback: wenn ganz oben, keine aktive Section
     if (window.pageYOffset < 100) {
       this.activeSection = '';
     }

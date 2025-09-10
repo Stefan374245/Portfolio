@@ -206,7 +206,7 @@ export class TranslationService {
             'Leidenschaftlich im Frontend-Development setze ich HTML, CSS, JavaScript, TypeScript und andere Technologien ein. Programmieren begeistert mich, weil ich kreative Ideen in reale Projekte verwandeln kann. Ständiges Lernen und neue Technologien motivieren mich, immer weiter zu wachsen.',
           points: {
             location:
-              'Ich lebe in Dinslaken, bin offen für Remote-Arbeit und schätze Arbeitgeber, die flexible Zusammenarbeit fördern. Mit Leidenschaft für sauberen Code und moderne Frontend-Entwicklung motivieren mich ständiges Lernen und Teamarbeit.',
+              'Ich lebe in Dinslaken und bin offen für Remote-Arbeit. Besonders schätze ich Arbeitgeber, die flexible Zusammenarbeit ermöglichen. Meine Leidenschaft gilt sauberem Code und moderner Frontend-Entwicklung. Ständiges Lernen und Teamarbeit motivieren mich, immer besser zu werden.',
             passion:
               'Offenheit und Neugier treiben mich an. Ich entdecke gerne neue Technologien, probiere moderne Tools aus und erweitere stetig mein Wissen, um in jedem Projekt bessere Ergebnisse zu erzielen.',
             collaboration:
