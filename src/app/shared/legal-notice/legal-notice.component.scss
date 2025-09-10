@@ -2,12 +2,18 @@
 @import "../../../../mixin.scss";
 
 .legal-section {
+  @include displayFlex(column, center, center, 35px);
+  width: 100%;
   min-height: 100vh;
-  padding: 100px 0;
   overflow: hidden;
 
+  @media (max-width: $breakpoint-lg) {
+    padding: 0 27px 0 20px !important;
+  }
+
   .container {
-    max-width: 800px;
+    width: 100%;
+    max-width: 1440px;
     margin: 0 auto;
     padding: 0 40px;
 
@@ -17,12 +23,13 @@
   }
 
   .legal-header {
+    width: 100%;
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 48px;
 
     .legal-title {
-      @include headline($primary-color, 61px, bold, 2px);
-      margin-bottom: 20px;
+      @include headline($primary-color, 48px, bold, 2px);
+
       position: relative;
       display: inline-block;
 
@@ -31,40 +38,41 @@
         content: "";
         position: absolute;
         top: 50%;
-        width: 130px;
         height: 3px;
         background-color: $button-color;
         border-radius: 2px;
       }
 
       &::before {
-        left: -160px;
+        left: -100px;
+        width: 80px;
       }
 
       &::after {
-        right: -540px;
-        width: 500px;
+        right: -840px;
+        width: 820px;
       }
 
       @media (max-width: $breakpoint-sm) {
-        &::before,
-        &::after {
-          display: none;
-        }
+        font-size: 36px;
       }
     }
   }
 
   .legal-content {
+    @include displayFlex(column, center, flex-start, 24px);
+    text-align: left;
+    width: 100%;
+
     h2 {
-      @include headline($button-color, 33px, bold);
-      margin: 40px 0 20px;
+      @include headline($button-color, 28px, bold);
+      line-height: $line-height;
+      letter-spacing: $letter-spacing;
     }
 
     p {
       color: $text-color;
       line-height: 1.7;
-      margin-bottom: 20px;
       font-size: 16px;
       font-weight: $font-weight;
       letter-spacing: $letter-spacing;
@@ -78,10 +86,22 @@
     a {
       color: $button-color;
       text-decoration: underline;
-      
+      transition: color 0.2s ease;
+
       &:hover {
         color: $button-color-hovered;
       }
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .legal-section {
+    app-slide-animation {
+      opacity: 1;
+      transform: none;
+      animation: none;
+      transition: none;
     }
   }
 }

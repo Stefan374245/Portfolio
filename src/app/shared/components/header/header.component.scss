@@ -63,7 +63,7 @@ header {
   .nav-container {
     @include displayFlex(row, center, center, 40px);
 
-    @media (max-width: $breakpoint-md-sm) {
+    @media (max-width: $breakpoint-md) {
       display: none;
     }
 
@@ -158,7 +158,7 @@ header {
     padding: 8px;
     z-index: 21;
 
-    @media (max-width: $breakpoint-md-sm) {
+    @media (max-width: $breakpoint-md) {
       display: block;
     }
 

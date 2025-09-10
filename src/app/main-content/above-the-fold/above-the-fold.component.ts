@@ -1,7 +1,6 @@
 import { Component, OnInit, Input  } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { Translation } from '../../shared/interfaces/translation.interface';
 
 import { SlideAnimationComponent } from '../../shared/slide-animation/slide-animation.component';
 
@@ -22,7 +21,6 @@ interface SocialLink {
   styleUrl: './above-the-fold.component.scss'
 })
 export class AboveTheFoldComponent implements OnInit {
-    @Input() translation!: Translation['sections']['hero'];
 
   emailAddress = 'info@stefan-helldobler.de';
   

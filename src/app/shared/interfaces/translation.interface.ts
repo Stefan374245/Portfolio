@@ -5,13 +5,6 @@ export interface Translation {
     portfolio: string;
   };
   sections: {
-    hero: {
-      greeting: string;
-      name: string;
-      role: string;
-      description: string;
-      contactBtn: string;
-    };
     about: {
       title: string;
       description: string;
@@ -62,11 +55,6 @@ export interface Translation {
           messageRequired: string;
         };
       };
-      info: {
-        email: string;
-        phone: string;
-        location: string;
-      };
     };
   };
   toast: {
@@ -101,6 +89,92 @@ export interface Translation {
       text: string;
     };
   };
+
+   privacy: {
+    title: string;
+    effectiveDate: string;
+    dataController: {
+      title: string;
+      content: string;
+      email: string;
+    };
+    collectedData: {
+      title: string;
+      contactForm: {
+        title: string;
+        name: string;
+        email: string;
+        message: string;
+      };
+      technical: {
+        title: string;
+        browserType: string;
+        operatingSystem: string;
+        accessTimes: string;
+      };
+    };
+    purposeAndUse: {
+      title: string;
+      responding: string;
+      functionality: string;
+      compliance: string;
+    };
+    dataRetention: {
+      title: string;
+      contactForm: string;
+      technicalData: string;
+    };
+    thirdPartyServices: {
+      title: string;
+      googleFonts: string;
+      hostingProvider: string;
+    };
+    cookiesAndStorage: {
+      title: string;
+      content: string;
+    };
+    yourRights: {
+      title: string;
+      content: string;
+      contact: string;
+    };
+  };
+
+    legalNotice: {
+    title: string;
+    information: {
+      title: string;
+      name: string;
+      profession: string;
+    };
+    contact: {
+      title: string;
+      email: string;
+      website: string;
+    };
+    euDispute: {
+      title: string;
+      content: string;
+      linkText: string;
+      additionalInfo: string;
+    };
+    consumerDispute: {
+      title: string;
+      content: string;
+    };
+    liability: {
+      contentsTitle: string;
+      contentsText: string;
+      linksTitle: string;
+      linksText: string;
+    };
+    copyright: {
+      title: string;
+      content: string;
+    };
+  };
 }
+
+
 
 export type Language = 'EN' | 'DE';

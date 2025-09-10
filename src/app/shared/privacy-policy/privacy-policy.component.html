@@ -1,131 +1,77 @@
-<section class="privacy-section">
-  <div class="container">
+<section id="privacy" class="privacy-section container">
+  <app-slide-animation direction="left" [delay]="200">
     <header class="privacy-header">
-      <h1 class="privacy-title">Privacy Policy</h1>
+      <h1 class="privacy-title">{{ translationService.getTranslation('privacy.title') }}</h1>
     </header>
-    
-    <div class="privacy-content">
-      <p><strong>Effective Date:</strong> August 25, 2025</p>
-      
-      <h2>1. Data Controller</h2>
+  </app-slide-animation>
+
+  <div class="privacy-content">
+    <app-slide-animation direction="right" [delay]="300">
+      <h2>{{ translationService.getTranslation('privacy.dataController.title') }}</h2>
       <p>
-        Stefan Helldobler<br>
-        Email: info&#64;stefan-helldobler.de<br>
-        This privacy policy explains how we collect, use, and protect your personal information when you visit our portfolio website.
+        {{ translationService.getTranslation('privacy.dataController.content') }}<br>
+        {{ translationService.getTranslation('privacy.yourRights.contact') }} 
+        <a href="mailto:{{ translationService.getTranslation('privacy.dataController.email') }}">
+          {{ translationService.getTranslation('privacy.dataController.email') }}
+        </a>
       </p>
-      
-      <h2>2. Information We Collect</h2>
-      <h3>2.1 Contact Form Data</h3>
-      <p>
-        When you submit our contact form, we collect the following information:
-      </p>
+    </app-slide-animation>
+
+    <app-slide-animation direction="left" [delay]="400">
+      <h2>{{ translationService.getTranslation('privacy.collectedData.title') }}</h2>
+      <p>{{ translationService.getTranslation('privacy.collectedData.contactForm.title') }}</p>
       <ul>
-        <li>Your name</li>
-        <li>Your email address</li>
-        <li>Your message content</li>
+        <li>{{ translationService.getTranslation('privacy.collectedData.contactForm.name') }}</li>
+        <li>{{ translationService.getTranslation('privacy.collectedData.contactForm.email') }}</li>
+        <li>{{ translationService.getTranslation('privacy.collectedData.contactForm.message') }}</li>
       </ul>
-      
-      <h3>2.2 Technical Data</h3>
-      <p>
-        Our website may automatically collect certain technical information:
-      </p>
+      <p>{{ translationService.getTranslation('privacy.collectedData.technical.title') }}</p>
       <ul>
-        <li>Browser type and version</li>
-        <li>Operating system</li>
-        <li>IP address (anonymized)</li>
-        <li>Access times and dates</li>
-        <li>Referring website addresses</li>
+        <li>{{ translationService.getTranslation('privacy.collectedData.technical.browserType') }}</li>
+        <li>{{ translationService.getTranslation('privacy.collectedData.technical.operatingSystem') }}</li>
+        <li>{{ translationService.getTranslation('privacy.collectedData.technical.accessTimes') }}</li>
       </ul>
-      
-      <h2>3. How We Use Your Information</h2>
-      <p>We use the collected information for the following purposes:</p>
+    </app-slide-animation>
+
+    <app-slide-animation direction="right" [delay]="500">
+      <h2>{{ translationService.getTranslation('privacy.purposeAndUse.title') }}</h2>
       <ul>
-        <li><strong>Contact Form:</strong> To respond to your inquiries and communicate with you about potential projects or collaborations</li>
-        <li><strong>Technical Data:</strong> To ensure the proper functioning of our website and improve user experience</li>
-        <li><strong>Legal Compliance:</strong> To comply with applicable laws and regulations</li>
+        <li>{{ translationService.getTranslation('privacy.purposeAndUse.responding') }}</li>
+        <li>{{ translationService.getTranslation('privacy.purposeAndUse.functionality') }}</li>
+        <li>{{ translationService.getTranslation('privacy.purposeAndUse.compliance') }}</li>
       </ul>
-      
-      <h2>4. Legal Basis for Processing (GDPR)</h2>
-      <p>Under the General Data Protection Regulation (GDPR), we process your data based on:</p>
+    </app-slide-animation>
+
+    <app-slide-animation direction="left" [delay]="600">
+      <h2>{{ translationService.getTranslation('privacy.dataRetention.title') }}</h2>
       <ul>
-        <li><strong>Consent:</strong> When you voluntarily submit the contact form</li>
-        <li><strong>Legitimate Interest:</strong> For website functionality and security purposes</li>
+        <li>{{ translationService.getTranslation('privacy.dataRetention.contactForm') }}</li>
+        <li>{{ translationService.getTranslation('privacy.dataRetention.technicalData') }}</li>
       </ul>
-      
-      <h2>5. Data Storage and Security</h2>
-      <p>
-        Your contact form data is processed via our secure PHP mail handler and sent to our email server. 
-        We implement appropriate technical and organizational measures to protect your data against 
-        unauthorized access, alteration, disclosure, or destruction.
-      </p>
-      
-      <h2>6. Data Retention</h2>
-      <p>
-        We retain your personal data only as long as necessary for the purposes outlined in this policy:
-      </p>
+    </app-slide-animation>
+
+    <app-slide-animation direction="right" [delay]="700">
+      <h2>{{ translationService.getTranslation('privacy.thirdPartyServices.title') }}</h2>
       <ul>
-        <li><strong>Contact Form Data:</strong> Stored for up to 3 years or until you request deletion</li>
-        <li><strong>Technical Data:</strong> Automatically deleted after 30 days</li>
+        <li>{{ translationService.getTranslation('privacy.thirdPartyServices.googleFonts') }}</li>
+        <li>{{ translationService.getTranslation('privacy.thirdPartyServices.hostingProvider') }}</li>
       </ul>
-      
-      <h2>7. Third-Party Services</h2>
-      <p>Our website uses the following third-party services:</p>
-      <ul>
-        <li><strong>Google Fonts:</strong> For typography (processed by Google with their privacy policy)</li>
-        <li><strong>Web Hosting:</strong> Your data may be processed by our hosting provider in accordance with their privacy standards</li>
-      </ul>
-      
-      <h2>8. Your Rights Under GDPR</h2>
-      <p>As a data subject, you have the following rights:</p>
-      <ul>
-        <li><strong>Right of Access:</strong> Request information about your personal data we process</li>
-        <li><strong>Right to Rectification:</strong> Request correction of inaccurate personal data</li>
-        <li><strong>Right to Erasure:</strong> Request deletion of your personal data</li>
-        <li><strong>Right to Restrict Processing:</strong> Request limitation of data processing</li>
-        <li><strong>Right to Data Portability:</strong> Request transfer of your data in a structured format</li>
-        <li><strong>Right to Object:</strong> Object to processing based on legitimate interests</li>
-        <li><strong>Right to Withdraw Consent:</strong> Withdraw consent at any time</li>
-      </ul>
-      
-      <h2>9. International Data Transfers</h2>
+    </app-slide-animation>
+
+    <app-slide-animation direction="left" [delay]="800">
+      <h2>{{ translationService.getTranslation('privacy.cookiesAndStorage.title') }}</h2>
+      <p>{{ translationService.getTranslation('privacy.cookiesAndStorage.content') }}</p>
+    </app-slide-animation>
+
+    <app-slide-animation direction="right" [delay]="900">
+      <h2>{{ translationService.getTranslation('privacy.yourRights.title') }}</h2>
+      <p>{{ translationService.getTranslation('privacy.yourRights.content') }}</p>
       <p>
-        Your data is primarily processed within the European Union. If data is transferred outside the EU, 
-        we ensure appropriate safeguards are in place in accordance with GDPR requirements.
+        {{ translationService.getTranslation('privacy.yourRights.contact') }} 
+        <a href="mailto:{{ translationService.getTranslation('privacy.dataController.email') }}">
+          {{ translationService.getTranslation('privacy.dataController.email') }}
+        </a>
       </p>
-      
-      <h2>10. Cookies and Local Storage</h2>
-      <p>
-        Our website currently does not use cookies for tracking purposes. We may use local storage 
-        for essential website functionality such as language preferences and scroll position restoration.
-      </p>
-      
-      <h2>11. Children's Privacy</h2>
-      <p>
-        Our website is not directed at children under 16 years of age. We do not knowingly collect 
-        personal data from children under 16 without parental consent.
-      </p>
-      
-      <h2>12. Changes to This Privacy Policy</h2>
-      <p>
-        We may update this privacy policy from time to time. Any changes will be posted on this page 
-        with an updated effective date. We encourage you to review this policy periodically.
-      </p>
-      
-      <h2>13. Contact Information</h2>
-      <p>
-        If you have any questions about this privacy policy or wish to exercise your rights, 
-        please contact us at:
-      </p>
-      <p>
-        <strong>Email:</strong> info&#64;stefan-helldobler.de<br>
-        <strong>Subject:</strong> Privacy Policy Inquiry
-      </p>
-      
-      <h2>14. Supervisory Authority</h2>
-      <p>
-        If you believe your data protection rights have been violated, you have the right to 
-        lodge a complaint with your local data protection supervisory authority.
-      </p>
-    </div>
+    </app-slide-animation>
   </div>
 </section>

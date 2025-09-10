@@ -15,37 +15,29 @@ export class TranslationService {
         portfolio: 'Portfolio',
       },
       sections: {
-        hero: {
-          greeting: "Hello, I'm",
-          name: 'Stefan',
-          role: 'Frontend Developer',
-          description:
-            'I am a passionate frontend developer who loves creating amazing user experiences with modern web technologies.',
-          contactBtn: 'Contact me',
-        },
         about: {
           title: 'About me',
           description:
-            'I am a passionate frontend developer with a strong foundation in modern web technologies. My journey in programming started with curiosity and has grown into a dedication to creating exceptional user experiences. I love solving complex problems and turning creative ideas into functional, beautiful applications.',
+            'Passionate about frontend development, I work with HTML, CSS, JavaScript, TypeScript, and other technologies. Coding inspires me because it allows me to turn creative ideas into real projects. I am motivated by constant learning and the challenge to grow with every new technology.',
           points: {
             location:
-              'Where are you located? Are you open to different ways of working, such as working remotely or even relocating?',
+              'Based in Dinslaken, I am open to remote work and value employers who support flexible collaboration. Passionate about clean code and modern frontend development, I stay motivated by continuous learning and teamwork.',
             passion:
-              'Show that you are open-minded. Are you enthusiastic about learning new technologies and continually improving your skills?',
+              'Openness and curiosity drive me. I enjoy exploring new technologies, trying modern tools, and continuously expanding my knowledge to achieve better results in every project.',
             collaboration:
-              'A brief description of your problem-solving approach. Do you learnfrom each challenge as you search for the most efficient or elegantsolution? You can include some keywords like: analytical thinking, creativity, persistence and collaboration.',
+              'I see challenges as opportunities to grow. With analytical thinking, creativity, perseverance, and strong collaboration, I create efficient, elegant, and sustainable solutions that provide valuable lessons for future projects.',
           },
         },
         skills: {
           title: 'Skills',
           description:
-            'Highlight your experience of working on different projects using different front-end technologies (such as HTML, CSS, JavaScript, etc.) and emphasise your openness to learning and adapting to new technologies. Mention the importance of continuing education to keep up with the rapid changes in web development.',
+            'I have worked with HTML, CSS, JavaScript, and TypeScript on various projects. Open to new tools and frameworks, I value continuous learning to keep up with the fast pace of web development.',
           subtitle: "Technologies I've been working with recently",
           learning: {
             title: 'Looking for',
             highlight: 'another skill',
             description:
-              'Reveal enthusiasm for learning new technologies and frameworks.',
+              'Enthusiastic about learning new technologies and frameworks.',
             contactBtn: 'Get in touch',
           },
         },
@@ -59,7 +51,7 @@ export class TranslationService {
         },
         contact: {
           title: 'Contact',
-          description: "Let's get in touch and discuss your project ideas.",
+          description: "Let’s connect and explore how I can bring your ideas to life. Whether you’re planning a new project or need support solving a challenge, I’m ready to collaborate and create effective solutions.",
           subtitle: 'Got a problem to solve?',
           form: {
             name: 'Your name',
@@ -80,11 +72,6 @@ export class TranslationService {
               emailRequired: 'Please enter a valid email',
               messageRequired: 'Your message is required',
             },
-          },
-          info: {
-            email: 'hello@stefan-dev.com',
-            phone: '+49 123 456 7890',
-            location: 'Berlin, Germany',
           },
         },
       },
@@ -123,6 +110,88 @@ export class TranslationService {
           text: 'A reliable team member who always delivers high-quality work on time.',
         },
       },
+      privacy: {
+        title: 'Privacy Policy',
+        effectiveDate: 'Effective Date',
+        dataController: {
+          title: 'Data Controller',
+          content: 'Stefan Helldobler',
+          email: 'info@stefan-helldobler.de'
+        },
+        collectedData: {
+          title: 'Collected Data',
+          contactForm: {
+            title: 'Contact form data:',
+            name: 'Name',
+            email: 'Email',
+            message: 'Message'
+          },
+          technical: {
+            title: 'Technical data (anonymized):',
+            browserType: 'Browser type',
+            operatingSystem: 'Operating system',
+            accessTimes: 'Access times'
+          }
+        },
+        purposeAndUse: {
+          title: 'Purpose & Use',
+          responding: 'Responding to inquiries',
+          functionality: 'Site functionality & security',
+          compliance: 'Compliance with legal requirements'
+        },
+        dataRetention: {
+          title: 'Data Retention',
+          contactForm: 'Contact form: up to 3 years',
+          technicalData: 'Technical data: 30 days'
+        },
+        thirdPartyServices: {
+          title: 'Third-Party Services',
+          googleFonts: 'Google Fonts (Typography)',
+          hostingProvider: 'Hosting provider'
+        },
+        cookiesAndStorage: {
+          title: 'Cookies & Local Storage',
+          content: 'No tracking cookies. LocalStorage only for essential functionality (language, scroll).'
+        },
+        yourRights: {
+          title: 'Your Rights',
+          content: 'Access, rectification, erasure, restriction, portability, objection, withdraw consent.',
+          contact: 'Contact:'
+        }
+      },
+      legalNotice: {
+        title: 'Legal Notice',
+        information: {
+          title: 'Information according to § 5 TMG',
+          name: 'Stefan Helldobler',
+          profession: 'Freelance Frontend Developer'
+        },
+        contact: {
+          title: 'Contact',
+          email: 'Email: info@stefan-helldobler.de',
+          website: 'Website: www.stefan-helldobler.de'
+        },
+        euDispute: {
+          title: 'EU Dispute Resolution',
+          content: 'The European Commission provides a platform for online dispute resolution (ODR):',
+          linkText: 'https://ec.europa.eu/consumers/odr/',
+          additionalInfo: 'Our email address can be found above in the legal notice.'
+        },
+        consumerDispute: {
+          title: 'Dispute Resolution Proceedings in front of a Consumer Arbitration Board',
+          content: 'We are not willing or obliged to participate in dispute resolution proceedings in front of a consumer arbitration board.'
+        },
+        liability: {
+          contentsTitle: 'Liability for Contents',
+          contentsText: 'As service providers, we are liable for our own contents of these websites according to Sec. 7, Para. 1 German Telemedia Act (TMG). However, pursuant to Secs. 8 to 10 German Telemedia Act (TMG), we as service providers are not under obligation to monitor submitted or stored information or to research circumstances pointing to illegal activity.',
+          linksTitle: 'Liability for Links',
+          linksText: 'Our offer includes links to external third party websites. We have no influence on the contents of those websites, therefore we cannot guarantee for those contents. Providers or administrators of linked websites are always responsible for their own contents.'
+        },
+        copyright: {
+          title: 'Copyright',
+          content: 'Contents and compilations published on these websites by the providers are subject to German copyright laws. Reproduction, editing, distribution as well as the use of any kind outside the scope of the copyright law require a written permission of the author or originator.'
+        }
+      }
     },
     DE: {
       navigation: {
@@ -131,38 +200,30 @@ export class TranslationService {
         portfolio: 'Portfolio',
       },
       sections: {
-        hero: {
-          greeting: 'Hallo, ich bin',
-          name: 'Stefan',
-          role: 'Frontend Entwickler',
-          description:
-            'Ich bin ein leidenschaftlicher Frontend-Entwickler, der großartige Benutzererfahrungen mit modernen Web-Technologien schafft.',
-          contactBtn: 'Kontakt',
-        },
         about: {
-          title: 'Über mich',
+          title: 'About me',
           description:
-            'Hallo, ich bin Stefan! Seit meinen ersten Zeilen HTML hat mich die Welt des Codings in ihren Bann gezogen. Mich fasziniert, wie aus Ideen und Codezeilen interaktive Erlebnisse entstehen, die Menschen begeistern und den Alltag erleichtern. Meine Motivation schöpfe ich aus der ständigen Weiterentwicklung digitaler Technologien und der Möglichkeit, mit meinen Projekten echten Mehrwert zu schaffen.',
+            'Leidenschaftlich im Frontend-Development setze ich HTML, CSS, JavaScript, TypeScript und andere Technologien ein. Programmieren begeistert mich, weil ich kreative Ideen in reale Projekte verwandeln kann. Ständiges Lernen und neue Technologien motivieren mich, immer weiter zu wachsen.',
           points: {
             location:
-              'Ich lebe aktuell in Deutschland und bin flexibel, was meine Arbeitsweise angeht – egal ob remote, hybrid oder vor Ort. Für spannende und zukunftsorientierte Projekte bin ich auch offen für einen Standortwechsel, um im direkten Austausch mit dem Team zu arbeiten.',
+              'Ich lebe in Dinslaken, bin offen für Remote-Arbeit und schätze Arbeitgeber, die flexible Zusammenarbeit fördern. Mit Leidenschaft für sauberen Code und moderne Frontend-Entwicklung motivieren mich ständiges Lernen und Teamarbeit.',
             passion:
-              'Offenheit und Neugier sind meine treibenden Kräfte. Ich begeistere mich dafür, neue Technologien zu entdecken, moderne Tools auszuprobieren und mein Wissen kontinuierlich zu vertiefen, um bei jedem Projekt noch bessere Ergebnisse zu erzielen.',
+              'Offenheit und Neugier treiben mich an. Ich entdecke gerne neue Technologien, probiere moderne Tools aus und erweitere stetig mein Wissen, um in jedem Projekt bessere Ergebnisse zu erzielen.',
             collaboration:
-              'Herausforderungen sind für mich Chancen, zu wachsen. Mit analytischem Denken, Kreativität, Ausdauer und guter Zusammenarbeit finde ich stets effiziente, elegante und nachhaltige Lösungen, aus denen ich für zukünftige Projekte lerne.',
+              'Herausforderungen betrachte ich als Chancen zum Wachsen. Durch analytisches Denken, Kreativität, Ausdauer und konstruktive Zusammenarbeit entwickle ich effiziente, elegante und nachhaltige Lösungen, aus denen ich für zukünftige Projekte weiterlerne.',
           },
         },
         skills: {
-          title: 'Fähigkeiten',
+          title: 'Skills',
           description:
-            'Hier sind die Technologien und Tools, mit denen ich Ideen zum Leben erwecke.',
+            'Ich habe mit HTML, CSS, JavaScript und TypeScript an verschiedenen Projekten gearbeitet. Offen für neue Tools und Frameworks lege ich Wert auf kontinuierliches Lernen, um mit der schnellen Entwicklung im Web Schritt zu halten.',
           subtitle:
             'Technologien, mit denen ich in letzter Zeit gearbeitet habe',
           learning: {
             title: 'Suchen Sie nach',
             highlight: 'einer anderen Fähigkeit',
             description:
-              'Zeigen Sie Begeisterung für das Erlernen neuer Technologien und Frameworks.',
+              'Begeistert davon, neue Technologien und Frameworks zu lernen.',
             contactBtn: 'Kontakt aufnehmen',
           },
         },
@@ -175,9 +236,8 @@ export class TranslationService {
           sourceCode: 'Github',
         },
         contact: {
-          title: 'Kontakt',
-          description:
-            'Lassen Sie uns in Kontakt treten und Ihre Projektideen besprechen.',
+          title: 'Contact',
+          description:'Lassen Sie uns in Kontakt treten und gemeinsam herausfinden, wie ich Ihre Ideen umsetzen kann. Ob Sie ein neues Projekt planen oder Unterstützung bei einer Herausforderung brauchen – ich freue mich auf die Zusammenarbeit.',
           subtitle: 'Haben Sie ein Problem zu lösen?',
           form: {
             name: 'Ihr Name',
@@ -198,11 +258,6 @@ export class TranslationService {
               emailRequired: 'Bitte geben Sie eine gültige E-Mail ein',
               messageRequired: 'Ihre Nachricht ist erforderlich',
             },
-          },
-          info: {
-            email: 'info@stefan-helldobler.de',
-            phone: '+49 1732534290',
-            location: 'Dinslaken, Deutschland',
           },
         },
       },
@@ -241,6 +296,88 @@ export class TranslationService {
           text: 'Ein zuverlässiger Teammitglied, der immer qualitativ hochwertige Arbeit pünktlich liefert.',
         },
       },
+      privacy: {
+        title: 'Datenschutzerklärung',
+        effectiveDate: 'Gültig ab',
+        dataController: {
+          title: 'Verantwortlicher',
+          content: 'Stefan Helldobler',
+          email: 'info@stefan-helldobler.de'
+        },
+        collectedData: {
+          title: 'Erhobene Daten',
+          contactForm: {
+            title: 'Kontaktformular-Daten:',
+            name: 'Name',
+            email: 'E-Mail',
+            message: 'Nachricht'
+          },
+          technical: {
+            title: 'Technische Daten (anonymisiert):',
+            browserType: 'Browsertyp',
+            operatingSystem: 'Betriebssystem',
+            accessTimes: 'Zugriffszeiten'
+          }
+        },
+        purposeAndUse: {
+          title: 'Zweck & Verwendung',
+          responding: 'Beantwortung von Anfragen',
+          functionality: 'Funktionalität & Sicherheit der Webseite',
+          compliance: 'Einhaltung gesetzlicher Vorgaben'
+        },
+        dataRetention: {
+          title: 'Aufbewahrung',
+          contactForm: 'Kontaktformular: bis zu 3 Jahre',
+          technicalData: 'Technische Daten: 30 Tage'
+        },
+        thirdPartyServices: {
+          title: 'Drittanbieter',
+          googleFonts: 'Google Fonts (Typografie)',
+          hostingProvider: 'Hosting-Provider'
+        },
+        cookiesAndStorage: {
+          title: 'Cookies & Lokaler Speicher',
+          content: 'Keine Tracking-Cookies. LocalStorage nur für notwendige Funktionen (Sprache, Scroll).'
+        },
+        yourRights: {
+          title: 'Ihre Rechte',
+          content: 'Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit, Widerspruch, Widerruf.',
+          contact: 'Kontakt:'
+        }
+      },
+      legalNotice: {
+        title: 'Impressum',
+        information: {
+          title: 'Angaben gemäß § 5 TMG',
+          name: 'Stefan Helldobler',
+          profession: 'Freiberuflicher Frontend-Entwickler'
+        },
+        contact: {
+          title: 'Kontakt',
+          email: 'E-Mail: info@stefan-helldobler.de',
+          website: 'Website: www.stefan-helldobler.de'
+        },
+        euDispute: {
+          title: 'EU-Streitschlichtung',
+          content: 'Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:',
+          linkText: 'https://ec.europa.eu/consumers/odr/',
+          additionalInfo: 'Unsere E-Mail-Adresse finden Sie oben im Impressum.'
+        },
+        consumerDispute: {
+          title: 'Verbraucherstreitbeilegung',
+          content: 'Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.'
+        },
+        liability: {
+          contentsTitle: 'Haftung für Inhalte',
+          contentsText: 'Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.',
+          linksTitle: 'Haftung für Links',
+          linksText: 'Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.'
+        },
+        copyright: {
+          title: 'Urheberrecht',
+          content: 'Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.'
+        }
+      }
     },
   };
 

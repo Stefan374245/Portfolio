@@ -22,8 +22,8 @@
     background-repeat: no-repeat;
     pointer-events: none;
     z-index: 1;
-     @include pulse-shadow(3s, 1s);
- 
+    @include pulse-shadow(3s, 1s);
+
     @media (max-width: $breakpoint-lg) {
       left: -120px;
       width: 450px;
@@ -57,7 +57,7 @@
     transform: scaleY(-1);
     pointer-events: none;
     z-index: 1;
-     @include pulse-shadow(3s, 1s);
+    @include pulse-shadow(3s, 1s);
 
     @media (max-width: $breakpoint-lg) {
       right: -200px;
@@ -83,7 +83,6 @@
   @include displayFlex(row, center, center, 0);
   min-height: 100vh;
   z-index: 3;
-  position: relative;
   width: 100%;
   margin: 0 100px;
 
@@ -119,25 +118,17 @@
   .hero-text {
     @include displayFlex(row, flex-start, flex-start, 40px);
 
-    @media (max-width: $breakpoint-lg) {
-      gap: 35px;
-    }
-
     @media (max-width: $breakpoint-md) {
       gap: 30px;
     }
 
     @media (max-width: $breakpoint-sm) {
-      gap: 25px;
-    }
-
-    @media (max-width: 400px) {
-      gap: 16px;
+      gap: 4px;
     }
 
     .greeting {
       @include color($text-color);
-      font-size: clamp(40px, 8vw, $greeting-font-size);
+      font-size: clamp(23px, 8vw, $greeting-font-size);
       font-weight: $greeting-font-weight;
       writing-mode: vertical-rl;
       text-orientation: mixed;
@@ -146,7 +137,7 @@
 
     .name-title-wrapper {
       @include displayFlex(column, flex-start, center, clamp(5px, 1.5vw, 10px));
-
+      width: max-content;
       .name {
         @include headline(
           $text-color,
@@ -160,15 +151,37 @@
       }
 
       .title {
-        @include color($button-color);
+        background: linear-gradient(
+          to right,
+          $primary-color,
+          $button-color,
+          $secondary-color,
+          $primary-color
+        );
+        background-size: 300% 100%;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
         font-size: clamp(24px, 6vw, 46px);
         font-weight: $tilte-font-weight;
         margin: 0 0 30px 0;
         overflow: hidden;
         white-space: nowrap;
-        border-right: 3px solid $button-color;
+        border-right-width: 3px;
+        border-right-style: solid;
+        border-image: linear-gradient(
+            to bottom,
+            $primary-color,
+            $button-color,
+            $secondary-color
+          )
+          1;
+
         animation: typewriter 2.5s steps(18) 1s forwards,
-          blink-cursor 0.8s infinite;
+          blink-cursor 1.8s infinite, gradient-shift 6s linear infinite,
+          cursor-gradient-animation 4s linear infinite;
+
         width: 0;
 
         @media (max-width: $breakpoint-lg) {
@@ -177,6 +190,66 @@
 
         @media (max-width: $breakpoint-sm) {
           margin: 0 0 20px 0;
+        }
+      }
+
+      @keyframes typewriter {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes cursor-gradient-animation {
+        0% {
+          border-image: linear-gradient(
+              to bottom,
+              $primary-color,
+              $button-color,
+              $secondary-color
+            )
+            1;
+        }
+        33% {
+          border-image: linear-gradient(
+              to bottom,
+              $secondary-color,
+              $primary-color,
+              $button-color
+            )
+            1;
+        }
+        66% {
+          border-image: linear-gradient(
+              to bottom,
+              $button-color,
+              $secondary-color,
+              $primary-color
+            )
+            1;
+        }
+        100% {
+          border-image: linear-gradient(
+              to bottom,
+              $primary-color,
+              $button-color,
+              $secondary-color
+            )
+            1;
+        }
+      }
+
+      @keyframes gradient-shift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
         }
       }
 
@@ -249,7 +322,6 @@
       background-color: $primary-color;
     }
 
-
     @media (max-width: $breakpoint-sm) {
       width: 60px;
       height: 3px;
@@ -317,25 +389,5 @@
       height: 160px;
       object-fit: contain;
     }
-  }
-}
-
-@keyframes typewriter {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-@keyframes blink-cursor {
-  0%,
-  50% {
-    border-right-color: $button-color;
-  }
-  51%,
-  100% {
-    border-right-color: transparent;
   }
 }

@@ -1,10 +1,12 @@
 @import "../../../../mixin.scss";
-@import "../../../variables";
 @import "../../../sections";
 
 #aboutMe {
-  @include section-base;
-  @include displayFlex(row, center, center, 0);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
   margin: 100px 0 0 0;
   position: relative;
   z-index: 10;
@@ -20,102 +22,142 @@
     left: 0;
     right: 0;
     height: 100vh;
-    background-image: url("/portfolio/assets/images/background/background.png");
+    background-image: url("/assets/images/background/background.png");
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
     z-index: -1;
     pointer-events: none;
 
-    @media (max-width: $breakpoint-xl) {
+    @media (max-width: 1240px) {
       top: 30%;
     }
 
-    @media (max-width: $breakpoint-lg) {
+    @media (max-width: 1050px) {
       top: 20%;
     }
 
-    @media (max-width: $breakpoint-md) {
+    @media (max-width: 950px) {
       top: 7%;
     }
   }
 
   .about-container {
-    @include about-container;
+    width: 100%;
+    max-width: 1140px;
+    padding: 0 24px;
+    margin: 0 auto;
 
     .about-content {
-      @include displayFlex(row, space-around, center, 166px);
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      gap: 166px;
       width: 100%;
       position: relative;
       z-index: 3;
 
-      @media (max-width: $breakpoint-xl) {
+      @media (max-width: 1240px) {
         flex-direction: column-reverse;
         align-items: center;
         gap: 100px;
       }
 
-      @media (max-width: $breakpoint-md) {
+      @media (max-width: 950px) {
         flex-direction: column;
         align-items: center;
         gap: 30px;
       }
 
       .about-text-section {
-        width: $about-text-width;
-        min-height: $about-text-height;
+        width: 471px;
+        min-height: 587px;
         position: relative;
         text-align: left;
 
-        @media (max-width: $breakpoint-xl) {
+        @media (max-width: 1240px) {
           width: 100%;
           max-width: 600px;
           min-height: auto;
         }
 
-        @media (max-width: $breakpoint-md) {
+        @media (max-width: 950px) {
           width: 100%;
-
           margin: 0 auto;
         }
 
         .about-title {
-          @include about-title;
+          font-size: 58px;
+          font-weight: 700;
+          color: #ffffff;
+          margin-bottom: 35px;
           width: 100%;
           height: auto;
 
-          @media (max-width: $breakpoint-xl) {
+          @media (max-width: 1240px) {
             text-align: left;
             max-width: 100%;
           }
 
-          @media (max-width: $breakpoint-md-sm) {
+          @media (max-width: 800px) {
             text-align: left;
+            font-size: 45px;
           }
         }
 
         .about-text-content {
-          @include about-text-container;
+          width: 100%;
 
           .intro-text {
-            @include about-intro-text;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #ffffff;
+            margin-bottom: 24px;
+            word-break: break-word;
+            overflow-wrap: break-word;
+
+            @media (max-width: 600px) {
+              font-size: 14px;
+            }
           }
 
           .info-items-wrapper {
-            @include about-items-container;
+            display: flex;
+            flex-direction: column;
+            gap: clamp(16px, 4.8vw, 24px);
 
             .info-item {
-              @include about-item;
+              display: flex;
+              align-items: flex-start;
+              gap: 16px;
 
               .icon-container {
-                @include about-icon-wrapper;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 48px;
+                height: 48px;
                 flex-shrink: 0;
+
+                img {
+                  width: 25px;
+                  height: auto;
+                }
               }
 
               .item-description {
-                @include about-item-text;
+                color: #ffffff;
+                font-size: 16px;
+                line-height: 1.5;
                 flex: 1;
                 min-width: 0;
+                word-break: break-word;
+                overflow-wrap: break-word;
+
+                @media (max-width: 600px) {
+                  font-size: 14px;
+                }
               }
 
               &[data-item="0"],
@@ -126,7 +168,7 @@
               &[data-item="2"] {
                 min-height: 114px;
 
-                @media (max-width: $breakpoint-md) {
+                @media (max-width: 950px) {
                   min-height: auto;
                 }
               }
@@ -136,9 +178,11 @@
       }
 
       .portrait-section {
-        @include section-visual-content;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-        @media (max-width: $breakpoint-md) {
+        @media (max-width: 950px) {
           order: -1;
           margin-bottom: 20px;
         }
@@ -152,23 +196,18 @@
             position: absolute;
             width: 560px;
             height: 900px;
-            background: url("/portfolio/assets/images/background/photo-shadows.png")
+            background: url("/assets/images/background/photo-shadows.png")
               no-repeat center center;
             background-size: contain;
             z-index: -1;
             top: 0;
             left: 0;
-            @include pulse-shadow(3s, 1s);
-
-            @media (max-width: $breakpoint-lg) {
-              width: 400px;
-              height: 400px;
-              top: 16%;
-            }
+            animation: pulse 3s ease-in-out 1s infinite alternate;
 
             @media (max-width: $breakpoint-md) {
-              width: 280px;
-              height: 280px;
+              width: 350px;
+              height: 400px;
+              top: 16%;
             }
           }
 
@@ -178,18 +217,24 @@
             object-fit: contain;
             display: block;
 
-            @media (max-width: $breakpoint-lg) {
+            @media (max-width: $breakpoint-md) {
               width: 400px;
               height: 437px;
-            }
-
-            @media (max-width: $breakpoint-md) {
-              width: 280px;
-              height: 306px;
             }
           }
         }
       }
     }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
