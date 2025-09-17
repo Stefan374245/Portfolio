@@ -246,21 +246,23 @@
               <button
                 type="submit"
                 class="submit-button"
-                [disabled]="!contactForm.valid || !contactData.privacy || isSubmitting"
+                [disabled]="
+                  !contactForm.valid || !contactData.privacy || isSubmitting
+                "
                 aria-describedby="submit-description"
               >
                 <span class="button-text">
                   @if (isSubmitting) {
-                    {{ "sections.contact.form.sending" | translate }}
+                  {{ "sections.contact.form.sending" | translate }}
                   } @else {
-                    {{ "sections.contact.form.send" | translate }}
+                  {{ "sections.contact.form.send" | translate }}
                   }
                 </span>
               </button>
             </div>
           </fieldset>
         </form>
-        <div class="scroll-to-top">
+        <div class="scroll-to-top" (click)="scrollToTop()">
           <a
             routerLink="/"
             fragment="header"
@@ -278,6 +280,5 @@
     </div>
   </div>
 
-  <!-- Toast Component -->
   <app-toast></app-toast>
 </section>

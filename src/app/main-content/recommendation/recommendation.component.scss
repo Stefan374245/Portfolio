@@ -1,14 +1,11 @@
-@import "../../../../mixin.scss";
+@import "../../shared/styles/mixins/_index";
 @import "../../../variables";
-@import "./../../../styles.scss";
 
 .recommendations-section {
+  @include section-base;
   @include displayFlex(column, center, center);
-  width: 100%;
-  position: relative;
   background-color: $background-color;
   z-index: 1;
-  overflow: hidden;
 
   @include section-background(
     "/portfolio/assets/images/background/green-shadow.png",
@@ -18,6 +15,10 @@
     470px,
     1
   );
+
+  .recommendations-container {
+    @include section-container;
+  }
 
   @media (max-width: $breakpoint-lg) {
     &::before {

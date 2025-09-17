@@ -1,50 +1,31 @@
-@import "../../../../mixin.scss";
+@import "../../shared/styles/mixins/_index";
 @import "../../../variables";
-@import "../../../sections";
 @import "../../../styles.scss";
 
 #techStack {
   @include section-base;
   @include displayFlex(row, center, center, 0);
   z-index: 10;
-  padding-top: 0;
-  position: relative;
 
   &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: -270px;
-    width: 570px;
-    height: 600px;
-    background-image: url("/portfolio/assets/images/background/blue-shadow.png");
-    background-size: contain;
+    @include bg-shadow(
+      0px,
+      right,
+      -270px,
+      570px,
+      600px,
+      "/portfolio/assets/images/background/blue-shadow.png"
+    );
     background-position: right bottom;
-    background-repeat: no-repeat;
-    pointer-events: none;
-    z-index: -1;
-    @include pulse-shadow(3s, 1s);
-
-    @media (max-width: $breakpoint-lg) {
-      width: 450px;
-      height: 480px;
-      right: -200px;
-    }
 
     @media (max-width: $breakpoint-md-sm) {
       top: 250px;
       right: -220px;
-      width: 400px;
-      height: 450px;
-    }
-
-    @media (max-width: $breakpoint-sm) {
-      right: -200px;
     }
   }
 
   .tech-container {
-    @include tech-stack-container;
+    @include section-container;
 
     @media (max-width: $breakpoint-md) {
       position: relative;
@@ -89,7 +70,7 @@
         }
 
         .contact-btn {
-          @include primaryButton(clamp(10px, 2vw, 15px) clamp(20px, 4vw, 30px));
+          @include primaryButton();
         }
       }
     }
@@ -123,17 +104,7 @@
       }
     }
 
-    @keyframes jump-icon {
-      0% {
-        transform: scale(1.1) translateY(0);
-      }
-      50% {
-        transform: scale(1.1) translateY(-12px);
-      }
-      100% {
-        transform: scale(1.1) translateY(0);
-      }
-    }
+    @include tech-stack-skill-jump-animation;
 
     .text-content {
       @include tech-stack-text-container;
@@ -217,7 +188,7 @@
         }
 
         .contact-btn {
-          @include primaryButton(clamp(10px, 2vw, 15px) clamp(20px, 4vw, 30px));
+          @include primaryButton (clamp(15px, 4vw, 30px));
         }
       }
     }
@@ -228,53 +199,7 @@
   position: relative;
 
   .custom-tooltip {
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #ffffff;
-    border-radius: 16px;
-    padding: 20px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    z-index: 15;
-    min-width: 240px;
-    margin-bottom: 15px;
-
-    @media (max-width: $breakpoint-lg) {
-      min-width: 220px;
-      padding: 18px;
-    }
-
-    @media (max-width: $breakpoint-md) {
-      min-width: 200px;
-      padding: 16px;
-      margin-bottom: 12px;
-    }
-
-    @media (max-width: $breakpoint-sm) {
-      min-width: 180px;
-      padding: 14px;
-      margin-bottom: 10px;
-    }
-
-    &::after {
-      content: "";
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0;
-      height: 0;
-      border-left: 12px solid transparent;
-      border-right: 12px solid transparent;
-      border-top: 12px solid #ffffff;
-
-      @media (max-width: $breakpoint-sm) {
-        border-left-width: 8px;
-        border-right-width: 8px;
-        border-top-width: 8px;
-      }
-    }
+    @include tech-stack-tooltip;
 
     .tooltip-content {
       text-align: center;
@@ -286,20 +211,9 @@
         font-weight: 500;
         line-height: 1.3;
 
-        @media (max-width: $breakpoint-lg) {
-          font-size: 15px;
-          margin-bottom: 18px;
-        }
-
-        @media (max-width: $breakpoint-md) {
-          font-size: 14px;
-          margin-bottom: 15px;
-        }
-
-        @media (max-width: $breakpoint-sm) {
-          font-size: 13px;
-          margin-bottom: 12px;
-        }
+        @media (max-width: $breakpoint-lg) { font-size: 15px; margin-bottom: 18px; }
+        @media (max-width: $breakpoint-md) { font-size: 14px; margin-bottom: 15px; }
+        @media (max-width: $breakpoint-sm) { font-size: 13px; margin-bottom: 12px; }
       }
 
       .learning-icons {
@@ -308,20 +222,9 @@
         gap: 30px;
         margin: 20px 0;
 
-        @media (max-width: $breakpoint-lg) {
-          gap: 25px;
-          margin: 18px 0;
-        }
-
-        @media (max-width: $breakpoint-md) {
-          gap: 20px;
-          margin: 15px 0;
-        }
-
-        @media (max-width: $breakpoint-sm) {
-          gap: 15px;
-          margin: 12px 0;
-        }
+        @media (max-width: $breakpoint-lg) { gap: 25px; margin: 18px 0; }
+        @media (max-width: $breakpoint-md) { gap: 20px; margin: 15px 0; }
+        @media (max-width: $breakpoint-sm) { gap: 15px; margin: 12px 0; }
 
         .icon-item {
           display: flex;
@@ -337,39 +240,18 @@
             width: 40px;
             height: 40px;
             object-fit: contain;
-
-            @media (max-width: $breakpoint-lg) {
-              width: 35px;
-              height: 35px;
-            }
-
-            @media (max-width: $breakpoint-md) {
-              width: 30px;
-              height: 30px;
-            }
-
-            @media (max-width: $breakpoint-sm) {
-              width: 25px;
-              height: 25px;
-            }
+            @media (max-width: $breakpoint-lg) { width: 35px; height: 35px; }
+            @media (max-width: $breakpoint-md) { width: 30px; height: 30px; }
+            @media (max-width: $breakpoint-sm) { width: 25px; height: 25px; }
           }
 
           span {
             font-size: 14px;
             color: rgba(0, 0, 0, 0.7);
             font-weight: 500;
-
-            @media (max-width: $breakpoint-lg) {
-              font-size: 13px;
-            }
-
-            @media (max-width: $breakpoint-md) {
-              font-size: 12px;
-            }
-
-            @media (max-width: $breakpoint-sm) {
-              font-size: 11px;
-            }
+            @media (max-width: $breakpoint-lg) { font-size: 13px; }
+            @media (max-width: $breakpoint-md) { font-size: 12px; }
+            @media (max-width: $breakpoint-sm) { font-size: 11px; }
           }
         }
       }

@@ -1,5 +1,5 @@
+@import "../../shared/styles/mixins/index";
 @import "../../../variables";
-@import "../../../../mixin.scss";
 
 .privacy-section {
   @include displayFlex(column, center, center, 0);
@@ -9,11 +9,6 @@
   min-height: 100vh;
   overflow: hidden;
 
-  @media (max-width: $breakpoint-md) {
-    max-width: 90%;
-    padding: 80px 20px;
-  }
-
   .privacy-header {
     width: 100%;
     text-align: center;
@@ -21,7 +16,7 @@
 
     .privacy-title {
       @include headline($primary-color, 48px, bold, 2px);
-      margin-bottom: 16px;
+
       position: relative;
       display: inline-block;
 
@@ -41,30 +36,19 @@
       }
 
       &::after {
-        right: -100px;
-        width: 80px;
+        right: -840px;
+        width: 820px;
       }
 
       @media (max-width: $breakpoint-sm) {
         font-size: 36px;
-        
-        &::before,
-        &::after {
-          width: 40px;
-          left: -60px;
-        }
-        
-        &::after {
-          right: -60px;
-          left: auto;
-        }
       }
     }
-    
+
     p {
       font-size: 16px;
       margin-top: 10px;
-      
+
       strong {
         color: $primary-color;
         font-weight: 600;
@@ -74,12 +58,12 @@
 
   .privacy-content {
     @include displayFlex(column, center, center, 0);
-    
+    padding: 0 24px;
     app-slide-animation {
       width: 100%;
       margin-bottom: 10px;
     }
-    
+
     h2 {
       @include headline($button-color, 28px, bold);
       margin-bottom: 16px;
@@ -120,7 +104,7 @@
       text-decoration: none;
       font-weight: 500;
       transition: color 0.2s ease;
-      
+
       &:hover {
         color: darken($button-color, 10%);
         text-decoration: underline;

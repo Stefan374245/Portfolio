@@ -1,0 +1,78 @@
+@mixin displayFlex($direction: row, $justify: center, $align: center, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+@mixin headline($color: $text-color, $size: 48px, $weight: 800, $spacing: 2px, $line-height: 1.2) {
+  color: $color;
+  font-size: $size;
+  font-weight: $weight;
+  letter-spacing: $spacing;
+  line-height: $line-height;
+}
+
+@mixin color($color: wheat) {
+  color: $color;
+}
+
+@mixin imgResponsive($width: 100%, $height: auto, $fit: contain) {
+  width: $width;
+  height: $height;
+  object-fit: $fit;
+}
+
+@mixin transition($props: all, $duration: 0.3s, $ease: ease) {
+  transition: #{$props} #{$duration} #{$ease};
+}
+
+@keyframes pulse-shadow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 0.9; }
+}
+
+@mixin pulse-shadow($duration: 3s, $delay: 1s) {
+  animation: pulse-shadow $duration ease-in-out infinite;
+  animation-delay: $delay;
+}
+
+@mixin boxShadow($shadow: 0 8px 32px rgba(0, 0, 0, 0.18)) {
+  box-shadow: $shadow;
+}
+
+@mixin bg-shadow($top, $side, $side-value, $width, $height, $img-path, $transform: none) {
+  content: "";
+  position: absolute;
+  top: $top;
+  #{$side}: $side-value;
+  width: $width;
+  height: $height;
+  background-image: url($img-path);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 1;
+  transform: $transform;
+  @include pulse-shadow(3s, 1s);
+
+  @media (max-width: $breakpoint-lg) {
+    #{$side}: $side-value + 40px * if($side == 'left', 1, -1);
+    width: $width - 120px;
+    height: $height - 120px;
+  }
+
+  @media (max-width: $breakpoint-md-sm) {
+    #{$side}: $side-value + 60px * if($side == 'left', 1, -1);
+    width: $width - 170px;
+    height: $height - 200px;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    #{$side}: $side-value + 80px * if($side == 'left', 1, -1);
+    width: $width - 250px;
+    height: $height - 280px;
+  }
+}

@@ -1,11 +1,9 @@
-@import "../../../../mixin.scss";
+@import "../../shared/styles/mixins/_index";
 @import "../../../variables";
 
 .contact-section {
+  @include section-base;
   @include displayFlex(row, center, center);
-  width: 100%;
-  position: relative;
-  overflow: hidden;
   z-index: 10;
 
   &::before {
@@ -22,7 +20,7 @@
     transform: rotate(90deg);
     pointer-events: none;
     z-index: 1;
-     @include pulse-shadow(3s, 1s);
+    @include pulse-shadow(3s, 1s);
 
     @media (max-width: $breakpoint-md) {
       top: 640px;
@@ -35,15 +33,7 @@
   }
 
   .contact-container {
-    padding: 160px 0 150px 0;
-    max-width: $breakpoint-xxl;
-    position: relative;
-    z-index: 2;
-    width: 100%;
-
-    @media (max-width: $breakpoint-sm) {
-      padding: 100px 0 100px 0;
-    }
+    @include section-container;
   }
 }
 
@@ -100,16 +90,11 @@
 
 .contact-content {
   @include displayFlex(row, flex-start, center, 150px);
-  margin: 0 100px;
 
   @media (max-width: $breakpoint-md) {
     flex-direction: column;
     align-items: center;
     gap: 66px;
-    margin: 0 60px;
-  }
-  @media (max-width: $breakpoint-md-sm) {
-    margin: 0 25px;
   }
 }
 
@@ -369,24 +354,33 @@
   @include displayFlex(row, center, center, 0);
 
   .submit-button {
-    @include primaryButton(18px 40px);
-    min-width: 200px;
+    @include primaryButton();
+    width: 266px!important;
+  }
+  @media (max-width: $breakpoint-sm) {
+    font: 16px;
   }
 }
 
 .scroll-to-top {
   position: absolute;
   bottom: 50px;
-  right: 200px;
-  z-index: 10;
+  right: 100px;
+  z-index: 100;
+  opacity: 1;
+  visibility: visible;
+  @include transition(all, $transition-speed, $transition-ease);
 
   @media (max-width: $breakpoint-md) {
-    right: 184px;
+    right: 24px;
+    bottom: 40px;
   }
 
   @media (max-width: $breakpoint-sm) {
-    right: 132px;
+    right: 16px;
+    bottom: 32px;
   }
+
   .arrow-up-icon {
     width: 39px;
     height: 39px;

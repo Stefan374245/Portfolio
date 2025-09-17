@@ -1,5 +1,5 @@
+@import "../../shared/styles/mixins/index";
 @import "../../../variables";
-@import "../../../../mixin.scss";
 
 .legal-section {
   @include displayFlex(column, center, center, 35px);
@@ -15,10 +15,10 @@
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 100px 40px;
 
     @media (max-width: $breakpoint-sm) {
-      padding: 0 24px;
+      padding: 100px 24px;
     }
   }
 

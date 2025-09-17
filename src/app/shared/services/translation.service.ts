@@ -224,7 +224,7 @@ export class TranslationService {
             highlight: 'einer anderen Fähigkeit',
             description:
               'Begeistert davon, neue Technologien und Frameworks zu lernen.',
-            contactBtn: 'Kontakt aufnehmen',
+            contactBtn: 'Kontaktieren',
           },
         },
         portfolio: {

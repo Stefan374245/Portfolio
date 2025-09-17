@@ -1,6 +1,5 @@
+@import "../../shared/styles/mixins/_index";
 @import "../../../variables";
-@import "../../../../mixin.scss";
-@import "../../../sections";
 @import "../../../styles.scss";
 
 #portfolio {
@@ -18,7 +17,7 @@
 
   &::before {
     transform: scaleY(-1);
-     @include pulse-shadow(3s, 1s);
+    @include pulse-shadow(3s, 1s);
 
     @media (max-width: $breakpoint-lg) {
       left: -160px;
@@ -30,21 +29,7 @@
   }
 
   .portfolio-container {
-    width: 100%;
-    max-width: $breakpoint-xxl;
-    margin: 160px auto;
-    padding: 0 100px;
-    position: relative;
-    z-index: 2;
-
-    @media (max-width: $breakpoint-lg) {
-      padding: 0 60px;
-      margin: 100px 0 0 0;
-    }
-
-    @media (max-width: $breakpoint-md) {
-      padding: 0 24px;
-    }
+    @include section-container;
   }
 
   .portfolio-header {
@@ -145,10 +130,6 @@
   .portfolio-content {
     .projects-grid {
       @include displayFlex(column, flex-start, stretch, 60px);
-
-      @media (max-width: $breakpoint-lg) {
-        gap: 0;
-      }
 
       .project-item {
         width: 100%;

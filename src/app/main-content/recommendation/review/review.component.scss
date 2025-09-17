@@ -1,14 +1,13 @@
-@import "../../../../../mixin.scss";
+@import "../../../shared/styles/mixins/_index";
 @import "../../../../variables";
 
 .testimonials-section {
-  padding: 80px;
+  @include section-base;
 }
 
 .testimonials-container {
+  @include section-container(80px, 80px);
   @include displayFlex(row, space-between, center);
-  max-width: 1200px;
-  width: 100%;
   gap: 60px;
   position: relative;
   z-index: 2;
@@ -287,8 +286,8 @@
 }
 
 @media (max-width: 480px) {
-  .testimonials-section {
-    padding: 60px 15px;
+  .testimonials-container {
+    @include section-container(60px, 60px);
   }
 
   .testimonial-text {

@@ -1,0 +1,311 @@
+@import "../../../../variables";
+@import "../mixins/core";
+
+@mixin tech-stack-content {
+  @include displayFlex(row, space-around, center, 40px);
+  width: 100%;
+  position: relative;
+  z-index: 3;
+
+  @media (max-width: $breakpoint-xl) {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 60px;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    gap: 40px;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    gap: 32px;
+  }
+}
+
+@mixin tech-stack-skills-grid {
+  position: relative;
+  width: 600px;
+  max-width: 600px;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 60px 40px;
+  align-items: center;
+  justify-items: center;
+  padding: 0;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  z-index: 8;
+
+  @media (max-width: $breakpoint-xl) {
+    width: 100%;
+    max-width: 500px;
+    gap: 50px 35px;
+    grid-template-rows: auto;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 45px 30px;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    gap: 40px 25px;
+  }
+}
+
+@mixin tech-stack-skill-item {
+  @include displayFlex(column, center, center, 15px);
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+
+  @media (max-width: $breakpoint-sm) {
+    gap: 12px;
+  }
+}
+
+@mixin tech-stack-skill-icon {
+  margin: 0;
+
+  img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+
+    @media (max-width: $breakpoint-lg) {
+      width: 55px;
+      height: 55px;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      width: 50px;
+      height: 50px;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      width: 45px;
+      height: 45px;
+    }
+  }
+}
+
+@mixin tech-stack-skill-name {
+  font-size: 16px;
+  color: $text-color;
+  text-align: center;
+  margin: 0;
+  font-weight: 400;
+
+  @media (max-width: $breakpoint-lg) {
+    font-size: 15px;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    font-size: 14px;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: 13px;
+  }
+}
+
+@mixin tech-stack-text-container {
+  @include displayFlex(column, flex-start, flex-start, $tech-stack-content-gap);
+  width: $tech-stack-text-width;
+  height: $tech-stack-text-height;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+
+  @media (max-width: $breakpoint-xl) {
+    width: 100%;
+    height: auto;
+    align-items: center;
+    text-align: center;
+    gap: 35px;
+  }
+
+  @media (max-width: $breakpoint-lg) {
+    gap: 30px;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    gap: 25px;
+  }
+}
+
+@mixin tech-stack-title {
+  width: $tech-stack-title-width;
+  height: $tech-stack-title-height;
+  font-family: $font-family;
+  font-style: normal;
+  font-weight: $font-weight-hero-name;
+  font-size: $font-size-hero-name;
+  line-height: $line-height;
+  color: $text-color;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0;
+
+  @media (max-width: $breakpoint-xl) {
+    width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: 45px;
+    max-width: $tech-stack-description-width;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    line-height: 1.1;
+    margin-bottom: 24px;
+  }
+}
+
+@mixin tech-stack-description {
+  width: $tech-stack-description-width;
+  height: $tech-stack-description-height;
+  font-family: $font-family;
+  font-style: normal;
+  font-weight: $font-weight;
+  font-size: $font-size;
+  line-height: $line-height;
+  color: rgba(255, 255, 255, 0.9);
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 0;
+
+  @media (max-width: $breakpoint-xl) {
+    width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: $breakpoint-lg) {
+    font-size: 20px;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    font-size: 18px;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: 16px;
+  }
+}
+
+@mixin tech-stack-learning-section {
+  @include displayFlex(column, flex-start, flex-start, $tech-stack-learning-gap);
+  width: $tech-stack-learning-width;
+  height: $tech-stack-learning-height;
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+
+  @media (max-width: $breakpoint-xl) {
+    width: 100%;
+    height: auto;
+    align-items: center;
+    text-align: center;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    gap: 15px;
+  }
+}
+
+@mixin tech-stack-learning-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0;
+  color: $text-color;
+  line-height: normal;
+
+  @media (max-width: $breakpoint-md) {
+    font-size: 24px;
+  }
+
+  .highlight {
+    color: $button-color;
+  }
+}
+
+@mixin tech-stack-learning-text {
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+
+  @media (max-width: $breakpoint-md) {
+    font-size: 16px;
+  }
+}
+
+@mixin tech-stack-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  z-index: 15;
+  min-width: 240px;
+  margin-bottom: 15px;
+
+  @media (max-width: $breakpoint-lg) {
+    min-width: 220px;
+    padding: 18px;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    min-width: 200px;
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    min-width: 180px;
+    padding: 14px;
+    margin-bottom: 10px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 12px solid #ffffff;
+
+    @media (max-width: $breakpoint-sm) {
+      border-left-width: 8px;
+      border-right-width: 8px;
+      border-top-width: 8px;
+    }
+  }
+}
+
+@mixin tech-stack-skill-jump-animation {
+  @keyframes jump-icon {
+    0% {
+      transform: scale(1.1) translateY(0);
+    }
+    50% {
+      transform: scale(1.1) translateY(-12px);
+    }
+    100% {
+      transform: scale(1.1) translateY(0);
+    }
+  }
+}

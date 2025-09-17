@@ -1,0 +1,144 @@
+// Mixins specific to the hero section
+
+@import "../../../../variables";
+@import "../../styles/mixins/core";
+
+@mixin hero-animations {
+  @keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  @keyframes cursor-gradient-animation {
+    0% { border-image: linear-gradient(to bottom, $primary-color, $button-color, $secondary-color) 1; }
+    33% { border-image: linear-gradient(to bottom, $secondary-color, $primary-color, $button-color) 1; }
+    66% { border-image: linear-gradient(to bottom, $button-color, $secondary-color, $primary-color) 1; }
+    100% { border-image: linear-gradient(to bottom, $primary-color, $button-color, $secondary-color) 1; }
+  }
+
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes shake {
+    0%, 85%, 100% { transform: translateX(0) scale(1); }
+    87% { transform: translateX(-2px) scale(1.02); }
+    89% { transform: translateX(2px) scale(1.02); }
+    91% { transform: translateX(-1px) scale(1.01); }
+    93% { transform: translateX(1px) scale(1.01); }
+    95% { transform: translateX(0) scale(1); }
+  }
+}
+
+@mixin hero-title {
+  background: linear-gradient(to right, $primary-color, $button-color, $secondary-color, $primary-color);
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  font-size: clamp(24px, 6vw, 46px);
+  font-weight: $tilte-font-weight;
+  margin: 0 0 30px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid;
+  border-image: linear-gradient(to bottom, $primary-color, $button-color, $secondary-color) 1;
+  width: 0;
+  
+  animation: 
+    typewriter 2.5s steps(18) 1s forwards,
+    blink-cursor 1.8s infinite, 
+    gradient-shift 6s linear infinite,
+    cursor-gradient-animation 4s linear infinite;
+
+  @media (max-width: $breakpoint-lg) {
+    margin: 0 0 25px 0;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    margin: 0 0 20px 0;
+  }
+}
+
+@mixin hero-social-links {
+  @include displayFlex(row, flex-start, center, 32px);
+  position: relative;
+
+  @media (max-width: $breakpoint-sm) {
+    gap: 42px;
+  }
+
+  .separator {
+    width: 0px;
+    height: 4px;
+    background-color: transparent;
+    position: relative;
+    margin-right: 32px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -100px;
+      top: 0;
+      width: 100px;
+      height: 4px;
+      background-color: $primary-color;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      width: 60px;
+      height: 3px;
+      margin-right: -42px;
+      &::before { height: 3px; }
+    }
+  }
+
+  a img {
+    @include imgResponsive(24px, 24px, contain);
+    filter: brightness(0.8);
+    @include transition((filter, transform), 0.2s, ease-in-out);
+
+    @media (max-width: $breakpoint-lg) {
+      width: 22px;
+      height: 22px;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      width: 20px;
+      height: 20px;
+    }
+    
+    &:hover {
+      filter: brightness(1);
+      transform: translateX(2px) scale(1.1);
+    }
+  }
+}
+
+@mixin hero-bottom-navigation {
+  position: absolute;
+  bottom: 80px;
+  left: 0;
+  right: 0;
+  max-width: $breakpoint-xxl;
+  margin: 0 auto;
+  @include displayFlex(row, space-between, flex-end, 0);
+  z-index: 4;
+  width: 100%;
+  padding: 0 100px;
+  
+  @media (max-width: $breakpoint-lg) {
+    padding: 0 100px;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    padding: 0 24px;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 0 24px;
+  }
+}

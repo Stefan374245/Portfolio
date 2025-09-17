@@ -1,5 +1,5 @@
+@import "../../styles/mixins/_index";
 @import "../../../../_variables";
-@import "../../../../../mixin.scss";
 
 header {
   @include displayFlex(row, space-between, center, 0);

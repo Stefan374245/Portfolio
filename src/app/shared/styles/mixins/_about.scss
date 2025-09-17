@@ -1,0 +1,188 @@
+@import "../../../../variables";
+@import "../mixins/core";
+
+@mixin about-section {
+  @include displayFlex(row, center, center, 0);
+  position: relative;
+  z-index: 10;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: clamp(40vh, 20% - 15vh, 5vh);
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background-image: url("/portfolio/assets/images/background/background.png");
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    pointer-events: none;
+    
+@media (max-width: $breakpoint-xl) {
+      top: clamp(20vh, 20% - 15vh, 3vh);
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      top: clamp(0vh, 20% - 15vh, 2vh);
+    }
+  }
+}
+
+@mixin about-content {
+  @include displayFlex(row, center, center, 166px);
+  position: relative;
+  z-index: 3;
+
+  @media (max-width: 1240px) {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 100px;
+  }
+
+  @media (max-width: 950px) {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+@mixin about-text-section {
+  width: 471px;
+  min-height: 587px;
+  position: relative;
+  text-align: left;
+
+  @media (max-width: 1240px) {
+    width: 100%;
+    max-width: 600px;
+    min-height: auto;
+  }
+
+  @media (max-width: 950px) {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@mixin about-title {
+  @include section-title;
+  margin-bottom: 35px;
+
+  @media (max-width: $breakpoint-sm) {
+    margin-bottom: 32px;
+  }
+}
+
+@mixin about-intro-text {
+  font-size: 16px;
+  line-height: $line-height;
+  color: $text-color;
+  margin-bottom: 24px;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+@mixin about-info-items-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 4.8vw, 24px);
+  width: 100%;
+}
+
+@mixin about-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+
+  &[data-item="0"],
+  &[data-item="1"],
+  &[data-item="2"] {
+    min-height: auto;
+    height: auto;
+  }
+}
+
+@mixin about-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+
+  img {
+    width: 25px;
+    height: auto;
+  }
+}
+
+@mixin about-item-description {
+  color: $text-color;
+  font-size: 16px;
+  line-height: 1.5;
+  flex: 1;
+  min-width: 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+@mixin about-portrait-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 950px) {
+    order: -1;
+    margin-bottom: 20px;
+  }
+}
+
+@mixin about-portrait-figure {
+  margin: 0;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 560px;
+    height: 900px;
+    background: url("/portfolio/assets/images/background/photo-shadows.png") no-repeat center center;
+    background-size: contain;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    animation: pulse 3s ease-in-out 1s infinite alternate;
+
+    @media (max-width: $breakpoint-sm) {
+      width: 350px;
+      height: 400px;
+      top: 16%;
+    }
+  }
+}
+
+@mixin about-portrait-image {
+  width: 593px;
+  height: 647px;
+  object-fit: contain;
+  display: block;
+
+  @media (max-width: $breakpoint-sm) {
+    width: 350px;
+    height: 400px;
+  }
+}
+
+@mixin about-pulse-animation {
+  @keyframes pulse {
+    0% {
+      opacity: 0.7;
+      transform: scale(0.97);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}

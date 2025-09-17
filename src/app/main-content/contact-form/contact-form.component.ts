@@ -1,4 +1,4 @@
-import { Component, Input, inject } from '@angular/core';
+import { Component, Input, inject} from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
@@ -22,6 +22,10 @@ export class ContactFormComponent {
   private http = inject(HttpClient);
   private toastService = inject(ToastService);
   private translationService = inject(TranslationService);
+  
+  scrollToTop() {
+    window.scrollTo({ top: 0,});
+  }
   
   contactData = {
     name: '',
@@ -108,4 +112,5 @@ export class ContactFormComponent {
       closeButtonText: this.currentTranslations.toast.error.button
     });
   }
+  
 }

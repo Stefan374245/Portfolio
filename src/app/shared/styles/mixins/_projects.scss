@@ -1,0 +1,183 @@
+@import "../../../../variables";
+@import "../mixins/core";
+
+@mixin project-card {
+  width: 100%;
+  @include transition(all, $transition-speed, $transition-ease);
+
+  &:hover {
+    .project-name {
+      color: $primary-color;
+    }
+
+    .project-link.live-test {
+      background-color: $primary-color;
+      color: $background-color;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+@mixin project-content {
+  @include displayFlex(row, center, center, 80px);
+  margin: 0 auto;
+  width: 100%;
+  @media (max-width: $breakpoint-lg) {
+    gap: 60px;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column-reverse !important;
+    gap: 40px;
+    text-align: center;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    gap: 30px;
+  }
+}
+
+@mixin project-text-content {
+  flex: 2;
+  max-width: 700px;
+  @include displayFlex(column, center, flex-end, 20px);
+  text-align: right;
+  padding-right: 40px;
+
+  @media (max-width: $breakpoint-lg) {
+    max-width: 650px;
+    gap: 22px;
+    padding-right: 30px;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    align-items: center !important;
+    text-align: center !important;
+    max-width: 100%;
+    gap: 20px;
+    padding: 0 20px;
+    flex: 1;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    gap: 18px;
+    padding: 0 16px;
+  }
+}
+
+@mixin project-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: $text-color;
+  margin: 0;
+  line-height: 1.2;
+  @include transition(color, $transition-speed, $transition-ease);
+  word-break: break-word;
+  hyphens: auto;
+
+  @media (max-width: $breakpoint-lg) {
+    font-size: 44px;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    font-size: 36px;
+    max-width: 100%;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: 32px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 28px;
+  }
+
+  @media (max-width: 360px) {
+    font-size: 24px;
+  }
+}
+
+@mixin project-visual-content {
+  flex: 1;
+  max-width: 600px;
+  min-width: 400px;
+
+  @media (max-width: $breakpoint-lg) {
+    max-width: 550px;
+    min-width: 350px;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    flex: none;
+    max-width: 500px;
+    min-width: 300px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    max-width: 100%;
+    min-width: 250px;
+  }
+}
+
+@mixin project-actions {
+  @include displayFlex(row, flex-end, center, clamp(40px, 8vw, 60px));
+
+  @media (max-width: $breakpoint-lg) {
+    gap: clamp(25px, 6vw, 140px);
+  }
+
+  @media (max-width: $breakpoint-md) {
+    justify-content: center !important;
+    gap: clamp(20px, 5vw, 120px);
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    gap: clamp(15px, 4vw, 100px);
+  }
+
+  .project-link {
+    @include transition(all, $transition-speed, $transition-ease);
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    min-width: 140px;
+    text-align: center;
+
+    @media (max-width: $breakpoint-lg) {
+      min-width: 130px;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      min-width: 120px;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      min-width: 110px;
+    }
+
+    &.live-test {
+      @include primaryButton(18px 40px);
+
+      @media (max-width: $breakpoint-sm) {
+        padding: 15px 30px;
+      }
+    }
+
+    &.github-link {
+      @include outlineButton(18px 40px);
+
+      @media (max-width: $breakpoint-sm) {
+        padding: 15px 30px;
+      }
+    }
+  }
+}
+
+@mixin project-actions-reverse {
+  @include displayFlex(row, flex-start, center, clamp(40px, 8vw, 60px));
+  flex-wrap: wrap;
+
+}

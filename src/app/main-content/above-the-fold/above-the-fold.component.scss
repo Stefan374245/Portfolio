@@ -1,6 +1,9 @@
 @import "../../../_variables";
-@import "../../../../mixin.scss";
-@import "../../../sections";
+@import "../../shared/styles/mixins/_index";
+@import "../../../variables";
+@import "../../shared/styles/mixins/_core";
+@import "../../shared/styles/mixins/sections";
+@import "../../shared/styles/mixins/hero";
 @import "../../../styles.scss";
 
 .hero-section {
@@ -10,108 +13,41 @@
   padding-bottom: 0;
 
   &::before {
-    content: "";
-    position: absolute;
-    top: 160px;
-    left: -160px;
-    width: 570px;
-    height: 608px;
-    background-image: url("/portfolio/assets/images/background/purple-shadow.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    pointer-events: none;
-    z-index: 1;
-    @include pulse-shadow(3s, 1s);
-
-    @media (max-width: $breakpoint-lg) {
-      left: -120px;
-      width: 450px;
-      height: 480px;
-    }
-
-    @media (max-width: $breakpoint-md-sm) {
-      left: -100px;
-      width: 400px;
-      height: 400px;
-    }
-
-    @media (max-width: $breakpoint-sm) {
-      left: -80px;
-      width: 320px;
-      height: 320px;
-    }
+    @include bg-shadow(
+      160px, 
+      left, 
+      -160px, 
+      570px, 
+      608px, 
+      "/portfolio/assets/images/background/purple-shadow.png"
+    );
   }
 
   &::after {
-    content: "";
-    position: absolute;
-    top: 160px;
-    right: -240px;
-    width: 680px;
-    height: 570px;
-    background-image: url("/portfolio/assets/images/background/blue-shadow.png");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    transform: scaleY(-1);
-    pointer-events: none;
-    z-index: 1;
-    @include pulse-shadow(3s, 1s);
-
-    @media (max-width: $breakpoint-lg) {
-      right: -200px;
-      width: 550px;
-      height: 460px;
-    }
-
-    @media (max-width: $breakpoint-md-sm) {
-      right: -180px;
-      width: 400px;
-      height: 400px;
-    }
-
+    @include bg-shadow(
+      160px, 
+      right, 
+      -240px, 
+      680px, 
+      570px, 
+      "/portfolio/assets/images/background/blue-shadow.png",
+      scaleY(-1)
+    );
     @media (max-width: $breakpoint-sm) {
-      right: -150px;
-      width: 320px;
-      height: 320px;
+      right: -200px;
     }
   }
 }
 
 .hero-content {
+  @include section-container-hero;
   @include displayFlex(row, center, center, 0);
   min-height: 100vh;
   z-index: 3;
-  width: 100%;
-  padding: 0 24px;
-  margin: 0 auto;
-
-  @media (max-width: $breakpoint-lg) {
-    padding: 0 24px;
-  }
-
-  @media (max-width: $breakpoint-md) {
-    padding: 0 24px;
-  }
 }
 
 .bottom-navigation {
-  position: absolute;
-  bottom: 80px;
-  left: 0;
-  right: 0;
-  max-width: 1140px;
-  padding: 0 24px;
-  margin: 0 auto;
-  @include displayFlex(row, space-between, flex-end, 0);
-  z-index: 4;
-  width: 100%;
-  
-  @media (max-width: $breakpoint-md) {
-    padding: 0 24px;
-    bottom: 40px;
-  }
+  @include hero-bottom-navigation;
 }
 
 .hero {
@@ -161,220 +97,28 @@
       }
 
       .title {
-        background: linear-gradient(
-          to right,
-          $primary-color,
-          $button-color,
-          $secondary-color,
-          $primary-color
-        );
-        background-size: 300% 100%;
-        background-clip: text;
-        -webkit-background-clip: text;
-        color: transparent;
-        -webkit-text-fill-color: transparent;
-        font-size: clamp(24px, 6vw, 46px);
-        font-weight: $tilte-font-weight;
-        margin: 0 0 30px 0;
-        overflow: hidden;
-        white-space: nowrap;
-        border-right-width: 3px;
-        border-right-style: solid;
-        border-image: linear-gradient(
-            to bottom,
-            $primary-color,
-            $button-color,
-            $secondary-color
-          )
-          1;
-
-        animation: typewriter 2.5s steps(18) 1s forwards,
-          blink-cursor 1.8s infinite, gradient-shift 6s linear infinite,
-          cursor-gradient-animation 4s linear infinite;
-
-        width: 0;
-
-        @media (max-width: $breakpoint-lg) {
-          margin: 0 0 25px 0;
-        }
-
-        @media (max-width: $breakpoint-sm) {
-          margin: 0 0 20px 0;
-        }
+        @include hero-title;
       }
 
-      @keyframes typewriter {
-        from {
-          width: 0;
-        }
-        to {
-          width: 100%;
-        }
-      }
-
-      @keyframes cursor-gradient-animation {
-        0% {
-          border-image: linear-gradient(
-              to bottom,
-              $primary-color,
-              $button-color,
-              $secondary-color
-            )
-            1;
-        }
-        33% {
-          border-image: linear-gradient(
-              to bottom,
-              $secondary-color,
-              $primary-color,
-              $button-color
-            )
-            1;
-        }
-        66% {
-          border-image: linear-gradient(
-              to bottom,
-              $button-color,
-              $secondary-color,
-              $primary-color
-            )
-            1;
-        }
-        100% {
-          border-image: linear-gradient(
-              to bottom,
-              $primary-color,
-              $button-color,
-              $secondary-color
-            )
-            1;
-        }
-      }
-
-      @keyframes gradient-shift {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
-      }
+      @include hero-animations;
 
       .cta-button {
-        @include primaryButton(clamp(10px, 2vw, 15px) clamp(20px, 4vw, 30px));
-        width: 165px;
+        @include primaryButton();
+        width: 200px;
         font-size: 23px;
-        font-weight: 400;
         animation: shake 3s ease-in-out infinite;
-
-        @media (max-width: $breakpoint-lg) {
-          font-size: 20px;
-          width: 150px;
-        }
-
-        @media (max-width: $breakpoint-sm) {
-          font-size: 18px;
-          width: 140px;
-        }
-      }
-    }
-
-    @keyframes shake {
-      0%,
-      85%,
-      100% {
-        transform: translateX(0) scale(1);
-      }
-      87% {
-        transform: translateX(-2px) scale(1.02);
-      }
-      89% {
-        transform: translateX(2px) scale(1.02);
-      }
-      91% {
-        transform: translateX(-1px) scale(1.01);
-      }
-      93% {
-        transform: translateX(1px) scale(1.01);
-      }
-      95% {
-        transform: translateX(0) scale(1);
       }
     }
   }
 }
 
 .social-links {
-  @include displayFlex(row, flex-start, center, 32px);
-  position: relative;
-
-  @media (max-width: $breakpoint-sm) {
-    gap: 42px;
-  }
-
-  .separator {
-    width: 0px;
-    height: 4px;
-    background-color: transparent;
-    position: relative;
-    margin-right: 32px;
-
-    &::before {
-      content: "";
-      position: absolute;
-      left: -100px;
-      top: 0;
-      width: 100px;
-      height: 4px;
-      background-color: $primary-color;
-    }
-
-    @media (max-width: $breakpoint-sm) {
-      width: 60px;
-      height: 3px;
-      margin-right: -42px;
-      &::before {
-        height: 3px;
-      }
-    }
-  }
-
-  a {
-    img {
-      @include imgResponsive(24px, 24px, contain);
-      filter: brightness(0.8);
-      @include transition(filter, 0.2, ease-in-out);
-      @include transition(transform, 0.2s, ease-in-out);
-
-      @media (max-width: $breakpoint-lg) {
-        width: 22px;
-        height: 22px;
-      }
-
-      @media (max-width: $breakpoint-sm) {
-        width: 20px;
-        height: 20px;
-      }
-    }
-
-    &:hover img {
-      filter: brightness(1);
-      transform: translateX(2px) scale(1.1);
-    }
-  }
+  @include hero-social-links;
 
   .email-text {
     @include color($text-color);
-    font-size: $font-size;
+    font-size: 23px;
     margin-left: 15px;
-
-    @media (max-width: $breakpoint-lg) {
-      font-size: 20px;
-      margin-left: 12px;
-    }
 
     @media (max-width: $breakpoint-md-sm) {
       display: none;
