@@ -96,7 +96,7 @@ export class TranslationService {
         },
         pokedex: {
           description:
-            'My personal pokedex-app showcasing my skills with fetching API.',
+            'My personal pokedex-app showcasing my skills with fetching API. You can search for all 151 original pokemons and get detailed information about them.',
         },
       },
       reviews: {
@@ -282,7 +282,7 @@ export class TranslationService {
         },
         pokedex: {
           description:
-            'Meine persönliche Pokedex-App, die meine Fähigkeiten mit API-Abrufen zeigt.',
+            'Meine persönliche Pokedex-App, die meine Fähigkeiten mit API-Abrufen zeigt. Sie können alle 151 originalen Pokémon suchen und detaillierte Informationen über sie erhalten.',
         },
       },
       reviews: {

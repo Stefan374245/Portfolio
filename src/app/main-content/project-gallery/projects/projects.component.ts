@@ -26,6 +26,22 @@ export class ProjectsComponent implements OnInit {
   }
 
   /**
+   * Generiert die Video-URL basierend auf der Projekt-ID
+   */
+  getProjectVideoUrl(): string {
+    const projectId = this.project.id.toLowerCase();
+    return `assets/videos/${projectId}-preview.mp4`;
+  }
+
+  /**
+   * Prüft ob für das aktuelle Projekt ein Preview-Video verfügbar ist
+   */
+  hasPreviewVideo(): boolean {
+    const validProjects = ['join', 'el-pollo-loco', 'pokedex'];
+    return validProjects.includes(this.project.id.toLowerCase());
+  }
+
+  /**
    * Generiert den Übersetzungsschlüssel für die Projektbeschreibung
    */
   getDescriptionKey(): string {
@@ -76,26 +92,20 @@ export class ProjectsComponent implements OnInit {
 
   getContentStyles() {
     if (window.innerWidth <= 768) {
-      // MD Breakpoint
-      // Auf Mobile: Alle Projects haben column-reverse
       return {};
     }
 
-    // Desktop: Normale reverse logic
     return this.isReversed ? { 'flex-direction': 'row-reverse' } : {};
   }
 
   getTextStyles() {
     if (window.innerWidth <= 768) {
-      // MD Breakpoint
-      // Auf Mobile: Immer zentriert
       return {
         'align-items': 'center',
         'text-align': 'center',
       };
     }
 
-    // Desktop: Normale alignment logic
     return this.isReversed
       ? { 'align-items': 'flex-start', 'text-align': 'left' }
       : { 'align-items': 'flex-end', 'text-align': 'right' };
@@ -103,14 +113,16 @@ export class ProjectsComponent implements OnInit {
 
   getActionsStyles() {
     if (window.innerWidth <= 768) {
-      // MD Breakpoint
-      // Auf Mobile: Immer zentriert
       return { 'justify-content': 'center' };
     }
 
-    // Desktop: Normale actions logic
     return this.isReversed
       ? { 'justify-content': 'flex-end' }
       : { 'justify-content': 'flex-start' };
+  }
+
+
+  getProjectVideoClass(): string {
+    return this.index === 1 ? 'large-video' : 'standard-video';
   }
 }

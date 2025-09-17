@@ -178,6 +178,4 @@
 
 @mixin project-actions-reverse {
   @include displayFlex(row, flex-start, center, clamp(40px, 8vw, 60px));
-  flex-wrap: wrap;
-
 }

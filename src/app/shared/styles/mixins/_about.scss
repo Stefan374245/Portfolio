@@ -9,7 +9,7 @@
   &::after {
     content: "";
     position: absolute;
-    top: clamp(40vh, 20% - 15vh, 5vh);
+    top: clamp(61vh, 20% - 15vh, 5vh);
     left: 0;
     right: 0;
     height: 100vh;
@@ -21,11 +21,15 @@
     pointer-events: none;
     
 @media (max-width: $breakpoint-xl) {
-      top: clamp(20vh, 20% - 15vh, 3vh);
+      top: clamp(50vh, 20% - 15vh, 3vh);
     }
 
+      @media (max-width: $breakpoint-md) {
+        top: clamp(39vh, 20% - 15vh, 3vh);
+      }
+
     @media (max-width: $breakpoint-sm) {
-      top: clamp(0vh, 20% - 15vh, 2vh);
+      top: clamp(0vh, 20% - 15vh, 13vh);
     }
   }
 }
@@ -146,7 +150,7 @@
     content: "";
     position: absolute;
     width: 560px;
-    height: 900px;
+    height: 850px;
     background: url("/portfolio/assets/images/background/photo-shadows.png") no-repeat center center;
     background-size: contain;
     z-index: -1;

@@ -21,6 +21,10 @@
       608px, 
       "/portfolio/assets/images/background/purple-shadow.png"
     );
+      @media (max-width: $breakpoint-sm) {
+      top: 200px;
+      right: -200px;
+    }
   }
 
   &::after {
@@ -34,6 +38,7 @@
       scaleY(-1)
     );
     @media (max-width: $breakpoint-sm) {
+      top: 200px;
       right: -200px;
     }
   }

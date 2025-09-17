@@ -15,7 +15,7 @@ export class ProjectService {
       image: 'assets/images/portfolio-section/screen-join.png',
        video: 'assets/videos/join-preview.mp4',
       liveUrl: 'https://stefan-helldobler.de/join/index.html',
-      githubUrl: '#'
+      githubUrl: 'https://github.com/Stefan374245/Join-Taskmanagement.git'
     },
     {
       id: 'el-pollo-loco',
@@ -23,9 +23,9 @@ export class ProjectService {
       tech: 'JavaScript | HTML | CSS',
       descriptionKey: 'projects.elPolloLoco.description',
       image: 'assets/images/portfolio-section/screen-el-pollo.png',
-      video: 'assets/videos/join-preview.mp4',
+      video: 'assets/videos/el-pollo-loco-preview.mp4',
       liveUrl: 'https://stefan-helldobler.de/elPolloLoco/index.html',
-      githubUrl: '#'
+      githubUrl: 'https://github.com/Stefan374245/El-pollo-loco.git'
     },
     {
       id: 'pokedex',
@@ -33,9 +33,9 @@ export class ProjectService {
       tech: 'HTML | JavaScript | CSS | API', 
       descriptionKey: 'projects.pokedex.description',
       image: 'assets/images/portfolio-section/screen-pokedex.png',
-       video: 'assets/videos/join-preview.mp4',
+       video: 'assets/videos/pokedex-preview.mp4',
       liveUrl: 'https://stefan-helldobler.de/pokedex/index.html',
-      githubUrl: '#'
+      githubUrl: 'https://github.com/Stefan374245/pok-dex-project.git'
     }
   ];
 

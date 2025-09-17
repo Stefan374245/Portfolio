@@ -39,22 +39,22 @@
     </header>
 
     <aside class="project-visual">
-      <figure class="project-image-container">
+      <figure class="project-image-container" [ngClass]="getProjectVideoClass()">
         <img
           [src]="project.image"
           [alt]="project.name + ' project screenshot'"
           loading="lazy"
           class="project-screenshot"
         />
-       <video
-          *ngIf="project.video"
+        <video
+          *ngIf="hasPreviewVideo()"
           #projectVideo
           class="project-preview-video"
           muted
           loop
           playsinline
           preload="auto"
-          [src]="project.video"
+          [src]="getProjectVideoUrl()"
           (loadeddata)="onVideoLoaded($event)"
         ></video>
       </figure>
