@@ -25,11 +25,11 @@
     }
 
       @media (max-width: $breakpoint-md) {
-        top: clamp(39vh, 20% - 15vh, 3vh);
+        top: clamp(64vh, 20% - 15vh, 3vh);
       }
 
     @media (max-width: $breakpoint-sm) {
-      top: clamp(0vh, 20% - 15vh, 13vh);
+      top: clamp(30vh, 20% - 15vh, 13vh);
     }
   }
 }

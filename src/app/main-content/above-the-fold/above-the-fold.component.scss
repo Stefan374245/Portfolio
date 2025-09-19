@@ -92,7 +92,7 @@
       .name {
         @include headline(
           $text-color,
-          clamp(32px, 8vw, 64px),
+          clamp(28px, 8vw, 64px),
           $font-weight-hero-name,
           2px
         );

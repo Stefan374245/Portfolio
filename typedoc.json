@@ -1,0 +1,59 @@
+{
+  "entryPoints": [
+    "./src/app/**/*.ts"
+  ],
+  "exclude": [
+    "./src/app/**/*.spec.ts",
+    "./src/app/**/*.d.ts",
+    "./node_modules/**/*"
+  ],
+  "out": "./docs",
+  "name": "Portfolio Documentation",
+  "readme": "./README.md",
+  "includeVersion": true,
+  "excludePrivate": false,
+  "excludeProtected": false,
+  "excludeExternals": true,
+  "sort": ["source-order"],
+  "kindSortOrder": [
+    "Project",
+    "Module",
+    "Namespace", 
+    "Enum",
+    "EnumMember",
+    "Class",
+    "Interface",
+    "TypeAlias",
+    "Constructor",
+    "Property",
+    "Method",
+    "Function",
+    "Accessor",
+    "Variable"
+  ],
+  "navigationLinks": {
+    "Portfolio": "https://stefan-helldobler.de",
+    "GitHub": "https://github.com/yourusername/portfolio"
+  },
+  "sidebarLinks": {
+    "Portfolio Website": "https://stefan-helldobler.de",
+    "Contact": "mailto:info@stefan-helldobler.de"
+  },
+  "githubPages": true,
+  "hideGenerator": false,
+  "searchInComments": true,
+  "validation": {
+    "notExported": true,
+    "invalidLink": true,
+    "notDocumented": false
+  },
+  "categorizeByGroup": true,
+  "defaultCategory": "Other",
+  "categoryOrder": [
+    "Components",
+    "Services",
+    "Interfaces", 
+    "Pipes",
+    "Other"
+  ]
+}

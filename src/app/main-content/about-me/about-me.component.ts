@@ -47,10 +47,24 @@ export class AboutMeComponent {
     }
   ];
 
+  /**
+   * Handles icon hover state changes.
+   * Sets the hovered icon when mouse enters and clears it when mouse leaves.
+   * 
+   * @param iconName - The name of the icon being hovered
+   * @param isHovering - Whether the icon is currently being hovered
+   */
   onIconHover(iconName: string, isHovering: boolean): void {
     this.hoveredIcon = isHovering ? iconName.replace('-blue', '') : null;
   }
 
+  /**
+   * Returns the appropriate icon source path based on hover state.
+   * Shows the hovered version of the icon when it's being hovered, otherwise shows default.
+   * 
+   * @param name - The name of the icon to get the source for
+   * @returns The complete path to the icon image
+   */
   getIconSrc(name: string): string {
     const base = 'assets/icons/about-me-icons/';
     return this.hoveredIcon === name.replace('-blue', '')

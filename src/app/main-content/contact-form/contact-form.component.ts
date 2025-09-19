@@ -8,11 +8,19 @@ import { Translation } from '../../shared/interfaces/translation.interface';
 import { ToastService } from '../../shared/services/toast.service';
 import { ToastComponent } from '../../shared/components/toast/toast.component';
 import { TranslationService } from '../../shared/services/translation.service';
+import { SlideAnimationComponent } from '../../shared/slide-animation/slide-animation.component';
 
 @Component({
   selector: 'app-contact-form',
   standalone: true,
-  imports: [FormsModule, RouterModule, CommonModule, TranslatePipe, ToastComponent],
+  imports: [
+    FormsModule, 
+    RouterModule, 
+    CommonModule, 
+    TranslatePipe, 
+    ToastComponent,
+    SlideAnimationComponent
+  ],
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.scss',
 })
@@ -23,6 +31,9 @@ export class ContactFormComponent {
   private toastService = inject(ToastService);
   private translationService = inject(TranslationService);
   
+  /**
+   * Scrolls the page to the top with smooth behavior.
+   */
   scrollToTop() {
     window.scrollTo({ top: 0,});
   }
@@ -35,7 +46,7 @@ export class ContactFormComponent {
   };
 
   hoveredCheckbox: string | null = null;
-  mailTest = false; // Set to false for production
+  mailTest = false;
   isSubmitting = false;
 
   post = {
@@ -51,6 +62,7 @@ export class ContactFormComponent {
 
   /**
    * Getter für aktuelle Übersetzungen (wie im Header)
+   * @returns The current translation object
    */
   get currentTranslations(): Translation {
     return this.translationService.getCurrentTranslations();
@@ -64,6 +76,13 @@ export class ContactFormComponent {
     this.hoveredCheckbox = checkboxId;
   }
 
+  /**
+   * Handles form submission and sends contact data to the server.
+   * Validates form data, manages submission state, and shows appropriate feedback.
+   * In test mode, simulates successful submission without making HTTP request.
+   * 
+   * @param ngForm - The Angular form reference containing form data and validation state
+   */
   onSubmit(ngForm: NgForm) {
     if (ngForm.submitted && ngForm.form.valid && !this.isSubmitting) {
       this.isSubmitting = true;
@@ -97,6 +116,10 @@ export class ContactFormComponent {
     }
   }
 
+  /**
+   * Displays a success toast notification using current translations.
+   * @private
+   */
   private showSuccessToast(): void {
     this.toastService.showToast({
       message: this.currentTranslations.toast.success.message,
@@ -105,6 +128,10 @@ export class ContactFormComponent {
     });
   }
 
+  /**
+   * Displays an error toast notification using current translations.
+   * @private
+   */
   private showErrorToast(): void {
     this.toastService.showToast({
       message: this.currentTranslations.toast.error.message,

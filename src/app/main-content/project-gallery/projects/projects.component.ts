@@ -21,12 +21,17 @@ export class ProjectsComponent implements OnInit {
   isReversed: boolean = false;
   videoLoaded: boolean = false;
 
+  /**
+   * Component initialization lifecycle hook.
+   * Determines if the project layout should be reversed based on its index.
+   */
   ngOnInit(): void {
     this.isReversed = this.index % 2 !== 0;
   }
 
   /**
    * Generiert die Video-URL basierend auf der Projekt-ID
+   * @returns The complete path to the project preview video
    */
   getProjectVideoUrl(): string {
     const projectId = this.project.id.toLowerCase();
@@ -35,6 +40,7 @@ export class ProjectsComponent implements OnInit {
 
   /**
    * Prüft ob für das aktuelle Projekt ein Preview-Video verfügbar ist
+   * @returns True if a preview video is available for this project
    */
   hasPreviewVideo(): boolean {
     const validProjects = ['join', 'el-pollo-loco', 'pokedex'];
@@ -43,6 +49,7 @@ export class ProjectsComponent implements OnInit {
 
   /**
    * Generiert den Übersetzungsschlüssel für die Projektbeschreibung
+   * @returns The translation key for the project description
    */
   getDescriptionKey(): string {
     switch (this.project.id.toLowerCase()) {
@@ -56,22 +63,42 @@ export class ProjectsComponent implements OnInit {
     }
   }
 
+  /**
+   * Handles mouse enter event on the project.
+   * Sets hover state and starts video playback.
+   */
   onMouseEnter(): void {
     this.hoveredProject = true;
     this.playVideo();
   }
 
+  /**
+   * Handles mouse leave event on the project.
+   * Removes hover state and pauses video playback.
+   */
   onMouseLeave(): void {
     this.hoveredProject = false;
     this.pauseVideo();
   }
 
+  /**
+   * Handles video loaded event.
+   * Sets the video as loaded and resets playback position.
+   *
+   * @param event - The video load event
+   */
   onVideoLoaded(event: Event): void {
     this.videoLoaded = true;
     const video = event.target as HTMLVideoElement;
     video.currentTime = 0;
   }
 
+  /**
+   * Starts video playback from the beginning.
+   * Only plays if video element exists and is loaded.
+   *
+   * @private
+   */
   private playVideo(): void {
     if (this.videoElement && this.videoLoaded) {
       const video = this.videoElement.nativeElement;
@@ -82,6 +109,12 @@ export class ProjectsComponent implements OnInit {
     }
   }
 
+  /**
+   * Pauses video playback and resets to beginning.
+   * Only operates if video element exists and is loaded.
+   *
+   * @private
+   */
   private pauseVideo(): void {
     if (this.videoElement && this.videoLoaded) {
       const video = this.videoElement.nativeElement;
@@ -90,6 +123,12 @@ export class ProjectsComponent implements OnInit {
     }
   }
 
+  /**
+   * Returns CSS styles for the project content container.
+   * Applies reverse flex direction for odd-indexed projects on desktop.
+   *
+   * @returns CSS style object for content layout
+   */
   getContentStyles() {
     if (window.innerWidth <= 768) {
       return {};
@@ -98,6 +137,12 @@ export class ProjectsComponent implements OnInit {
     return this.isReversed ? { 'flex-direction': 'row-reverse' } : {};
   }
 
+  /**
+   * Returns CSS styles for the project text content.
+   * Adjusts text alignment based on project index and screen size.
+   *
+   * @returns CSS style object for text alignment
+   */
   getTextStyles() {
     if (window.innerWidth <= 768) {
       return {
@@ -111,6 +156,12 @@ export class ProjectsComponent implements OnInit {
       : { 'align-items': 'flex-end', 'text-align': 'right' };
   }
 
+  /**
+   * Returns CSS styles for the project action buttons.
+   * Adjusts button alignment based on project index and screen size.
+   *
+   * @returns CSS style object for action button alignment
+   */
   getActionsStyles() {
     if (window.innerWidth <= 768) {
       return { 'justify-content': 'center' };
@@ -121,7 +172,12 @@ export class ProjectsComponent implements OnInit {
       : { 'justify-content': 'flex-start' };
   }
 
-
+  /**
+   * Returns CSS class for the project video based on its index.
+   * Applies special styling for the second project (index 1).
+   *
+   * @returns CSS class name for video styling
+   */
   getProjectVideoClass(): string {
     return this.index === 1 ? 'large-video' : 'standard-video';
   }

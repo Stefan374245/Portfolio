@@ -34,6 +34,9 @@
 
   .contact-container {
     @include section-container;
+    @media (max-width: $breakpoint-lg) {
+      padding: 50px 24px 90px 24px;
+    }
   }
 }
 
@@ -355,7 +358,7 @@
 
   .submit-button {
     @include primaryButton();
-    width: 266px!important;
+    width: 266px !important;
   }
   @media (max-width: $breakpoint-sm) {
     font: 16px;
@@ -364,21 +367,20 @@
 
 .scroll-to-top {
   position: absolute;
-  bottom: 50px;
-  right: 100px;
+  bottom: -50px;
+  right: 0;
   z-index: 100;
   opacity: 1;
   visibility: visible;
   @include transition(all, $transition-speed, $transition-ease);
 
   @media (max-width: $breakpoint-md) {
-    right: 24px;
-    bottom: 40px;
+    right: 80px;
+    bottom: -50px;
   }
-
   @media (max-width: $breakpoint-sm) {
-    right: 16px;
-    bottom: 32px;
+    right: 0;
+    bottom: -50px;
   }
 
   .arrow-up-icon {

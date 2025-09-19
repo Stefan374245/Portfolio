@@ -54,6 +54,14 @@ export class TechStackComponent {
     { name: 'cont.-learning', displayName: 'Continually learning' },
   ];
 
+  /**
+   * Determines the appropriate icon source path for a given skill.
+   * Returns the hovered version of the icon if the skill is currently being hovered
+   * and has a hover variant available, otherwise returns the default icon.
+   * 
+   * @param name - The name of the skill to get the icon for
+   * @returns The complete path to the skill icon image
+   */
   getSkillIconSrc(name: string): string {
     const base = 'assets/icons/skill-icons/';
     const hasHoverIcon = this.skillsWithHoverIcons.includes(name);
@@ -65,6 +73,13 @@ export class TechStackComponent {
     return `${base}${name}.png`;
   }
 
+  /**
+   * Returns CSS classes for a skill icon based on whether it has hover functionality.
+   * Skills without hover icons receive the 'no-hover-icon' class.
+   * 
+   * @param name - The name of the skill to get CSS classes for
+   * @returns CSS class string for the skill icon
+   */
   getSkillIconClasses(name: string): string {
     const hasHoverIcon = this.skillsWithHoverIcons.includes(name);
     return hasHoverIcon ? '' : 'no-hover-icon';
