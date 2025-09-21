@@ -41,27 +41,41 @@
   }
 }
 
-
 @mixin section-background(
   $image,
   $top,
   $left-right,
   $width,
   $height,
-  $z-index: -1
+  $z-index: -1,
+  $transform: null,
+  $background-position: center,
+  $right-offset: -270px,
+  $animation: null,
+  $responsive-tops: (),
+  $responsive-sizes: ()
 ) {
   &::before {
     content: "";
     position: absolute;
     top: $top;
-    #{$left-right}: #{if($left-right == "left", -270px, -270px)};
+    #{$left-right}: $right-offset;
     width: $width;
     height: $height;
     background-image: url($image);
     background-size: contain;
+    background-position: $background-position;
     background-repeat: no-repeat;
     pointer-events: none;
     z-index: $z-index;
+    
+    @if $transform {
+      transform: $transform;
+    }
+    
+    @if $animation and $animation != null {
+      animation: #{$animation};
+    }
 
     @media (max-width: $breakpoint-lg) {
       width: calc($width * 0.8);
@@ -69,13 +83,25 @@
     }
 
     @media (max-width: $breakpoint-md) {
-      width: calc($width * 0.6);
-      height: calc($height * 0.6);
+      @if length($responsive-tops) >= 1 {
+        top: nth($responsive-tops, 1);
+      } @else {
+        width: calc($width * 0.6);
+        height: calc($height * 0.6);
+      }
     }
 
     @media (max-width: $breakpoint-sm) {
-      width: calc($width * 0.4);
-      height: calc($height * 0.4);
+      @if length($responsive-tops) >= 2 {
+        top: nth($responsive-tops, 2);
+      }
+      @if length($responsive-sizes) >= 1 {
+        width: nth($responsive-sizes, 1);
+        height: nth($responsive-sizes, 1);
+      } @else {
+        width: calc($width * 0.4);
+        height: calc($width * 0.4);
+      }
     }
   }
 }
@@ -173,3 +199,12 @@
     object-fit: contain;
   }
 }
+
+  @keyframes shake {
+    0%, 85%, 100% { transform: translateX(0) scale(1); }
+    87% { transform: translateX(-2px) scale(1.02); }
+    89% { transform: translateX(2px) scale(1.02); }
+    91% { transform: translateX(-1px) scale(1.01); }
+    93% { transform: translateX(1px) scale(1.01); }
+    95% { transform: translateX(0) scale(1); }
+  }

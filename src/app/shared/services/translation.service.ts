@@ -44,7 +44,7 @@ export class TranslationService {
         portfolio: {
           title: 'Portfolio',
           description:
-            'Explore some of my recent projects that showcase my skills and creativity.',
+            'Explore some of my recent projects that not only showcase my technical skills but also reflect my creativity and passion for modern frontend development. Each project represents a step in my journey of learning new things and turning innovative ideas into practice.',
           viewProject: 'View Project',
           liveDemo: 'Live Test',
           sourceCode: 'Github',
@@ -92,11 +92,11 @@ export class TranslationService {
         },
         elPolloLoco: {
           description:
-            'A simple Jump-and-Run game based on an object-oriented approach. Help Pepe to find coins and salsa bottles to fight against the crazy hen.',
+            'A simple Jump-and-Run game based on an object-oriented approach in JavaScript. Help Pepe collect coins and salsa bottles to fight against the crazy enemies while exploring different levels.',
         },
         pokedex: {
           description:
-            'My personal pokedex-app showcasing my skills with fetching API. You can search for all 151 original pokemons and get detailed information about them.',
+            'My Pokédex app showcases my skills with APIs and dynamic data. Pokémon can be filtered by name, type, or generation, creating a complete interactive experience.',
         },
       },
       reviews: {
@@ -203,10 +203,10 @@ export class TranslationService {
         about: {
           title: 'About me',
           description:
-            'Leidenschaftlich im Frontend-Development setze ich HTML, CSS, JavaScript, TypeScript und andere Technologien ein. Programmieren begeistert mich, weil ich kreative Ideen in reale Projekte verwandeln kann. Ständiges Lernen und neue Technologien motivieren mich, immer weiter zu wachsen.',
+            'Leidenschaftlich in der Frontend-Entwicklung arbeite ich mit HTML, CSS, JavaScript, TypeScript und weiteren modernen Technologien. Programmieren begeistert mich, weil es mir die Möglichkeit gibt, kreative Ideen in echte Projekte zu verwandeln. Motivation finde ich im ständigen Lernen und in der Herausforderung, mit jeder neuen Technologie weiter zu wachsen.',
           points: {
             location:
-              'Ich lebe in Dinslaken und bin offen für Remote-Arbeit. Besonders schätze ich Arbeitgeber, die flexible Zusammenarbeit ermöglichen. Meine Leidenschaft gilt sauberem Code und moderner Frontend-Entwicklung. Ständiges Lernen und Teamarbeit motivieren mich, immer besser zu werden.',
+              'Mit Sitz in Dinslaken bin ich offen für Remote-Arbeit und schätze Arbeitgeber, die flexible Zusammenarbeit fördern. Leidenschaftlich für sauberen Code und moderne Frontend-Entwicklung bleibe ich motiviert durch kontinuierliches Lernen und Teamarbeit.',
             passion:
               'Offenheit und Neugier treiben mich an. Ich entdecke gerne neue Technologien, probiere moderne Tools aus und erweitere stetig mein Wissen, um in jedem Projekt bessere Ergebnisse zu erzielen.',
             collaboration:
@@ -230,7 +230,7 @@ export class TranslationService {
         portfolio: {
           title: 'Portfolio',
           description:
-            'Entdecken Sie einige meiner neuesten Projekte, die meine Fähigkeiten und Kreativität zeigen.',
+            'Entdecke einige meiner aktuellen Projekte, die nicht nur meine technischen Fähigkeiten, sondern auch meine Kreativität und Leidenschaft für moderne Frontend-Entwicklung zeigen. Jedes Projekt ist ein Schritt auf meinem Weg, Neues zu lernen und innovative Ideen in die Praxis umzusetzen.',
           viewProject: 'Projekt ansehen',
           liveDemo: 'Live Test',
           sourceCode: 'Github',
@@ -278,11 +278,11 @@ export class TranslationService {
         },
         elPolloLoco: {
           description:
-            'Ein einfaches Jump-and-Run-Spiel basierend auf einem objektorientierten Ansatz. Helfen Sie Pepe, Münzen und Salsa-Flaschen zu finden, um gegen das verrückte Huhn zu kämpfen.',
+            'Ein einfaches Jump-and-Run-Spiel, das auf einem objektorientierten Ansatz in JavaScript basiert. Hilf Pepe dabei, Münzen und Salsa-Flaschen zu sammeln, um gegen verrückte Gegner zu kämpfen und verschiedene Level zu erkunden.',
         },
         pokedex: {
           description:
-            'Meine persönliche Pokedex-App, die meine Fähigkeiten mit API-Abrufen zeigt. Sie können alle 151 originalen Pokémon suchen und detaillierte Informationen über sie erhalten.',
+            'Meine Pokédex-App zeigt meine Fähigkeiten im Umgang mit APIs und dynamischen Daten. Pokémon lassen sich nach Namen, Typ oder Generation filtern – für ein vollständiges, interaktives Erlebnis.',
         },
       },
       reviews: {

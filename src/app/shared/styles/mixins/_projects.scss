@@ -22,8 +22,10 @@
   @include displayFlex(row, center, center, 80px);
   margin: 0 auto;
   width: 100%;
+  gap: clamp(30px, 8vw, 166px);
+
   @media (max-width: $breakpoint-lg) {
-    gap: 60px;
+    padding-top: 32px;
   }
 
   @media (max-width: $breakpoint-md) {
@@ -43,6 +45,32 @@
   @include displayFlex(column, center, flex-end, 20px);
   text-align: right;
   padding-right: 40px;
+
+  .project-name {
+    @include project-title;
+  }
+
+  .project-tech {
+    font-size: 23px;
+    font-weight: 400;
+    color: $primary-color;
+    margin: 0;
+    line-height: $line-height;
+    word-break: break-word;
+  }
+
+  .project-description {
+    font-size: $font-size;
+    font-weight: 400;
+    color: $text-color;
+    margin: 0;
+    line-height: $line-height;
+    word-break: break-word;
+  }
+
+  .project-actions {
+    @include project-actions;
+  }
 
   @media (max-width: $breakpoint-lg) {
     max-width: 650px;
@@ -66,41 +94,88 @@
 }
 
 @mixin project-title {
-  font-size: 48px;
+  font-size: 32px;
   font-weight: 700;
-  color: $text-color;
+  color: $button-color;
   margin: 0;
   line-height: 1.2;
   @include transition(color, $transition-speed, $transition-ease);
   word-break: break-word;
   hyphens: auto;
-
-  @media (max-width: $breakpoint-lg) {
-    font-size: 44px;
-  }
-
-  @media (max-width: $breakpoint-md) {
-    font-size: 36px;
-    max-width: 100%;
-  }
-
-  @media (max-width: $breakpoint-sm) {
-    font-size: 32px;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 28px;
-  }
-
-  @media (max-width: 360px) {
-    font-size: 24px;
-  }
 }
 
 @mixin project-visual-content {
   flex: 1;
   max-width: 600px;
   min-width: 400px;
+
+  .project-image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    width: 100%;
+
+    @media (max-width: $breakpoint-sm) {
+      border-radius: 8px;
+    }
+
+    .project-screenshot {
+      width: 100%;
+      height: auto;
+      display: block;
+      @include transition(transform, 0.3s, ease);
+
+      &:hover {
+        transform: scale(1.02);
+      }
+    }
+
+    .project-preview-video {
+      position: absolute;
+      top: 13%;
+      left: 18%;
+      width: 63%;
+      height: 64.5%;
+      object-fit: cover;
+      display: none;
+      opacity: 0;
+      z-index: 2;
+      border-radius: 6px;
+      pointer-events: none;
+      @include transition(opacity, 0.4s, ease);
+
+      @media (max-width: $breakpoint-sm) {
+        top: 23%;
+        left: 14%;
+        width: 68%;
+        height: 44%;
+      }
+    }
+
+    &.large-video {
+      .project-preview-video {
+        top: 22%;
+        left: 13%;
+        width: 70%;
+        height: 45%;
+
+        @media (max-width: $breakpoint-sm) {
+          top: 23%;
+          left: 14%;
+          width: 68%;
+          height: 44%;
+        }
+      }
+    }
+
+    &:hover {
+      .project-preview-video {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
 
   @media (max-width: $breakpoint-lg) {
     max-width: 550px;
@@ -124,6 +199,7 @@
 
 @mixin project-actions {
   @include displayFlex(row, flex-end, center, clamp(40px, 8vw, 60px));
+  margin-top: 15px;
 
   @media (max-width: $breakpoint-lg) {
     gap: clamp(25px, 6vw, 140px);
@@ -178,4 +254,19 @@
 
 @mixin project-actions-reverse {
   @include displayFlex(row, flex-start, center, clamp(40px, 8vw, 60px));
+}
+
+@mixin project-reverse-layout {
+  @media (min-width: #{$breakpoint-md + 1px}) {
+    .project-text-content {
+      text-align: left !important;
+      align-items: flex-start !important;
+      padding-right: 0;
+      padding-left: 40px;
+
+      .project-actions {
+        @include project-actions-reverse;
+      }
+    }
+  }
 }

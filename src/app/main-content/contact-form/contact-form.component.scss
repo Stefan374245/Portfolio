@@ -2,398 +2,54 @@
 @import "../../../variables";
 
 .contact-section {
-  @include section-base;
-  @include displayFlex(row, center, center);
-  z-index: 10;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 200px;
-    right: -200px;
-    width: 500px;
-    height: 500px;
-    background-image: url("/portfolio/assets/images/background/purple-shadow-footer.png");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    transform: rotate(90deg);
-    pointer-events: none;
-    z-index: 1;
-    @include pulse-shadow(3s, 1s);
-
-    @media (max-width: $breakpoint-md) {
-      top: 640px;
-    }
-    @media (max-width: $breakpoint-sm) {
-      top: 720px;
-      width: 320px;
-      height: 320px;
-    }
-  }
-
-  .contact-container {
-    @include section-container;
-    @media (max-width: $breakpoint-lg) {
-      padding: 50px 24px 90px 24px;
-    }
-  }
+  @include contact-section;
 }
 
 .section-header {
-  margin-bottom: 80px;
-
-  .title-container {
-    @include displayFlex(row, flex-end, center, 32px);
-    width: 80%;
-
-    h1 {
-      @include headline($text-color, 90px, 800, 1px);
-      margin: 0;
-      text-align: right;
-
-      @media (max-width: $breakpoint-sm) {
-        font-size: 45px;
-      }
-    }
-  }
-
-  .main-title {
-    margin: 0;
-  }
-
-  .title-separator {
-    width: 0px;
-    height: 4px;
-    background-color: transparent;
-    position: relative;
-
-    &::before {
-      content: "";
-      position: absolute;
-      left: 0px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 400px;
-      height: 4px;
-      background-color: $primary-color;
-
-      @media (max-width: $breakpoint-md) {
-        width: 240px;
-      }
-    }
-
-    @media (max-width: 450px) {
-      &::before {
-        height: 3px;
-      }
-    }
-  }
+  @include contact-section-header;
 }
 
 .contact-content {
-  @include displayFlex(row, flex-start, center, 150px);
-
-  @media (max-width: $breakpoint-md) {
-    flex-direction: column;
-    align-items: center;
-    gap: 66px;
-  }
+  @include contact-content;
 }
 
 .contact-left {
-  .contact-left-header {
-    margin-bottom: 40px;
-
-    .subtitle-container {
-      @include displayFlex(row, flex-start, center, 0);
-      margin-bottom: 30px;
-      align-items: center;
-    }
-
-    .subtitle-separator {
-      width: 0px;
-      height: 4px;
-      background-color: transparent;
-      position: relative;
-
-      &::before {
-        content: "";
-        position: absolute;
-        left: -280px;
-        top: 50%;
-        width: 240px;
-        height: 4px;
-        background-color: $secondary-color;
-      }
-
-      @media (max-width: 450px) {
-        &::before {
-          left: -260px;
-          height: 3px;
-        }
-      }
-    }
-
-    .contact-subtitle {
-      @include headline($text-color, 32px, 700, 1px);
-      @media (max-width: $breakpoint-sm) {
-        font-size: 23px;
-      }
-    }
-  }
-
-  .contact-description p {
-    font-size: clamp(1rem, 2vw, 1.25rem);
-    @include color(rgba($text-color, 0.9));
-    margin-bottom: 20px;
-    line-height: 1.6;
-  }
-
-  .contact-cta {
-    font-size: clamp(1.125rem, 2.5vw, 1.375rem);
-    @include color($text-color);
-
-    strong {
-      @include color($primary-color);
-      font-weight: 700;
-    }
-  }
+  @include contact-left;
 }
 
 .contact-right {
-  flex: 0 0 50%;
-  max-width: 600px;
+  @include contact-right;
 }
 
 .form-fieldset {
-  border: none;
-  padding: 0;
-  margin: 0;
-  position: relative;
-  z-index: 5;
+  @include form-fieldset;
 }
 
 .form-group {
-  margin-bottom: 25px;
-  position: relative;
-
-  .input-wrapper {
-    position: relative;
-    width: 100%;
-
-    &.textarea-wrapper .input-icon {
-      top: 32px;
-    }
-
-    .input-icon {
-      position: absolute;
-      right: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 24px;
-      height: 24px;
-      @include displayFlex(row, center, center);
-      opacity: 0;
-      visibility: hidden;
-      @include transition(all, $transition-speed, $transition-ease);
-
-      img {
-        width: 20px;
-        height: 20px;
-        object-fit: contain;
-      }
-
-      &.show {
-        opacity: 1;
-        visibility: visible;
-      }
-
-      @media (max-width: $breakpoint-sm) {
-        right: 16px;
-        width: 20px;
-        height: 20px;
-      }
-    }
-  }
+  @include form-group;
 }
 
 .form-input,
 .form-textarea {
-  width: 100%;
-  padding: 15px 25px;
-  padding-right: 56px;
-  background: rgba($text-color, 0.05);
-  border: 1px solid rgba($button-color, 0.3);
-  border-radius: $border-radius-md;
-  @include color($text-color);
-  font-size: 1.125rem;
-  font-family: inherit;
-  @include transition(all, $transition-speed, $transition-ease);
-  resize: none;
-
-  &::placeholder {
-    @include color(rgba($text-color, 0.6));
-    font-size: 16px;
-  }
-
-  &:hover {
-    border-color: $secondary-color;
-  }
-
-  &:focus {
-    outline: none;
-    border-color: $primary-color;
-    background: rgba($text-color, 0.08);
-    @include boxShadow(0 0 0 4px rgba($primary-color, 0.15));
-  }
-
-  &.ng-invalid.ng-touched:not(:focus) {
-    border-color: $required-color;
-  }
-  &.ng-valid.ng-touched:not(:focus) {
-    border-color: $primary-color;
-  }
-
-  @media (max-width: $breakpoint-sm) {
-    padding: 16px 20px;
-    padding-right: 50px;
-    font-size: 16px;
-  }
+  @include form-field;
 }
 
 .form-textarea {
-  min-height: 150px;
-  resize: vertical;
-
-  @media (max-width: $breakpoint-sm) {
-    min-height: 120px;
-  }
+  @include form-textarea;
 }
 
 .error-message {
-  display: block;
-  font-size: 0.875rem;
-  @include color($required-color);
-  margin-top: 8px;
-  min-height: 1.2em;
-  opacity: 0;
-  @include transition(opacity, $transition-speed, $transition-ease);
-
-  &.show {
-    opacity: 1;
-  }
+  @include form-error-message;
 }
 
 .checkbox-group {
-  margin: 35px 0;
-
-  .checkbox-label {
-    @include displayFlex(row, flex-start, flex-start, 15px);
-    cursor: pointer;
-    line-height: 1.5;
-
-    .checkbox-input {
-      position: absolute;
-      opacity: 0;
-      width: 0;
-      height: 0;
-
-      &:focus + .checkbox-custom {
-        @include boxShadow(0 0 0 3px rgba($primary-color, 0.3));
-        border-radius: 4px;
-      }
-    }
-
-    .checkbox-custom {
-      width: 20px;
-      height: 20px;
-      position: relative;
-      flex-shrink: 0;
-      margin-top: 2px;
-      cursor: pointer;
-      @include transition(all, $transition-speed, $transition-ease);
-
-      .checkbox-icon {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        @include transition(all, $transition-speed, $transition-ease);
-      }
-
-      &.hovered {
-        transform: scale(1.05);
-      }
-
-      &.checked.hovered {
-        filter: brightness(1.1);
-      }
-    }
-
-    .checkbox-text {
-      @include color(rgba($text-color, 0.9));
-      font-size: 1rem;
-      line-height: 1.5;
-
-      @media (max-width: $breakpoint-sm) {
-        font-size: 0.9rem;
-      }
-
-      .privacy-link {
-        @include color($button-color);
-        text-decoration: none;
-        @include transition(color, $transition-speed, $transition-ease);
-
-        &:hover {
-          @include color($primary-color);
-          text-decoration: underline;
-        }
-      }
-    }
-  }
+  @include form-checkbox-group;
 }
 
 .form-actions {
-  @include displayFlex(row, center, center, 0);
-
-  .submit-button {
-    @include primaryButton();
-    width: 266px !important;
-  }
-  @media (max-width: $breakpoint-sm) {
-    font: 16px;
-  }
+  @include form-actions;
 }
 
 .scroll-to-top {
-  position: absolute;
-  bottom: -50px;
-  right: 0;
-  z-index: 100;
-  opacity: 1;
-  visibility: visible;
-  @include transition(all, $transition-speed, $transition-ease);
-
-  @media (max-width: $breakpoint-md) {
-    right: 80px;
-    bottom: -50px;
-  }
-  @media (max-width: $breakpoint-sm) {
-    right: 0;
-    bottom: -50px;
-  }
-
-  .arrow-up-icon {
-    width: 39px;
-    height: 39px;
-    object-fit: contain;
-    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%)
-      hue-rotate(0deg) brightness(100%) contrast(100%);
-    @include transition(all, $transition-speed, $transition-ease);
-  }
-
-  &:hover .arrow-up-icon {
-    filter: brightness(0) saturate(100%) invert(69%) sepia(69%) saturate(372%)
-      hue-rotate(92deg) brightness(97%) contrast(87%);
-  }
+  @include scroll-to-top;
 }

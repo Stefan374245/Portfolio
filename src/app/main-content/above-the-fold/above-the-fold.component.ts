@@ -1,4 +1,4 @@
-import { Component, OnInit, Input  } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
@@ -20,8 +20,7 @@ interface SocialLink {
   templateUrl: './above-the-fold.component.html',
   styleUrl: './above-the-fold.component.scss'
 })
-export class AboveTheFoldComponent implements OnInit {
-
+export class AboveTheFoldComponent implements OnInit, OnDestroy {
   emailAddress = 'info@stefan-helldobler.de';
   
   socialLinks: SocialLink[] = [
@@ -49,6 +48,11 @@ export class AboveTheFoldComponent implements OnInit {
     }
   ];
 
+  currentTitle = 'FRONTEND DEVELOPER';
+  private titles = ['FRONTEND DEVELOPER', 'Web Developer', 'PROBLEM SOLVER', 'Creative Coder'];
+  private currentIndex = 0;
+  private typewriterInterval: any;
+
   /**
    * Initializes the AboveTheFoldComponent.
    * Sets up the component with default configuration.
@@ -59,5 +63,44 @@ export class AboveTheFoldComponent implements OnInit {
    * Component initialization lifecycle hook.
    * Currently no initialization logic implemented.
    */
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.startTypewriterAnimation();
+  }
+
+  ngOnDestroy() {
+    if (this.typewriterInterval) {
+      clearInterval(this.typewriterInterval);
+    }
+  }
+
+  private startTypewriterAnimation() {
+    let isDeleting = false;
+    let currentText = '';
+    let charIndex = 0;
+
+    this.typewriterInterval = setInterval(() => {
+      const fullText = this.titles[this.currentIndex];
+
+      if (!isDeleting) {
+        currentText = fullText.substring(0, charIndex + 1);
+        charIndex++;
+
+        if (charIndex === fullText.length) {
+          setTimeout(() => {
+            isDeleting = true;
+          }, 1000);
+        }
+      } else {
+        currentText = fullText.substring(0, charIndex - 1);
+        charIndex--;
+
+        if (charIndex === 0) {
+          isDeleting = false;
+          this.currentIndex = (this.currentIndex + 1) % this.titles.length;
+        }
+      }
+
+      this.currentTitle = currentText;
+    }, isDeleting ? 50 : 100);
+  }
 }

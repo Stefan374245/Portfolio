@@ -103,6 +103,14 @@
 
       .title {
         @include hero-title;
+        width: auto !important;
+        border-right: none;
+        
+        .cursor {
+          border-right: 3px solid;
+          border-image: linear-gradient(to bottom, $primary-color, $button-color, $secondary-color) 1;
+          animation: cursor-gradient-animation 4s linear infinite;
+        }
       }
 
       @include hero-animations;

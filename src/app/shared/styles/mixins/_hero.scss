@@ -21,15 +21,6 @@
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
   }
-
-  @keyframes shake {
-    0%, 85%, 100% { transform: translateX(0) scale(1); }
-    87% { transform: translateX(-2px) scale(1.02); }
-    89% { transform: translateX(2px) scale(1.02); }
-    91% { transform: translateX(-1px) scale(1.01); }
-    93% { transform: translateX(1px) scale(1.01); }
-    95% { transform: translateX(0) scale(1); }
-  }
 }
 
 @mixin hero-title {

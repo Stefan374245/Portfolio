@@ -21,7 +21,11 @@
     pointer-events: none;
     
 @media (max-width: $breakpoint-xl) {
-      top: clamp(50vh, 20% - 15vh, 3vh);
+      top: clamp(51vh, 20% - 15vh, 3vh);
+    }
+
+    @media (max-width: $breakpoint-lg) {
+      top: clamp(40vh, 20% - 15vh, 3vh);
     }
 
       @media (max-width: $breakpoint-md) {
@@ -29,7 +33,7 @@
       }
 
     @media (max-width: $breakpoint-sm) {
-      top: clamp(30vh, 20% - 15vh, 13vh);
+      top: clamp(14vh, 20% - 15vh, 13vh);
     }
   }
 }
