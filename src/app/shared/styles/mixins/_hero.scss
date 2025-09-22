@@ -40,10 +40,10 @@
   width: 0;
   
   animation: 
-    typewriter 2.5s steps(18) 1s forwards,
-    blink-cursor 1.8s infinite, 
-    gradient-shift 6s linear infinite,
-    cursor-gradient-animation 4s linear infinite;
+    typewriter 2.5s steps(18) 2s forwards,
+    blink-cursor 1.8s infinite 1s, 
+    gradient-shift 6s linear infinite 1s,
+    cursor-gradient-animation 4s linear infinite 1s;
 
   @media (max-width: $breakpoint-lg) {
     margin: 0 0 25px 0;

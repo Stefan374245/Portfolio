@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
@@ -20,7 +20,7 @@ interface SocialLink {
   templateUrl: './above-the-fold.component.html',
   styleUrl: './above-the-fold.component.scss'
 })
-export class AboveTheFoldComponent implements OnInit, OnDestroy {
+export class AboveTheFoldComponent implements OnInit, AfterViewInit, OnDestroy {
   emailAddress = 'info@stefan-helldobler.de';
   
   socialLinks: SocialLink[] = [
@@ -48,7 +48,7 @@ export class AboveTheFoldComponent implements OnInit, OnDestroy {
     }
   ];
 
-  currentTitle = 'FRONTEND DEVELOPER';
+  currentTitle = '';
   private titles = ['FRONTEND DEVELOPER', 'Web Developer', 'PROBLEM SOLVER', 'Creative Coder'];
   private currentIndex = 0;
   private typewriterInterval: any;
@@ -64,7 +64,12 @@ export class AboveTheFoldComponent implements OnInit, OnDestroy {
    * Currently no initialization logic implemented.
    */
   ngOnInit(): void { 
-    this.startTypewriterAnimation();
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.startTypewriterAnimation();
+    }, 1000);
   }
 
   ngOnDestroy() {
