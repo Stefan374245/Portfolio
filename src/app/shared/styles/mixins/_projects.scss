@@ -143,13 +143,6 @@
       border-radius: 6px;
       pointer-events: none;
       @include transition(opacity, 0.4s, ease);
-
-      @media (max-width: $breakpoint-sm) {
-        top: 23%;
-        left: 14%;
-        width: 68%;
-        height: 44%;
-      }
     }
 
     &.large-video {
