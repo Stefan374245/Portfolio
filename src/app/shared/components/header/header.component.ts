@@ -136,7 +136,6 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
    * Handles initial fragment scrolling after the component view has been initialized.
    */
   ngAfterViewInit(): void {
-    // Initial Fragment handling nach dem Laden der Seite
     setTimeout(() => this.handleFragmentScroll(), 100);
   }
 

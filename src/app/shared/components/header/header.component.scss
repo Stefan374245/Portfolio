@@ -29,18 +29,31 @@ header {
       span {
         font-size: 32px;
         font-weight: bold;
-        @include color($text-color);
+        background: linear-gradient(
+          45deg,
+          $primary-color,
+          $secondary-color,
+          $button-color
+        );
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradientShift 3s ease-in-out infinite;
         cursor: pointer;
 
         &::after {
           content: "n";
           @include color($primary-color);
           animation: colorFade 5s ease-in-out infinite;
+          background: none !important;
+          background-clip: initial;
+          -webkit-background-clip: initial;
+          -webkit-text-fill-color: initial;
         }
       }
 
       &:hover span {
-        @include color($text-color-hovered);
         transform: scale(1.02);
       }
     }
@@ -59,7 +72,19 @@ header {
       color: $primary-color;
     }
   }
-  
+
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
   .nav-container {
     @include displayFlex(row, center, center, 40px);
 

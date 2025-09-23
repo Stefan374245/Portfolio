@@ -1,7 +1,7 @@
 <section id="privacy" class="privacy-section container">
   <app-slide-animation direction="left" [delay]="200">
     <header class="privacy-header">
-      <h1 class="privacy-title">{{ translationService.getTranslation('privacy.title') }}</h1>
+       <h1 class="privacy-title" [innerHTML]="translationService.getTranslation('privacy.title')"></h1>
     </header>
   </app-slide-animation>
 

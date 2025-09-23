@@ -297,7 +297,7 @@ export class TranslationService {
         },
       },
       privacy: {
-        title: 'Datenschutzerklärung',
+        title: 'Datenschutz<br>erklärung',
         effectiveDate: 'Gültig ab',
         dataController: {
           title: 'Verantwortlicher',

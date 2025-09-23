@@ -65,7 +65,6 @@
   @include displayFlex(row, space-around, center, 40px);
   width: 100%;
   position: relative;
-  z-index: 3;
 
   @media (max-width: $breakpoint-xl) { flex-direction: column-reverse; align-items: center; gap: 60px; }
   @media (max-width: $breakpoint-md) { gap: 40px; }

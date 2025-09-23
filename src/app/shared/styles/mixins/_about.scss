@@ -9,32 +9,20 @@
   &::after {
     content: "";
     position: absolute;
-    top: clamp(61vh, 20% - 15vh, 5vh);
+    bottom: -130px;
     left: 0;
     right: 0;
-    height: 100vh;
+    height: 80%;
     background-image: url("/portfolio/assets/images/background/background.png");
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
     z-index: -1;
     pointer-events: none;
-    
-@media (max-width: $breakpoint-xl) {
-      top: clamp(51vh, 20% - 15vh, 3vh);
-    }
 
-    @media (max-width: $breakpoint-lg) {
-      top: clamp(40vh, 20% - 15vh, 3vh);
-    }
-
-      @media (max-width: $breakpoint-md) {
-        top: clamp(64vh, 20% - 15vh, 3vh);
-      }
-
-    @media (max-width: $breakpoint-sm) {
-      top: clamp(14vh, 20% - 15vh, 13vh);
-    }
+    @media (max-width: $breakpoint-xl) { height: 100%; top: 190px;}
+    @media (max-width: $breakpoint-md) {top: 160px;}
+    @media (max-width: $breakpoint-sm) {top: calc(-170px + 30vw);}
   }
 }
 
@@ -155,7 +143,8 @@
     position: absolute;
     width: 560px;
     height: 850px;
-    background: url("/portfolio/assets/images/background/photo-shadows.png") no-repeat center center;
+    background: url("/portfolio/assets/images/background/photo-shadows.png")
+      no-repeat center center;
     background-size: contain;
     z-index: -1;
     top: 0;
