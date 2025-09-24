@@ -21,11 +21,11 @@ export class TranslationService {
             'Passionate about frontend development, I work with HTML, CSS, JavaScript, TypeScript, and other technologies. Coding inspires me because it allows me to turn creative ideas into real projects. I am motivated by constant learning and the challenge to grow with every new technology.',
           points: {
             location:
-              'Based in Dinslaken, I am open to remote work and value employers who support flexible collaboration. Passionate about clean code and modern frontend development, I stay motivated by continuous learning and teamwork.',
+              'Based in Dinslaken, I am open to remote work and value employers who encourage flexible collaboration. Excited about clean code and modern technologies, I find motivation in constant learning and teamwork.',
             passion:
-              'Openness and curiosity drive me. I enjoy exploring new technologies, trying modern tools, and continuously expanding my knowledge to achieve better results in every project.',
+              'Openness and curiosity drive me. I enjoy exploring new technologies, trying modern tools, and expanding my knowledge to create a better UX.',
             collaboration:
-              'I see challenges as opportunities to grow. With analytical thinking, creativity, perseverance, and strong collaboration, I create efficient, elegant, and sustainable solutions that provide valuable lessons for future projects.',
+              'I see challenges as opportunities to grow. With analytical thinking, creativity and perseverance I create efficient, elegant, and sustainable solutions that provide valuable lessons for future projects.',
           },
         },
         skills: {
@@ -88,7 +88,7 @@ export class TranslationService {
       projects: {
         join: {
           description:
-            'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.',
+            'Sign up in seconds, organize tasks with drag & drop, and experience how easy teamwork becomes with Join. Collaborate on projects, keep the overview at all times, and reach your goals faster.',
         },
         elPolloLoco: {
           description:
@@ -195,22 +195,22 @@ export class TranslationService {
     },
     DE: {
       navigation: {
-        aboutMe: 'Über mich',
-        skills: 'Fähigkeiten',
+        aboutMe: 'About me',
+        skills: 'Skills',
         portfolio: 'Portfolio',
       },
       sections: {
         about: {
           title: 'About me',
           description:
-            'Leidenschaftlich in der Frontend-Entwicklung arbeite ich mit HTML, CSS, JavaScript, TypeScript und weiteren modernen Technologien. Programmieren begeistert mich, weil es mir die Möglichkeit gibt, kreative Ideen in echte Projekte zu verwandeln. Motivation finde ich im ständigen Lernen und in der Herausforderung, mit jeder neuen Technologie weiter zu wachsen.',
+            'Leidenschaftlich in der Frontend-Entwicklung arbeite ich mit HTML, CSS, JavaScript, TypeScript und anderen Technologien. Programmieren inspiriert mich, weil ich kreative Ideen in Projekte umsetzen kann. Motivation finde ich im ständigen Lernen und der Herausforderung, mit jeder neuen Technologie zu wachsen.',
           points: {
             location:
-              'Mit Sitz in Dinslaken bin ich offen für Remote-Arbeit und schätze Arbeitgeber, die flexible Zusammenarbeit fördern. Leidenschaftlich für sauberen Code und moderne Frontend-Entwicklung bleibe ich motiviert durch kontinuierliches Lernen und Teamarbeit.',
+              'Mit Sitz in Dinslaken bin ich offen für Remote-Arbeit und schätze Arbeitgeber, die flexible Zusammenarbeit fördern. Begeistert von clean Code und moderner Technologien finde ich Motivation in stetigem Lernen und Teamarbeit.',
             passion:
-              'Offenheit und Neugier treiben mich an. Ich entdecke gerne neue Technologien, probiere moderne Tools aus und erweitere stetig mein Wissen, um in jedem Projekt bessere Ergebnisse zu erzielen.',
+              'Offenheit und Neugier treiben mich an. Ich entdecke gerne neue Technologien, teste moderne Tools und erweitere mein Wissen, um eine bessere UX zu erschaffen.',
             collaboration:
-              'Herausforderungen betrachte ich als Chancen zum Wachsen. Durch analytisches Denken, Kreativität, Ausdauer und konstruktive Zusammenarbeit entwickle ich effiziente, elegante und nachhaltige Lösungen, aus denen ich für zukünftige Projekte weiterlerne.',
+              'Herausforderungen sehe ich als Chancen zum Wachsen. Mit analytischem Denken, Kreativität und Ausdauer entwickle ich effiziente, elegante und nachhaltige Lösungen, die wertvolle Erkenntnisse für kommende Projekte liefern.',
           },
         },
         skills: {
@@ -274,7 +274,7 @@ export class TranslationService {
       projects: {
         join: {
           description:
-            'Task-Manager inspiriert vom Kanban-System. Erstellen und organisieren Sie Aufgaben mit Drag-and-Drop-Funktionen, weisen Sie Benutzer und Kategorien zu.',
+            'Registriere dich in Sekunden, organisiere Aufgaben per Drag & Drop und erlebe, wie einfach Teamwork mit Join wird. Arbeitet gemeinsam an Projekten, behaltet jederzeit den Überblick und erreicht eure Ziele schneller.',
         },
         elPolloLoco: {
           description:

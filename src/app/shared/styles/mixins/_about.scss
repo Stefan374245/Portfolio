@@ -12,7 +12,7 @@
     bottom: -130px;
     left: 0;
     right: 0;
-    height: 80%;
+    height: 90%;
     background-image: url("/portfolio/assets/images/background/background.png");
     background-size: cover;
     background-position: top center;
@@ -20,9 +20,16 @@
     z-index: -1;
     pointer-events: none;
 
-    @media (max-width: $breakpoint-xl) { height: 100%; top: 190px;}
-    @media (max-width: $breakpoint-md) {top: 160px;}
-    @media (max-width: $breakpoint-sm) {top: calc(-170px + 30vw);}
+    @media (max-width: $breakpoint-xl) {
+      height: 100%;
+      top: 190px;
+    }
+    @media (max-width: $breakpoint-md) {
+      top: 160px;
+    }
+    @media (max-width: $breakpoint-sm) {
+      top: calc(-170px + 30vw);
+    }
   }
 }
 
@@ -110,6 +117,11 @@
   img {
     width: 25px;
     height: auto;
+    transition: transform $transition-speed $transition-ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 }
 
@@ -164,6 +176,12 @@
   height: 647px;
   object-fit: contain;
   display: block;
+  transition: transform 0.3s ease-in-out;
+
+&:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease-in-out;
+}
 
   @media (max-width: $breakpoint-sm) {
     width: 350px;

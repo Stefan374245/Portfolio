@@ -11,11 +11,6 @@ import { TranslatePipe } from './shared/pipes/translate.pipe';
  * 
  * This component serves as the main container for the entire application,
  * providing the basic layout structure with header, main content area, and footer.
- * 
- * @example
- * ```html
- * <app-root></app-root>
- * ```
  */
 @Component({
   selector: 'app-root',

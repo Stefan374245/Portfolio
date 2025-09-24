@@ -15,11 +15,6 @@ import { Translation } from '../shared/interfaces/translation.interface';
  * This component manages the main content area of the portfolio website,
  * including all major sections like about me, tech stack, projects, and contact form.
  * It handles translation management and reactive updates when the language changes.
- * 
- * @example
- * ```html
- * <app-main-content></app-main-content>
- * ```
  */
 @Component({
   selector: 'app-main-content',
@@ -37,10 +32,7 @@ import { Translation } from '../shared/interfaces/translation.interface';
   styleUrl: './main-content.component.scss'
 })
 export class MainContentComponent {
-  /** Translation service for managing internationalization */
   private translationService = inject(TranslationService);
-  
-  /** Current translations for the component */
   translations: Translation;
   
   /**

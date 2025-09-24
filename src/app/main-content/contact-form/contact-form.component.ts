@@ -105,7 +105,6 @@ export class ContactFormComponent {
             complete: () => console.info('send post complete'),
           });
       } else if (this.mailTest && this.contactData.privacy) {
-        // Test mode - show toast immediately for testing
         setTimeout(() => {
           this.showSuccessToast();
           ngForm.resetForm();
