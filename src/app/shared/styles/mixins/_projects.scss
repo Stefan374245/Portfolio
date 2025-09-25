@@ -207,6 +207,10 @@
     gap: clamp(15px, 4vw, 100px);
   }
 
+  @media (max-width: 350px) {
+    flex-direction: column;
+  }
+
   .project-link {
     @include transition(all, $transition-speed, $transition-ease);
     cursor: pointer;

@@ -16,11 +16,15 @@
     @include bg-shadow(
       160px, 
       left, 
-      -160px, 
+      0, 
       570px, 
       608px, 
       "/portfolio/assets/images/background/purple-shadow.png"
     );
+      @media (max-width: $breakpoint-xl) {
+        left: -160px; 
+      }
+
       @media (max-width: $breakpoint-sm) {
       top: 200px;
       right: -200px;
@@ -31,12 +35,15 @@
     @include bg-shadow(
       160px, 
       right, 
-      -240px, 
+      0, 
       680px, 
       570px, 
       "/portfolio/assets/images/background/blue-shadow.png",
       scaleY(-1)
     );
+     @media (max-width: $breakpoint-xl) {
+        right: -240px; 
+      }
     @media (max-width: $breakpoint-sm) {
       top: 200px;
       right: -200px;

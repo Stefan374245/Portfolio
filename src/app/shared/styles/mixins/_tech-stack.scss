@@ -7,12 +7,12 @@
   z-index: 10;
 
   &::before {
-    @include bg-shadow(0px, right, -270px, 570px, 600px, "/portfolio/assets/images/background/blue-shadow.png");
+    @include bg-shadow(0px, right, 0, 570px, 600px, "/portfolio/assets/images/background/blue-shadow.png");
     background-position: right bottom;
 
     @media (max-width: $breakpoint-md-sm) {
       top: 250px;
-      right: -220px;
+      right: -150px;
     }
   }
 
@@ -139,10 +139,6 @@
       text-align: center;
       margin: 0;
       font-weight: 400;
-
-      @media (max-width: $breakpoint-lg) { font-size: 15px; }
-      @media (max-width: $breakpoint-md) { font-size: 14px; }
-      @media (max-width: $breakpoint-sm) { font-size: 13px; }
     }
 
     &:hover {

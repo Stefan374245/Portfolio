@@ -195,13 +195,13 @@ export class TranslationService {
     },
     DE: {
       navigation: {
-        aboutMe: 'About me',
+        aboutMe: 'Über mich',
         skills: 'Skills',
         portfolio: 'Portfolio',
       },
       sections: {
         about: {
-          title: 'About me',
+          title: 'Über mich',
           description:
             'Leidenschaftlich in der Frontend-Entwicklung arbeite ich mit HTML, CSS, JavaScript, TypeScript und anderen Technologien. Programmieren inspiriert mich, weil ich kreative Ideen in Projekte umsetzen kann. Motivation finde ich im ständigen Lernen und der Herausforderung, mit jeder neuen Technologie zu wachsen.',
           points: {
@@ -236,7 +236,7 @@ export class TranslationService {
           sourceCode: 'Github',
         },
         contact: {
-          title: 'Contact',
+          title: 'Kontakt',
           description:'Lassen Sie uns in Kontakt treten und gemeinsam herausfinden, wie ich Ihre Ideen umsetzen kann. Ob Sie ein neues Projekt planen oder Unterstützung bei einer Herausforderung brauchen – ich freue mich auf die Zusammenarbeit.',
           subtitle: 'Haben Sie ein Problem zu lösen?',
           form: {

@@ -1,17 +1,6 @@
 @import "./variables";
 @import "app/shared/styles/mixins/_index";
 
-@import "@fontsource/poppins/100.css";
-@import "@fontsource/poppins/200.css";
-@import "@fontsource/poppins/300.css";
-@import "@fontsource/poppins/400.css";
-@import "@fontsource/poppins/500.css";
-@import "@fontsource/poppins/600.css";
-@import "@fontsource/poppins/700.css";
-@import "@fontsource/poppins/800.css";
-@import "@fontsource/poppins/900.css";
-@import "@fontsource/poppins";
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -21,11 +10,12 @@
 
 html, body {
   max-width: $breakpoint-xxl;
+  margin: 0 auto;
+  width: 100%;
 }
 
 body {
   background-color: $background-color;
-  font-family: 'Poppins', sans-serif;
 }
 
 html {
@@ -37,6 +27,3 @@ html {
   html { scroll-behavior: auto; }
 }
 
-h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, label {
-  font-family: 'Poppins', sans-serif;
-}

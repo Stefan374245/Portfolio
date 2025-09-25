@@ -39,7 +39,5 @@ export class RecommendationComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    // Statische Reviewer-Daten werden mit Übersetzungen aus den Inputs kombiniert
-    // Die Übersetzungen werden automatisch aktualisiert, wenn sich die Sprache ändert
   }
 }

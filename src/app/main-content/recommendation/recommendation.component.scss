@@ -7,7 +7,7 @@
   background-color: $background-color;
   z-index: 1;
 
-  @include section-background(
+  /*@include section-background(
     "/portfolio/assets/images/background/green-shadow.png",
     0px,
     left,
@@ -30,38 +30,39 @@
       }
     }
   }
-}
+}*/
 
-.image-content {
-  flex-shrink: 0;
-  @include displayFlex(row, center, center);
-
-  .profile-container {
+  .image-content {
+    flex-shrink: 0;
     @include displayFlex(row, center, center);
-    position: relative;
 
-    .profile-circle {
-      width: 400px;
-      height: 400px;
+    .profile-container {
       @include displayFlex(row, center, center);
       position: relative;
 
-      &::before {
-        content: "";
-        position: absolute;
-        top: -10px;
-        right: -10px;
-        bottom: -10px;
-        left: -10px;
-        border: 2px solid $primary-color;
-        border-radius: 50%;
-      }
+      .profile-circle {
+        width: 400px;
+        height: 400px;
+        @include displayFlex(row, center, center);
+        position: relative;
 
-      .profile-image {
-        width: 90%;
-        height: 90%;
-        border-radius: 50%;
-        object-fit: cover;
+        &::before {
+          content: "";
+          position: absolute;
+          top: -10px;
+          right: -10px;
+          bottom: -10px;
+          left: -10px;
+          border: 2px solid $primary-color;
+          border-radius: 50%;
+        }
+
+        .profile-image {
+          width: 90%;
+          height: 90%;
+          border-radius: 50%;
+          object-fit: cover;
+        }
       }
     }
   }

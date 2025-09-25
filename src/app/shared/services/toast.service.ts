@@ -13,7 +13,7 @@ export class ToastService {
     const toast: ToastData = {
       id,
       config: {
-        duration: 0, // No auto-dismiss for manual close
+        duration: 1500,
         showCloseButton: true,
         closeButtonText: 'Got it',
         ...config
@@ -24,12 +24,10 @@ export class ToastService {
 
     this.toasts.update(toasts => [...toasts, toast]);
 
-    // Trigger animation after DOM update
     setTimeout(() => {
       this.updateToastVisibility(id, true);
     }, 100);
 
-    // Auto-remove if duration is set
     if (toast.config.duration && toast.config.duration > 0) {
       setTimeout(() => {
         this.removeToast(id);
@@ -41,8 +39,7 @@ export class ToastService {
 
   removeToast(id: string): void {
     this.updateToastRemoving(id, true);
-    
-    // Wait for animation to complete before removing from array
+
     setTimeout(() => {
       this.toasts.update(toasts => toasts.filter(toast => toast.id !== id));
     }, 400);

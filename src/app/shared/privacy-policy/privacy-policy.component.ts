@@ -4,8 +4,6 @@ import { RouterModule } from '@angular/router';
 import { TranslationService } from '../services/translation.service';
 import { SlideAnimationComponent } from '../slide-animation/slide-animation.component';
 
-
-
 @Component({
   selector: 'app-privacy-policy',
   standalone: true,

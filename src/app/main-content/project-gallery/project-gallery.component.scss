@@ -6,16 +6,18 @@
   @include section-base;
   color: $text-color;
 
-  @include section-background(
-    "/portfolio/assets/images/background/green-shadow.png",
-    720px,
-    left,
-    680px,
-    570px,
-    1
-  );
+  @include displayFlex(row, center, center);
+  z-index: 10;
 
   &::before {
+    @include bg-shadow(
+      720px,
+      left,
+      -80px,
+      680px,
+      570px,
+      "/portfolio/assets/images/background/green-shadow.png"
+    );
     transform: scaleY(-1);
     @include pulse-shadow(3s, 1s);
 

@@ -20,8 +20,5 @@ import { TranslatePipe } from './shared/pipes/translate.pipe';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  /**
-   * Creates an instance of AppComponent.
-   * The root component initializes the basic application structure.
-   */
+
 }

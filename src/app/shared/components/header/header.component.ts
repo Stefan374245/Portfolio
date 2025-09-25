@@ -39,6 +39,7 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
 
   private scrollPosition: number = 0;
   activeSection: string = '';
+  isMainPage: boolean = true; // Neue Property hinzufügen
 
   /**
    * Gets the current language from the translation service.
@@ -118,17 +119,25 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
 
   /**
    * Component initialization lifecycle hook.
-   * Sets up initial active section detection and subscribes to router events for fragment navigation.
    */
   ngOnInit(): void {
+    this.checkCurrentRoute();
     this.updateActiveSection();
     
-    // Router Events überwachen für Fragment-Navigation
+    // Router Events überwachen
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
+        this.checkCurrentRoute();
         setTimeout(() => this.handleFragmentScroll(), 0);
       });
+  }
+
+  /**
+   * Prüft die aktuelle Route und setzt isMainPage
+   */
+  private checkCurrentRoute(): void {
+    this.isMainPage = this.router.url === '/' || this.router.url.startsWith('/#');
   }
 
   /**
@@ -152,6 +161,8 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
    * @private
    */
   private handleFragmentScroll(): void {
+    if (!this.isMainPage) return;
+
     const fragment = this.router.parseUrl(this.router.url).fragment;
     if (fragment) {
       const element = document.getElementById(fragment);
@@ -169,23 +180,23 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
 
   @HostListener('window:scroll', [])
   /**
-   * Handles the window scroll event by updating the active section indicator.
-   * This method is typically called when the user scrolls the window.
-   * It delegates the logic to {@link updateActiveSection} to determine which section is currently active.
+   * Handles the window scroll event - nur auf der Hauptseite
    */
   onWindowScroll(): void {
-    this.updateActiveSection();
+    if (this.isMainPage) {
+      this.updateActiveSection();
+    }
   }
 
   /**
-   * Updates the `activeSection` property based on the current scroll position.
-   * Determines which section (from 'aboutMe', 'techStack', 'portfolio') is currently in view
-   * by comparing the scroll position to the position of each section's DOM element.
-   * If the scroll position is near the top of the page (less than 100px), clears the active section.
-   *
-   * @private
+   * Updates the active section - nur auf der Hauptseite
    */
   private updateActiveSection(): void {
+    if (!this.isMainPage) {
+      this.activeSection = '';
+      return;
+    }
+
     const sections = ['aboutMe', 'techStack', 'portfolio'];
     const scrollPosition = window.pageYOffset + this.HEADER_HEIGHT + 50;
 

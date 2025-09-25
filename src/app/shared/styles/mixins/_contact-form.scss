@@ -6,25 +6,34 @@
   @include displayFlex(row, center, center);
   z-index: 10;
 
-  @include section-background(
-    "/portfolio/assets/images/background/purple-shadow-footer.png",
-    200px,
-    right,
-    500px,
-    500px,
-    1,
-    rotate(90deg),
-    center,
-    -200px,
-    pulse-shadow(3s 1s),
-    (640px, 720px),
-    (320px)
-  );
+  &::before {
+    @include bg-shadow(
+      200px,
+      right,
+      -200px,
+      500px,
+      500px,
+      "/portfolio/assets/images/background/purple-shadow-footer.png"
+    );
+    transform: rotate(90deg);
+    @include pulse-shadow(3s, 1s);
+
+    @media (max-width: $breakpoint-md) {
+      top: 224px;
+      right: -150px;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      width: 320px;
+      height: 320px;
+      right: -200px;
+    }
+  }
 
   .contact-container {
     @include section-container;
     @media (max-width: $breakpoint-lg) {
-      padding-bottom:100px;
+      padding-bottom: 100px;
     }
   }
 }
@@ -232,6 +241,7 @@
 
 @mixin form-textarea {
   @include form-field;
+  max-height: 300px;
   min-height: 150px;
   resize: vertical;
 
@@ -310,12 +320,8 @@
 
     .checkbox-text {
       @include color(rgba($text-color, 0.9));
-      font-size: 1rem;
-      line-height: 1.5;
-
-      @media (max-width: $breakpoint-sm) {
-        font-size: 0.9rem;
-      }
+      font-size: 16px;
+      line-height: $line-height;
 
       .privacy-link {
         @include color($button-color);
