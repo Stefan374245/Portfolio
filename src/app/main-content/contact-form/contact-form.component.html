@@ -1,7 +1,10 @@
 <section class="contact-section" id="contact">
   <div class="contact-container">
-    
-    <app-slide-animation direction="right" [delay]="200" [triggerOnScroll]="true">
+    <app-slide-animation
+      direction="right"
+      [delay]="200"
+      [triggerOnScroll]="true"
+    >
       <header class="section-header">
         <div class="title-container">
           <h1>{{ "sections.contact.title" | translate }}</h1>
@@ -99,7 +102,9 @@
                     id="email"
                     name="email"
                     class="form-input"
-                    placeholder="{{ 'sections.contact.form.email' | translate }}"
+                    placeholder="{{
+                      'sections.contact.form.email' | translate
+                    }}"
                     required
                     autocomplete="email"
                     pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
@@ -129,7 +134,9 @@
                   class="error-message"
                   role="alert"
                   aria-live="polite"
-                  [class.show]="!email.valid && email.touched && !email.disabled"
+                  [class.show]="
+                    !email.valid && email.touched && !email.disabled
+                  "
                 >
                   @if (!email.valid && email.touched && !email.disabled) {
                   {{ "sections.contact.form.errors.emailRequired" | translate }}
@@ -182,7 +189,9 @@
                   "
                 >
                   @if (!message.valid && message.touched && !message.disabled) {
-                  {{ "sections.contact.form.errors.messageRequired" | translate }}
+                  {{
+                    "sections.contact.form.errors.messageRequired" | translate
+                  }}
                   }
                 </span>
               </div>
@@ -209,26 +218,29 @@
                     (mouseleave)="setHoveredCheckbox(null)"
                     aria-hidden="true"
                   >
-                    @if (!contactData.privacy && hoveredCheckbox !== 'privacy') {
+                    @if (!contactData.privacy && hoveredCheckbox !== 'privacy')
+                    {
                     <img
                       class="checkbox-icon"
                       src="assets/icons/contact-form-icons/default.png"
                       alt=""
                     />
-                    } @if (!contactData.privacy && hoveredCheckbox === 'privacy')
-                    {
+                    } @if (!contactData.privacy && hoveredCheckbox ===
+                    'privacy') {
                     <img
                       class="checkbox-icon"
                       src="assets/icons/contact-form-icons/default-hover.png"
                       alt=""
                     />
-                    } @if (contactData.privacy && hoveredCheckbox !== 'privacy') {
+                    } @if (contactData.privacy && hoveredCheckbox !== 'privacy')
+                    {
                     <img
                       class="checkbox-icon"
                       src="assets/icons/contact-form-icons/checked.png"
                       alt=""
                     />
-                    } @if (contactData.privacy && hoveredCheckbox === 'privacy') {
+                    } @if (contactData.privacy && hoveredCheckbox === 'privacy')
+                    {
                     <img
                       class="checkbox-icon"
                       src="assets/icons/contact-form-icons/checked-hover.png"
@@ -266,20 +278,17 @@
               </div>
             </fieldset>
           </form>
-          
-          <div class="scroll-to-top" (click)="scrollToTop()">
-            <a
-              routerLink="/"
-              fragment="header"
-              class="arrow-up-link"
-              aria-label="Scroll to top"
-            >
-              <img
-                src="assets/icons/contact-form-icons/arrow-up.png"
-                alt="Scroll to top"
-                class="arrow-up-icon"
-              />
-            </a>
+
+          <div
+            class="scroll-to-top"
+            (click)="scrollToTop()"
+            aria-label="Scroll to top"
+          >
+            <img
+              src="assets/icons/contact-form-icons/arrow-up.png"
+              alt="Scroll to top"
+              class="arrow-up-icon"
+            />
           </div>
         </div>
       </div>

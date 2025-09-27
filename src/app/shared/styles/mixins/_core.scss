@@ -76,3 +76,40 @@
     height: $height - 280px;
   }
 }
+
+@mixin logo-link-style {
+  text-decoration: none;
+  display: inline-block;
+  @include transition(all, $transition-speed, $transition-ease);
+
+  span {
+    font-size: 32px;
+    font-weight: bold;
+    background: linear-gradient(
+      45deg,
+      $primary-color,
+      $secondary-color,
+      $button-color
+    );
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 3s ease-in-out infinite;
+    cursor: pointer;
+
+    &::after {
+      content: "n";
+      @include color($primary-color);
+      animation: colorFade 5s ease-in-out infinite;
+      background: none !important;
+      background-clip: initial;
+      -webkit-background-clip: initial;
+      -webkit-text-fill-color: initial;
+    }
+  }
+
+  &:hover span {
+    transform: scale(1.02);
+  }
+}

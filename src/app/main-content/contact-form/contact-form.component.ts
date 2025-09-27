@@ -9,6 +9,8 @@ import { ToastService } from '../../shared/services/toast.service';
 import { ToastComponent } from '../../shared/components/toast/toast.component';
 import { TranslationService } from '../../shared/services/translation.service';
 import { SlideAnimationComponent } from '../../shared/slide-animation/slide-animation.component';
+import { ScrollService } from '../../shared/services/scroll.service';
+
 
 @Component({
   selector: 'app-contact-form',
@@ -30,12 +32,14 @@ export class ContactFormComponent {
   private http = inject(HttpClient);
   private toastService = inject(ToastService);
   private translationService = inject(TranslationService);
+    private scrollService = inject(ScrollService);
+
   
   /**
    * Scrolls the page to the top with smooth behavior.
    */
   scrollToTop() {
-    window.scrollTo({ top: 0,});
+    this.scrollService.scrollToTop();
   }
   
   contactData = {

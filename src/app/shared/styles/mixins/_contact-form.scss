@@ -6,29 +6,29 @@
   @include displayFlex(row, center, center);
   z-index: 10;
 
-  &::before {
-    @include bg-shadow(
-      200px,
-      right,
-      -200px,
-      500px,
-      500px,
-      "/portfolio/assets/images/background/purple-shadow-footer.png"
-    );
-    transform: rotate(90deg);
-    @include pulse-shadow(3s, 1s);
+ &::before {
+  @include bg-shadow(
+    auto,
+    right,
+    -40px,
+    400px,
+    500px,
+    "/portfolio/assets/images/background/purple-shadow-footer.png",
+    rotate(90deg)
+  );
+  bottom: -16px;
 
-    @media (max-width: $breakpoint-md) {
-      top: 224px;
-      right: -150px;
-    }
-
-    @media (max-width: $breakpoint-sm) {
-      width: 320px;
-      height: 320px;
-      right: -200px;
-    }
+  @media (max-width: $breakpoint-md) {
+    top: 224px;
+    right: -150px;
   }
+
+  @media (max-width: $breakpoint-sm) {
+    width: 320px;
+    height: 320px;
+    right: -200px;
+  }
+}
 
   .contact-container {
     @include section-container;

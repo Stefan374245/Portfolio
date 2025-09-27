@@ -1,47 +1,81 @@
 <footer class="footer">
   <div class="footer-content">
     <div class="footer-left">
-      <h2 class="footer-name">Stefan</h2>
+      <a routerLink="/" class="logo-link">
+        <span>Stefa</span>
+      </a>
       <div class="footer-links desktop-only">
-        <a routerLink="/legal-notice" class="footer-subtitle-link" (click)="resetHoverState()">
+        <a
+          routerLink="/legal-notice"
+          class="footer-subtitle-link"
+          (click)="resetHoverState()"
+        >
           <p class="footer-subtitle">Legal Notice</p>
         </a>
       </div>
     </div>
-    
+
     <div class="footer-center">
       <p class="footer-copyright">© Stefan Helldobler 2025</p>
     </div>
-    
+
     <div class="footer-right">
       <nav class="social-navigation" aria-label="Social Media Links">
         <ul class="social-links">
           <li>
-            <a href="https://github.com/Stefan374245" class="social-link github" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
-              <img src="assets/icons/hero-icons/social-icons/github.png" alt="GitHub" />
+            <a
+              href="https://github.com/Stefan374245"
+              class="social-link github"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub Profile"
+            >
+              <img
+                src="assets/icons/hero-icons/social-icons/github.png"
+                alt="GitHub"
+              />
             </a>
           </li>
           <li>
-            <a href="mailto:info@stefan-helldobler.de" class="social-link email" aria-label="Email Contact">
-              <img src="assets/icons/hero-icons/social-icons/mail.png" alt="Email" />
+            <a
+              href="mailto:info@stefan-helldobler.de"
+              class="social-link email"
+              aria-label="Email Contact"
+            >
+              <img
+                src="assets/icons/hero-icons/social-icons/mail.png"
+                alt="Email"
+              />
             </a>
           </li>
           <li>
-            <a href="https://linkedin.com/in/stefan-helldobler" class="social-link linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
-              <img src="assets/icons/hero-icons/social-icons/linkedin.png" alt="LinkedIn" />
+            <a
+              href="https://linkedin.com/in/stefan-helldobler"
+              class="social-link linkedin"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn Profile"
+            >
+              <img
+                src="assets/icons/hero-icons/social-icons/linkedin.png"
+                alt="LinkedIn"
+              />
             </a>
           </li>
         </ul>
       </nav>
     </div>
   </div>
-  
+
   <div class="footer-legal">
     <div class="footer-links">
-      <a routerLink="/legal-notice" class="footer-subtitle-link" (click)="resetHoverState()">
+      <a
+        routerLink="/legal-notice"
+        class="footer-subtitle-link"
+        (click)="resetHoverState()"
+      >
         <p class="footer-subtitle">Legal Notice</p>
       </a>
-  
     </div>
   </div>
 </footer>

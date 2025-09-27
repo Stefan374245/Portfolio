@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { TranslationService } from '../services/translation.service';
@@ -13,8 +13,4 @@ import { SlideAnimationComponent } from '../slide-animation/slide-animation.comp
 })
 export class LegalNoticeComponent {
   constructor(public translationService: TranslationService) {}
-
-    ngOnInit(): void {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
 }

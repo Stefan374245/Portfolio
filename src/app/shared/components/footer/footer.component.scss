@@ -21,22 +21,8 @@
     }
   }
 
-  .footer-left {
-    @include displayFlex(column, flex-start, flex-start, 8px);
-
-    @media (max-width: $breakpoint-md) {
-      @include displayFlex(column, center, center, 12px);
-      order: 0;
-    }
-
-    .footer-name {
-      @include headline($primary-color, 32px, 700, 2px);
-      margin: 0;
-
-      @media (max-width: $breakpoint-md) {
-        text-align: center;
-      }
-    }
+  .footer-left .logo-link {
+    @include logo-link-style;
   }
 
   .footer-center {
@@ -50,11 +36,8 @@
       text-align: center;
 
       @media (max-width: $breakpoint-md) {
+        font-size: 19px;
         order: 2;
-      }
-
-      @media (max-width: $breakpoint-sm) {
-        width: 100vw;
       }
     }
   }

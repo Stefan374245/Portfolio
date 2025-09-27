@@ -5,7 +5,7 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { MainContentComponent } from "./main-content/main-content.component";
 import { FooterComponent } from "./shared/components/footer/footer.component";
 import { TranslatePipe } from './shared/pipes/translate.pipe';
-
+import { ScrollService } from './shared/services/scroll.service';
 /**
  * Root component of the portfolio application.
  * 
@@ -20,5 +20,5 @@ import { TranslatePipe } from './shared/pipes/translate.pipe';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-
+  constructor(private scrollService: ScrollService) {}
 }
