@@ -3,35 +3,37 @@
 
 @mixin contact-section {
   @include section-base;
+  overflow: visible;
   @include displayFlex(row, center, center);
   z-index: 10;
 
- &::before {
-  @include bg-shadow(
-    auto,
-    right,
-    -40px,
-    400px,
-    500px,
-    "/portfolio/assets/images/background/purple-shadow-footer.png",
-    rotate(90deg)
-  );
-  bottom: -16px;
+  &::before {
+    @include bg-shadow(
+      auto,
+      right,
+      -40px,
+      400px,
+      500px,
+      "/portfolio/assets/images/background/purple-shadow-footer.png",
+      rotate(90deg)
+    );
+    bottom: -16px;
 
-  @media (max-width: $breakpoint-md) {
-    top: 224px;
-    right: -150px;
-  }
+    @media (max-width: $breakpoint-md) {
+      top: 224px;
+      right: -150px;
+    }
 
-  @media (max-width: $breakpoint-sm) {
-    width: 320px;
-    height: 320px;
-    right: -200px;
+    @media (max-width: $breakpoint-sm) {
+      width: 320px;
+      height: 320px;
+      right: -200px;
+    }
   }
-}
 
   .contact-container {
     @include section-container;
+    overflow: visible !important;
     @media (max-width: $breakpoint-lg) {
       padding-bottom: 100px;
     }
@@ -40,6 +42,7 @@
 
 @mixin contact-section-header {
   margin-bottom: 80px;
+  transform: translateX(8%);
 
   .title-container {
     @include displayFlex(row, flex-end, center, 32px);
@@ -59,33 +62,12 @@
   .main-title {
     margin: 0;
   }
+}
 
-  .title-separator {
-    width: 0px;
-    height: 4px;
-    background-color: transparent;
-    position: relative;
-
-    &::before {
-      content: "";
-      position: absolute;
-      left: 0px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 400px;
-      height: 4px;
-      background-color: $primary-color;
-
-      @media (max-width: $breakpoint-md) {
-        width: 240px;
-      }
-    }
-
-    @media (max-width: 450px) {
-      &::before {
-        height: 3px;
-      }
-    }
+.separator {
+  @include full-width-separator($primary-color, 4px, 40px 0);
+  @media (max-width: $breakpoint-sm) {
+    transform: translateX(64%) translateY(-110px);
   }
 }
 
@@ -109,35 +91,6 @@
       align-items: center;
     }
 
-    .subtitle-separator {
-      width: 0px;
-      height: 4px;
-      background-color: transparent;
-      position: relative;
-
-      &::before {
-        content: "";
-        position: absolute;
-        left: -280px;
-        top: 50%;
-        width: 240px;
-        height: 4px;
-        background-color: $secondary-color;
-      }
-
-      @media (max-width: $breakpoint-lg) {
-        &::before {
-          left: -270px;
-        }
-
-        @media (max-width: $breakpoint-sm) {
-          &::before {
-            left: -250px;
-          }
-        }
-      }
-    }
-
     .contact-subtitle {
       @include headline($text-color, 32px, 700, 1px);
       @media (max-width: $breakpoint-sm) {
@@ -145,7 +98,17 @@
       }
     }
   }
+  .subtitle-separator {
+    @include full-width-separator($secondary-color, 4px, 32px 0);
+    transform: translateX(-110%) translateY(-60px);
+    width: 20vw;
+    left: 0;
 
+    @media (max-width: 1526px) {transform: translateX(-110%) translateY(-100px);}
+    @media (max-width: 950px) {transform: translateX(-110%) translateY(-60px);}
+    @media (max-width: 770px) {transform: translateX(-110%) translateY(-80px);}
+    @media (max-width: $breakpoint-sm) {transform: translateX(-110%) translateY(-57px);}
+  }
   .contact-description p {
     font-size: clamp(1rem, 2vw, 1.25rem);
     @include color(rgba($text-color, 0.9));

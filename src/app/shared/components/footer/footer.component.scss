@@ -7,8 +7,9 @@
 
   .footer-content {
     @include displayFlex(row, space-between, center);
+    padding: 20px 100px;
     max-width: $breakpoint-xxl;
-    margin: 0 100px;
+    margin: 0 auto;
 
     @media (max-width: $breakpoint-md) {
       @include displayFlex(column, center, center, 30px);

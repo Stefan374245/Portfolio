@@ -3,26 +3,74 @@
 
 @mixin hero-animations {
   @keyframes typewriter {
-    from { width: 0; }
-    to { width: 100%; }
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
   }
 
   @keyframes cursor-gradient-animation {
-    0% { border-image: linear-gradient(to bottom, $primary-color, $button-color, $secondary-color) 1; }
-    33% { border-image: linear-gradient(to bottom, $secondary-color, $primary-color, $button-color) 1; }
-    66% { border-image: linear-gradient(to bottom, $button-color, $secondary-color, $primary-color) 1; }
-    100% { border-image: linear-gradient(to bottom, $primary-color, $button-color, $secondary-color) 1; }
+    0% {
+      border-image: linear-gradient(
+          to bottom,
+          $primary-color,
+          $button-color,
+          $secondary-color
+        )
+        1;
+    }
+    33% {
+      border-image: linear-gradient(
+          to bottom,
+          $secondary-color,
+          $primary-color,
+          $button-color
+        )
+        1;
+    }
+    66% {
+      border-image: linear-gradient(
+          to bottom,
+          $button-color,
+          $secondary-color,
+          $primary-color
+        )
+        1;
+    }
+    100% {
+      border-image: linear-gradient(
+          to bottom,
+          $primary-color,
+          $button-color,
+          $secondary-color
+        )
+        1;
+    }
   }
 
   @keyframes gradient-shift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
 }
 
 @mixin hero-title {
-  background: linear-gradient(to right, $primary-color, $button-color, $secondary-color, $primary-color);
+  background: linear-gradient(
+    to right,
+    $primary-color,
+    $button-color,
+    $secondary-color,
+    $primary-color
+  );
   background-size: 300% 100%;
   background-clip: text;
   -webkit-background-clip: text;
@@ -34,13 +82,17 @@
   overflow: hidden;
   white-space: nowrap;
   border-right: 3px solid;
-  border-image: linear-gradient(to bottom, $primary-color, $button-color, $secondary-color) 1;
+  border-image: linear-gradient(
+      to bottom,
+      $primary-color,
+      $button-color,
+      $secondary-color
+    )
+    1;
   width: 0;
-  
+
   &.start-typewriter {
-    animation: 
-      typewriter 2.5s steps(18) forwards,
-      blink-cursor 1.8s infinite, 
+    animation: typewriter 2.5s steps(18) forwards, blink-cursor 1.8s infinite,
       gradient-shift 6s linear infinite,
       cursor-gradient-animation 4s linear infinite;
   }
@@ -72,9 +124,9 @@
     &::before {
       content: "";
       position: absolute;
-      left: -100px;
-      top: 0;
-      width: 100px;
+      left: -500px;
+      top: 132px;
+      width: 500px;
       height: 4px;
       background-color: $primary-color;
     }
@@ -83,7 +135,10 @@
       width: 60px;
       height: 3px;
       margin-right: -42px;
-      &::before { height: 3px; }
+      &::before {
+        height: 3px;
+        top: 106px;
+      }
     }
   }
 
@@ -101,7 +156,7 @@
       width: 20px;
       height: 20px;
     }
-    
+
     &:hover {
       filter: brightness(1);
       transform: translateX(2px) scale(1.1);
@@ -120,7 +175,7 @@
   z-index: 4;
   width: 100%;
   padding: 0 100px;
-  
+
   @media (max-width: $breakpoint-lg) {
     padding: 0 100px;
   }

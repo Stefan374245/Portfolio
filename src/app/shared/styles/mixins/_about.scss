@@ -5,32 +5,6 @@
   @include displayFlex(row, center, center, 0);
   position: relative;
   z-index: 10;
-
-  &::after {
-    content: "";
-    position: absolute;
-        bottom: -64px;
-    left: 0;
-    right: 0;
-    height: 100%;
-    background-image: url("/portfolio/assets/images/background/background.png");
-    background-size: cover;
-    background-position: top center;
-    background-repeat: no-repeat;
-    z-index: -1;
-    pointer-events: none;
-
-    @media (max-width: $breakpoint-xl) {
-      height: 100%;
-      top: 190px;
-    }
-    @media (max-width: $breakpoint-md) {
-      top: 160px;
-    }
-    @media (max-width: $breakpoint-sm) {
-      top: calc(-170px + 30vw);
-    }
-  }
 }
 
 @mixin about-content {
@@ -178,10 +152,10 @@
   display: block;
   transition: transform 0.3s ease-in-out;
 
-&:hover {
+  &:hover {
     transform: scale(1.02);
     transition: transform 0.3s ease-in-out;
-}
+  }
 
   @media (max-width: $breakpoint-sm) {
     width: 350px;

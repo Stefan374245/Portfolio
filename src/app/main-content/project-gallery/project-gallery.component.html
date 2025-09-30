@@ -2,15 +2,17 @@
   <div class="portfolio-container">
     
     <app-slide-animation direction="left" [delay]="200" [triggerOnScroll]="true">
+      
       <header class="portfolio-header">
         <div class="portfolio-title-section">
-          <div class="separator" role="presentation" aria-hidden="true"></div>
+          <div class="portfolio-separator" role="presentation" aria-hidden="true"></div>
           <h1 id="portfolio-heading" class="portfolio-title">{{ 'sections.portfolio.title' | translate }}</h1>
         </div>
         <p class="portfolio-description">
           {{ 'sections.portfolio.description' | translate }}
         </p>
       </header>
+
     </app-slide-animation>
 
     <main class="portfolio-content">

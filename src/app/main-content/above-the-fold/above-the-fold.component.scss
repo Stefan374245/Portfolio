@@ -8,6 +8,7 @@
 
 .hero-section {
   @include section-base;
+  overflow: visible;
   @include displayFlex(column, center, center, 0);
   height: calc(100vh - 109px);
   padding-bottom: 0;
@@ -21,11 +22,13 @@
       608px, 
       "/portfolio/assets/images/background/purple-shadow.png"
     );
-      @media (max-width: $breakpoint-xl) {
-        left: -160px; 
-      }
+    animation: slide-in-left 1.2s cubic-bezier(0.23, 1, 0.32, 1) 0.2s both;
 
-      @media (max-width: $breakpoint-sm) {
+    @media (max-width: $breakpoint-xl) {
+      left: -160px; 
+    }
+
+    @media (max-width: $breakpoint-sm) {
       top: 200px;
       right: -200px;
     }
@@ -41,9 +44,11 @@
       "/portfolio/assets/images/background/blue-shadow.png",
       scaleY(-1)
     );
-     @media (max-width: $breakpoint-xl) {
-        right: -240px; 
-      }
+    animation: slide-in-right 1.2s cubic-bezier(0.23, 1, 0.32, 1) 0.2s both;
+
+    @media (max-width: $breakpoint-xl) {
+      right: -240px; 
+    }
     @media (max-width: $breakpoint-sm) {
       top: 200px;
       right: -200px;
@@ -163,5 +168,27 @@
       height: 160px;
       object-fit: contain;
     }
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-120px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(120px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
