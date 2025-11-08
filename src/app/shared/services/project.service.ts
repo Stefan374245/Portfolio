@@ -36,6 +36,16 @@ export class ProjectService {
        video: 'assets/videos/pokedex-preview.mp4',
       liveUrl: 'https://pokedex.stefan-helldobler.de',
       githubUrl: 'https://github.com/Stefan374245/pok-dex-project.git'
+    },
+    {
+      id: 'simple-crm',
+      name: 'Simple CRM',
+      tech: 'Angular | TypeScript | HTML | CSS | Firebase', 
+      descriptionKey: 'projects.simpleCrm.description',
+      image: 'assets/images/portfolio-section/screen-simple-crm.png',
+      video: 'assets/videos/simple-crm-preview.mp4',
+      liveUrl: 'https://simple-crm.stefan-helldobler.de',
+      githubUrl: 'https://github.com/Stefan374245/simple-crm.git'
     }
   ];
 

@@ -39,7 +39,7 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
 
   private scrollPosition: number = 0;
   activeSection: string = '';
-  isMainPage: boolean = true; // Neue Property hinzufügen
+  isMainPage: boolean = true;
 
   /**
    * Gets the current language from the translation service.
@@ -124,7 +124,6 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
     this.checkCurrentRoute();
     this.updateActiveSection();
     
-    // Router Events überwachen
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {

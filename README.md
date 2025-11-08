@@ -59,9 +59,6 @@ The application will automatically reload when you make changes to the source fi
 |---------|-------------|
 | `ng serve` | Start development server on `http://localhost:4200/` |
 | `ng build` | Build the project for production |
-| `ng test` | Run unit tests via Karma |
-| `ng lint` | Run linting checks |
-| `ng e2e` | Run end-to-end tests |
 
 ## 📦 Building for Production
 
@@ -96,9 +93,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Contact
 
 - **Email**: your.email@example.com
-- **LinkedIn**: [Your LinkedIn Profile](https://linkedin.com/in/yourprofile)
-- **GitHub**: [Your GitHub Profile](https://github.com/yourusername)
-- **Portfolio**: [Live Demo](https://your-portfolio-url.com)
+- **LinkedIn**: [Your LinkedIn Profile](https://www.linkedin.com/in/stefan-helldobler-b51386388/)
+- **GitHub**: [Your GitHub Profile](https://github.com/Stefan374245)
+- **Portfolio**: [Live Demo](https://stefan-helldobler.de/portfolio/)
 
 ## 🙏 Acknowledgments
 
