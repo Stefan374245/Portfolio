@@ -77,6 +77,9 @@ export interface Translation {
     pokedex: {
       description: string;
     };
+    travel2speak: {
+      description: string;
+    };
   };
   reviews: {
     review1: {

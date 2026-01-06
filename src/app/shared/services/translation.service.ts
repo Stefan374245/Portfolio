@@ -88,7 +88,7 @@ export class TranslationService {
       projects: {
         join: {
           description:
-            'Sign up in seconds, organize tasks with drag & drop, and experience how easy teamwork becomes with Join. Collaborate on projects, keep the overview at all times, and reach your goals faster.',
+            'Join is a modern, Angular-based Kanban project management tool that combines intuitive drag-and-drop task organization with powerful n8n workflow automation.',
         },
         elPolloLoco: {
           description:
@@ -97,6 +97,10 @@ export class TranslationService {
         pokedex: {
           description:
             'My Pokédex app showcases my skills with APIs and dynamic data. Pokémon can be filtered by name, type, or generation, creating a complete interactive experience.',
+        },
+        travel2speak: {
+          description:
+            'AI-powered language learning app with multi-language support, real-time voice input/output, AI image analysis, spaced repetition flashcards, and interactive travel diary with map integration.',
         },
       },
       reviews: {
@@ -274,7 +278,7 @@ export class TranslationService {
       projects: {
         join: {
           description:
-            'Registriere dich in Sekunden, organisiere Aufgaben per Drag & Drop und erlebe, wie einfach Teamwork mit Join wird. Arbeitet gemeinsam an Projekten, behaltet jederzeit den Überblick und erreicht eure Ziele schneller.',
+            'Join ist ein modernes, auf Angular basierendes Kanban-Projektmanagement-Tool, das intuitive Drag-and-Drop-Aufgabenorganisation mit leistungsstarker n8n-Workflow-Automatisierung kombiniert.',
         },
         elPolloLoco: {
           description:
@@ -283,6 +287,10 @@ export class TranslationService {
         pokedex: {
           description:
             'Meine Pokédex-App zeigt meine Fähigkeiten im Umgang mit APIs und dynamischen Daten. Pokémon lassen sich nach Namen, Typ oder Generation filtern – für ein vollständiges, interaktives Erlebnis.',
+        },
+        travel2speak: {
+          description:
+            'KI-gestützte Sprachlern-App mit Mehrsprachenunterstützung, Echtzeit-Spracheingabe/-ausgabe, KI-Bildanalyse, Karteikarten mit Leitner-System und interaktivem Reisetagebuch mit Kartenintegration.',
         },
       },
       reviews: {
