@@ -58,7 +58,7 @@ export class TechStackComponent {
    * Determines the appropriate icon source path for a given skill.
    * Returns the hovered version of the icon if the skill is currently being hovered
    * and has a hover variant available, otherwise returns the default icon.
-   * 
+   *
    * @param name - The name of the skill to get the icon for
    * @returns The complete path to the skill icon image
    */
@@ -76,7 +76,7 @@ export class TechStackComponent {
   /**
    * Returns CSS classes for a skill icon based on whether it has hover functionality.
    * Skills without hover icons receive the 'no-hover-icon' class.
-   * 
+   *
    * @param name - The name of the skill to get CSS classes for
    * @returns CSS class string for the skill icon
    */

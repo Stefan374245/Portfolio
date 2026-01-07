@@ -9,20 +9,20 @@ interface SocialLink {
   icon: string;
   alt: string;
   ariaLabel: string;
-  target?: string; 
+  target?: string;
   rel?: string;
 }
 
 @Component({
   selector: 'app-above-the-fold',
   standalone: true,
-  imports: [CommonModule, SlideAnimationComponent, RouterLink], 
+  imports: [CommonModule, SlideAnimationComponent, RouterLink],
   templateUrl: './above-the-fold.component.html',
   styleUrl: './above-the-fold.component.scss'
 })
 export class AboveTheFoldComponent implements OnInit, AfterViewInit, OnDestroy {
   emailAddress = 'info@stefan-helldobler.de';
-  
+
   socialLinks: SocialLink[] = [
     {
       url: 'https://github.com/Stefan374245',
@@ -63,7 +63,7 @@ export class AboveTheFoldComponent implements OnInit, AfterViewInit, OnDestroy {
    * Component initialization lifecycle hook.
    * Currently no initialization logic implemented.
    */
-  ngOnInit(): void { 
+  ngOnInit(): void {
   }
 
   ngAfterViewInit() {

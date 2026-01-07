@@ -40,18 +40,18 @@ export class ProjectGalleryComponent implements OnInit {
   /**
    * Determines the slide animation direction for a project based on its index.
    * Even-indexed projects slide from the right, odd-indexed from the left.
-   * 
+   *
    * @param index - The index of the project in the list
    * @returns The slide direction ('left' or 'right')
    */
    getSlideDirection(index: number): 'left' | 'right' {
     return index % 2 === 0 ? 'right' : 'left';
   }
-  
+
   /**
    * Calculates the animation delay for a project based on its index.
    * Creates a staggered animation effect with increasing delays.
-   * 
+   *
    * @param index - The index of the project in the list
    * @returns The animation delay in milliseconds
    */

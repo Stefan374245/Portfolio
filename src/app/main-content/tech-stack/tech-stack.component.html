@@ -20,9 +20,9 @@
                 [class]="getSkillIconClasses(skill.name)"
                 [attr.data-skill]="skill.name"
               />
-              
-              <div 
-                *ngIf="i === skills.length - 1 && hoveredSkill === skill.name" 
+
+              <div
+                *ngIf="i === skills.length - 1 && hoveredSkill === skill.name"
                 class="custom-tooltip"
                 [@fadeInOut]
               >

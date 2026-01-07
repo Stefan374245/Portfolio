@@ -15,10 +15,9 @@ interface IconInfo {
   selector: 'app-about-me',
   standalone: true,
   imports: [
-    CommonModule, 
-    SlideAnimationComponent, 
-    TranslatePipe,
-
+    CommonModule,
+    SlideAnimationComponent,
+    TranslatePipe
   ],
   templateUrl: './about-me.component.html',
   styleUrl: './about-me.component.scss'
@@ -50,7 +49,7 @@ export class AboutMeComponent {
   /**
    * Handles icon hover state changes.
    * Sets the hovered icon when mouse enters and clears it when mouse leaves.
-   * 
+   *
    * @param iconName - The name of the icon being hovered
    * @param isHovering - Whether the icon is currently being hovered
    */
@@ -61,7 +60,7 @@ export class AboutMeComponent {
   /**
    * Returns the appropriate icon source path based on hover state.
    * Shows the hovered version of the icon when it's being hovered, otherwise shows default.
-   * 
+   *
    * @param name - The name of the icon to get the source for
    * @returns The complete path to the icon image
    */

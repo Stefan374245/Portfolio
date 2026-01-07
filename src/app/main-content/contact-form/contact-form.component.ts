@@ -16,10 +16,10 @@ import { ScrollService } from '../../shared/services/scroll.service';
   selector: 'app-contact-form',
   standalone: true,
   imports: [
-    FormsModule, 
-    RouterModule, 
-    CommonModule, 
-    TranslatePipe, 
+    FormsModule,
+    RouterModule,
+    CommonModule,
+    TranslatePipe,
     ToastComponent,
     SlideAnimationComponent
   ],
@@ -34,14 +34,14 @@ export class ContactFormComponent {
   private translationService = inject(TranslationService);
     private scrollService = inject(ScrollService);
 
-  
+
   /**
    * Scrolls the page to the top with smooth behavior.
    */
   scrollToTop() {
     this.scrollService.scrollToTop();
   }
-  
+
   contactData = {
     name: '',
     email: '',
@@ -55,7 +55,7 @@ export class ContactFormComponent {
 
   post = {
     endPoint: 'https://stefan-helldobler.de/portfolio/sendMail.php',
-    body: (payload: any) => JSON.stringify(payload), 
+    body: (payload: any) => JSON.stringify(payload),
     options: {
       headers: {
         'Content-Type': 'application/json',
@@ -84,7 +84,7 @@ export class ContactFormComponent {
    * Handles form submission and sends contact data to the server.
    * Validates form data, manages submission state, and shows appropriate feedback.
    * In test mode, simulates successful submission without making HTTP request.
-   * 
+   *
    * @param ngForm - The Angular form reference containing form data and validation state
    */
   onSubmit(ngForm: NgForm) {
@@ -142,5 +142,5 @@ export class ContactFormComponent {
       closeButtonText: this.currentTranslations.toast.error.button
     });
   }
-  
+
 }
