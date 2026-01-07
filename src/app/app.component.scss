@@ -1,0 +1,15 @@
+:host {
+  display: block;
+  position: relative;
+  min-height: 100vh;
+  isolation: isolate;
+}
+
+// Ensure content is above the animated background
+app-header,
+app-footer,
+router-outlet + * {
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+}
