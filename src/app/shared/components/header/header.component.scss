@@ -11,7 +11,7 @@ header {
   z-index: 20;
   background-color: rgba($background-color, 0.8);
   box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.05);
-  
+
   @media (max-width: $breakpoint-md-sm) {
     padding: 20px 80px;
   }
@@ -22,6 +22,10 @@ header {
   .logo {
     .logo-link {
       @include logo-link-style;
+
+      img {
+        @include imgResponsive(150px, auto, contain);
+      }
     }
   }
 

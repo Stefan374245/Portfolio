@@ -2,7 +2,7 @@
   <app-slide-animation direction="left" [delay]="600">
     <div class="logo">
       <a routerLink="/" class="logo-link">
-        <span>Stefa</span>
+        <img src="assets/images/logo/logo-Stefan.png" alt="Stefan's Logo" class="logo-image" />
       </a>
     </div>
   </app-slide-animation>
@@ -80,6 +80,7 @@
       [src]="'assets/icons/burger-icon/' + burgerMenuState + '.png'"
       [alt]="isMobileMenuOpen ? 'Close menu' : 'Open menu'"
       class="burger-icon"
+      title="burgerMenu"
     />
   </button>
 </header>
