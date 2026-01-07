@@ -1,0 +1,33 @@
+:host {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.animated-background-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  pointer-events: auto;
+}
+
+// Performance optimization: disable on mobile
+@media (max-width: 768px) {
+  :host {
+    display: none;
+  }
+}
+
+// Respect reduced motion preference
+@media (prefers-reduced-motion: reduce) {
+  :host {
+    display: none;
+  }
+}
