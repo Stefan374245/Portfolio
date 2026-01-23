@@ -43,7 +43,7 @@ export class ProjectsComponent implements OnInit {
    * @returns True if a preview video is available for this project
    */
   hasPreviewVideo(): boolean {
-    const validProjects = ['join', 'el-pollo-loco', 'pokedex'];
+    const validProjects = ['join', 'pokedex'];
     return validProjects.includes(this.project.id.toLowerCase());
   }
 

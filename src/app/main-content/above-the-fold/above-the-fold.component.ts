@@ -49,7 +49,7 @@ export class AboveTheFoldComponent implements OnInit, AfterViewInit, OnDestroy {
   ];
 
   currentTitle = '';
-  private titles = ['FRONTEND DEVELOPER', 'Web Developer', 'PROBLEM SOLVER', 'Creative Coder'];
+  private titles = ['Web Developer','FRONTEND DEVELOPER','BACKEND DEVELOPER', 'PROBLEM SOLVER', 'Creative Coder'];
   private currentIndex = 0;
   private typewriterInterval: any;
 
