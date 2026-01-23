@@ -33,13 +33,15 @@ export class AboveTheFoldComponent implements OnInit, AfterViewInit, OnDestroy {
       rel: 'noopener noreferrer'
     },
     {
-      url: 'mailto:info@stefan-helldobler.de',
+      url: 'https://mail.google.com/mail/?view=cm&fs=1&to=info@stefan-helldobler.de',
       icon: 'assets/icons/hero-icons/social-icons/mail.png',
       alt: 'Email icon',
-      ariaLabel: 'Send me an email'
+      ariaLabel: 'Send me an email',
+      target: '_blank',
+      rel: 'noopener noreferrer'
     },
     {
-      url: 'https://linkedin.com',
+      url: 'https://www.linkedin.com/in/stefan-helldobler-b51386388/',
       icon: 'assets/icons/hero-icons/social-icons/linkedin.png',
       alt: 'LinkedIn icon',
       ariaLabel: 'Visit my LinkedIn profile',
@@ -49,7 +51,7 @@ export class AboveTheFoldComponent implements OnInit, AfterViewInit, OnDestroy {
   ];
 
   currentTitle = '';
-  private titles = ['Web Developer','FRONTEND DEVELOPER','BACKEND DEVELOPER', 'PROBLEM SOLVER', 'Creative Coder'];
+  private titles = ['FRONTEND DEVELOPER', 'Web Developer', 'PROBLEM SOLVER', 'Creative Coder'];
   private currentIndex = 0;
   private typewriterInterval: any;
 
