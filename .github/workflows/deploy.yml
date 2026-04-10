@@ -26,17 +26,12 @@ jobs:
         run: npm run build
 
       - name: Deploy via FTP to Hostinger
-        env:
-          FTP_SERVER: ${{ secrets.FTP_SERVER }}
-          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-        run: |
-          sudo apt-get install -y lftp
-          lftp -u "$FTP_USERNAME","$FTP_PASSWORD" -p 21 "$FTP_SERVER" <<'LFTP_SCRIPT'
-          set ssl:verify-certificate no
-          set ftp:ssl-allow yes
-          set ftp:passive-mode yes
-          cd domains/stefan-helldobler.de/public_html/
-          mirror --reverse --verbose --no-perms --transfer-all dist/portfolio/browser/
-          bye
-          LFTP_SCRIPT
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/portfolio/browser/
+          server-dir: /domains/stefan-helldobler.de/public_html/
+          protocol: ftp
+          port: 21
