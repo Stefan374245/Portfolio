@@ -32,16 +32,11 @@ jobs:
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
           sudo apt-get install -y lftp
-          lftp -c "
-            set ssl:verify-certificate no
-            set ftp:ssl-allow yes
-            open -u \"$FTP_USERNAME\" -p 21 \"$FTP_SERVER\"
-            user \"$FTP_USERNAME\" \"$FTP_PASSWORD\"
-            echo '=== FTP ROOT ==='
-            ls -la
-            echo '=== domains/ ==='
-            ls -la domains/ || echo 'no domains/ folder'
-            echo '=== domains/stefan-helldobler.de/ ==='
-            ls -la domains/stefan-helldobler.de/ || echo 'no stefan-helldobler.de folder'
-            mirror --reverse --verbose ./dist/portfolio/browser/ domains/stefan-helldobler.de/public_html/
-          "
+          lftp -u "$FTP_USERNAME","$FTP_PASSWORD" -p 21 "$FTP_SERVER" <<'LFTP_SCRIPT'
+          set ssl:verify-certificate no
+          set ftp:ssl-allow yes
+          set ftp:passive-mode yes
+          cd domains/stefan-helldobler.de/public_html/
+          mirror --reverse --verbose --no-perms --transfer-all dist/portfolio/browser/
+          bye
+          LFTP_SCRIPT
