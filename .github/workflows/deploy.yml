@@ -37,5 +37,5 @@ jobs:
             set ftp:ssl-allow yes
             open -u \"$FTP_USERNAME\" -p 21 \"$FTP_SERVER\"
             user \"$FTP_USERNAME\" \"$FTP_PASSWORD\"
-            mirror --reverse --verbose ./dist/portfolio/browser/ /public_html/
+            mirror --reverse --verbose ./dist/portfolio/browser/ public_html/
           "
