@@ -32,7 +32,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/portfolio/browser/
-          server-dir: /
+          server-dir: /public_html/
           log-level: standard
           exclude: |
             **/.git*

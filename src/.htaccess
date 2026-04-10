@@ -1,4 +1,3 @@
-Options -Indexes
 RewriteEngine On
 
 # 1. Alte /portfolio/-URLs permanent auf Root umleiten (SEO, Lesezeichen)
