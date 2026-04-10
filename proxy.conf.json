@@ -1,0 +1,17 @@
+{
+  "/api/translate": {
+    "target": "https://stefan-helldobler.de",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api/translate": "/translate.php"
+    },
+    "logLevel": "debug"
+  },
+  "/sendMail.php": {
+    "target": "https://stefan-helldobler.de",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

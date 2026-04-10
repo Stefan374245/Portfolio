@@ -179,5 +179,32 @@ export interface Translation {
 }
 
 
+export type BaseLanguage = 'EN' | 'DE';
 
-export type Language = 'EN' | 'DE';
+export type Language =
+  | BaseLanguage
+  | 'BG'
+  | 'CS'
+  | 'DA'
+  | 'EL'
+  | 'ES'
+  | 'ET'
+  | 'FI'
+  | 'FR'
+  | 'HR'
+  | 'HU'
+  | 'IT'
+  | 'LT'
+  | 'LV'
+  | 'NL'
+  | 'PL'
+  | 'PT-PT'
+  | 'RO'
+  | 'SK'
+  | 'SL'
+  | 'SV';
+
+export interface LanguageOption {
+  code: Language;
+  label: string;
+}

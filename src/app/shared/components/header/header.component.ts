@@ -8,11 +8,12 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SlideAnimationComponent } from '../../slide-animation/slide-animation.component';
-import { RouterLink, RouterLinkActive, RouterModule, Router, NavigationEnd } from '@angular/router';
+import { RouterLink, RouterModule, Router, NavigationEnd } from '@angular/router';
 import { TranslationService } from '../../services/translation.service';
 import { TranslatePipe } from '../../pipes/translate.pipe';
-import { Language } from '../../interfaces/translation.interface';
+import { Language, LanguageOption } from '../../interfaces/translation.interface';
 import { filter } from 'rxjs/operators';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-header',
@@ -21,9 +22,9 @@ import { filter } from 'rxjs/operators';
     CommonModule,
     SlideAnimationComponent,
     RouterLink,
-    RouterLinkActive,
     RouterModule,
     TranslatePipe,
+    FormsModule,
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
@@ -49,12 +50,22 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
     return this.translationService.currentLanguage();
   }
 
+  get availableLanguages(): LanguageOption[] {
+    return this.translationService.supportedLanguages;
+  }
+
   /**
    * Wechselt die Sprache der Anwendung
    * @param lang - The language to switch to
    */
   switchLanguage(lang: Language): void {
     this.translationService.setLanguage(lang);
+  }
+
+  onLanguageChange(value: string): void {
+    if (this.translationService.isSupportedLanguage(value)) {
+      this.switchLanguage(value);
+    }
   }
 
   /**
@@ -123,7 +134,7 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
   ngOnInit(): void {
     this.checkCurrentRoute();
     this.updateActiveSection();
-    
+
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {

@@ -54,7 +54,7 @@ export class ContactFormComponent {
   isSubmitting = false;
 
   post = {
-    endPoint: 'https://stefan-helldobler.de/portfolio/sendMail.php',
+    endPoint: '/sendMail.php',
     body: (payload: any) => JSON.stringify(payload),
     options: {
       headers: {

@@ -116,7 +116,13 @@ header {
     .language-switcher {
       @include displayFlex(row, center, center, 10px);
 
-      .lang-btn {
+      .lang-label {
+        color: $text-color;
+        font-size: 14px;
+        opacity: 0.8;
+      }
+
+      .lang-select {
         @include buttonBase(
           $bg: transparent,
           $color: $text-color,
@@ -128,18 +134,19 @@ header {
         font-size: 14px;
         font-weight: 600;
         cursor: pointer;
-        min-width: 45px;
+        min-width: 155px;
         height: 35px;
+        appearance: none;
+        -webkit-appearance: none;
+        background-image: linear-gradient(45deg, transparent 50%, $primary-color 50%),
+          linear-gradient(135deg, $primary-color 50%, transparent 50%);
+        background-position: calc(100% - 18px) calc(50% - 3px), calc(100% - 12px) calc(50% - 3px);
+        background-size: 6px 6px, 6px 6px;
+        background-repeat: no-repeat;
 
-        &:hover:not(.active) {
+        &:hover {
           background-color: $button-color;
           border-color: $button-color;
-        }
-
-        &.active {
-          background-color: $primary-color;
-          color: $background-color;
-          border-color: $primary-color;
         }
       }
     }
@@ -278,7 +285,13 @@ header {
       width: 100%;
       margin-top: auto;
 
-      .lang-btn {
+      .lang-label {
+        color: $text-color;
+        font-size: 14px;
+        opacity: 0.8;
+      }
+
+      .lang-select {
         @include buttonBase(
           $bg: transparent,
           $color: $text-color,
@@ -290,18 +303,19 @@ header {
         font-size: 16px;
         font-weight: 600;
         cursor: pointer;
-        min-width: 50px;
+        min-width: 170px;
         height: 40px;
+        appearance: none;
+        -webkit-appearance: none;
+        background-image: linear-gradient(45deg, transparent 50%, $primary-color 50%),
+          linear-gradient(135deg, $primary-color 50%, transparent 50%);
+        background-position: calc(100% - 18px) calc(50% - 3px), calc(100% - 12px) calc(50% - 3px);
+        background-size: 6px 6px, 6px 6px;
+        background-repeat: no-repeat;
 
-        &:hover:not(.active) {
+        &:hover {
           background-color: $button-color;
           border-color: $button-color;
-        }
-
-        &.active {
-          background-color: $primary-color;
-          color: $background-color;
-          border-color: $primary-color;
         }
       }
     }

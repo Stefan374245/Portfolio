@@ -1,0 +1,14 @@
+Options -Indexes
+RewriteEngine On
+
+# 1. Alte /portfolio/-URLs permanent auf Root umleiten (SEO, Lesezeichen)
+RewriteCond %{REQUEST_URI} ^/portfolio/(.*)$
+RewriteRule ^portfolio/(.*)$ /$1 [R=301,L]
+
+# 2. Statische Dateien und Verzeichnisse direkt ausliefern
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# 3. Angular HTML5-Routing: alles andere → index.html
+RewriteRule ^ /index.html [L]

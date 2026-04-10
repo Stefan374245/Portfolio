@@ -32,7 +32,7 @@
               >
                 <div class="info-item" [attr.data-item]="i">
                   <div class="icon-container">
-                    <img [src]="icon.iconPath" [alt]="icon.name" />
+                    <img [src]="icon.iconPath" [alt]="icon.name" title="{{ icon.name }} tile" />
                   </div>
                   <p class="item-description">{{ icon.text | translate }}</p>
                 </div>

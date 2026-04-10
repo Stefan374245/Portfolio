@@ -1,13 +1,29 @@
-import { Injectable, signal } from '@angular/core';
-import { Translation, Language } from '../interfaces/translation.interface';
+import { Injectable, inject, signal } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Translation, Language, BaseLanguage, LanguageOption } from '../interfaces/translation.interface';
+import { firstValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TranslationService {
   private readonly STORAGE_KEY = 'selectedLanguage';
+  private readonly TRANSLATE_ENDPOINT = this.getTranslateEndpoint();
+  private readonly http = inject(HttpClient);
 
-  private translations: Record<Language, Translation> = {
+  readonly supportedLanguages: LanguageOption[] = [
+    { code: 'DE', label: 'Deutsch' },
+    { code: 'EN', label: 'English' },
+  ];
+
+  private readonly supportedLanguageCodes = new Set<Language>(
+    this.supportedLanguages.map((language) => language.code)
+  );
+
+  private readonly runtimeTranslations = new Map<Language, Translation>();
+  private readonly loadingLanguages = new Set<Language>();
+
+  private translations: Record<BaseLanguage, Translation> = {
     EN: {
       navigation: {
         aboutMe: 'About me',
@@ -18,41 +34,41 @@ export class TranslationService {
         about: {
           title: 'About me',
           description:
-            'Passionate about frontend development, I work with HTML, CSS, JavaScript, TypeScript, and other technologies. Coding inspires me because it allows me to turn creative ideas into real projects. I am motivated by constant learning and the challenge to grow with every new technology.',
+            'I help startups, restaurants, and small businesses across Europe build modern websites that attract more inquiries and customers. From strategy to launch, I deliver reliable, conversion-focused web solutions tailored to real business goals.',
           points: {
             location:
-              'Based in Dinslaken, I am open to remote work and value employers who encourage flexible collaboration. Excited about clean code and modern technologies, I find motivation in constant learning and teamwork.',
+              'Based in Germany, I work remotely with clients across Europe. Clear communication, transparent timelines, and practical solutions are the foundation of every project.',
             passion:
-              'Openness and curiosity drive me. I enjoy exploring new technologies, trying modern tools, and expanding my knowledge to create a better UX.',
+              'My focus is business impact: fast, responsive, and user-friendly websites that build trust and turn visitors into leads.',
             collaboration:
-              'I see challenges as opportunities to grow. With analytical thinking, creativity and perseverance I create efficient, elegant, and sustainable solutions that provide valuable lessons for future projects.',
+              'I offer complete website packages including planning, design implementation, development, optimization, and post-launch support.',
           },
         },
         skills: {
           title: 'Skills',
           description:
-            'I have worked with HTML, CSS, JavaScript, and TypeScript on various projects. Open to new tools and frameworks, I value continuous learning to keep up with the fast pace of web development.',
+            'I combine strong frontend engineering with practical business thinking to build websites that are fast, maintainable, and ready for growth.',
           subtitle: "Technologies I've been working with recently",
           learning: {
             title: 'Looking for',
             highlight: 'another skill',
             description:
-              'Enthusiastic about learning new technologies and frameworks.',
+              'Need a complete website package for your business? Let’s discuss your goals.',
             contactBtn: 'Get in touch',
           },
         },
         portfolio: {
           title: 'Portfolio',
           description:
-            'Explore some of my recent projects that not only showcase my technical skills but also reflect my creativity and passion for modern frontend development. Each project represents a step in my journey of learning new things and turning innovative ideas into practice.',
+            'These projects show how I build modern, user-focused web experiences with clean implementation and measurable results. My service combines design quality, technical performance, and business-oriented execution.',
           viewProject: 'View Project',
           liveDemo: 'Live Test',
           sourceCode: 'Github',
         },
         contact: {
           title: 'Contact',
-          description: "Let’s connect and explore how I can bring your ideas to life. Whether you’re planning a new project or need support solving a challenge, I’m ready to collaborate and create effective solutions.",
-          subtitle: 'Got a problem to solve?',
+          description: 'Tell me about your business and your goals. I will provide a clear proposal for a website solution that fits your budget, timeline, and market.',
+          subtitle: 'Need a website that brings real inquiries?',
           form: {
             name: 'Your name',
             email: 'Your email',
@@ -61,8 +77,8 @@ export class TranslationService {
             sending: 'Sending...',
             success: 'Message sent successfully!',
             error: 'Error sending message. Please try again.',
-            contactBtn: 'Contact me!',
-            ctaText: 'Need a Frontend developer?',
+            contactBtn: 'Book a free call!',
+            ctaText: 'Looking for a freelance web developer in Europe?',
             privacyText: "I've read the",
             privacyLink: 'privacy policy',
             privacyAgreement:
@@ -168,7 +184,7 @@ export class TranslationService {
         information: {
           title: 'Information according to § 5 TMG',
           name: 'Stefan Helldobler',
-          profession: 'Freelance Frontend Developer'
+          profession: 'Freelance Web Developer'
         },
         contact: {
           title: 'Contact',
@@ -207,42 +223,42 @@ export class TranslationService {
         about: {
           title: 'Über mich',
           description:
-            'Leidenschaftlich in der Frontend-Entwicklung arbeite ich mit HTML, CSS, JavaScript, TypeScript und anderen Technologien. Programmieren inspiriert mich, weil ich kreative Ideen in Projekte umsetzen kann. Motivation finde ich im ständigen Lernen und der Herausforderung, mit jeder neuen Technologie zu wachsen.',
+            'Ich unterstütze Startups, Restaurants und kleine Unternehmen in Europa mit modernen Websites, die mehr Anfragen und Kunden bringen. Von der Strategie bis zum Livegang liefere ich zuverlässige, conversion-orientierte Weblösungen für echte Geschäftsziele.',
           points: {
             location:
-              'Mit Sitz in Dinslaken bin ich offen für Remote-Arbeit und schätze Arbeitgeber, die flexible Zusammenarbeit fördern. Begeistert von clean Code und moderner Technologien finde ich Motivation in stetigem Lernen und Teamarbeit.',
+              'Mit Sitz in Deutschland arbeite ich remote mit Kundinnen und Kunden in ganz Europa. Klare Kommunikation, transparente Abläufe und praxisnahe Lösungen stehen im Mittelpunkt.',
             passion:
-              'Offenheit und Neugier treiben mich an. Ich entdecke gerne neue Technologien, teste moderne Tools und erweitere mein Wissen, um eine bessere UX zu erschaffen.',
+              'Mein Fokus liegt auf Geschäftsnutzen: schnelle, nutzerfreundliche Websites, die Vertrauen schaffen und Besucher in qualifizierte Anfragen verwandeln.',
             collaboration:
-              'Herausforderungen sehe ich als Chancen zum Wachsen. Mit analytischem Denken, Kreativität und Ausdauer entwickle ich effiziente, elegante und nachhaltige Lösungen, die wertvolle Erkenntnisse für kommende Projekte liefern.',
+              'Ich biete komplette Website-Pakete: Planung, Design-Umsetzung, Entwicklung, Optimierung und Support nach dem Launch.',
           },
         },
         skills: {
           title: 'Skills',
           description:
-            'Ich habe mit HTML, CSS, JavaScript und TypeScript an verschiedenen Projekten gearbeitet. Offen für neue Tools und Frameworks lege ich Wert auf kontinuierliches Lernen, um mit der schnellen Entwicklung im Web Schritt zu halten.',
+            'Ich kombiniere saubere Frontend-Entwicklung mit unternehmerischem Denken, damit Websites schnell, wartbar und skalierbar wachsen können.',
           subtitle:
             'Technologien, mit denen ich in letzter Zeit gearbeitet habe',
           learning: {
             title: 'Suchen Sie nach',
             highlight: 'einer anderen Fähigkeit',
             description:
-              'Begeistert davon, neue Technologien und Frameworks zu lernen.',
+              'Sie möchten ein komplettes Website-Paket für Ihr Unternehmen? Sprechen wir über Ihre Ziele.',
             contactBtn: 'Kontaktieren',
           },
         },
         portfolio: {
           title: 'Portfolio',
           description:
-            'Entdecke einige meiner aktuellen Projekte, die nicht nur meine technischen Fähigkeiten, sondern auch meine Kreativität und Leidenschaft für moderne Frontend-Entwicklung zeigen. Jedes Projekt ist ein Schritt auf meinem Weg, Neues zu lernen und innovative Ideen in die Praxis umzusetzen.',
+            'Diese Projekte zeigen, wie ich moderne und nutzerzentrierte Web-Erlebnisse mit sauberer Umsetzung und messbaren Ergebnissen entwickle. Mein Angebot verbindet Designqualität, technische Performance und geschäftsorientierte Umsetzung.',
           viewProject: 'Projekt ansehen',
           liveDemo: 'Live Test',
           sourceCode: 'Github',
         },
         contact: {
           title: 'Kontakt',
-          description:'Lassen Sie uns in Kontakt treten und gemeinsam herausfinden, wie ich Ihre Ideen umsetzen kann. Ob Sie ein neues Projekt planen oder Unterstützung bei einer Herausforderung brauchen – ich freue mich auf die Zusammenarbeit.',
-          subtitle: 'Haben Sie ein Problem zu lösen?',
+          description:'Erzählen Sie mir kurz von Ihrem Unternehmen und Ihren Zielen. Sie erhalten von mir einen klaren Vorschlag für eine Website-Lösung, die zu Budget, Zeitplan und Markt passt.',
+          subtitle: 'Sie möchten eine Website, die echte Anfragen bringt?',
           form: {
             name: 'Ihr Name',
             email: 'Ihre E-Mail',
@@ -251,8 +267,8 @@ export class TranslationService {
             sending: 'Wird gesendet...',
             success: 'Nachricht erfolgreich gesendet!',
             error: 'Fehler beim Senden. Bitte versuchen Sie es erneut.',
-            contactBtn: 'Kontaktieren Sie mich!',
-            ctaText: 'Brauchen Sie einen Frontend-Entwickler?',
+            contactBtn: 'Kostenloses Erstgespräch buchen!',
+            ctaText: 'Suchen Sie einen freiberuflichen Web-Entwickler für den europäischen Markt?',
             privacyText: 'Ich habe die',
             privacyLink: 'Datenschutzerklärung',
             privacyAgreement:
@@ -358,7 +374,7 @@ export class TranslationService {
         information: {
           title: 'Angaben gemäß § 5 TMG',
           name: 'Stefan Helldobler',
-          profession: 'Freiberuflicher Frontend-Entwickler'
+          profession: 'Freiberuflicher Web-Entwickler'
         },
         contact: {
           title: 'Kontakt',
@@ -390,10 +406,9 @@ export class TranslationService {
   };
 
   // Signal für reactive Sprachumschaltung
-  public currentLanguage = signal<Language>(this.getStoredLanguage());
+  public currentLanguage = signal<Language>(this.getInitialLanguage());
 
   constructor() {
-    // Initial language laden
     this.setLanguage(this.currentLanguage());
   }
 
@@ -401,16 +416,81 @@ export class TranslationService {
    * Sprache umschalten
    */
   setLanguage(lang: Language): void {
+    if (!this.isSupportedLanguage(lang)) {
+      lang = 'EN';
+    }
+
     this.currentLanguage.set(lang);
     localStorage.setItem(this.STORAGE_KEY, lang);
+
+    if (lang !== 'EN' && lang !== 'DE') {
+      void this.ensureRuntimeTranslation(lang);
+    }
+  }
+
+  isSupportedLanguage(language: string): language is Language {
+    return this.supportedLanguageCodes.has(language as Language);
   }
 
   /**
    * Aktuell gespeicherte Sprache aus LocalStorage laden
    */
-  private getStoredLanguage(): Language {
+  private getStoredLanguage(): Language | null {
     const stored = localStorage.getItem(this.STORAGE_KEY) as Language;
-    return stored && ['EN', 'DE'].includes(stored) ? stored : 'EN';
+    if (stored && this.isSupportedLanguage(stored)) {
+      return stored;
+    }
+
+    return null;
+  }
+
+  private getInitialLanguage(): Language {
+    const storedLanguage = this.getStoredLanguage();
+    if (storedLanguage) {
+      return storedLanguage;
+    }
+
+    const browserLanguage = this.mapBrowserLanguage();
+    return browserLanguage ?? 'EN';
+  }
+
+  private mapBrowserLanguage(): Language | null {
+    if (typeof navigator === 'undefined') {
+      return null;
+    }
+
+    const preferredLanguages = navigator.languages?.length
+      ? navigator.languages
+      : [navigator.language];
+
+    for (const rawLanguage of preferredLanguages) {
+      const normalized = rawLanguage.toLowerCase();
+
+      if (normalized.startsWith('de')) return 'DE';
+      if (normalized.startsWith('en')) return 'EN';
+      if (normalized.startsWith('fr')) return 'FR';
+      if (normalized.startsWith('es')) return 'ES';
+      if (normalized.startsWith('it')) return 'IT';
+      if (normalized.startsWith('nl')) return 'NL';
+      if (normalized.startsWith('pl')) return 'PL';
+      if (normalized.startsWith('pt')) return 'PT-PT';
+      if (normalized.startsWith('ro')) return 'RO';
+      if (normalized.startsWith('cs')) return 'CS';
+      if (normalized.startsWith('sk')) return 'SK';
+      if (normalized.startsWith('sl')) return 'SL';
+      if (normalized.startsWith('sv')) return 'SV';
+      if (normalized.startsWith('da')) return 'DA';
+      if (normalized.startsWith('fi')) return 'FI';
+      if (normalized.startsWith('et')) return 'ET';
+      if (normalized.startsWith('lv')) return 'LV';
+      if (normalized.startsWith('lt')) return 'LT';
+      if (normalized.startsWith('hu')) return 'HU';
+      if (normalized.startsWith('bg')) return 'BG';
+      if (normalized.startsWith('el')) return 'EL';
+      if (normalized.startsWith('hr')) return 'HR';
+    }
+
+    return null;
   }
 
   /**
@@ -418,7 +498,7 @@ export class TranslationService {
    */
   getTranslation(key: string): string {
     const keys = key.split('.');
-    let result: any = this.translations[this.currentLanguage()];
+    let result: any = this.getCurrentTranslations();
 
     for (const k of keys) {
       result = result?.[k];
@@ -431,6 +511,162 @@ export class TranslationService {
    * Alle Übersetzungen für die aktuelle Sprache
    */
   getCurrentTranslations(): Translation {
-    return this.translations[this.currentLanguage()];
+    const currentLanguage = this.currentLanguage();
+
+    if (currentLanguage === 'EN' || currentLanguage === 'DE') {
+      return this.translations[currentLanguage];
+    }
+
+    const runtimeTranslation = this.runtimeTranslations.get(currentLanguage);
+    if (runtimeTranslation) {
+      return runtimeTranslation;
+    }
+
+    return this.translations.EN;
+  }
+
+  private async ensureRuntimeTranslation(language: Language): Promise<void> {
+    if (language === 'EN' || language === 'DE') {
+      return;
+    }
+
+    if (this.runtimeTranslations.has(language) || this.loadingLanguages.has(language)) {
+      return;
+    }
+
+    this.loadingLanguages.add(language);
+
+    try {
+      const sourceTranslation = this.translations.EN;
+      const paths = this.collectStringPaths(sourceTranslation);
+      const texts = paths.map((entry) => entry.value);
+
+      const response = await firstValueFrom(
+        this.http.post(
+          this.TRANSLATE_ENDPOINT,
+          {
+            sourceLang: 'EN',
+            targetLang: language,
+            texts,
+          },
+          {
+            responseType: 'text',
+          }
+        )
+      );
+
+      const translatedTexts = this.parseTranslatedTexts(response);
+
+      if (!translatedTexts || translatedTexts.length !== texts.length) {
+        console.warn(`Runtime translation returned invalid payload for ${language}. Falling back to English.`);
+        return;
+      }
+
+      const translatedObject = this.applyTranslatedStrings(sourceTranslation, paths, translatedTexts);
+      this.runtimeTranslations.set(language, translatedObject as Translation);
+      this.currentLanguage.update((current) => current);
+    } catch (error) {
+      console.warn(`Runtime translation failed for ${language}. Falling back to English.`, error);
+    } finally {
+      this.loadingLanguages.delete(language);
+    }
+  }
+
+  private collectStringPaths(
+    value: unknown,
+    path: string[] = []
+  ): Array<{ path: string[]; value: string }> {
+    if (typeof value === 'string') {
+      return [{ path, value }];
+    }
+
+    if (!value || typeof value !== 'object') {
+      return [];
+    }
+
+    return Object.entries(value).flatMap(([key, nestedValue]) =>
+      this.collectStringPaths(nestedValue, [...path, key])
+    );
+  }
+
+  private applyTranslatedStrings(
+    baseObject: unknown,
+    paths: Array<{ path: string[]; value: string }>,
+    translatedValues: string[]
+  ): unknown {
+    const cloned = JSON.parse(JSON.stringify(baseObject));
+
+    paths.forEach((entry, index) => {
+      this.setNestedValue(cloned, entry.path, translatedValues[index]);
+    });
+
+    return cloned;
+  }
+
+  private setNestedValue(target: any, path: string[], value: string): void {
+    if (!target || path.length === 0) {
+      return;
+    }
+
+    const [current, ...rest] = path;
+
+    if (rest.length === 0) {
+      target[current] = value;
+      return;
+    }
+
+    if (target[current] && typeof target[current] === 'object') {
+      this.setNestedValue(target[current], rest, value);
+    }
+  }
+
+  private parseTranslatedTexts(rawResponse: string): string[] | null {
+    const parsed = this.safeParseJson(rawResponse);
+    if (!parsed || typeof parsed !== 'object') {
+      return null;
+    }
+
+    const translations = (parsed as { translations?: unknown }).translations;
+    if (!Array.isArray(translations) || !translations.every((entry) => typeof entry === 'string')) {
+      return null;
+    }
+
+    return translations;
+  }
+
+  private safeParseJson(raw: string): unknown {
+    const direct = this.tryParse(raw);
+    if (direct !== null) {
+      return direct;
+    }
+
+    const firstBrace = raw.indexOf('{');
+    const lastBrace = raw.lastIndexOf('}');
+    if (firstBrace === -1 || lastBrace === -1 || lastBrace <= firstBrace) {
+      return null;
+    }
+
+    return this.tryParse(raw.slice(firstBrace, lastBrace + 1));
+  }
+
+  private tryParse(value: string): unknown {
+    try {
+      return JSON.parse(value);
+    } catch {
+      return null;
+    }
+  }
+
+  private getTranslateEndpoint(): string {
+    if (typeof window === 'undefined') {
+      return '/api/translate';
+    }
+
+    const hostname = window.location.hostname;
+    if (hostname === 'localhost' || hostname === '127.0.0.1') {
+      return '/api/translate';
+    }
+
+    return '/translate.php';
   }
 }

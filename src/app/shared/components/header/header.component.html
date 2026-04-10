@@ -50,21 +50,18 @@
 
     <app-slide-animation direction="down" [delay]="1000">
       <section class="language-switcher">
-        <button
-          class="lang-btn"
-          [ngClass]="{ active: currentLang === 'DE' }"
-          (click)="switchLanguage('DE')"
+        <label class="lang-label" for="desktop-language-select">Lang</label>
+        <select
+          id="desktop-language-select"
+          class="lang-select"
+          [ngModel]="currentLang"
+          (ngModelChange)="onLanguageChange($event)"
+          aria-label="Select language"
         >
-          DE
-        </button>
-
-        <button
-          class="lang-btn"
-          [ngClass]="{ active: currentLang === 'EN' }"
-          (click)="switchLanguage('EN')"
-        >
-          EN
-        </button>
+          @for (language of availableLanguages; track language.code) {
+            <option [value]="language.code">{{ language.label }}</option>
+          }
+        </select>
       </section>
     </app-slide-animation>
   </div>
@@ -133,21 +130,18 @@
       </li>
       <li>
         <section class="language-switcher mobile-lang-switcher">
-          <button
-            class="lang-btn"
-            [ngClass]="{ active: currentLang === 'DE' }"
-            (click)="switchLanguage('DE')"
+          <label class="lang-label" for="mobile-language-select">Lang</label>
+          <select
+            id="mobile-language-select"
+            class="lang-select"
+            [ngModel]="currentLang"
+            (ngModelChange)="onLanguageChange($event)"
+            aria-label="Select language"
           >
-            DE
-          </button>
-
-          <button
-            class="lang-btn"
-            [ngClass]="{ active: currentLang === 'EN' }"
-            (click)="switchLanguage('EN')"
-          >
-            EN
-          </button>
+            @for (language of availableLanguages; track language.code) {
+              <option [value]="language.code">{{ language.label }}</option>
+            }
+          </select>
         </section>
       </li>
     </ul>

@@ -33,12 +33,10 @@ export class AboveTheFoldComponent implements OnInit, AfterViewInit, OnDestroy {
       rel: 'noopener noreferrer'
     },
     {
-      url: 'https://mail.google.com/mail/?view=cm&fs=1&to=info@stefan-helldobler.de',
+      url: 'mailto:info@stefan-helldobler.de',
       icon: 'assets/icons/hero-icons/social-icons/mail.png',
       alt: 'Email icon',
-      ariaLabel: 'Send me an email',
-      target: '_blank',
-      rel: 'noopener noreferrer'
+      ariaLabel: 'Send me an email'
     },
     {
       url: 'https://www.linkedin.com/in/stefan-helldobler-b51386388/',
